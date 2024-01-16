@@ -1,0 +1,3 @@
+# Testimonials from Fall 2023 students
+
+The best way to succeed in this course is to start badges as early as possible. Waiting till the end of the semester to finish up a lot of it creates unnecessary stress and it is something that I regret doing myself. I would also recommend going over the notes after they are posted to reinforce what you learned during the class. All the topics build on each other so this is something I’m glad I did. Do your best to stay on top of the work early to make the end of the semester easier. If you do these you’ll have no trouble passing the class and you’ll definitely finish it being glad you took it.

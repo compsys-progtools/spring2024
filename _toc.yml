@@ -1,0 +1,78 @@
+format: jb-book
+root: index
+parts:
+  - caption: Syllabus
+    chapters:
+    # - file: syllabus/index
+    - file: syllabus/about
+    - file: syllabus/tools
+    - file: syllabus/grading
+    - file: syllabus/badges
+    - file: syllabus/badge_calc
+    - file: syllabus/schedule
+    - file: syllabus/uri_resources
+    - file: syllabus/uri_statements
+    - file: syllabus/communication
+  - caption: Notes
+    numbered: True
+    chapters:
+        # - glob: notes/2023-*.md
+      - file: notes/2023-09-07
+      - file: notes/2023-09-12
+      - file: notes/2023-09-14
+      - file: notes/2023-09-19
+      - file: notes/2023-09-21
+      - file: notes/2023-09-26
+      - file: notes/2023-09-28
+      - file: notes/2023-10-03
+      - file: notes/2023-10-05
+      - file: notes/2023-10-12
+      - file: notes/2023-10-17
+      - file: notes/2023-10-19
+      - file: notes/2023-10-24
+      - file: notes/2023-10-26
+      - file: notes/2023-10-31
+      - file: notes/2023-11-02
+      - file: notes/2023-11-07
+      - file: notes/2023-11-09
+      - file: notes/2023-11-14
+      - file: notes/2023-11-16
+      - file: notes/2023-11-21
+      - file: notes/2023-11-28
+      - file: notes/2023-11-30
+      - file: notes/2023-12-05
+      - file: notes/2023-12-07
+      - file: notes/2023-12-12
+  - caption: Activities
+    chapters:
+    - file: activities/kwl
+    - file: activities/team
+    - file: activities/review
+    - file: activities/prepare
+    - file: activities/practice
+    - file: genindex
+    - file: activities/explore
+    - file: activities/build
+  - caption: FAQ
+    chapters:
+    - file: faq/syllabus
+    - file: faq/github
+    - file: faq/tools
+  - caption: Resources
+    chapters:
+    - file: resources/glossary
+    - file: resources/tips
+    - file: resources/learning
+    - file: resources/github
+    - file: resources/languages
+    - file: resources/gettinghelp
+    - file: resources/organization
+    - file: resources/more_info_on_cpus
+    - file: resources/windows
+    - url: https://introcompsys.github.io/spring2022/resources/testimonials.html
+      title: Advice from Spring 2022 Students
+    # - file: letters/index
+
+
+
+# - file: assignments/index

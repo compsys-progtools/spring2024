@@ -1,0 +1,10 @@
+matplotlib
+numpy
+pyppeteer
+pandas
+lxml
+jupyter-book
+seaborn
+sphinx-panels
+plotly
+git+https://github.com/brownsarahm/sphinxcontrib-mermaid@cdnupdate
