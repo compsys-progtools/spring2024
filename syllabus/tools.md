@@ -88,7 +88,7 @@ environments to apply concepts.
 - Python with scientific computing packages (numpy, scipy, jupyter, pandas, seaborn, sklearn)
 - a C compiler
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- A bash shell
+- A bash {term}`shell`
 - A web browser compatible with [Jupyter Notebooks](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/install.html#step-0-the-browser)
 - nano text editor (comes with GitBash and default on MacOS)
 - one IDE with git support (default or via extension)
@@ -154,7 +154,7 @@ date.
     ```
 3. Next install Anaconda’s Python from the website provided by the instructor and use the
 top download link under the Linux options.
-1. You will then see a .sh file in your downloads, move this into your Linux files.
+1. You will then see a {.sh}`.sh` file in your downloads, move this into your Linux files.
 2. Make sure you are in your home directory (something like home/YOURUSERNAME),
 do this by using the `pwd` command.
 1. Use the `bash` command followed by the file name of the installer you just downloaded to

@@ -45,7 +45,7 @@ Watch the repo and then create a file called `community.md` in your kwl repo and
 ```
 - [watched the repo as per announcements](https://introcompsys.github.io/spring2023/syllabus/communication.html#announcements) 
 ```
-put this on a branch called `watch_community_badge` and title your PR "Community-Watch"
+put this on a {term}`branch` called `watch_community_badge` and title your PR "Community-Watch"
 ````
 
 ## Help Hours
@@ -114,7 +114,7 @@ for platform, data in df.groupby('platform'):
 ```{admonition} ... 
 :class: anchor,dropdown
 
-You can submit a pull request for the typo above, but be sure to check the pull request tab of the repo before submitting to see if it has already been submitted.
+You can submit a {term}`pull request` for the typo above, but be sure to check the {term}`pull request` tab of the repo before submitting to see if it has already been submitted.
 ```
 
 ### For E-mail
@@ -125,5 +125,5 @@ You can submit a pull request for the typo above, but be sure to check the pull 
 ```{admonition} Should you e-mail your work? 
 :class: anchor,dropdown
 
-No, request a pull request review or make an issue if you are stuck
+No, request a {term}`pull request` review or make an {term}`issue` if you are stuck
 ```

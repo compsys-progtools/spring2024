@@ -208,10 +208,10 @@ covered well enough to think of hypothetical scenarios or options or what might 
 The tasks for these badges will be defined at the bottom of the notes for each class session *and* aggregated to badge-type specific pages on the left hand side fo the course website. 
 
 You can earn review and practice badges by:
-- creating an issue for the badge you plan to work on
+- creating an {term}`issue` for the badge you plan to work on
 - completing the tasks
-- submitting files to your KWL on a new branch
-- creating a PR, linking the issue, and requesting a review
+- submitting files to your KWL on a new {term}`branch`
+- creating a PR, linking the {term}`issue`, and requesting a review
 - revising the PR until it is approved 
 - merging the PR after it is approved
 
@@ -238,7 +238,7 @@ Explore badges require you to pose a question of your own that extends the topic
 Details and more ideas are on the [explore](../activities/explore) page.
 
 You can earn an explore badge by: 
-- creating an issue proposing your idea (consider this ~15 min of work or less)
+- creating an {term}`issue` proposing your idea (consider this ~15 min of work or less)
 - adjusting your idea until given the proceed label 
 - completing your exploration
 - submitting it as a PR 
@@ -258,10 +258,10 @@ Revisions are to help you improve your work **and** to get used to the process o
 Build badges are for when you have an idea of something you want to do. There are also some ideas on the [build](../activities/build.md) page.
 
 You can earn a build badge by: 
-- creating an issue proposing your idea and iterating until it is given the "proceed" label
+- creating an {term}`issue` proposing your idea and iterating until it is given the "proceed" label
 - providing updates on your progress
 - completing the build
-- submitting a summary report as a PR linked to your proposal issue
+- submitting a summary report as a PR linked to your proposal {term}`issue`
 - making any requested changes
 - merging the PR after approval 
 
@@ -293,7 +293,7 @@ You can earn community badges by:
 - sharing articles and discussing them in the course discussions 
 - contributing annotated resources the course website 
 
-You will maintain a list of your contributions in your KWL repo in the `community_contributions.md` file. Every individual change to this file (representing one contribution) should be commited to a new branch and then submitted as a PR, with a review requested from @brownsarahm.
+You will maintain a list of your contributions in your KWL repo in the `community_contributions.md` file. Every individual change to this file (representing one contribution) should be commited to a new {term}`branch` and then submitted as a PR, with a review requested from @brownsarahm.
 
 ```{note}
 Some participation in your group repo and a small number of discussions will be required for experience, review, and practice badges. This means that not every single contribution or peer review to your team repo will earn a community badge. 
@@ -365,7 +365,7 @@ If you miss multiple classes, create a catch-up plan to get back on track by con
 
 These badges have 5 stages: 
 - posted: tasks are on the course website
-- planned: an issue is created
+- planned: an {term}`issue` is created
 - started: one task is attempted and a draft PR is open 
 - completed: all tasks are attempted PR is ready for review, and a review is requested
 - earned: PR is approved (by instructor or a TA) and work is merged
@@ -390,8 +390,8 @@ Try to complete revisions quickly, it will be easier for you
 ### Explore Badges 
 
 Explore badges have  5stages:
-- proposed: issue created 
-- in progress: issue is labeled "proceed" by the instructor
+- proposed: {term}`issue` created 
+- in progress: {term}`issue` is labeled "proceed" by the instructor
 - complete: work is complete, PR created, review requested
 - revision: "request changes" review was given
 - earned: PR approved

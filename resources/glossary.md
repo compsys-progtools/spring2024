@@ -22,7 +22,7 @@ bitwise operator
 bitwise operator
   an operation that happens on a bit string (sequence of 1s and 0s). They are typically faster than operations on whole integers. 
 
-[branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
+branch
   a copy of the main branch (typically) where developmental changes occur. The changes do not affect other branches because it is isolated from other branches.
 
 Compiled Code
@@ -71,7 +71,7 @@ HEAD
 merge
   putting two branches together so that you can access files in another branch that are not available in yours
 
-[mermaid](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
+mermaid
   meraid syntax allows user to create precise, detailed diagrams in markdown files.
 
 hash function
@@ -89,7 +89,7 @@ integreated development environment
 interpreted code
   code that is directly executed from a high level language. more expensive computationally because it cannot be optimized and therefore can be slower.
   
-[issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
+issue
   provides the ability to easily track ideas, feedback, tasks, or bugs. branches can be created for specific issues. an issue is open when it is created. pull requests have the ability to close issues.
 
 
@@ -102,7 +102,7 @@ path
 pull (changes from a repository)
   download changes from a remote repository and update the local repository with these changes.
 
-[pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
+pull request
   allow other users to review and request changes on branches. after a pull request recieves approval you can merge the changed content to the main branch.
 
 push (changes to a repository)
@@ -149,10 +149,6 @@ yml
 
 [YAML](https://yaml.org/)  
     a file specification that stores key-value pairs. It is commonly used for configurations and settings. 
-
-zsh
-  zsh or z shell is built on top of the bash shell and contains new features
-
 
 
 ```
