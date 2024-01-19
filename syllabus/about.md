@@ -3,7 +3,7 @@
 ## About this course
 
 In this course we will study the tools that we use as programmers and use them as a lens to study 
-the computer system itself.  We will begin with two fundamental tools: version control and the {term}`shell`. We will focus on git and {term}`bash` as popular examples of each. Sometimes understanding the tools requires understanding an aspect of the system, for example git uses cryptographic hashing which requires understanding number systems.  Other times the tools helps us see how parts work: the {term}`shell` is our interface to the operating system. 
+the computer system itself.  We will begin with two fundamental tools: version control and the {term}`shell`. We will focus on {term}`git` and {term}`bash` as popular examples of each. Sometimes understanding the tools requires understanding an aspect of the system, for example {term}`git` uses cryptographic {term}`hashing` which requires understanding number systems.  Other times the tools helps us see how parts work: the {term}`shell` is our interface to the operating system. 
 
 
 
