@@ -1,0 +1,985 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Grading &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus/grading';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Badge Deadlines and Procedures" href="badges.html" />
+    <link rel="prev" title="Tools and Resources" href="tools.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools and Resources</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uri_statements.html">General URI Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/introcompsys/fall2023# The URL to your book's repository" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/introcompsys/fall2023# The URL to your book's repository/edit/main/syllabus/grading.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/introcompsys/fall2023# The URL to your book's repository/issues/new?title=Issue%20on%20page%20%2Fsyllabus/grading.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/syllabus/grading.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Grading</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-grading">Principles of Grading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penalty-free-zone">Penalty-free Zone</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-badges">Learning Badges</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-badges">Experience Badges</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class">In class</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#makeup">Makeup</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-and-practice-badges">Review and Practice Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-badges">Explore Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-badges">Build Badges</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#community-badges">Community Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-corrections"><span class="fa fa-gift"></span> Free corrections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlines">Deadlines</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Experience badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rp-status">Review and Practice Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Explore Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Build Badges</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ungrading-option">Ungrading Option</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-honesty-policy">Academic Honesty Policy</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="grading">
+<h1>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">#</a></h1>
+<p>This section of the syllabus describes the principles and mechanics of the grading for the course.
+The course is designed around your learning so the grading is based on you demonstrating how much
+you have learned.</p>
+<p>Additionally, since we will be studying programming tools, we will use them to administer
+the course. To give you a chance to get used to the tools there will be a grade free zone
+for the first few weeks.</p>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
+<p>The goal is for you to learn and the grading is designed to as close as possible actually
+align to how much you have learned.  So, the first thing to keep in mind, always is the
+course learning outcomes:</p>
+<p>By the end of the semester, students will be able to:</p>
+<ol class="arabic simple">
+<li><p>Apply common design patterns and abstractions to understand new code bases, programming tools, and components of systems.</p></li>
+<li><p>Apply appropriate programming workflows using context-relevant tools that enable adherance to best practices for effective code, developer time efficiency, and collaboration.</p></li>
+<li><p>Differentiate the different classes of tools used in computer science in terms of their features, roles, and how they interact and justify positions and preferences among popular tools</p></li>
+<li><p>Identify how information flows across levels of abstraction.</p></li>
+<li><p>Discuss implications of design choices across levels of abstraction</p></li>
+<li><p>Describe the social context in which essential components of computing systems were developed and explain the impact of that context on the systems.</p></li>
+<li><p>Differentiate between social conventions and technical requirements in programming contexts.</p></li>
+</ol>
+<p>These are what I will be looking for evidence of to say that you met those or not.</p>
+</section>
+<section id="principles-of-grading">
+<h2>Principles of Grading<a class="headerlink" href="#principles-of-grading" title="Permalink to this headline">#</a></h2>
+<p>Learning happens through practice and feedback. My goal as a teacher is for you to learn.
+The grading in this course is designed to reflect how deeply you learn the material, even
+if it takes you multiple attempts to truly understand a topic. The topics in this course
+are all topics that will come back in later courses in the Computer Science major, so it is important that you understand
+each of them <em>correctly</em> so that it helps in the next course.</p>
+<p>This course is designed to encourage you to work steadily at learning the material
+and demonstrating your new knowledge. There are no single points of failure, where
+you lose points that cannot be recovered. Also, you cannot cram anything one time
+and then forget it. The material will build and you have to demonstrate that you
+retained material. You will be required to demonstrate understanding of the connections
+between ides from different parts of the course.</p>
+<ul class="simple">
+<li><p>Earning an A means that you can use knowledge from this course to debug tricky scenarios; you can know where to start and can form good hypotheses about why uncommon errors have occurred; you can confidently figure out new complex systems.</p></li>
+<li><p>Earning a B means that you can apply the course concepts in other programming environments; you can solve basic common errors without looking much up.</p></li>
+<li><p>Earning a C in this class means you have a general understanding; you will know what all the terms mean; you could follow along in a meeting where others were discussing systems concepts and use core tools for common tasks. You know where to start when looking things up.</p></li>
+</ul>
+<!-- Earning an A  -->
+<p>The course is designed for you to <em>succeed</em> at a level of your choice.  As you accumulate
+knowledge, the grading in this course is designed to be cumulative instead of based on
+deducting points and averaging. No matter what level of work you choose to engage in, you will be expected
+to revise work until it is correct.  The material in this course will all come back in other
+300 and 400 level CSC courses, so it is essential that you do not leave this course with
+misconceptions, as they will make it harder for you to learn related material later.</p>
+<div class="checkin dropdown admonition">
+<p class="admonition-title">If you made an error in an assignment what do you need to do? </p>
+<p>Read the suggestions and revise the work until it is correct.</p>
+</div>
+</section>
+<section id="penalty-free-zone">
+<h2>Penalty-free Zone<a class="headerlink" href="#penalty-free-zone" title="Permalink to this headline">#</a></h2>
+<p>Since learning developer tools is a core learning outcome of the course, we will also use them for all aspects of administering the course. This will help you learn these tools really well and create accountability for getting enough practice with core operations, but it also creates a high stakes situation: even submitting your work requires you understanding the tools. This would not be very fair at the beginning of the semester.</p>
+<p>For the first three weeks we will have a low stakes penalty-free zone where we will provide extra help and reminders for how to get feedback on your work. In this period, deadlines are more flexible as well. If work is submitted incorrectly, we will still see it because we will manually go look for all activities. After this zone, we will assume you <em>chose</em> to skip something if we do not see it submitted.</p>
+<div class="checkin dropdown admonition">
+<p class="admonition-title">What happens if you merged a PR without feedback?</p>
+<p>During the Penalty-Free zone, we will help you figure that out and fix it so you get credit for it.  After that, you have to fix it on your own (or in office hours) in order to get credit.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If there are terms in the rest of this section that do not make sense while we are in the penalty-free zone, do not panic. This zone exists to help you get familiar with the terms needed.</p>
+</div>
+<p>During the third week, you will create a course plan where you establish your goals for the course and I make sure that you all understand the requirements to complete your goals.</p>
+<div class="checkin dropdown admonition">
+<p class="admonition-title">What happens if you’re confused by the grading scheme right now?</p>
+<p>Nothing to worry about, we will review it again in week three after you get a chance to build the right habits and learn vocabulary.  There will also be a lab activity that helps us to be sure that you understand it at that time.</p>
+</div>
+</section>
+<section id="learning-badges">
+<span id="badgecounts"></span><h2>Learning Badges<a class="headerlink" href="#learning-badges" title="Permalink to this headline">#</a></h2>
+<p>Your grade will be based on you choosing to work with the material at different levels and participating in the class community in different ways. Each of these represents different types of badges that you can earn as you accumulate evidence of your learning and engagment.</p>
+<ul class="simple">
+<li><p>experience: guided in class acitivies, with reflection</p></li>
+<li><p>review: just the basics</p></li>
+<li><p>practice: a little bit more indepdendent</p></li>
+<li><p>explore: posing your own directions of inquiry</p></li>
+<li><p>build: in depth application of course topics</p></li>
+</ul>
+<p>Below are the recommended paths to different grade targets.</p>
+<p>To earn a D, complete:</p>
+<ul class="simple">
+<li><p>22 experience badges</p></li>
+<li><p>13 lab check outs</p></li>
+</ul>
+<p>To earn a C, complete:</p>
+<ul class="simple">
+<li><p>22 experience badges</p></li>
+<li><p>13 lab check outs</p></li>
+<li><p>18 review badges</p></li>
+</ul>
+<p>To earn a B, complete:</p>
+<ul class="simple">
+<li><p>22 experience badges</p></li>
+<li><p>13 lab check outs</p></li>
+<li><p>one of the following:</p>
+<ul>
+<li><p>18 practice badges</p></li>
+<li><p>12 review + 12 practice</p></li>
+</ul>
+</li>
+</ul>
+<p>For an A you must complete:</p>
+<ul class="simple">
+<li><p>22 experience badges</p></li>
+<li><p>13 lab check outs</p></li>
+<li><p>one of the following:</p>
+<ul>
+<li><p>18 practice badges + 6 explore badges</p></li>
+<li><p>18 review badges + 3 build badges</p></li>
+<li><p>6 review badges + 12 practice badges +  4 explore badges + 1 build badges</p></li>
+<li><p>12 review badges + 6 practice  badges+ 2 explore badges + 2 build badges</p></li>
+</ul>
+</li>
+</ul>
+<p>You can also mix and match to get +/-. For example
+(all examples below assume 22+ experience badges aand 13 lab checkouts)</p>
+<ul class="simple">
+<li><p>A-: 18 practice + 4 explore</p></li>
+<li><p>B+: 6 review + 12 practice +  4 explore</p></li>
+<li><p>B-: 6 review + 12 practice</p></li>
+<li><p>B+: 24 practice</p></li>
+<li><p>C+: 12 review + 6 practice</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These counts assume that the semester goes as planned and that there are 26 available badges of each base type (experience, review, practice).  If the number of available badges decreases by more than 2 for any reason (eg snowdays, instructor illness, etc) the threshold for experience badges will be decreased.</p>
+</div>
+<p>All of these badges will be tracked through PRs in your kwl repo. Each PR must have a title that includes the badge type and associated date. We will use scripts over these to track your progress.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>There will be 20 review and practice badges available after the penalty free zone. This means that missing the review and practice badges in the penalty free zone cannot hurt you. However, it does not mean it is a good idea to not attempt them, not attempting them at all will make future badges harder, because reviewing early ideas are important for later ideas.</p>
+</div>
+<p>You cannot earn both practice and review badges for the same class session, but most practice badge requirements will include the review requirements plus some extra steps.</p>
+<p id="integrative">In the second half of the semester, there will be special <em>integrative</em> badge opportunities that have multipliers attached to them. These badges will count for more than one. For example an integrative 2x review badge counts as two review badges.  These badges will be more complex than regular badges and therefore count more.</p>
+<div class="checkin dropdown admonition">
+<p class="admonition-title">Can you do any combination of badges?</p>
+<p>No, you cannot earn practice and review for the same date.</p>
+</div>
+<section id="experience-badges">
+<h3>Experience Badges<a class="headerlink" href="#experience-badges" title="Permalink to this headline">#</a></h3>
+<section id="in-class">
+<span id="expinclass"></span><h4>In class<a class="headerlink" href="#in-class" title="Permalink to this headline">#</a></h4>
+<p>You earn an experience badge in class by:</p>
+<ul class="simple">
+<li><p>preparing for class</p></li>
+<li><p>following along with the activity (creating files, using git, etc)</p></li>
+<li><p>responding to 80% of inclass questions (even incorrect or `:idk:``)</p></li>
+<li><p>reflecting on what you learned</p></li>
+<li><p>asking a question at the end of class</p></li>
+</ul>
+</section>
+<section id="makeup">
+<span id="expmakeup"></span><h4>Makeup<a class="headerlink" href="#makeup" title="Permalink to this headline">#</a></h4>
+<p>You can make up an experience badge by:</p>
+<ul class="simple">
+<li><p>preparing for class</p></li>
+<li><p>reading the posted notes</p></li>
+<li><p>completing the activity from the notes</p></li>
+<li><p>completeing an “experience report”</p></li>
+<li><p>attaching evidence as indiated in notes OR attending office hours to show the evidence</p></li>
+</ul>
+<p>An experience report is evidence you have completed the activity and reflection questions. The exact form will vary per class, if you are unsure, reach out ASAP to get instructions. These are evaluated only for completeness/ good faith effort.  Revisions will generally not be required, but clarification and additional activity steps may be advised if your evidence suggests you may have missed a step.</p>
+<div class="checkin dropdown admonition">
+<p class="admonition-title">Do you earn badges for prepare for class? </p>
+<p>No, prepare for class tasks are folded into your experience badges.</p>
+</div>
+<div class="checkin dropdown admonition">
+<p class="admonition-title">What do you do when you miss class? </p>
+<p>Read the notes, follow along, and produce and experience report or attend office hours.</p>
+</div>
+<div class="checkin dropdown admonition">
+<p class="admonition-title">What if I have no questions?</p>
+<p>Learning to ask questions is important.  Your questions can be clarifying (eg because you misunderstood something) or show that you understand what we
+covered well enough to think of hypothetical scenarios or options or what might come next.  Basically, focused curiosity.</p>
+</div>
+</section>
+</section>
+<section id="review-and-practice-badges">
+<h3>Review and Practice Badges<a class="headerlink" href="#review-and-practice-badges" title="Permalink to this headline">#</a></h3>
+<p>The tasks for these badges will be defined at the bottom of the notes for each class session <em>and</em> aggregated to badge-type specific pages on the left hand side fo the course website.</p>
+<p>You can earn review and practice badges by:</p>
+<ul class="simple">
+<li><p>creating an issue for the badge you plan to work on</p></li>
+<li><p>completing the tasks</p></li>
+<li><p>submitting files to your KWL on a new branch</p></li>
+<li><p>creating a PR, linking the issue, and requesting a review</p></li>
+<li><p>revising the PR until it is approved</p></li>
+<li><p>merging the PR after it is approved</p></li>
+</ul>
+<div class="checkin dropdown admonition">
+<p class="admonition-title">Where do you find assignments?</p>
+<p>At the end of notes and on the separate pages in the activities section on the left hand side</p>
+</div>
+<p><strong>You should create one PR per badge</strong></p>
+<p>The key difference between review and practice is the depth of the activity. Work submitted for review and practice badges will be assessed for correctness and completeness. Revisions will be common for these activities, because understanding correctly, without misconceptions, is important.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Revisions are to help you improve your work <strong>and</strong> to get used to the process of making revisions.  Even excellent work can be improved.  The <strong>process</strong> of making revisions and taking good work to excellent or excellent to exceptional is a useful learning outcome.  It will help you later to be really good at working through PR revisions; we will use the same process as code reviews in industry, even though most of it will not be code alone.</p>
+</div>
+</section>
+<section id="explore-badges">
+<h3>Explore Badges<a class="headerlink" href="#explore-badges" title="Permalink to this headline">#</a></h3>
+<p>Explore badges require you to pose a question of your own that extends the topic. For inspiration, see the practice tasks and the questions after class.</p>
+<p>Details and more ideas are on the <a class="reference internal" href="../activities/explore.html"><span class="doc std std-doc">explore</span></a> page.</p>
+<p>You can earn an explore badge by:</p>
+<ul class="simple">
+<li><p>creating an issue proposing your idea (consider this ~15 min of work or less)</p></li>
+<li><p>adjusting your idea until given the proceed label</p></li>
+<li><p>completing your exploration</p></li>
+<li><p>submitting it as a PR</p></li>
+<li><p>making any requested changes</p></li>
+<li><p>merging the PR after approval</p></li>
+</ul>
+<p>For these, ideas will almost always be approved, the proposal is to make sure you have the right scope (not too big or too small). Work submitted for explore badges will be assessed for depth beyond practice badges and correctness. Revisions will be more common on the first few as you get used to them, but typically decraese as you learn what to expect.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Revisions are to help you improve your work <strong>and</strong> to get used to the process of making revisions.  Even excellent work can be improved.  The <strong>process</strong> of making revisions and taking good work to excellent or excellent to exceptional is a useful learning outcome.  It will help you later to be really good at working through PR revisions; we will use the same process as code reviews in industry, even though most of it will not be code alone.</p>
+</div>
+<p><strong>You should create one PR per badge</strong></p>
+</section>
+<section id="build-badges">
+<h3>Build Badges<a class="headerlink" href="#build-badges" title="Permalink to this headline">#</a></h3>
+<p>Build badges are for when you have an idea of something you want to do. There are also some ideas on the <a class="reference internal" href="../activities/build.html"><span class="doc std std-doc">build</span></a> page.</p>
+<p>You can earn a build badge by:</p>
+<ul class="simple">
+<li><p>creating an issue proposing your idea and iterating until it is given the “proceed” label</p></li>
+<li><p>providing updates on your progress</p></li>
+<li><p>completing the build</p></li>
+<li><p>submitting a summary report as a PR linked to your proposal issue</p></li>
+<li><p>making any requested changes</p></li>
+<li><p>merging the PR after approval</p></li>
+</ul>
+<p><strong>You should create one PR per badge</strong></p>
+<p>For builds, since they’re bigger, you will propose intermediate milestones. Advice for improving your work will be provided at the milestones and revisions of the compelte build are uncommon. If you do not submit work for intermediate review, you may need to revise the complete build. The build proposal will assessed for relevance to the course and depth. The work will be assessed for completeness in comparison to the propsal and correctness. The summary report will be assessed only for completeness, revisions will only be requested for skipped or incomplete sections.</p>
+</section>
+</section>
+<section id="community-badges">
+<h2>Community Badges<a class="headerlink" href="#community-badges" title="Permalink to this headline">#</a></h2>
+<p>Community badges are awarded for extra community participation. Both programming and learning are most effective in good healthy collaboration.  Since being a good member of our class community helps you learn (and helps others learn better), some collaboration is required in other badges. Some dimensions of community participation can only be done once, for example fixing a typo on the course website, so while it’s valuable, all students cannot contribute to the course community in the same way. To reward these unique contributions, you can earn a community badge.</p>
+<p>You can see some ideas as they arise by <a class="reference external" href="https://github.com/introcompsys/fall2023/labels/community">issues labeled <code class="docutils literal notranslate"><span class="pre">community</span></code></a>.</p>
+<p>Community badges can replace missed experience, review, and practice badges, upgrade a review to a practice badge, or they can be used as an alternate way to earn a + modifier on a D,C,or B (URI doesn’t award A+s, sorry).  Community badges are smaller, so they are not 1:1 replacements for other badges. You can earn a maximum of 14 community badges, generally one per week.  Extra helpful contributions may be awarded 2 community badges, but that does not increase your limit. When you earn them, you can plan how you will use it, but they will only be officially applied to your grade at the end of the semester.  They will automatically be applied in the way that gives you the maximum benefit.</p>
+<p>Community Badge values:</p>
+<ul class="simple">
+<li><p>3 community = 1 experience badge</p></li>
+<li><p>4 community = 1 review</p></li>
+<li><p>7 community = 1 practice.</p></li>
+<li><p>3 community badges + 1 review = 1 practice.</p></li>
+<li><p>10 community = add a  <code class="docutils literal notranslate"><span class="pre">+</span></code> to a D,C, or B, <strong>note that this is more efficient.</strong></p></li>
+</ul>
+<p>You can earn community badges by:</p>
+<ul class="simple">
+<li><p>fixing small issues on the course website (during penalty free zone only)</p></li>
+<li><p>contributing extra terms or reviews to your team repo</p></li>
+<li><p>sharing articles and discussing them in the course discussions</p></li>
+<li><p>contributing annotated resources the course website</p></li>
+</ul>
+<p>You will maintain a list of your contributions in your KWL repo in the <code class="docutils literal notranslate"><span class="pre">community_contributions.md</span></code> file. Every individual change to this file (representing one contribution) should be commited to a new branch and then submitted as a PR, with a review requested from &#64;brownsarahm.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some participation in your group repo and a small number of discussions will be required for experience, review, and practice badges. This means that not every single contribution or peer review to your team repo will earn a community badge.</p>
+</div>
+<p>Example(nonexhaustive) uses:</p>
+<ul class="simple">
+<li><p>22 experience + 17 review + 11 community = C (replace 2 experience, 1 review)</p></li>
+<li><p>24 experience + 17 review + 5 community = C (replace 1 review)</p></li>
+<li><p>24 experience + 18 review + 10 community = C+ (modifier)</p></li>
+<li><p>24 experience + 18 practice + 10 community = B+ (modifier)</p></li>
+<li><p>23 experience + 18 practice + 13 community = B+ (modifier, replace 1 experience)</p></li>
+<li><p>24 experience + 16 practice + 2 review + 10 community = B  (upgrade 2 review)</p></li>
+<li><p>24 experience + 10 review + 10 community + 6 practice + 3 explore + 2 build = A (replace 2 review)</p></li>
+<li><p>24 experience + 14 review + 10 community + 4 practice + 3 explore + 2 build = A (upgrade 2 review to practice)</p></li>
+<li><p>24 experience + 12 review + 14 community + 4 practice + 3 build =A (replace 2 practice)</p></li>
+</ul>
+<p>These show that community badges can save you work at the end of the semester by reducing the number of practice badges or simplifying badges</p>
+</section>
+<section id="free-corrections">
+<h2><span class="fa fa-gift"></span> Free corrections<a class="headerlink" href="#free-corrections" title="Permalink to this headline">#</a></h2>
+<p>All work must be correct and complete to earn credit. In general, this means that when your work is not correct, we will give you guiding questions and advice so that you can revise the work to be correct. Most of the time asking you questions is the best way to help you learn, but sometimes, especially for small things, showing you a correct example is the best way to help you learn.</p>
+<p>Additionally, on rare occasions, a student can submit work that is incorrect or will have down-the-line consquences but does not demonstrate a misunderstanding. For example, in an experience badge, putting text below the <code class="docutils literal notranslate"><span class="pre">#</span> </code> line instead of replacing the hint within the <code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">&gt;</span></code>.  Later, we will do things within the kwl repo that will rely on the title line being filled in, but it’s not a big revision where the student needs to rethink about what they submitted.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We do not have a final exam, but URI assigns an exam time for every class.  The date of that assigned exam will be the final due date for all work</p>
+</div>
+</aside>
+<p>In these special occasions, good effort that is not technically correct may be rewarded with a <span class="fa fa-gift"></span>. In this case, the instructor or TA will give a suggestion, with the <span class="fa fa-gift"></span> emoji in the comment and leave a review as “comment” instead of “changes requested” or “approved”. If the student commits the suggestion to acknowledge that they read it, the instructor will then leave an approving review. Free corrections are only available when revisions are otherwise eligible.  This means that they cannot extend a deadline and they are not available on the final grading that occurs after our scheduled “exam time”.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>These free corrections are used at the instructional team’s discretion and are not guaranteed.</p>
+<p>This means that, for example, the same mistake the first time, might get a <span class="fa fa-gift"></span>, a second will probably be a hint, and a third or fourth time might be a regular revision where we ask you to go review prior assignments to figure out what you need to fix with a broad hint instead of the specific suggestion</p>
+</div>
+<div class="anchor dropdown admonition" id="incentive">
+<p class="admonition-title">IDEA</p>
+<p>If the course response rate on the IDEA survey is about 75%, <span class="fa fa-gift"></span> will be applicable to final grading. <strong>this includes the requirement of the student to reply</strong></p>
+</div>
+</section>
+<section id="deadlines">
+<h2>Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">#</a></h2>
+<!-- Deadlines are flexible in this course so that you can balance your workload across other courses, and instead the **feedback** schedule is fixed.  Weekly feedback hours will be announced and posted. 
+
+However, leaving all of the work to the end of the semester is not good for you to achieve your goals or for me to manage my time giving feedback.   -->
+<p>There will be fixed feedback hours each week, if your work is submitted by the start of that time it will get feedback.  If not, it will go to the next feedback hours.</p>
+<p>We do not have a final exam, but URI assigns an exam time for every class.  The date of that assigned exam will be the final due date for all work including all revisions.</p>
+<section id="id1">
+<h3>Experience badges<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Prepare for class tasks must be done before class so that you are prepared.  Missing a prepare task could require you to do an experience report to make up what you were not able to do in class.</p>
+<p>If you miss class, the experience report should be at least attempted/drafted (though you may not get feedback/confirmation) before the next class that you attend. This is strict, not as punishment, but to ensure that you are able to participate in the next class that you attend. Skipping the experience report for a missed class, may result in needing to do an experience report for the next class you attend to make up what you were not able to complete due to the missing class activities.</p>
+<p>If you miss multiple classes, create a catch-up plan to get back on track by contacting Dr. Brown.</p>
+</section>
+<section id="rp-status">
+<span id="id2"></span><h3>Review and Practice Badges<a class="headerlink" href="#rp-status" title="Permalink to this headline">#</a></h3>
+<p>These badges have 5 stages:</p>
+<ul class="simple">
+<li><p>posted: tasks are on the course website</p></li>
+<li><p>planned: an issue is created</p></li>
+<li><p>started: one task is attempted and a draft PR is open</p></li>
+<li><p>completed: all tasks are attempted PR is ready for review, and a review is requested</p></li>
+<li><p>earned: PR is approved (by instructor or a TA) and work is merged</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>these badges <em>should</em> be started before the next class. This will set you up to make the most out of each class session. However, only prepare for class tasks have to be done immediately.</p>
+</div>
+<p>These badges badges must be <em>started</em> within one week of when the are posted (2pm) and <em>completed</em> within two weeks. A task is attempted when you have answered the questions or submitted evidence of doing an activity or asked a sincere clarifying question.</p>
+<p>If a badge is planned, but not started within one week it will become expired and ineligble to be earned. You may request extensions to complete a badge by updating the PR message, these will typically be granted. Extensions for starting badges will only be granted in exceptional circumstances.</p>
+<p>Expired badges will receive a comment and be closed</p>
+<p>Once you have a good-faith attempt at a complete badge, you have until the end of the semester to finish the revisions in order to <em>earn</em> the badge.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Try to complete revisions quickly, it will be easier for you</p>
+</div>
+</section>
+<section id="id3">
+<h3>Explore Badges<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Explore badges have  5stages:</p>
+<ul class="simple">
+<li><p>proposed: issue created</p></li>
+<li><p>in progress: issue is labeled “proceed” by the instructor</p></li>
+<li><p>complete: work is complete, PR created, review requested</p></li>
+<li><p>revision: “request changes” review was given</p></li>
+<li><p>earned: PR approved</p></li>
+</ul>
+<p>Explore badges are feedback-limited. You will not get feedback on subsequent explore badge proposals until you earn the first one.  Once you have one earned, then you can have up to two in progress and two in revision at any given time.</p>
+</section>
+<section id="id4">
+<h3>Build Badges<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>You may earn at most one build badge per month, with final grading in December. To earn three build badges, you must earn the first one by the end of October.</p>
+<!-- ### Notes
+
+
+- Keep your deeper explorations and more practice task content in your KWL chart repository.
+- Link approved PRs to your grading contract for record keeping.
+
+### Grading Contract Instructions
+
+```{important}
+this includes minor corrections relative to the readme in the template provided
+``` 
+-->
+</section>
+</section>
+<section id="ungrading-option">
+<h2>Ungrading Option<a class="headerlink" href="#ungrading-option" title="Permalink to this headline">#</a></h2>
+<p>At the end of the semester, you have the option of submitting a final reflection that states what grade you think you deserve, and justifies it by summarizing what you have learned and providing evidence of that.  Instructions for this option will be provided as we approach the end of the semester. The policy of no submitted content that was not generated by you still applies. If you take this option, you may be required to also take an oral exam by appointment to supplement the evidence provided in your reflection.</p>
+<p>This option exists in recognition of the fact that grading schemes are not perfect and I am truly committed to your learning.  If you think that the grading scheme described on this page is working out to you earning a different grade than you deserve and you can support that with strong evidence that you have learned, you can have the grade you deserve.</p>
+<div class="community dropdown admonition">
+<p class="admonition-title">What do you think?</p>
+<p>share your thoughts on this option <a class="reference external" href="https://github.com/introcompsys/discussion-fa23-community/discussions/2">in the discussions for the class</a> and then</p>
+</div>
+</section>
+<section id="academic-honesty-policy">
+<h2>Academic Honesty Policy<a class="headerlink" href="#academic-honesty-policy" title="Permalink to this headline">#</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Assignments are tested against LLMs and designed so that they require you to learn and that an LLM cannot answer well.</p>
+</div>
+<p>All of your work must reflect your own thinking and understanding.  The written work in English that you submit must all be your own work or content that was provided to you in class, it cannot include text that was generated by an AI or plagiarized in any other way. You may use auto-complete in all tools incuding, IDE-integrated GitHub co-pilot (or similar, IDE embedded tool) for any code that is required for this course because the code is necessary to demonstrate examples, but language syntax is not the core learning outcome.</p>
+<p>If you are found to submit prismia responses that do not reflect your own thinking or that of discussion with peers as directed, the experience badge for that class session will be ineligible.</p>
+<p>If work is suspected to be the result of inappropriate collaboration or AI use, you will be allowed to take an oral exam in lab time to contest and prove that your work reflects your own understanding.</p>
+<p>The first time you will be allowed to appeal through an oral exam. If your appeal is successful, your counter resets. If you are found to have violated the policy then the badge in question will be ineligible and your maximum number of badges possible to be earned will be limited according to the guidelines below per badge type (you cannot treat the plagiarized badge as skipped). If you are found to have violated the policy a second time,
+then no further work will be graded for the remainder of the semester.</p>
+<p>If you are found to submit work that is not your own for a <em>review or practice</em> badge, the review and practice badges for that date will be ineligible and the penalty free zone terms will no longer apply to the first six badges.</p>
+<p>If you are found to submit work that is not your own for an <em>explore or build</em>  badge, that badge will not be awarded and your maximum badges at the level possible will drop to 2/3 of the maximum possible.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./syllabus"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tools.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tools and Resources</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="badges.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Badge Deadlines and Procedures</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-grading">Principles of Grading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penalty-free-zone">Penalty-free Zone</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-badges">Learning Badges</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-badges">Experience Badges</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class">In class</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#makeup">Makeup</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-and-practice-badges">Review and Practice Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-badges">Explore Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-badges">Build Badges</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#community-badges">Community Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-corrections"><span class="fa fa-gift"></span> Free corrections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlines">Deadlines</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Experience badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rp-status">Review and Practice Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Explore Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Build Badges</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ungrading-option">Ungrading Option</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-honesty-policy">Academic Honesty Policy</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

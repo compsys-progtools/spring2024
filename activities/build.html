@@ -1,0 +1,767 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Build Badges &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'activities/build';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Syllabus and Grading FAQ" href="../faq/syllabus.html" />
+    <link rel="prev" title="Explore Badges" href="explore.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General URI Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explore.html">Explore Badges</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/introcompsys/fall2023# The URL to your book's repository" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/introcompsys/fall2023# The URL to your book's repository/edit/main/activities/build.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/introcompsys/fall2023# The URL to your book's repository/issues/new?title=Issue%20on%20page%20%2Factivities/build.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/activities/build.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Build Badges</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposal-template">Proposal Template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updates-and-work-in-progress">Updates and work in Progress</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-report">Summary Report</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborative-build-rules-procedures">Collaborative Build rules/procedures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-ideas">Build Ideas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-ideas-to-write-a-proposal-for">General ideas to write a proposal for</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-approved-proposals">Auto-approved proposals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-solo-docs-focus">212 Project Solo- Docs focus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-solo-developer-focus">212 Project Solo- Developer focus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-pair">212 Project Pair</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="build-badges">
+<h1>Build Badges<a class="headerlink" href="#build-badges" title="Permalink to this headline">#</a></h1>
+<p>Build may be individual or in pairs.</p>
+<section id="proposal-template">
+<h2>Proposal Template<a class="headerlink" href="#proposal-template" title="Permalink to this headline">#</a></h2>
+<p>If you have selected to do a project, please use the following template to propose a bulid</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## &lt; Project Tite &gt;
+
+&lt;!-- insert a 1 sentence summary  --&gt;
+
+### Objectives
+
+&lt;!-- in this section describe the overall goals in terms of what you will learn and the problem you will solve. this should be 2-5 sentences, it can be bullet points/numbered or a paragraph  --&gt;
+
+### Method
+
+ &lt;!-- describe what you will do , will it be research, write &amp; present? will there be something you build? will you do experiments?--&gt;
+
+### Deliverables
+
+&lt;!-- list what your project will produce with target deadlines for each--&gt;  
+
+### Milestones
+
+</pre></div>
+</div>
+<p>The deliverables will depend on what your method is, which depend on your goals. It must be approved and the final submitted will have to meet what is approved.  Some guidance:</p>
+<ul class="simple">
+<li><p>any code or text should be managed with git (can be GitHub or elsewhere)</p></li>
+<li><p>if you write any code it should have documentation</p></li>
+<li><p>if you do experiments the results should be summrized</p></li>
+<li><p>if you are researching something, a report should be 2-4 pages, plus unlimited references in the 2 column <a class="reference external" href="https://www.acm.org/publications/proceedings-template">ACM format.</a></p></li>
+</ul>
+<p>This guidance is generative, not limiting, it is to give ideas, but not restrict what you <em>can</em> do.</p>
+</section>
+<section id="updates-and-work-in-progress">
+<h2>Updates and work in Progress<a class="headerlink" href="#updates-and-work-in-progress" title="Permalink to this headline">#</a></h2>
+<p>These can be whatever form is appropriate to your specific project. Your proposal should indicate what form those will take.</p>
+</section>
+<section id="summary-report">
+<h2>Summary Report<a class="headerlink" href="#summary-report" title="Permalink to this headline">#</a></h2>
+<p>This summary report will be added to your kwl repo as a new file <code class="docutils literal notranslate"><span class="pre">build_report_title.md</span></code> where <code class="docutils literal notranslate"><span class="pre">title</span></code> is the (title or a shortened version) from the proposal.</p>
+<p>This summary report have the following sections.</p>
+<ol class="arabic simple">
+<li><p><strong>Abstract</strong> a one paragraph “abstract” type overview of what your project consists of.  This should be written for a general audience, something that anyone who has taken up to 211 could understand. It should follow guidance of a scientific abstract.</p></li>
+<li><p><strong>Reflection</strong> a one paragraph reflection that summarizes challenges faced and what you learned doing your project</p></li>
+<li><p><strong>Artifacts</strong> links to other materials required for assessing the project.  This can be a public facing web resource, a private repository, or a shared file on URI google Drive.</p></li>
+</ol>
+</section>
+<section id="collaborative-build-rules-procedures">
+<h2>Collaborative Build rules/procedures<a class="headerlink" href="#collaborative-build-rules-procedures" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Each student must submit a proposal PR for tracking purposes. The proposal may be shared text for most sections but the deliverables should indicate what each student will do (or be unique in each proposal).</p></li>
+<li><p>the proposal must indicate that it is a pair project, if iteration is required, I will put those comments on both repos but the students should discuss and reply/edit in collaboration</p></li>
+<li><p>the project must include code reviews as a part of the workflow links to the PRs on the project repo where the code reviews were completed should be included in the reflection</p></li>
+<li><p>each student must complete their own reflection.  The abstract can be written together and shared, but the reflection must be unique.</p></li>
+</ul>
+</section>
+<section id="build-ideas">
+<h2>Build Ideas<a class="headerlink" href="#build-ideas" title="Permalink to this headline">#</a></h2>
+<section id="general-ideas-to-write-a-proposal-for">
+<h3>General ideas to write a proposal for<a class="headerlink" href="#general-ideas-to-write-a-proposal-for" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>make a <a class="reference external" href="https://code.visualstudio.com/api/get-started/your-first-extension">vs code extension</a> for this class or another URI CS course</p></li>
+<li><p>port the courseutils to rust. <a class="reference external" href="https://docs.rs/clap/latest/clap/">crate clap</a> is like the python click package I used to develop the course utils</p></li>
+<li><p>buld a polished documentation website for your CSC212 project with <a class="reference external" href="https://devblogs.microsoft.com/cppblog/clear-functional-c-documentation-with-sphinx-breathe-doxygen-cmake/">sphinx</a> or another static site generator</p></li>
+<li><p>use version control, including releases on any open source side-project and add good contributor guidelines, README, etc</p></li>
+</ul>
+</section>
+<section id="auto-approved-proposals">
+<h3>Auto-approved proposals<a class="headerlink" href="#auto-approved-proposals" title="Permalink to this headline">#</a></h3>
+<p>For these build options, you can copy-paste the template below to create your proposal issue and assign it to <code class="docutils literal notranslate"><span class="pre">&#64;brownsarahm</span></code>.</p>
+<p>For working alone there are two options, for working with a partner there is one.</p>
+<section id="project-solo-docs-focus">
+<h4>212 Project Solo- Docs focus<a class="headerlink" href="#project-solo-docs-focus" title="Permalink to this headline">#</a></h4>
+<p>Use this option if your team for your 212 project is not currently enrolled in this class or does not want to do a collaborative build. This version focuses on the user docs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## 212 Project Doc &amp; Developer onboarding
+
+Add documentation website and developer onboarding information to your CSC 212 project. 
+
+### Objectives
+
+&lt;!-- in this section describe the overall goals in terms of what you will learn and the problem you will solve. this should be 2-5 sentences, it can be bullet points/numbered or a paragraph  --&gt;
+
+This project will provide information for a user to use the data structure implemented for a CSC 212 project and for a potential collaborator to add new features to it. The information will live in the repo and be served as a rendered website. 
+
+### Method
+
+ &lt;!-- describe what you will do , will it be research, write &amp; present? will there be something you build? will you do experiments?--&gt;
+1. ensure there is API level documentation in the code files
+1. build a documentation website using [jupyterbook/ sphinx/doxygen/] that includes setup instructions and examples
+1. configure the repo to automatically build the documentation website each time the main branch is updated
+
+
+### Deliverables
+
+
+- link to repo with the contents listed in method in the reflection file
+
+
+### Milestones
+
+&lt;!-- give a target timeline --&gt;
+
+</pre></div>
+</div>
+</section>
+<section id="project-solo-developer-focus">
+<h4>212 Project Solo- Developer focus<a class="headerlink" href="#project-solo-developer-focus" title="Permalink to this headline">#</a></h4>
+<p>Use this option if your team for your 212 project is not currently enrolled in this class or does not want to do a collaborative build. This version focuses on the contributor experience.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## 212 Project Doc &amp; Developer onboarding
+
+Add documentation website and developer onboarding information to your CSC 212 project. 
+
+### Objectives
+
+&lt;!-- in this section describe the overall goals in terms of what you will learn and the problem you will solve. this should be 2-5 sentences, it can be bullet points/numbered or a paragraph  --&gt;
+
+This project will provide information for a user to use the data structure implemented for a CSC 212 project and for a potential collaborator to add new features to it. The information will live in the repo and be served as a rendered website. 
+
+### Method
+
+ &lt;!-- describe what you will do , will it be research, write &amp; present? will there be something you build? will you do experiments?--&gt;
+
+1. ensure there is API level documentation in the code files
+1. add a license, readme, and contributor file
+1. add [code tours](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) that help someone understand how the data strucutre works and learn how to contribute 
+1. set up a PR template
+1. set up 2 issue templates: 1 for feature request and 1 for bug reporting
+
+
+### Deliverables
+
+
+- link to repo with the contents listed in method in the reflection file
+
+
+### Milestones
+
+&lt;!-- give a target timeline --&gt;
+
+</pre></div>
+</div>
+</section>
+<section id="project-pair">
+<h4>212 Project Pair<a class="headerlink" href="#project-pair" title="Permalink to this headline">#</a></h4>
+<p>Use this option if your teammate for your 212 project is in this class and wants to do a collaborative build.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## 212 Project Doc &amp; Developer onboarding
+
+Add documentation website and developer onboarding information to your CSC 212 project. 
+
+### Objectives
+
+&lt;!-- in this section describe the overall goals in terms of what you will learn and the problem you will solve. this should be 2-5 sentences, it can be bullet points/numbered or a paragraph  --&gt;
+
+This project will provide information for a user to use the data structure implemented for a CSC 212 project and for a potential collaborator to add new features to it. The information will live in the repo and be served as a rendered website. 
+
+### Method
+
+ &lt;!-- describe what you will do , will it be research, write &amp; present? will there be something you build? will you do experiments?--&gt;
+1. ensure there is API level documentation in the code files
+1. build a documentation website using [jupyterbook/ sphinx/doxygen/] that includes setup instructions and examples
+1. configure the repo to automatically build the documentation website each time the main branch is updated
+1. add [code tours](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) that help someone understand how the data strucutre works and learn how to contribute 
+1. set up a PR template
+1. set up 2 issue templates: 1 for feature request and 1 for bug reporting
+
+
+
+### Deliverables
+
+
+- link to repo with the contents listed in method in the reflection file
+
+
+### Milestones
+
+&lt;!-- give a target timeline --&gt;
+
+</pre></div>
+</div>
+<!-- 
+## Project Examples
+- One type of project would be to do a research project on a topic we cover in class and create a .md file with your findings that demonstrates your knowledge of the topic. The .md file would include an **Abstract**, **Body**, **Reflection** including what you did and what you learned from it, and a **Bibliography**. Potential research topics include:
+    - Motherboards
+    - CPUs: Their History, Evolution, and How They Work
+    - GPUs: A Graphics Card That Revolutionized Machine Learning
+    - The Differences Between Operating Systems: MacOS vs Windows VS Linux
+    - Abstraction For Dummies: Explaining Abstract Concepts to the Layman
+- Another type of project could be to create a program using the tools taught in class to maintain the program. What would be included in this would be a .md reporting your findings that demonstrates an understanding of the tools used and a link to the repository hosting the program including **documentation** written for the program.
+ -->
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./activities"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="explore.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Explore Badges</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../faq/syllabus.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Syllabus and Grading FAQ</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposal-template">Proposal Template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updates-and-work-in-progress">Updates and work in Progress</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-report">Summary Report</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborative-build-rules-procedures">Collaborative Build rules/procedures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-ideas">Build Ideas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-ideas-to-write-a-proposal-for">General ideas to write a proposal for</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-approved-proposals">Auto-approved proposals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-solo-docs-focus">212 Project Solo- Docs focus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-solo-developer-focus">212 Project Solo- Developer focus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-pair">212 Project Pair</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
