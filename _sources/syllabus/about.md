@@ -10,7 +10,7 @@ the computer system itself.  We will begin with two fundamental tools: version c
 ## About this syllabus
 
 This syllabus is a *living*  document.  You can get notification of changes from GitHub by "watching" the
-{{ '[repository](https://github.com/introcompsys/{repo})'.format(repo=repo_name) }}
+{{ '[repository](https://github.com/compsys-progtools/{repo})'.format(repo=repo_name) }}
 You can view the date of changes and exactly what changes were made on the Github {{ repo_commits}} page.
 
 Creating an {{ repo_issue }} is also a good way to ask questions about anything in the course it will prompt additions and expand the FAQ section.

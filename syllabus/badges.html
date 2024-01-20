@@ -409,10 +409,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlines">Deadlines</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-badges">Experience badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-and-practice-badges">Review and Practice Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-badges">Explore Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-badges">Build Badges</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-work-and-experience-badges-process">Prepare work and Experience Badges Process</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-and-practice-badge">Review and Practice Badge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-badges">Explore Badges</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-badges">Build Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-process">Explore Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-process">Build Badges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#community-badges">Community Badges</a></li>
 </ul>
             </nav>
@@ -442,17 +449,20 @@ document.write(`
 <span class="c1"># for display on the course website, since Python is not the main outcome of this course</span>
 
 <span class="c1"># semester settings</span>
-<span class="n">first_day</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">last_day</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">first_day</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">22</span><span class="p">)</span>
+<span class="n">last_day</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">29</span><span class="p">)</span>
 
-<span class="n">no_class_ranges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">23</span><span class="p">),</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">26</span><span class="p">)),</span>
-                    <span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">)),</span>
-                  <span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))]</span>
+
+<span class="c1"># no_class_ranges = [(date(2023,11,23),date(2023,11,26)),</span>
+<span class="c1">#                     (date(2023,11,13)),</span>
+<span class="c1">#                   (date(2023,10,10))]</span>
+<span class="n">no_class_ranges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">16</span><span class="p">)),</span>
+                    <span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">19</span><span class="p">))]</span>
 
 
 <span class="n">meeting_days</span> <span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># datetime has 0=Monday</span>
-<span class="n">spring_break</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">11</span><span class="p">),</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">19</span><span class="p">))</span>
-<span class="n">penalty_free_end</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+
+<span class="n">penalty_free_end</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">day_off</span><span class="p">(</span><span class="n">cur_date</span><span class="p">,</span><span class="n">skip_range_list</span><span class="p">):</span>
@@ -485,11 +495,11 @@ document.write(`
 
 
 <span class="c1"># enumerate weeks</span>
-<span class="n">meeting_days</span> <span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># spring</span>
+
 <span class="n">mtg_delta</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">meeting_days</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">meeting_days</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">week_delta</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 
-<span class="n">during_sb</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">spring_break</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">d</span><span class="o">&lt;</span><span class="n">spring_break</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
 
 <span class="n">possible</span> <span class="o">=</span> <span class="p">[(</span><span class="n">first_day</span><span class="o">+</span><span class="n">week_delta</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">first_day</span><span class="o">+</span><span class="n">mtg_delta</span><span class="o">+</span><span class="n">week_delta</span><span class="o">*</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">weeks</span><span class="p">)]</span>
 <span class="n">weekly_meetings</span> <span class="o">=</span> <span class="p">[[</span><span class="n">c1</span><span class="p">,</span><span class="n">c2</span><span class="p">]</span> <span class="k">for</span> <span class="n">c1</span><span class="p">,</span><span class="n">c2</span> <span class="ow">in</span> <span class="n">possible</span> <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">day_off</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span><span class="n">no_class_ranges</span><span class="p">))]</span>
@@ -580,24 +590,85 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">62</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="n">week_delta</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="n">during_sb</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">spring_break</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">d</span><span class="o">&lt;</span><span class="n">spring_break</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">62</span> <span class="n">possible</span> <span class="o">=</span> <span class="p">[(</span><span class="n">first_day</span><span class="o">+</span><span class="n">week_delta</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">first_day</span><span class="o">+</span><span class="n">mtg_delta</span><span class="o">+</span><span class="n">week_delta</span><span class="o">*</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">weeks</span><span class="p">)]</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="n">weekly_meetings</span> <span class="o">=</span> <span class="p">[[</span><span class="n">c1</span><span class="p">,</span><span class="n">c2</span><span class="p">]</span> <span class="k">for</span> <span class="n">c1</span><span class="p">,</span><span class="n">c2</span> <span class="ow">in</span> <span class="n">possible</span> <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">day_off</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span><span class="n">no_class_ranges</span><span class="p">))]</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span> <span class="n">meetings</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">weekly_meetings</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">w</span><span class="p">]</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">65</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="n">mtg_delta</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">meeting_days</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">meeting_days</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="n">week_delta</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">65</span> <span class="n">possible</span> <span class="o">=</span> <span class="p">[(</span><span class="n">first_day</span><span class="o">+</span><span class="n">week_delta</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">first_day</span><span class="o">+</span><span class="n">mtg_delta</span><span class="o">+</span><span class="n">week_delta</span><span class="o">*</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">weeks</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="n">weekly_meetings</span> <span class="o">=</span> <span class="p">[[</span><span class="n">c1</span><span class="p">,</span><span class="n">c2</span><span class="p">]</span> <span class="k">for</span> <span class="n">c1</span><span class="p">,</span><span class="n">c2</span> <span class="ow">in</span> <span class="n">possible</span> <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">day_off</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span><span class="n">no_class_ranges</span><span class="p">))]</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="n">meetings</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">weekly_meetings</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">w</span><span class="p">]</span>
 
 <span class="ne">NameError</span>: name &#39;weeks&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
-<section id="prepare-work-and-experience-badges-process">
-<h2>Prepare work and Experience Badges Process<a class="headerlink" href="#prepare-work-and-experience-badges-process" title="Permalink to this headline">#</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This was changed substantively on 2023-09-08</p>
+<section id="deadlines">
+<h2>Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">#</a></h2>
+<!-- Deadlines are flexible in this course so that you can balance your workload across other courses, and instead the **feedback** schedule is fixed.  Weekly feedback hours will be announced and posted. 
+
+However, leaving all of the work to the end of the semester is not good for you to achieve your goals or for me to manage my time giving feedback.   -->
+<p>There will be fixed feedback hours each week, if your work is submitted by the start of that time it will get feedback.  If not, it will go to the next feedback hours.</p>
+<p>We do not have a final exam, but URI assigns an exam time for every class.  The date of that assigned exam will be the final due date for all work including all revisions.</p>
+<section id="experience-badges">
+<h3>Experience badges<a class="headerlink" href="#experience-badges" title="Permalink to this headline">#</a></h3>
+<p>Prepare for class tasks must be done before class so that you are prepared.  Missing a prepare task could require you to do an experience report to make up what you were not able to do in class.</p>
+<p>If you miss class, the experience report should be at least attempted/drafted (though you may not get feedback/confirmation) before the next class that you attend. This is strict, not as punishment, but to ensure that you are able to participate in the next class that you attend. Skipping the experience report for a missed class, may result in needing to do an experience report for the next class you attend to make up what you were not able to complete due to the missing class activities.</p>
+<p>If you miss multiple classes, create a catch-up plan to get back on track by contacting Dr. Brown.</p>
+</section>
+<section id="review-and-practice-badges">
+<span id="rp-status"></span><h3>Review and Practice Badges<a class="headerlink" href="#review-and-practice-badges" title="Permalink to this headline">#</a></h3>
+<p>These badges have 5 stages:</p>
+<ul class="simple">
+<li><p>posted: tasks are on the course website</p></li>
+<li><p>planned: an <a class="reference internal" href="../resources/glossary.html#term-issue"><span class="xref std std-term">issue</span></a> is created</p></li>
+<li><p>started: one task is attempted and a draft PR is open</p></li>
+<li><p>completed: all tasks are attempted PR is ready for review, and a review is requested</p></li>
+<li><p>earned: PR is approved (by instructor or a TA) and work is merged</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>these badges <em>should</em> be started before the next class. This will set you up to make the most out of each class session. However, only prepare for class tasks have to be done immediately.</p>
 </div>
+<p>These badges badges must be <em>started</em> within one week of when the are posted (2pm) and <em>completed</em> within two weeks. A task is attempted when you have answered the questions or submitted evidence of doing an activity or asked a sincere clarifying question.</p>
+<p>If a badge is planned, but not started within one week it will become expired and ineligble to be earned. You may request extensions to complete a badge by updating the PR message, these will typically be granted. Extensions for starting badges will only be granted in exceptional circumstances.</p>
+<p>Expired badges will receive a comment and be closed</p>
+<p>Once you have a good-faith attempt at a complete badge, you have until the end of the semester to finish the revisions in order to <em>earn</em> the badge.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Try to complete revisions quickly, it will be easier for you</p>
+</div>
+</section>
+<section id="explore-badges">
+<h3>Explore Badges<a class="headerlink" href="#explore-badges" title="Permalink to this headline">#</a></h3>
+<p>Explore badges have  5 stages:</p>
+<ul class="simple">
+<li><p>proposed: issue created</p></li>
+<li><p>in progress: issue is labeled “proceed” by the instructor</p></li>
+<li><p>complete: work is complete, PR created, review requested</p></li>
+<li><p>revision: “request changes” review was given</p></li>
+<li><p>earned: PR approved</p></li>
+</ul>
+<p>Explore badges are feedback-limited. You will not get feedback on subsequent explore badge proposals until you earn the first one.  Once you have one earned, then you can have up to two in progress and two in revision at any given time. At most, you will receive feedback for one explore badge per week, so in order to earn six, your first one must be complete by March 18.</p>
+</section>
+<section id="build-badges">
+<h3>Build Badges<a class="headerlink" href="#build-badges" title="Permalink to this headline">#</a></h3>
+<p>At most one build badge will be evaluated every 4 weeks.  This means that if you want to earn 3 build badges, the first one must be in 8 weeks before the end of the semester, March 4. The second would be due April 1st, and the third submitted by the end of classes, April 29th.</p>
+<!-- ### Notes
+
+
+- Keep your deeper explorations and more practice task content in your KWL chart repository.
+- Link approved PRs to your grading contract for record keeping.
+
+### Grading Contract Instructions
+
+```{important}
+this includes minor corrections relative to the readme in the template provided
+``` 
+-->
+</section>
+</section>
+<section id="prepare-work-and-experience-badges-process">
+<span id="prepare-experience-process"></span><h2>Prepare work and Experience Badges Process<a class="headerlink" href="#prepare-work-and-experience-badges-process" title="Permalink to this headline">#</a></h2>
 <p>This is for a single example with specific dates, but it is similar for all future dates</p>
 <p>The columns (and purple boxes) correspond to branches in your KWL repo and the yellow boxes are the things that you have to do. The “critical” box is what you have to wait for us on. The arrows represent PRs (or a local merge for the first one)</p>
 <div class="mermaid">
@@ -636,7 +707,7 @@ document.write(`
         </div><p>Where the “approved” tag represents and approving reivew on the PR.</p>
 </section>
 <section id="review-and-practice-badge">
-<h2>Review and Practice Badge<a class="headerlink" href="#review-and-practice-badge" title="Permalink to this headline">#</a></h2>
+<span id="review-practice-process"></span><h2>Review and Practice Badge<a class="headerlink" href="#review-and-practice-badge" title="Permalink to this headline">#</a></h2>
 <p>Legend:</p>
 <div class="mermaid">
             flowchart TD
@@ -726,8 +797,8 @@ style started fill:#2cf
 style posted fill:#2cf
 style planned fill:#2cf
         </div></section>
-<section id="explore-badges">
-<h2>Explore Badges<a class="headerlink" href="#explore-badges" title="Permalink to this headline">#</a></h2>
+<section id="explore-process">
+<span id="id1"></span><h2>Explore Badges<a class="headerlink" href="#explore-process" title="Permalink to this headline">#</a></h2>
 <div class="mermaid">
             flowchart TD
     subgraph proposal[Propose the Topic and Product]
@@ -787,8 +858,8 @@ style revision fill:#2cf
 style earned fill:#2cf
 
         </div></section>
-<section id="build-badges">
-<h2>Build Badges<a class="headerlink" href="#build-badges" title="Permalink to this headline">#</a></h2>
+<section id="build-process">
+<span id="id2"></span><h2>Build Badges<a class="headerlink" href="#build-process" title="Permalink to this headline">#</a></h2>
 <div class="mermaid">
             flowchart TD
     subgraph proposal[Propose the Topic and Product]
@@ -854,18 +925,18 @@ style earned fill:#2cf
 
         </div></section>
 <section id="community-badges">
-<h2>Community Badges<a class="headerlink" href="#community-badges" title="Permalink to this headline">#</a></h2>
-<p>These are the instructions from your <code class="docutils literal notranslate"><span class="pre">community_contributions.md</span></code> file:
+<span id="community-process"></span><h2>Community Badges<a class="headerlink" href="#community-badges" title="Permalink to this headline">#</a></h2>
+<p>These are the instructions from your <code class="docutils literal notranslate"><span class="pre">community_contributions.md</span></code> file in your KWL repo:
 For each one:</p>
 <ul class="simple">
-<li><p>In the community_contributions.md file on your kwl repo, add an item in a bulleted list (start the line with - )</p></li>
+<li><p>In the `community_contributions.md`` file on your kwl repo, add an item in a bulleted list (start the line with - )</p></li>
 <li><p>Include a link to your contribution like <code class="docutils literal notranslate"><span class="pre">[text</span> <span class="pre">to</span> <span class="pre">display](url/of/contribution)</span></code></p></li>
-<li><p>create an individual pull request titled “Community-shortname” where <code class="docutils literal notranslate"><span class="pre">shortname</span></code> is a short name for what you did. approval on this PR by Dr. Brown will constitute credit for your grade</p></li>
+<li><p>create an individual <a class="reference internal" href="../resources/glossary.html#term-pull-request"><span class="xref std std-term">pull request</span></a> titled “Community-shortname” where <code class="docutils literal notranslate"><span class="pre">shortname</span></code> is a short name for what you did. approval on this PR by Dr. Brown will constitute credit for your grade</p></li>
 <li><p>request a review on that PR from &#64;brownsarahm</p></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>You want one contribution per PR for tracking</p>
+<p>You want one contribution per <span class="xref std std-term">PR</span>` for tracking</p>
 </div>
 <div class="mermaid">
             flowchart TD
@@ -948,10 +1019,17 @@ For each one:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlines">Deadlines</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-badges">Experience badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-and-practice-badges">Review and Practice Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-badges">Explore Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-badges">Build Badges</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-work-and-experience-badges-process">Prepare work and Experience Badges Process</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-and-practice-badge">Review and Practice Badge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-badges">Explore Badges</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-badges">Build Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-process">Explore Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-process">Build Badges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#community-badges">Community Badges</a></li>
 </ul>
   </nav></div>

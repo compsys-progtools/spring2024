@@ -6,9 +6,9 @@ kernelspec:
 
 # About this Site
 
-Welcome to the course website for Computer Systems and Programming Tools in Fall2023 with Professor Brown.
+Welcome to the course website for Computer Systems and Programming Tools in Spring 2024 with Professor Brown.
 
-This class meets TuTh 12:30-1:45 in library 166
+This class meets TuTh 12:30-1:45 in Ranger 302 and lab on Monday 3-4:45 in Ranger 202. 
 
 This website will contain the syllabus, class notes, and other reference material for the class.
 
