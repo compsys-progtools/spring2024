@@ -275,7 +275,7 @@ For builds, since they're bigger, you will propose intermediate milestones. Advi
 
 Community badges are awarded for extra community participation. Both programming and learning are most effective in good healthy collaboration.  Since being a good member of our class community helps you learn (and helps others learn better), some collaboration is required in other badges. Some dimensions of community participation can only be done once, for example fixing a typo on the course website, so while it's valuable, all students cannot contribute to the course community in the same way. To reward these unique contributions, you can earn a community badge. 
 
-You can see some ideas as they arise by [issues labeled `community`](https://github.com/introcompsys/fall2023/labels/community).
+You can see some ideas as they arise by [issues labeled `community`](https://github.com/compsys-progtools/spring2024/labels/community).
 
 Community badges can replace missed experience, review, and practice badges, upgrade a review to a practice badge, or they can be used as an alternate way to earn a + modifier on a D,C,or B (URI doesn't award A+s, sorry).  Community badges are smaller, so they are not 1:1 replacements for other badges. You can earn a maximum of 14 community badges, generally one per week.  Extra helpful contributions may be awarded 2 community badges, but that does not increase your limit. When you earn them, you can plan how you will use it, but they will only be officially applied to your grade at the end of the semester.  They will automatically be applied in the way that gives you the maximum benefit. 
 
@@ -339,81 +339,6 @@ This means that, for example, the same mistake the first time, might get a {fa}`
 
 If the course response rate on the IDEA survey is about 75%, {fa}`gift` will be applicable to final grading. **this includes the requirement of the student to reply** 
 ```
-
-## Deadlines 
-
-<!-- Deadlines are flexible in this course so that you can balance your workload across other courses, and instead the **feedback** schedule is fixed.  Weekly feedback hours will be announced and posted. 
-
-However, leaving all of the work to the end of the semester is not good for you to achieve your goals or for me to manage my time giving feedback.   -->
-
-There will be fixed feedback hours each week, if your work is submitted by the start of that time it will get feedback.  If not, it will go to the next feedback hours. 
-
-
-We do not have a final exam, but URI assigns an exam time for every class.  The date of that assigned exam will be the final due date for all work including all revisions. 
-
-
-### Experience badges
-
-Prepare for class tasks must be done before class so that you are prepared.  Missing a prepare task could require you to do an experience report to make up what you were not able to do in class.
-
-If you miss class, the experience report should be at least attempted/drafted (though you may not get feedback/confirmation) before the next class that you attend. This is strict, not as punishment, but to ensure that you are able to participate in the next class that you attend. Skipping the experience report for a missed class, may result in needing to do an experience report for the next class you attend to make up what you were not able to complete due to the missing class activities.  
-
-If you miss multiple classes, create a catch-up plan to get back on track by contacting Dr. Brown. 
-
-(rp-status)=
-### Review and Practice Badges 
-
-These badges have 5 stages: 
-- posted: tasks are on the course website
-- planned: an {term}`issue` is created
-- started: one task is attempted and a draft PR is open 
-- completed: all tasks are attempted PR is ready for review, and a review is requested
-- earned: PR is approved (by instructor or a TA) and work is merged
-
-```{tip}
-these badges *should* be started before the next class. This will set you up to make the most out of each class session. However, only prepare for class tasks have to be done immediately. 
-```
-
-These badges badges must be *started* within one week of when the are posted (2pm) and *completed* within two weeks. A task is attempted when you have answered the questions or submitted evidence of doing an activity or asked a sincere clarifying question.
-
-If a badge is planned, but not started within one week it will become expired and ineligble to be earned. You may request extensions to complete a badge by updating the PR message, these will typically be granted. Extensions for starting badges will only be granted in exceptional circumstances.  
-
-Expired badges will receive a comment and be closed
-
-Once you have a good-faith attempt at a complete badge, you have until the end of the semester to finish the revisions in order to *earn* the badge. 
-
-```{tip}
-Try to complete revisions quickly, it will be easier for you
-```
-
-
-### Explore Badges 
-
-Explore badges have  5stages:
-- proposed: {term}`issue` created 
-- in progress: {term}`issue` is labeled "proceed" by the instructor
-- complete: work is complete, PR created, review requested
-- revision: "request changes" review was given
-- earned: PR approved
-
-Explore badges are feedback-limited. You will not get feedback on subsequent explore badge proposals until you earn the first one.  Once you have one earned, then you can have up to two in progress and two in revision at any given time. 
-
-### Build Badges 
-
-You may earn at most one build badge per month, with final grading in December. To earn three build badges, you must earn the first one by the end of October. 
-
-<!-- ### Notes
-
-
-- Keep your deeper explorations and more practice task content in your KWL chart repository.
-- Link approved PRs to your grading contract for record keeping.
-
-### Grading Contract Instructions
-
-```{important}
-this includes minor corrections relative to the readme in the template provided
-``` 
--->
 
 ## Ungrading Option
 
