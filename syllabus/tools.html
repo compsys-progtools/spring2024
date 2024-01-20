@@ -483,7 +483,7 @@ please <a class="reference external" href="https://github.com/signup">create one
 but have not used it recently, you may need to update your password and login credentials
 as the <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github">Authentication rules</a> changed in Summer 2021.</p>
 <p>You will also need the <a class="reference external" href="https://cli.github.com/">gh CLI</a>. It will help with authentication
-and allow you to work with other parts of github besides the core git operations.</p>
+and allow you to work with other parts of <a class="reference internal" href="../resources/glossary.html#term-GitHub"><span class="xref std std-term">GitHub</span></a> besides the core <a class="reference internal" href="../resources/glossary.html#term-git"><span class="xref std std-term">git</span></a> operations.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You need to install this on Mac</p>
@@ -509,10 +509,10 @@ environments to apply concepts.</p>
 <li><p>Python with scientific computing packages (numpy, scipy, jupyter, pandas, seaborn, sklearn)</p></li>
 <li><p>a C compiler</p></li>
 <li><p><a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></p></li>
-<li><p>A bash shell</p></li>
+<li><p>A bash <a class="reference internal" href="../resources/glossary.html#term-shell"><span class="xref std std-term">shell</span></a></p></li>
 <li><p>A web browser compatible with <a class="reference external" href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/install.html#step-0-the-browser">Jupyter Notebooks</a></p></li>
 <li><p>nano text editor (comes with GitBash and default on MacOS)</p></li>
-<li><p>one IDE with git support (default or via extension)</p></li>
+<li><p>one IDE with <a class="reference internal" href="../resources/glossary.html#term-git"><span class="xref std std-term">git</span></a> support (default or via extension)</p></li>
 <li><p><a class="reference external" href="https://github.com/cli/cli#installation">the GitHub CLI</a> on all OSs</p></li>
 </ul>
 </section>
@@ -540,7 +540,7 @@ MacOS</label><div class="sd-tab-content docutils">
 <p>Video install instructions for Anaconda:</p>
 <ul class="simple">
 <li><p>Install python via <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> [video]](<a class="reference external" href="https://www.youtube.com/watch?v=TcSAln46u9U">https://www.youtube.com/watch?v=TcSAln46u9U</a>)</p></li>
-<li><p>install Git with the Xcode Command Line Tools. On Mavericks (10.9) or above you can do this by trying to run git from the Terminal the very first time.<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">--version</span></code></p></li>
+<li><p>install Git with the Xcode Command Line Tools. On Mavericks (10.9) or above you can do this by trying to run <a class="reference internal" href="../resources/glossary.html#term-git"><span class="xref std std-term">git</span></a> from the Terminal the very first time.<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">--version</span></code></p></li>
 </ul>
 <p>On Mac,  to install python via environment, <a class="reference external" href="https://opensource.com/article/19/5/python-3-default-mac">this article may be helpful</a></p>
 </div>
@@ -556,7 +556,7 @@ Linux</label><div class="sd-tab-content docutils">
 Chrome OS</label><div class="sd-tab-content docutils">
 <ol class="arabic">
 <li><p>Find Linux (Beta) in your settings and turn that on.</p></li>
-<li><p>Once the download finishes a Linux terminal will open, then enter the commands: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code> and <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">upgrade</span></code>. These commands will ensure you are up to
+<li><p>Once the download finishes a Linux <a class="reference internal" href="../resources/glossary.html#term-terminal"><span class="xref std std-term">terminal</span></a> will open, then enter the commands: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code> and <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">upgrade</span></code>. These commands will ensure you are up to
 date.</p></li>
 <li><p>Install tmux with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="o">-</span><span class="n">t</span> <span class="n">stretch</span><span class="o">-</span><span class="n">backports</span> <span class="n">install</span> <span class="n">tmux</span>
@@ -572,8 +572,8 @@ date.</p></li>
 </li>
 <li><p>Next install Anaconda’s Python from the website provided by the instructor and use the
 top download link under the Linux options.</p></li>
-<li><p>You will then see a .sh file in your downloads, move this into your Linux files.</p></li>
-<li><p>Make sure you are in your home directory (something like home/YOURUSERNAME),
+<li><p>You will then see a {.sh}<code class="docutils literal notranslate"><span class="pre">.sh</span></code> file in your downloads, move this into your Linux files.</p></li>
+<li><p>Make sure you are in your home <a class="reference internal" href="../resources/glossary.html#term-directory"><span class="xref std std-term">directory</span></a> (something like home/YOURUSERNAME),
 do this by using the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command.</p></li>
 <li><p>Use the <code class="docutils literal notranslate"><span class="pre">bash</span></code> command followed by the file name of the installer you just downloaded to
 start the installation.</p></li>
@@ -581,7 +581,7 @@ start the installation.</p></li>
 command to enter the .bashrc file, then add the <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PATH=/home/YOURUSERNAME/anaconda3/bin/:$PATH</span></code> line. This can be placed at the
 end of the file.</p></li>
 <li><p>Once that is inserted you may close and save the file, to do this hold escape and type <code class="docutils literal notranslate"><span class="pre">:x</span></code>,
-then press enter. After doing that you will be returned to the terminal where you will then
+then press enter. After doing that you will be returned to the <a class="reference internal" href="../resources/glossary.html#term-terminal"><span class="xref std std-term">terminal</span></a> where you will then
 type the source .bashrc command.</p></li>
 <li><p>Next, use the <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">–generate-config</span></code> command to generate a Jupyter
 Notebook.</p></li>
