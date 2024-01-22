@@ -172,7 +172,7 @@ ax.set_title('Badge Status as of '+ today_string);
 
 However, leaving all of the work to the end of the semester is not good for you to achieve your goals or for me to manage my time giving feedback.   -->
 
-There will be fixed feedback hours each week, if your work is submitted by the start of that time it will get feedback.  If not, it will go to the next feedback hours. 
+<!-- There will be fixed feedback hours each week, if your work is submitted by the start of that time it will get feedback.  If not, it will go to the next feedback hours.  -->
 
 
 We do not have a final exam, but URI assigns an exam time for every class.  The date of that assigned exam will be the final due date for all work including all revisions. 
