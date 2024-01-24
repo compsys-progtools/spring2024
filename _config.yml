@@ -15,7 +15,7 @@ html:
 
 
 repository:
-  url                       : https://github.com/introcompsys/fall2023# The URL to your book's repository
+  url                       : https://github.com/compsys-progtools/spring2024# The URL to your book's repository
   path_to_book              : ""  # A path to your book's folder, relative to the repository root.
   branch                    : main  # Which branch of the repository should be used when creating links
 
@@ -53,15 +53,15 @@ parse:
     - substitution
   myst_substitutions:
     time: TTh 12:30-1:45
-    location: Morrill Hall 323
+    location: Ranger 203
     bscalendar: |
-      [course calendar](https://brightspace.uri.edu/d2l/le/calendar/222277)
-    semester: Spring 2023
-    repo_name: spring2023
+      put in an issue if you see this saying "bscalendar is used"
+    semester: Spring 2024
+    repo_name: spring2024
     repo_commits: |
-      [commit history](https://github.com/introcompsys/spring2023/commits)
+      [commit history](https://github.com/compsys-progtools/spring2024/commits)
     repo_issue: |
-      [issue](https://github.com/introcompsys/spring2023/issues)
+      [issue](https://github.com/compsys-progtools/spring2024//issues)
     bssite: |
-      [Brightspace site](https://brightspace.uri.edu/d2l/home/222277)
+      put in an issue if you see this saying "bssite is used"
     ghinstructors: instructors
