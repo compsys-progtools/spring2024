@@ -102,6 +102,9 @@ pull (changes from a repository)
 [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
   allow other users to review and request changes on branches. after a pull request recieves approval you can merge the changed content to the main branch.
 
+PR
+  short for {term}`pull request`
+
 push (changes to a repository)
   to put whatever you were working on from your local machine onto a remote copy of the repository in a version control system.
 
