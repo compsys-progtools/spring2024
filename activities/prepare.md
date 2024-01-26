@@ -17,3 +17,10 @@ The correct answer is not as important for these activities as it is to do them 
 ```{include} ../_prepare/2024-01-25.md
 ```
 
+
+
+## 2024-01-30
+
+
+```{include} ../_prepare/2024-01-30.md
+```
