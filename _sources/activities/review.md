@@ -17,3 +17,12 @@ Activities:
 ```{include} ../_review_/2024-01-23.md
 ```
 
+
+
+## 2024-01-25
+
+[related notes](../notes/2024-01-25)
+
+Activities:
+```{include} ../_review_/2024-01-25.md
+```

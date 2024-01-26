@@ -1,0 +1,1009 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. How does this course work? &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-01-25';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="prev" title="1. Welcome, Introduction, and Setup" href="2024-01-23.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. How does this course work?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository/edit/main/notes/2024-01-25.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository/issues/new?title=Issue%20on%20page%20%2Fnotes/2024-01-25.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notes/2024-01-25.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How does this course work?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up">2.1. Warm up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-it-like-to-know-things-really-well">2.2. What is it like to know things really well?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-requests-and-commits">2.3. Pull Requests and Commits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-learn-by-example">2.4. Why learn by example?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admin">2.5. Admin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-history-prs">2.6. Commit history &amp; PRs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-course-will-be-different">2.7. This course will be different</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-do-not-judge-your-reasons-for-missing-class">2.7.1. I do not judge your reasons for missing class.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#my-focus-is-for-you-to-learn">2.7.2. My focus is for you to learn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-comes-in-many-forms">2.7.3. Learning comes in many forms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-is-the-goal">2.8. Learning is the goal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-ai">2.9. What about AI?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-is-a-college-course">2.10. This is a college course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-never-use-what-i-learned-in-college">2.11. “I never use what I learned in college”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-this-work">2.12. How does this work?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class">2.12.1. In class:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outside-of-class">2.12.2. Outside of class:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-be-successful">2.13. How to be successful</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-this-course-about">2.14. What is this course about?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-fits-into-your-cs-degree">2.14.1. How it fits into your CS degree</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-is-collaborative">2.14.2. Programming is Collaborative</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-actions-tab-review">2.15. GitHub Actions Tab Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-credit-for-todays-class">2.15.1. Get Credit for Today’s class</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder-about-class-structure">2.16. Reminder about class structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-lab">2.17. Prepare for lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">2.18. Prepare for next class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">2.19. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-class">2.20. Questions After Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-experience-badge-after-i-commit-do-i-do-anything-after">2.20.1. In experience badge, after I commit, do I do anything after?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-we-adding-a-reviewer-to-our-experience-badge">2.20.2. Are we adding a reviewer to our experience badge?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-we-check-off-the-things-in-the-experience-badge-checklist-or-does-a-ta-do-that">2.20.3. do we check off the things in the experience badge checklist or does a TA do that?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-we-do-both-the-review-and-prepare">2.20.4. do we do both the review and prepare?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-submit-work">2.20.5. How do I submit work?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-wanted-to-ping-an-instructor-the-instructor-that-got-assigned-to-us-would-we-them-in-a-comment">2.20.6. If we wanted to ping an instructor/the instructor that got assigned to us, would we @ them in a comment?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-final-note">2.21. A final note</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="how-does-this-course-work">
+<h1><span class="section-number">2. </span>How does this course work?<a class="headerlink" href="#how-does-this-course-work" title="Permalink to this headline">#</a></h1>
+<p>Today we will:</p>
+<ul class="simple">
+<li><p>continue getting familiar with the structure of GitHub</p></li>
+<li><p>clarify more how the course will flow</p></li>
+<li><p>practice with new vocabulary</p></li>
+</ul>
+<p><em>Tuesday was a lot of new information, today we will reinforce that mostly, and add only a little</em></p>
+<section id="warm-up">
+<h2><span class="section-number">2.1. </span>Warm up<a class="headerlink" href="#warm-up" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Navigate to your KWL repo</p></li>
+<li><p>Find the issues tab</p></li>
+<li><p>Open the prepare-2024-01-25 issue and follow those instructions</p></li>
+</ol>
+<p>*hint: my KWL repo URL is: <code class="docutils literal notranslate"><span class="pre">https://github.com/compsys-progtools/kwl-sp24-brownsarahm</span></code></p>
+</section>
+<section id="what-is-it-like-to-know-things-really-well">
+<h2><span class="section-number">2.2. </span>What is it like to know things really well?<a class="headerlink" href="#what-is-it-like-to-know-things-really-well" title="Permalink to this headline">#</a></h2>
+<p>When you know something well:</p>
+<ul class="simple">
+<li><p>it becomes automatic, you can do it without thinking about the details</p></li>
+<li><p>you are able to anticipate things</p></li>
+<li><p>you use specialized vocabulary with ease</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The goal is to get you to that point with alal of the developer tools we will learn about.</p>
+<p>If the tools become automatic in this class, you an <em>use</em> them with ease in other classes to your advantage.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We did some prismia questions on GitHub things to reinforce that material we had already seen. When we do this, I’ll typically skip that section in the posted notes, but you can always view on prismia including getting a transcript from prisma:</p>
+<ol class="arabic simple">
+<li><p>In the top left corner there is a <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> icon which opens a sidebar popup.</p></li>
+<li><p>In the top left <span class="fa fa-bar"></span> opens a menu</p></li>
+<li><p>“Get transcript from class”</p></li>
+</ol>
+</div>
+</section>
+<section id="pull-requests-and-commits">
+<h2><span class="section-number">2.3. </span>Pull Requests and Commits<a class="headerlink" href="#pull-requests-and-commits" title="Permalink to this headline">#</a></h2>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We will learn what a branch “is” later and change this relationship, but this is a <em>useful</em> way to think about it even if it is not precisely the way it is implemented or even always true</p>
+</div>
+</aside>
+<p>The unit of changes in a histoy is a commit. Each commmit is said to be “on” a branch.</p>
+<p>We examined the PRs for your first experience badge.</p>
+<figure class="align-default" id="expbadgepr">
+<img alt="a screenshot of an experience badge PR in Dr. Brown's kwl repo, it has 2 commits, which is denoted with a 2 next to commits on the tabs below the PR title above the first comment. The conversation tab is highlighted, below the first comment is shows the list of 2 separate commits. There are 0 checks, and 1 files changed as indicated by the tab titles." src="../_images/pr-multi-commits.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">A PR that has two commits on it with one file changed. This PR compares the <code class="docutils literal notranslate"><span class="pre">experience-$date</span></code> branch to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</span><a class="headerlink" href="#expbadgepr" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>From this page we can learn an important implication of the fact that <strong>a pull request is a comparison between two branches</strong>. Since the relationship is between the branches, it is not related directly to commits. We can <em>add</em> more commits to the branch after we make a PR, and they show up on the PR page.</p>
+<p>At the bottom of this screenshot which is right above the checks for the PR is a reminder from GitHub:</p>
+<blockquote>
+<div><p>Add more commits by pushing to the experience-$date branch on compsys-progtools/kwl-sp24-brownsarahm.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>here we are learning <em>by example</em> and then <em>synthesizing</em> that into  concrete facts.</p>
+<p>This course will proceed like this a lot; we <em>do</em> things to let you experience the important to know things <em>in context</em> first, then discuss and label and examine.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If we ever do something and you are not sure why, please ask!!</p>
+</div>
+</section>
+<section id="why-learn-by-example">
+<h2><span class="section-number">2.4. </span>Why learn by example?<a class="headerlink" href="#why-learn-by-example" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>just play with it</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>common attitude in CS</p></li>
+<li><p>not optimal for learning</p></li>
+</ul>
+<p>It’s not optimal for learning because it can leave you unguided and not knwo where to start, but it is the common culture in developer environments.</p>
+<p>My goal is to teach you to thrive within that culture, because you are likely to encounter it at work.</p>
+<p>My goal, however, is not to just drop you in with no preparation. If it feels that way, <strong>please ask questions</strong>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do not feel bad for asking questions; questions are not a burden.  Asking questions lets me know you are paying attention, questions are <em>good</em>.</p>
+</div>
+</aside>
+<p>We’ll practice what it <em>looks like</em> to learn by tinkering and then examining.</p>
+<p>To do this:</p>
+<ul class="simple">
+<li><p>set up opportunities for you to <em>do</em> the things that give you the opportunity</p></li>
+<li><p>highlight important facts about what just happened</p></li>
+<li><p>ask you questions to examine what just happened</p></li>
+</ul>
+<p>This is why attendance/participation is a big part of your grade.</p>
+<p>Experience badges are evidence of having learned, you get credit for engaging in the <em>process</em> of learning.</p>
+</section>
+<section id="admin">
+<h2><span class="section-number">2.5. </span>Admin<a class="headerlink" href="#admin" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Go to you PR tab</p></li>
+<li><p>Find the PR titled “Template updates” that I created</p></li>
+<li><p>Merge and confirm the PR</p></li>
+</ol>
+</section>
+<section id="commit-history-prs">
+<h2><span class="section-number">2.6. </span>Commit history &amp; PRs<a class="headerlink" href="#commit-history-prs" title="Permalink to this headline">#</a></h2>
+<p>When we merge a PR into <code class="docutils literal notranslate"><span class="pre">main</span></code> all of the commits on the PR compare branch are added to <code class="docutils literal notranslate"><span class="pre">main</span></code> + an additional commit for the merge itself.</p>
+<p>For easy merges, that commit does not add more changes to any files, but if the merge is not automatic, it can.</p>
+</section>
+<section id="this-course-will-be-different">
+<h2><span class="section-number">2.7. </span>This course will be different<a class="headerlink" href="#this-course-will-be-different" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>no Brightspace</p></li>
+<li><p>300 level = more independence</p></li>
+<li><p>I will give advice, but only hold you accountable to a minimal set</p></li>
+<li><p>High expectations, with a lot of flexibility</p></li>
+</ul>
+<section id="i-do-not-judge-your-reasons-for-missing-class">
+<h3><span class="section-number">2.7.1. </span>I do not judge your reasons for missing class.<a class="headerlink" href="#i-do-not-judge-your-reasons-for-missing-class" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>No need to tell me in advance</strong></p></li>
+<li><p>For 1 class, no need to tell me why at all</p></li>
+<li><p>For 1 class, make it up and keep moving</p></li>
+<li><p>For long absences, I will help you plan how to get caught up, must meet university criteria for excused absence</p></li>
+</ul>
+<p>If you do email me about missing a single clss, I will likely not reply.  Not because I do not care about your long term success; I do! I get too many emails. I try to prioritize time on things that has the biggest impact; confirming I saw an email that does not change any other policies is lower impact than, for example giving feedback on student work.</p>
+</section>
+<section id="my-focus-is-for-you-to-learn">
+<h3><span class="section-number">2.7.2. </span>My focus is for you to learn<a class="headerlink" href="#my-focus-is-for-you-to-learn" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>that means, practice, feedback, and reflection</p></li>
+<li><p>you should know that you have learned</p></li>
+<li><p>you should be able to apply this material in other courses</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You <strong>will</strong> be asked to revise things at some point, for 2 reasons:</p>
+<ul class="simple">
+<li><p>since I allow revisions, I enforce really high standards on the quality of your work so that you do not hold onto misconceptions</p></li>
+<li><p>the process of using GitHub to make revisions is something to get familiar with.</p></li>
+</ul>
+</div>
+</section>
+<section id="learning-comes-in-many-forms">
+<h3><span class="section-number">2.7.3. </span>Learning comes in many forms<a class="headerlink" href="#learning-comes-in-many-forms" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>different types of material are best remembered in different ways</p></li>
+<li><p>some things are hard to explain, but watching it is very concrete</p></li>
+</ul>
+</section>
+</section>
+<section id="learning-is-the-goal">
+<h2><span class="section-number">2.8. </span>Learning is the goal<a class="headerlink" href="#learning-is-the-goal" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>producing outputs as fast as possible is not learning</p></li>
+<li><p>in a job, you may get paid to do things fast</p></li>
+<li><p>your work also needs to be correct, without someone telling you it is</p></li>
+<li><p>in a job you are trusted to know your work is correct, your boss does not check your work or grade you</p></li>
+<li><p>to get a job, you have to interview, which means explaining, in words, to another person how to do something</p></li>
+</ul>
+</section>
+<section id="what-about-ai">
+<h2><span class="section-number">2.9. </span>What about AI?<a class="headerlink" href="#what-about-ai" title="Permalink to this headline">#</a></h2>
+<p>Large Language Models will change what programming looks like, but understanding is always going to be more effective than asking an AI.  Large language models actually do not know anything, they just know what languages loook like and generate text.</p>
+<p><em>if you cannot tell it when it’s wrong, you do not add value for a company, so why would they pay you?</em></p>
+</section>
+<section id="this-is-a-college-course">
+<h2><span class="section-number">2.10. </span>This is a college course<a class="headerlink" href="#this-is-a-college-course" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>more than getting you one job, a bootcamp gets you one job</p></li>
+<li><p>build a long (or maybe short, but fruitful) career</p></li>
+<li><p>build critical thinking skill that makes you adaptable</p></li>
+<li><p>have options</p></li>
+</ul>
+</section>
+<section id="i-never-use-what-i-learned-in-college">
+<h2><span class="section-number">2.11. </span>“I never use what I learned in college”<a class="headerlink" href="#i-never-use-what-i-learned-in-college" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>very common saying</p></li>
+<li><p>it’s actually a sign of deep learning</p></li>
+<li><p>when we have expertise, we do not even notice when we apply it</p></li>
+<li><p>college is not (just) about the facts, but the processes</p></li>
+</ul>
+</section>
+<section id="how-does-this-work">
+<h2><span class="section-number">2.12. </span>How does this work?<a class="headerlink" href="#how-does-this-work" title="Permalink to this headline">#</a></h2>
+<section id="in-class">
+<h3><span class="section-number">2.12.1. </span>In class:<a class="headerlink" href="#in-class" title="Permalink to this headline">#</a></h3>
+<ol class="arabic simple">
+<li><p>Memory/ understanding checks</p></li>
+<li><p>Review/ clarification as needed</p></li>
+<li><p>New topic demo with follow along, tiny practice</p></li>
+<li><p>Review, submit questions</p></li>
+</ol>
+</section>
+<section id="outside-of-class">
+<h3><span class="section-number">2.12.2. </span>Outside of class:<a class="headerlink" href="#outside-of-class" title="Permalink to this headline">#</a></h3>
+<ol class="arabic simple">
+<li><p>Read notes to refresh the material, check your understanding, and find more details</p></li>
+<li><p>Practice material that has been taught</p></li>
+<li><p>Activate your memory of related things to what we will cover to prepare</p></li>
+<li><p>Read articles/ watch videos to either fill in gaps or learn more details</p></li>
+<li><p>Bring questions to class</p></li>
+</ol>
+</section>
+</section>
+<section id="how-to-be-successful">
+<h2><span class="section-number">2.13. </span>How to be successful<a class="headerlink" href="#how-to-be-successful" title="Permalink to this headline">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>There are links on the side to advice from previous semesters, details in the grading have changed, but the core is still the same.</p>
+</div>
+<p>I give a <a class="reference external" href="https://compsys-progtools.github.io/spring2024/syllabus/schedule.html#recommended-workload-distribution">time breakdown</a> in the syllabus.</p>
+<p>Take a minute to think about how you use your time and what that breakdown means for how you will plan.</p>
+<p>This time breakdown is planned based on if the time-blocking strategy is helpful to you, but the most important thing is for you to make a plan that will work for you. I want this to be flexible enough that you can adapt it to your liking, but that mean you have to make choices.</p>
+</section>
+<section id="what-is-this-course-about">
+<h2><span class="section-number">2.14. </span>What is this course about?<a class="headerlink" href="#what-is-this-course-about" title="Permalink to this headline">#</a></h2>
+<p>In your KWL chart, there are a lot of different topics that are not obviously related, so what is this course really about?</p>
+<p>We will:</p>
+<ul class="simple">
+<li><p>practical exposure to important tools</p></li>
+<li><p>design features of those tool categories</p></li>
+<li><p>basic knowledge of many parts of the CS core</p></li>
+<li><p>focus on the connections</p></li>
+</ul>
+<p>We will use learning the tools to understand how computer scientists think and work.</p>
+<p>Then we will use the tools to examine the field of Computer Science top to bottom (possibly out of order).</p>
+<section id="how-it-fits-into-your-cs-degree">
+<h3><span class="section-number">2.14.1. </span>How it fits into your CS degree<a class="headerlink" href="#how-it-fits-into-your-cs-degree" title="Permalink to this headline">#</a></h3>
+<p>knowing where you’ve been and where we’re going will help you understand and remember</p>
+<p>In CSC110, you learn to program in python and see algorithms from a variety of domain areas where computer science is applied.</p>
+<p>(for BS) in CSC 340 and 440 you study the algorithms more mathematically, their complexity, etc.</p>
+<p>In CSC211, 212, you learn the foundations of computer science: general programming and data structures.</p>
+<p>Then in 301, 305, 411, 412 you study different aspects of software design and how computers work.</p>
+<p>In this class, we’re going to connect different ideas. We are going to learn the tools used by computer scientists, deeply. You will understand why the tools are the way they are and how to use them even when things go wrong.</p>
+</section>
+<section id="programming-is-collaborative">
+<h3><span class="section-number">2.14.2. </span>Programming is Collaborative<a class="headerlink" href="#programming-is-collaborative" title="Permalink to this headline">#</a></h3>
+<p>There are two very common types of collaboration</p>
+<ul class="simple">
+<li><p>code review (working independently and then reviewing)</p></li>
+<li><p>pair programming (sitting together and discussing while writing)</p></li>
+</ul>
+<p>We are going to build your skill in the <em>code review</em> model, especially.</p>
+<p>You can  do build badges collaboratively, for a closer collaboration, but those are your choice.</p>
+</section>
+</section>
+<section id="github-actions-tab-review">
+<h2><span class="section-number">2.15. </span>GitHub Actions Tab Review<a class="headerlink" href="#github-actions-tab-review" title="Permalink to this headline">#</a></h2>
+<p>GitHub allows us to run scripts within our repos, the feature is called GitHub Actions and the individual items are called workflows.</p>
+<figure class="align-default" id="id1">
+<img alt="../_images/actionpage.png" src="../_images/actionpage.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Screen shot of the actions tab of my repo showing 4 total runs in the center panel.  Three of the runs succeeded and have a green check mark. One failed and has a red x. On the left hand side there is a list of 5 possible actions to run.  Notice the list of workflows on the left each has a unique name (because we generally choose to name  things so that names can be used as identifies) the list of workflow runs includes the same name multiple times because we can <em>run</em> each workflow multiple times.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><em>this should be different from yours, because I tested things in mine before making your PRs</em></p>
+<section id="get-credit-for-todays-class">
+<h3><span class="section-number">2.15.1. </span>Get Credit for Today’s class<a class="headerlink" href="#get-credit-for-todays-class" title="Permalink to this headline">#</a></h3>
+<p>**Run your Experience Reflection (inclass) action on your kwl repo **</p>
+<p><em>talk with peers to make sure you remember what the right way to click on it is</em></p>
+</section>
+</section>
+<section id="reminder-about-class-structure">
+<h2><span class="section-number">2.16. </span>Reminder about class structure<a class="headerlink" href="#reminder-about-class-structure" title="Permalink to this headline">#</a></h2>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>This diagram is made with Mermaid, that you are supposed to use in your badges for today.</p>
+</div>
+</aside>
+<div class="mermaid">
+            flowchart TD
+    exp[Experience badges]
+    dated[Dated Badges]
+    rev[Review badges]
+    pra[Practice badge]
+    inclass[Class Session &lt;br&gt; 26 total]
+    exp --&gt; | tracks participation for each| inclass 
+    rev --&gt; |is one type of| dated
+    pra --&gt; |is one type of| dated
+    breadth[Breadth bonus]
+    breadth --&gt; |awarded for 18 total | dated
+    participation[Participation bonus]
+    participation --&gt; |awarded for 22 total| exp
+    dated --&gt; |posted for each| inclass
+        </div><p>This is called a concept map, you would read it along the arrows, so this corresponds to the following bullets:</p>
+<ul class="simple">
+<li><p>review badges are one type of dated badge</p></li>
+<li><p>practice badges</p></li>
+<li><p>dated badges are posted for each class session</p></li>
+<li><p>experience badges track participation for each class session</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Remember, this website is generated from a GitHub repo, you can find it from the course organization page on GitHub.  The organization is named <code class="docutils literal notranslate"><span class="pre">compsys-progtools</span></code> so the org page is at <code class="docutils literal notranslate"><span class="pre">https://github.com/compsys-progtools</span></code> and it is the owner of your KWL repo so there is a link to it in the top left corner.</p>
+</div>
+</section>
+<section id="prepare-for-lab">
+<h2><span class="section-number">2.17. </span>Prepare for lab<a class="headerlink" href="#prepare-for-lab" title="Permalink to this headline">#</a></h2>
+<p><strong>this is really a tip/hint about what we will do in the next lab</strong></p>
+<p>Next lab we will give you help with sorting out the procedures of PRs and issues and submitting work.</p>
+<p>If you work on the badges, but you are not sure about things, log your work as comments on the issue or even in a separate file somewhere, and we will help you get it submitted in lab.</p>
+<p>You can also bring questions about anything in the syllabus to get help (or post them for written answers).</p>
+</section>
+<section id="prepare-for-next-class">
+<h2><span class="section-number">2.18. </span>Prepare for next class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="badges">
+<h2><span class="section-number">2.19. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
+</div>
+</div>
+</section>
+<section id="questions-after-class">
+<h2><span class="section-number">2.20. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">#</a></h2>
+<section id="in-experience-badge-after-i-commit-do-i-do-anything-after">
+<h3><span class="section-number">2.20.1. </span>In experience badge, after I commit, do I do anything after?<a class="headerlink" href="#in-experience-badge-after-i-commit-do-i-do-anything-after" title="Permalink to this headline">#</a></h3>
+<p>Yes, request a review from <code class="docutils literal notranslate"><span class="pre">&#64;instructors</span></code></p>
+</section>
+<section id="are-we-adding-a-reviewer-to-our-experience-badge">
+<h3><span class="section-number">2.20.2. </span>Are we adding a reviewer to our experience badge?<a class="headerlink" href="#are-we-adding-a-reviewer-to-our-experience-badge" title="Permalink to this headline">#</a></h3>
+<p>Yes</p>
+</section>
+<section id="do-we-check-off-the-things-in-the-experience-badge-checklist-or-does-a-ta-do-that">
+<h3><span class="section-number">2.20.3. </span>do we check off the things in the experience badge checklist or does a TA do that?<a class="headerlink" href="#do-we-check-off-the-things-in-the-experience-badge-checklist-or-does-a-ta-do-that" title="Permalink to this headline">#</a></h3>
+<p>In the future, you will, but we’ll work through what that looks like in more detail next week.</p>
+</section>
+<section id="do-we-do-both-the-review-and-prepare">
+<h3><span class="section-number">2.20.4. </span>do we do both the review and prepare?<a class="headerlink" href="#do-we-do-both-the-review-and-prepare" title="Permalink to this headline">#</a></h3>
+<p>Only one per date.  If you look, they’re very similar.  For the first class, they’re just about the same.  As we go on for the first few weeks the difference between them will increase (which is mostly complexity or depth of understanding that I am looking to check)</p>
+</section>
+<section id="how-do-i-submit-work">
+<h3><span class="section-number">2.20.5. </span>How do I submit work?<a class="headerlink" href="#how-do-i-submit-work" title="Permalink to this headline">#</a></h3>
+<p>Create a PR and request a review.</p>
+<p>Two things to note:</p>
+<ul class="simple">
+<li><p><em>in the penalty free zone, there is no penalty for doing it wrong</em></p></li>
+<li><p>checking this is the main topic of the next lab, so we will one on one check in with each of you that you know how to do this</p></li>
+</ul>
+</section>
+<section id="if-we-wanted-to-ping-an-instructor-the-instructor-that-got-assigned-to-us-would-we-them-in-a-comment">
+<h3><span class="section-number">2.20.6. </span>If we wanted to ping an instructor/the instructor that got assigned to us, would we &#64; them in a comment?<a class="headerlink" href="#if-we-wanted-to-ping-an-instructor-the-instructor-that-got-assigned-to-us-would-we-them-in-a-comment" title="Permalink to this headline">#</a></h3>
+<p>Yes! you can &#64; mention any of us or the team whenever you need help.</p>
+</section>
+</section>
+<section id="a-final-note">
+<h2><span class="section-number">2.21. </span>A final note<a class="headerlink" href="#a-final-note" title="Permalink to this headline">#</a></h2>
+<div class="community admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Reading to the end is always valued, you can <a class="reference internal" href="../syllabus/badges.html#community-process"><span class="std std-ref">claim a community badge</span></a> for finding this by linking to the heading above and requesting a review from &#64;brownsarahm, title your PR <code class="docutils literal notranslate"><span class="pre">community-reading-notes</span></code>.</p>
+<p>Extra bonus, there are tips like this throughout the website that let you get community badges for setting things up, or reading carefully.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-01-23.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Welcome, Introduction, and Setup</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../activities/kwl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">KWL Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up">2.1. Warm up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-it-like-to-know-things-really-well">2.2. What is it like to know things really well?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-requests-and-commits">2.3. Pull Requests and Commits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-learn-by-example">2.4. Why learn by example?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admin">2.5. Admin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-history-prs">2.6. Commit history &amp; PRs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-course-will-be-different">2.7. This course will be different</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-do-not-judge-your-reasons-for-missing-class">2.7.1. I do not judge your reasons for missing class.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#my-focus-is-for-you-to-learn">2.7.2. My focus is for you to learn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-comes-in-many-forms">2.7.3. Learning comes in many forms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-is-the-goal">2.8. Learning is the goal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-ai">2.9. What about AI?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-is-a-college-course">2.10. This is a college course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-never-use-what-i-learned-in-college">2.11. “I never use what I learned in college”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-this-work">2.12. How does this work?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class">2.12.1. In class:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outside-of-class">2.12.2. Outside of class:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-be-successful">2.13. How to be successful</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-this-course-about">2.14. What is this course about?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-fits-into-your-cs-degree">2.14.1. How it fits into your CS degree</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-is-collaborative">2.14.2. Programming is Collaborative</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-actions-tab-review">2.15. GitHub Actions Tab Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-credit-for-todays-class">2.15.1. Get Credit for Today’s class</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder-about-class-structure">2.16. Reminder about class structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-lab">2.17. Prepare for lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">2.18. Prepare for next class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">2.19. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-class">2.20. Questions After Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-experience-badge-after-i-commit-do-i-do-anything-after">2.20.1. In experience badge, after I commit, do I do anything after?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-we-adding-a-reviewer-to-our-experience-badge">2.20.2. Are we adding a reviewer to our experience badge?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-we-check-off-the-things-in-the-experience-badge-checklist-or-does-a-ta-do-that">2.20.3. do we check off the things in the experience badge checklist or does a TA do that?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-we-do-both-the-review-and-prepare">2.20.4. do we do both the review and prepare?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-submit-work">2.20.5. How do I submit work?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-wanted-to-ping-an-instructor-the-instructor-that-got-assigned-to-us-would-we-them-in-a-comment">2.20.6. If we wanted to ping an instructor/the instructor that got assigned to us, would we @ them in a comment?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-final-note">2.21. A final note</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
