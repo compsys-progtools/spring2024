@@ -170,12 +170,14 @@ No, you cannot earn practice and review for the same date.
 
 ### Experience Badges 
 
+
+
 (expinclass)=
 #### In class
 You earn an experience badge in class by:
 - preparing for class
 - following along with the activity (creating files, using git, etc)
-- responding to 80% of inclass questions (even incorrect or `\:idk:``)
+- responding to 80% of inclass questions (even incorrect, `\idk`, `\dgt`)
 - reflecting on what you learned
 - asking a question at the end of class
 
@@ -188,6 +190,20 @@ You can make up an experience badge by:
 - completing the activity from the notes
 - completeing an "experience report" 
 - attaching evidence as indiated in notes OR attending office hours to show the evidence
+
+
+```{tip}
+On prismia questions, I will generally give a "Last chance to get an answer in" warning before I 
+resume instruction. If you do not respond at all too many times, we will ask you to follow the makeup 
+procedure instead of the In Class proccedure for your experience badge.  
+
+To be sure that your response rate is good, if you are paying attention, but do not have an answer you can use one of the following special commands in prismia: 
+- `\idk`: "I am paying attention, but do not know how to answer this"
+- `\dgt`: "I am paying attention, not really confused, but ran out of time trying to figure out the answer"
+
+you can send these as plain text by pressing {kbd}`enter` (not Mac) or  {kbd}`return` (on Mac)  to send right away or have them render to emoji by pressing {kbd}`tab`
+```
+
 
 An experience report is evidence you have completed the activity and reflection questions. The exact form will vary per class, if you are unsure, reach out ASAP to get instructions. These are evaluated only for completeness/ good faith effort.  Revisions will generally not be required, but clarification and additional activity steps may be advised if your evidence suggests you may have missed a step. 
 
