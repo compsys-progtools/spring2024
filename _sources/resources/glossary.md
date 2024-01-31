@@ -12,6 +12,9 @@ absolute path
 add (new files in a repository)
   the step that stages/prepares files to be committed to a repository from a local branch
 
+argument
+  input to a command line program
+
 bash
   bash or the bourne-again shell is the primary interface in UNIX based systems
 
@@ -92,6 +95,9 @@ interpreted code
 
 Linker
   a program that links together the object files and libraries to output an executable file.
+
+option
+  also known as a flag, a  parameter to a command line program that change its behavior, different from an argument
   
 path
   the "location" of a file or folder(directory) in a computer
