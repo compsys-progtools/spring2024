@@ -71,16 +71,14 @@ HEAD
 merge
   putting two branches together so that you can access files in another branch that are not available in yours
 
-[mermaid](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
-  meraid syntax allows user to create precise, detailed diagrams in markdown files.
+mermaid
+  mermaid syntax allows user to create precise, detailed diagrams in markdown files.
 
 hash function
   the actual function that does the hashing of the input (a key, an object, etc.)
 
-
 hashing
-  putting an input through a function and unique fixed length output (the output is called a hash; used in hash tables and when git hashes commits). 
-
+  transforming an input of arbitrary length to a unique fixed length output (the output is called a hash; used in hash tables and when git hashes commits). 
   
 integrated development environment
   also known as an IDE, puts together all of the tools a developer would need to produce code (source code editor, debugger, ability to run code) into one application so that everything can be done in one place. can also have extra features such as showing your file tree and connecting to git and/or github.
@@ -89,8 +87,8 @@ integrated development environment
 interpreted code
   code that is directly executed from a high level language. more expensive computationally because it cannot be optimized and therefore can be slower.
   
-[issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
-  provides the ability to easily track ideas, feedback, tasks, or bugs. branches can be created for specific issues. an issue is open when it is created. pull requests have the ability to close issues.
+issue
+  provides the ability to easily track ideas, feedback, tasks, or bugs. branches can be created for specific issues. an issue is open when it is created. pull requests have the ability to close issues. see more in the [docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
 
 
 Linker
