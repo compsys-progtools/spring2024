@@ -442,15 +442,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-file-on-the-terminal">3.10. Creating a file on the terminal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-overview">3.11. Concept Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">3.12. Prepare for Next Class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-badge">3.13. Review Badge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-badge">3.14. Practice Badge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">3.15. Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">3.16. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-link-an-issue-to-both-commits-and-prs-or-only-prs">3.16.1. can you link an issue to both commits and PRs, or only PRs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-want-to-stage-multiple-files-can-we-do-that-in-one-command-like-git-add-about-md-readme-md">3.16.2. if we want to stage multiple files, can we do that in one command, like git add about.md README.md</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-we-do-anything-with-the-pull-request-we-just-made-in-the-in-class-repo">3.16.3. do we do anything with the pull request we just made in the in-class repo?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-mermaid-something-we-will-be-using-just-for-now-or-should-i-become-more-familiar-with-it">3.16.4. Is mermaid something we will be using just for now, or should I become more familiar with it?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-benefits-of-using-github-locally">3.16.5. What are the benefits of using GitHub locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">3.13. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">3.14. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">3.15. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-link-an-issue-to-both-commits-and-prs-or-only-prs">3.15.1. can you link an issue to both commits and PRs, or only PRs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-want-to-stage-multiple-files-can-we-do-that-in-one-command-like-git-add-about-md-readme-md">3.15.2. if we want to stage multiple files, can we do that in one command, like git add about.md README.md</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-we-do-anything-with-the-pull-request-we-just-made-in-the-in-class-repo">3.15.3. do we do anything with the pull request we just made in the in-class repo?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-mermaid-something-we-will-be-using-just-for-now-or-should-i-become-more-familiar-with-it">3.15.4. Is mermaid something we will be using just for now, or should I become more familiar with it?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-benefits-of-using-github-locally">3.15.5. What are the benefits of using GitHub locally</a></li>
 </ul>
 </li>
 </ul>
@@ -464,10 +463,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p>file_format: mystnb
-kernelspec:
-name: python3</p>
-<section class="tex2jax_ignore mathjax_ignore" id="working-offline">
+  <section class="tex2jax_ignore mathjax_ignore" id="working-offline">
 <h1><span class="section-number">3. </span>Working offline<a class="headerlink" href="#working-offline" title="Permalink to this headline">#</a></h1>
 <section id="why-do-we-need-this-for-computer-systems">
 <h2><span class="section-number">3.1. </span>Why do we need this for computer systems?<a class="headerlink" href="#why-do-we-need-this-for-computer-systems" title="Permalink to this headline">#</a></h2>
@@ -478,9 +474,9 @@ to understand some aspect of the world that we live in.  Computer Science as a
 discipline, like algorithms, mostly derives from Math.</p>
 <p>So, when we study computer science, while parts of it are limited by physics, most of it is essentially an
 imaginary world that is made by people.  Understanding how people think, both
-generally, and common patterns within the community of programmers
-understand how things work and why they are the way they are.  The why can also
-make it easier to remember, or, it can help you know what things you can find
+generally, and common patterns within the community of programmers can help us
+understand how things work and why they are the way they are.  The <em>why</em> can also
+make it easier to remember things, or, it can help you know what things you can find
 alternatives for, or even where you might invent a whole new thing that is
 better in some way.</p>
 <p>Of course, not <em>all</em> programmers think the same way, but when
@@ -513,6 +509,13 @@ to read.</p>
 <li><p>if you have WSL (if you do not, no need to worry) you should be able to set your linux shell to <code class="docutils literal notranslate"><span class="pre">bash</span></code></p></li>
 </ul>
 <p>On mac you can optionally use the <code class="docutils literal notranslate"><span class="pre">bash</span></code> command to switch to bash.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">The default interactive shell is now zsh.</span>
 <span class="go">To update your account to use zsh, please run `chsh -s /bin/zsh`.</span>
 <span class="go">For more details, please visit https://support.apple.com/kb/HT208050.</span>
@@ -520,6 +523,13 @@ to read.</p>
 </div>
 <p>Then it tells you Apple’s default is somethign else and how to switch back.</p>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">pwd</span></code> you can see your current “location”. It stands for  <strong>p</strong>rint <strong>w</strong>orking <strong>d</strong>irectory.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+</pre></div>
+</div>
+</div>
+</div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -538,21 +548,63 @@ to read.</p>
 <p>In contrast if I say it is that building in the distance, across the quad past the large glass building, that works from our classroom in Ranger, but not from the library, or anywhere off campus. This would be a relative set of directions to get to Tyler Hall.</p>
 </div>
 <p>We can change into another directory with  <code class="docutils literal notranslate"><span class="pre">cd</span></code> for <strong>c</strong>hange <strong>d</strong>irectory</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Documents</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can use a the <a class="reference internal" href="../resources/glossary.html#term-relative-path"><span class="xref std std-term">relative path</span></a> to describe where we want to change to. The <code class="docutils literal notranslate"><span class="pre">Documents/</span></code> is a relative path because it does not start with <code class="docutils literal notranslate"><span class="pre">/</span></code></p>
 <p>To see what changed, we use <code class="docutils literal notranslate"><span class="pre">pwd</span></code> again</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/Users/brownsarahm/Documents</span>
 </pre></div>
 </div>
 <p>Note that the current path is the same as the old one plus the place we changed to.</p>
 <p>I moved one step further into my inclass folder</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">inclass</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can <strong>m</strong>a<strong>k</strong> a new <strong>dir</strong>ectory with <code class="docutils literal notranslate"><span class="pre">mkdir</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">systems</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>What you want to have is a folder for class (mine is systems) in a place you can find it. (mine is in my inclass folder)</p>
 </section>
 <section id="your-home-directory-is-easy-to-get-to">
 <h2><span class="section-number">3.3. </span>Your Home directory is easy to get to<a class="headerlink" href="#your-home-directory-is-easy-to-get-to" title="Permalink to this headline">#</a></h2>
 <p>Next we will use <code class="docutils literal notranslate"><span class="pre">cd</span></code> without path at all.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> 
+</pre></div>
+</div>
+</div>
+</div>
 <p>Here we noted that the prompt changed back to what we started with, the <code class="docutils literal notranslate"><span class="pre">~</span></code>. The home directory.</p>
 <p>Next we will go back to where we were working.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Documents</span><span class="o">/</span><span class="n">inclass</span><span class="o">/</span><span class="n">systems</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Remember, you can use <kbd class="kbd docutils literal notranslate">tab</kbd> to completed.  So I typed:
 <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Doc</span></code> <kbd class="kbd docutils literal notranslate">tab</kbd> <code class="docutils literal notranslate"><span class="pre">in</span></code> <kbd class="kbd docutils literal notranslate">tab</kbd> <code class="docutils literal notranslate"><span class="pre">sys</span></code> <kbd class="kbd docutils literal notranslate">tab</kbd></p>
 <p>This saves time <strong>and</strong> reduces typos, the terminal is filling in based on what the available options are, what exists in your filesystem, it will not fill in with something that is not there.</p>
@@ -560,17 +612,45 @@ to read.</p>
 <section id="relative-paths">
 <h2><span class="section-number">3.4. </span>Relative paths<a class="headerlink" href="#relative-paths" title="Permalink to this headline">#</a></h2>
 <p>Let’s look at our current location again:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/Users/brownsarahm/Documents/inclass/systems</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">..</span></code> is a special file that points to a specific relative path, of one level up.<br />
 We can use <code class="docutils literal notranslate"><span class="pre">..</span></code> to go up one level from wherever we are.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">..</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>we can see the impact using <code class="docutils literal notranslate"><span class="pre">pwd</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/Users/brownsarahm/Documents/inclass</span>
 </pre></div>
 </div>
 <p>Notice that before the last part was systems and the new path is missing that last part.</p>
 <p>We will go back to the folder we made, since that is where we want to work for class.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">systems</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="a-toy-repo-for-in-class">
 <h2><span class="section-number">3.5. </span>A toy repo for in class<a class="headerlink" href="#a-toy-repo-for-in-class" title="Permalink to this headline">#</a></h2>
@@ -631,6 +711,13 @@ We can use <code class="docutils literal notranslate"><span class="pre">..</span
 <p>You get the URL from the green code button on the main code tab of your repo.  Make sure the pop up is on the Local tab and https.</p>
 </div>
 </aside>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">compsys</span><span class="o">-</span><span class="n">progtools</span><span class="o">/</span><span class="n">gh</span><span class="o">-</span><span class="n">inclass</span><span class="o">-</span><span class="n">sp24</span><span class="o">-</span><span class="n">brownsarahm</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>then we get several messages back from git and GitHub (the <span class="xref std std-term">remote</span>, it <em>could</em> be a different host and a repo can have multiple remotes)</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Cloning into &#39;gh-inclass-sp24-brownsarahm&#39;...</span>
 <span class="go">remote: Enumerating objects: 8, done.</span>
@@ -642,6 +729,13 @@ We can use <code class="docutils literal notranslate"><span class="pre">..</span
 </div>
 <p>We can see that it made a new folder by looking at what is in our folder.</p>
 <p>We can view what is in a folder with <code class="docutils literal notranslate"><span class="pre">ls</span></code> for <strong>list</strong></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">gh-inclass-sp24-brownsarahm</span>
 </pre></div>
 </div>
@@ -651,7 +745,21 @@ We can use <code class="docutils literal notranslate"><span class="pre">..</span
 <section id="what-is-in-a-repo">
 <h2><span class="section-number">3.7. </span>What is in a repo?<a class="headerlink" href="#what-is-in-a-repo" title="Permalink to this headline">#</a></h2>
 <p>We can enter that folder</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">gh</span><span class="o">-</span><span class="n">inclass</span><span class="o">-</span><span class="n">sp24</span><span class="o">-</span><span class="n">brownsarahm</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>When we compare the local directory to GitHub</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">README.md</span>
 </pre></div>
 </div>
@@ -659,6 +767,13 @@ We can use <code class="docutils literal notranslate"><span class="pre">..</span
 that is because it is <em>hidden</em>.  All file names that start with <code class="docutils literal notranslate"><span class="pre">.</span></code> are hidden. Hidden files are not protected, they are just lightly hidden to protect a casual user from accidentally editing them.  As a developer, you will likely edit hidden files a lot.</p>
 <p>In this case, the hidden files are <strong>for</strong> GitHub’s server, not for local use.</p>
 <p>We can actually see the rest with the <code class="docutils literal notranslate"><span class="pre">-a</span></code> for <strong>all</strong> <a class="reference internal" href="../resources/glossary.html#term-option"><span class="xref std std-term">option</span></a> or <em>flag</em>.  Options are how we can modify how a command line program works, mostly they are optional or nonrequired.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.		..		.git		.github		README.md</span>
 </pre></div>
 </div>
@@ -674,6 +789,13 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
 <h2><span class="section-number">3.8. </span>How do I know what git knows?<a class="headerlink" href="#how-do-i-know-what-git-knows" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://git-scm.com/docs/git-status"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></a> is your friend.</p>
 <p>Let’s see how it works:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
 <span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
 
@@ -693,11 +815,25 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
 <p>On your about issue on <a class="reference external" href="http://Github.com">Github.com</a>, create a branch using the link in the development section of the right side panel. See the <a class="reference external" href="https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue">github docs</a> for how to do that.</p>
 <p>Then it gives you two steps to do. We are going to do them one at a time so we can see better what they each do.</p>
 <p>First we will update the <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory without changing the working directory using <a class="reference external" href="https://git-scm.com/docs/git-fetch">git fetch</a>. We have to tell git fetch where to get the data from, we do that using a name of a <span class="xref std std-term">remote</span>.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">From https://github.com/compsys-progtools/gh-inclass-sp24-brownsarahm</span>
 <span class="go"> * [new branch]      2-create-an-about-file -&gt; origin/2-create-an-about-file</span>
 </pre></div>
 </div>
 <p>then we check status again</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
 <span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
 
@@ -706,11 +842,25 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
 </div>
 <p>Looks like nothing so far.</p>
 <p>Next, we switch to that branch.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="mi">2</span><span class="o">-</span><span class="n">create</span><span class="o">-</span><span class="n">an</span><span class="o">-</span><span class="n">about</span><span class="o">-</span><span class="n">file</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">branch &#39;2-create-an-about-file&#39; set up to track &#39;origin/2-create-an-about-file&#39;.</span>
 <span class="go">Switched to a new branch &#39;2-create-an-about-file&#39;</span>
 </pre></div>
 </div>
 <p>and verify what happened</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch 2-create-an-about-file</span>
 <span class="go">Your branch is up to date with &#39;origin/2-create-an-about-file&#39;.</span>
 
@@ -722,6 +872,20 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
 <section id="creating-a-file-on-the-terminal">
 <h2><span class="section-number">3.10. </span>Creating a file on the terminal<a class="headerlink" href="#creating-a-file-on-the-terminal" title="Permalink to this headline">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">touch</span></code> command creates an empty file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="n">about</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch 2-create-an-about-file</span>
 <span class="go">Your branch is up to date with &#39;origin/2-create-an-about-file&#39;.</span>
 
@@ -737,10 +901,24 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
 <p>The very last line is advice of what do to overall.</p>
 <p>We’re going to do a bit more work first though, by adding conent to the file.</p>
 <p>We are going to use the <a class="reference external" href="https://www.nano-editor.org/">nano</a> text editor to edit the file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="n">about</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>We put some content in the file, any content then saved and exit.</p>
 <p>On the nano editor the <code class="docutils literal notranslate"><span class="pre">^</span></code> stands for control.</p>
 <p>and we can look at the contents of it.</p>
 <p>Now we will check again with git.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch 2-create-an-about-file</span>
 <span class="go">Your branch is up to date with &#39;origin/2-create-an-about-file&#39;.</span>
 
@@ -754,7 +932,21 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
 <p>In this case both say to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> to track or to include in what will be committed.  Under untracked files is it says <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;file&gt;...</span></code>, in our case this would look like <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">about.md</span></code>.  However, remember we learned that the <code class="docutils literal notranslate"><span class="pre">.</span></code>  that is always in every directory is a special “file” that points to the current directory, so we can use that to add <strong>all</strong> files. Since we have only one, the two are equivalent, and the <code class="docutils literal notranslate"><span class="pre">.</span></code> is a common shortcut, because most of the time we want to add everything we have recently worked on in a single commit.</p>
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> puts a file in the “staging area” we can use the staging area to group files together and put  changes to multiple files in a single commit. This is something we <strong>cannot</strong> do on GitHub in the browser, in order to save changes at all, we have to commit. Offline, we can save changes to our computer without commiting at all, and we can group many changes into a single commit.</p>
 <p>We will use <code class="docutils literal notranslate"><span class="pre">.</span></code> as our “file” to stage everythign in the current working directory.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>And again, we will check in with git</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch 2-create-an-about-file</span>
 <span class="go">Your branch is up to date with &#39;origin/2-create-an-about-file&#39;.</span>
 
@@ -776,6 +968,13 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
 </div>
 </aside>
 <p>Next, we will commit the file.  We use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> for this.  the <code class="docutils literal notranslate"><span class="pre">-m</span></code> option allows us to put our commit message dirctly on the line when we commit.  Notice that unlike commiting on GitHub, we do not choose our branch with the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> command.  We have to be “on” that branch before the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;create about file close s #2&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[2-create-an-about-file 81c6f18] create about file close s #2</span>
 <span class="go"> 1 file changed, 2 insertions(+)</span>
 <span class="go"> create mode 100644 about.md</span>
@@ -787,6 +986,13 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
 </div>
 <p>Remember, the messages that git gives you are designed to try to help you.  The developers of git know it’s a complex and powerful tool and that it’s hard to remember every little bit.</p>
 <p>We again check in with git:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch 2-create-an-about-file</span>
 <span class="go">Your branch is ahead of &#39;origin/2-create-an-about-file&#39; by 1 commit.</span>
 <span class="go">  (use &quot;git push&quot; to publish your local commits)</span>
@@ -796,6 +1002,13 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
 </div>
 <p>Now it tells us we have changes that GitHub does not know about.</p>
 <p>We can send them to github with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Enumerating objects: 4, done.</span>
 <span class="go">Counting objects: 100% (4/4), done.</span>
 <span class="go">Delta compression using up to 8 threads</span>
@@ -938,48 +1151,55 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
     end
     end
         </div></section>
-<section id="review-badge">
-<h2><span class="section-number">3.13. </span>Review Badge<a class="headerlink" href="#review-badge" title="Permalink to this headline">#</a></h2>
+<section id="badges">
+<h2><span class="section-number">3.13. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
 <ol class="arabic simple">
 <li><p>Read the notes. If you have any questions, post an issue on the course website repo.</p></li>
 <li><p>Using your terminal, download your KWL repo. Include the command used in your badge PR comment. Be sure it is not inside another repository.</p></li>
 <li><p>Try using setting up git using your favorite IDE’s git integration (not its terminal) or GitHub Desktop. Make a file <span class="target" id="index-0"></span>gitgui.md and include some notes of how it went. Give the file a heading like <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Setting</span> <span class="pre">up</span> <span class="pre">&lt;tool</span> <span class="pre">name&gt;</span></code>, with the actual tool name you setup in the title (eg Github Desktop or VSCode source control panel or …) Was it hard? easy? what did you figure out or get stuck on? Is the terminology consistent to the terminal or does it use different terms?</p></li>
 </ol>
-</section>
-<section id="practice-badge">
-<h2><span class="section-number">3.14. </span>Practice Badge<a class="headerlink" href="#practice-badge" title="Permalink to this headline">#</a></h2>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
 <ol class="arabic simple">
 <li><p>Read the notes. If you have any questions, post an issue on the course website repo.</p></li>
 <li><p>Using your terminal, download your KWL repo. Include the command used in your badge PR comment. Be sure it is not inside another repository.</p></li>
 <li><p>Try using setting up git using your favorite IDE’s git integration (not its terminal) or GitHub Desktop. Make a file <span class="target" id="index-1"></span>gitgui.md and include some notes of how it went. Give the file a heading like <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Setting</span> <span class="pre">up</span> <span class="pre">&lt;tool</span> <span class="pre">name&gt;</span></code> with the actual tool name you setup in the title (eg Github Desktop or VSCode source control panel or …). Was it hard? easy? what did you figure out or get stuck on? Is the terminology consistent to the terminal or does it use different terms?</p></li>
 <li><p>Design a small demo to illustrate the difference between git add and git commit and how they impact <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>. Write your demo in <span class="target" id="index-2"></span>stage_commit.md. Compare what happens based on what you can see on GitHub and what you can see with git status. Denote what you can tell about each case from the terminal and what you can tell from <a class="reference external" href="http://GitHub.com">GitHub.com</a>. For this demo, test things either using the files for this badge in your KWL repo or create a new sandbox repo where your account (not the course) is the owner.</p></li>
 </ol>
+</div>
+</div>
 </section>
 <section id="experience-report-evidence">
-<h2><span class="section-number">3.15. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.14. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
 <p>If you missed class today, link to your gh-inclass repo in the Experience report PR.</p>
 </section>
 <section id="questions-after-todays-class">
-<h2><span class="section-number">3.16. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.15. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
 <section id="can-you-link-an-issue-to-both-commits-and-prs-or-only-prs">
-<h3><span class="section-number">3.16.1. </span>can you link an issue to both commits and PRs, or only PRs<a class="headerlink" href="#can-you-link-an-issue-to-both-commits-and-prs-or-only-prs" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.15.1. </span>can you link an issue to both commits and PRs, or only PRs<a class="headerlink" href="#can-you-link-an-issue-to-both-commits-and-prs-or-only-prs" title="Permalink to this headline">#</a></h3>
 <p>both! we did both in today’s class.  We closed an issue via commit for the README file and then make a PR with a linked issue for the <a class="reference external" href="http://about.md">about.md</a> file.</p>
 </section>
 <section id="if-we-want-to-stage-multiple-files-can-we-do-that-in-one-command-like-git-add-about-md-readme-md">
-<h3><span class="section-number">3.16.2. </span>if we want to stage multiple files, can we do that in one command, like git add <a class="reference external" href="http://about.md">about.md</a> <a class="reference external" href="http://README.md">README.md</a><a class="headerlink" href="#if-we-want-to-stage-multiple-files-can-we-do-that-in-one-command-like-git-add-about-md-readme-md" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.15.2. </span>if we want to stage multiple files, can we do that in one command, like git add <a class="reference external" href="http://about.md">about.md</a> <a class="reference external" href="http://README.md">README.md</a><a class="headerlink" href="#if-we-want-to-stage-multiple-files-can-we-do-that-in-one-command-like-git-add-about-md-readme-md" title="Permalink to this headline">#</a></h3>
 <p>Yes! or you can use <code class="docutils literal notranslate"><span class="pre">.</span></code></p>
 </section>
 <section id="do-we-do-anything-with-the-pull-request-we-just-made-in-the-in-class-repo">
-<h3><span class="section-number">3.16.3. </span>do we do anything with the pull request we just made in the in-class repo?<a class="headerlink" href="#do-we-do-anything-with-the-pull-request-we-just-made-in-the-in-class-repo" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.15.3. </span>do we do anything with the pull request we just made in the in-class repo?<a class="headerlink" href="#do-we-do-anything-with-the-pull-request-we-just-made-in-the-in-class-repo" title="Permalink to this headline">#</a></h3>
 <p>Leave the about PR open for class on Thursday</p>
 </section>
 <section id="is-mermaid-something-we-will-be-using-just-for-now-or-should-i-become-more-familiar-with-it">
-<h3><span class="section-number">3.16.4. </span>Is mermaid something we will be using just for now, or should I become more familiar with it?<a class="headerlink" href="#is-mermaid-something-we-will-be-using-just-for-now-or-should-i-become-more-familiar-with-it" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.15.4. </span>Is mermaid something we will be using just for now, or should I become more familiar with it?<a class="headerlink" href="#is-mermaid-something-we-will-be-using-just-for-now-or-should-i-become-more-familiar-with-it" title="Permalink to this headline">#</a></h3>
 <p>It is useful and we will use it on an off throughout class.  Since GitHub supports it in all markdown, including comments, it is handy to be able to put in a quick diagram to explain something.</p>
 <p>If you like it, it is something you can use even more, for a possible explore badge.</p>
 </section>
 <section id="what-are-the-benefits-of-using-github-locally">
-<h3><span class="section-number">3.16.5. </span>What are the benefits of using GitHub locally<a class="headerlink" href="#what-are-the-benefits-of-using-github-locally" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.15.5. </span>What are the benefits of using GitHub locally<a class="headerlink" href="#what-are-the-benefits-of-using-github-locally" title="Permalink to this headline">#</a></h3>
 <p>Using git and GitHub locally means you can use your regular devtools and use GitHub as a could copy of your work.</p>
 </section>
 </section>
@@ -1076,15 +1296,14 @@ that is because it is <em>hidden</em>.  All file names that start with <code cla
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-file-on-the-terminal">3.10. Creating a file on the terminal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-overview">3.11. Concept Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">3.12. Prepare for Next Class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-badge">3.13. Review Badge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-badge">3.14. Practice Badge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">3.15. Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">3.16. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-link-an-issue-to-both-commits-and-prs-or-only-prs">3.16.1. can you link an issue to both commits and PRs, or only PRs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-want-to-stage-multiple-files-can-we-do-that-in-one-command-like-git-add-about-md-readme-md">3.16.2. if we want to stage multiple files, can we do that in one command, like git add about.md README.md</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-we-do-anything-with-the-pull-request-we-just-made-in-the-in-class-repo">3.16.3. do we do anything with the pull request we just made in the in-class repo?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-mermaid-something-we-will-be-using-just-for-now-or-should-i-become-more-familiar-with-it">3.16.4. Is mermaid something we will be using just for now, or should I become more familiar with it?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-benefits-of-using-github-locally">3.16.5. What are the benefits of using GitHub locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">3.13. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">3.14. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">3.15. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-link-an-issue-to-both-commits-and-prs-or-only-prs">3.15.1. can you link an issue to both commits and PRs, or only PRs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-want-to-stage-multiple-files-can-we-do-that-in-one-command-like-git-add-about-md-readme-md">3.15.2. if we want to stage multiple files, can we do that in one command, like git add about.md README.md</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-we-do-anything-with-the-pull-request-we-just-made-in-the-in-class-repo">3.15.3. do we do anything with the pull request we just made in the in-class repo?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-mermaid-something-we-will-be-using-just-for-now-or-should-i-become-more-familiar-with-it">3.15.4. Is mermaid something we will be using just for now, or should I become more familiar with it?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-benefits-of-using-github-locally">3.15.5. What are the benefits of using GitHub locally</a></li>
 </ul>
 </li>
 </ul>
