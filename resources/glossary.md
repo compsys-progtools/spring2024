@@ -32,6 +32,8 @@ Compiled Code
 directory
   a collection of files typically created for organizational purposes
 
+divergent
+  git branches that have diverged means that there are different commits that have same parent; there are multipe ways that git could fix this, so you have to tell it what strategy to use
 
 fixed point number
   the concept that the decimal point does not move in the number. Cannot represent as wide of a range of values as a floating point number.
@@ -71,6 +73,9 @@ HEAD
 merge
   putting two branches together so that you can access files in another branch that are not available in yours
 
+merge conflict
+
+
 mermaid
   mermaid syntax allows user to create precise, detailed diagrams in markdown files.
 
@@ -99,6 +104,9 @@ option
   
 path
   the "location" of a file or folder(directory) in a computer
+
+pointer
+  a variable that stores the address of another variable
 
 pull (changes from a repository)
   download changes from a remote repository and update the local repository with these changes.
