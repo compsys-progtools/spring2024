@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>How do branches work? &#8212; Computer Systems and Programming Tools</title>
+    <title>4. How do branches work? &#8212; Computer Systems and Programming Tools</title>
   
   
   
@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-02-01';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="prev" title="3. Working offline" href="2024-01-30.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -169,10 +171,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. How do branches work?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -416,41 +419,41 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review">Review</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-the-gh-inclass-repo">Back to the gh-inclass repo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branches-do-not-sync-automatically">Branches do not sync automatically</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-locally">Updating Locally</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-other-tools-do-i-have-to-examine-things-on-the-terminal">What other tools do I have to examine things on the terminal</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-log">Git log</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-a-file">Concatenate a file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review">4.1. Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-the-gh-inclass-repo">4.2. Back to the gh-inclass repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branches-do-not-sync-automatically">4.3. Branches do not sync automatically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-locally">4.4. Updating Locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-other-tools-do-i-have-to-examine-things-on-the-terminal">4.5. What other tools do I have to examine things on the terminal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-log">4.5.1. Git log</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-a-file">4.5.2. Concatenate a file</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-branch-locally">Making a branch locally</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkout-requires-the-branch-to-exist">Checkout requires the branch to exist</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-b-option-lets-checkout-create-a-branch">the -b option lets checkout create a branch</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-is-not-an-option">create is not an option</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chaining-commands-together">Chaining commands together</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-list-branches">We can list branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-branch-locally">4.6. Making a branch locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkout-requires-the-branch-to-exist">4.6.1. Checkout requires the branch to exist</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-b-option-lets-checkout-create-a-branch">4.6.2. the -b option lets checkout create a branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-is-not-an-option">4.6.3. create is not an option</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chaining-commands-together">4.6.4. Chaining commands together</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-list-branches">4.6.5. We can list branches</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branches-are-pointers">Branches are pointers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linking-a-locally-created-branch-to-a-remote">Linking a locally created branch to a remote</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-conflicts">Merge conflicts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-in-browser">Edit in browser</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-locally">Edit locally</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-a-conflict">Getting a conflict</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolving-a-merge-conflict">Resolving a merge conflict</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branches-are-pointers">4.7. Branches are pointers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linking-a-locally-created-branch-to-a-remote">4.8. Linking a locally created branch to a remote</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-conflicts">4.9. Merge conflicts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-in-browser">4.9.1. Edit in browser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-locally">4.9.2. Edit locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-a-conflict">4.9.3. Getting a conflict</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolving-a-merge-conflict">4.9.4. Resolving a merge conflict</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">Prepare for Next Class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">Badges</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-bash-commands">New bash commands</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-git-commands">New git commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">4.10. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">4.11. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">4.12. Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-bash-commands">4.12.1. New bash commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-git-commands">4.12.2. New git commands</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">Questions After Today’s Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">4.13. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">4.14. Questions After Today’s Class</a></li>
 </ul>
             </nav>
         </div>
@@ -463,9 +466,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-do-branches-work">
-<h1>How do branches work?<a class="headerlink" href="#how-do-branches-work" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4. </span>How do branches work?<a class="headerlink" href="#how-do-branches-work" title="Permalink to this headline">#</a></h1>
 <section id="review">
-<h2>Review<a class="headerlink" href="#review" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This part of the notes is the key facts of the questions we did, not the questions, you can reivew the actual questions on Prismia</p>
@@ -478,7 +481,7 @@ document.write(`
 </ul>
 </section>
 <section id="back-to-the-gh-inclass-repo">
-<h2>Back to the gh-inclass repo<a class="headerlink" href="#back-to-the-gh-inclass-repo" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2. </span>Back to the gh-inclass repo<a class="headerlink" href="#back-to-the-gh-inclass-repo" title="Permalink to this headline">#</a></h2>
 <p>Recall, We can move around and examine the computer’s file structure using shell commands.</p>
 <p>First we will navigate to our working directory for class that we made in the last class</p>
 <p>To confirm our current working directory we print it with <code class="docutils literal notranslate"><span class="pre">pwd</span></code></p>
@@ -545,7 +548,7 @@ document.write(`
 </div>
 </section>
 <section id="branches-do-not-sync-automatically">
-<h2>Branches do not sync automatically<a class="headerlink" href="#branches-do-not-sync-automatically" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.3. </span>Branches do not sync automatically<a class="headerlink" href="#branches-do-not-sync-automatically" title="Permalink to this headline">#</a></h2>
 <p>First, we will look at where we left off to refresh, then we will make a change in GitHub and see how that impacts our local copy.</p>
 <p>We start examining our local copy by looking at the working directory</p>
 <div class="cell tag_skip-execution docutils container">
@@ -664,7 +667,7 @@ document.write(`
 </div>
 </section>
 <section id="updating-locally">
-<h2>Updating Locally<a class="headerlink" href="#updating-locally" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.4. </span>Updating Locally<a class="headerlink" href="#updating-locally" title="Permalink to this headline">#</a></h2>
 <p>Updating locally involves 2 steps:</p>
 <ul class="simple">
 <li><p>update the local repo (the .git directory with all of the commits)</p></li>
@@ -747,10 +750,10 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 </div>
 </section>
 <section id="what-other-tools-do-i-have-to-examine-things-on-the-terminal">
-<h2>What other tools do I have to examine things on the terminal<a class="headerlink" href="#what-other-tools-do-i-have-to-examine-things-on-the-terminal" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.5. </span>What other tools do I have to examine things on the terminal<a class="headerlink" href="#what-other-tools-do-i-have-to-examine-things-on-the-terminal" title="Permalink to this headline">#</a></h2>
 <p>Lets try two more ways of looking at our repo and files. Then we will use those to learn more about working with branches.</p>
 <section id="git-log">
-<h3>Git log<a class="headerlink" href="#git-log" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.5.1. </span>Git log<a class="headerlink" href="#git-log" title="Permalink to this headline">#</a></h3>
 <p>We can see commits with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code></p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -790,7 +793,7 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 </div>
 </section>
 <section id="concatenate-a-file">
-<h3>Concatenate a file<a class="headerlink" href="#concatenate-a-file" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.5.2. </span>Concatenate a file<a class="headerlink" href="#concatenate-a-file" title="Permalink to this headline">#</a></h3>
 <p>the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command *concatenates a files’ contents to the terminal output (which is actually a special file called standard out or stdout)</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -805,7 +808,7 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 </section>
 </section>
 <section id="making-a-branch-locally">
-<h2>Making a branch locally<a class="headerlink" href="#making-a-branch-locally" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.6. </span>Making a branch locally<a class="headerlink" href="#making-a-branch-locally" title="Permalink to this headline">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>It is totally okay to test ideas out and see what happens as a way to investigate how things work.  Here we tested a few suggestions to see what works.  This lets us learn 2 things:</p>
@@ -815,7 +818,7 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 </ul>
 </div>
 <section id="checkout-requires-the-branch-to-exist">
-<h3>Checkout requires the branch to exist<a class="headerlink" href="#checkout-requires-the-branch-to-exist" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.6.1. </span>Checkout requires the branch to exist<a class="headerlink" href="#checkout-requires-the-branch-to-exist" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">my_branchcehcekd</span>
@@ -829,7 +832,7 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 <p>This error message says that it cannot switch because the name we gave does not already exist.  This is a good to recognize error message because this is also what would happen if you tried to switch, but spelled the branch name wrong.</p>
 </section>
 <section id="the-b-option-lets-checkout-create-a-branch">
-<h3>the -b option lets checkout create a branch<a class="headerlink" href="#the-b-option-lets-checkout-create-a-branch" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.6.2. </span>the -b option lets checkout create a branch<a class="headerlink" href="#the-b-option-lets-checkout-create-a-branch" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">my_branch_cehckoutb</span>
@@ -844,7 +847,7 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 <p>the <code class="docutils literal notranslate"><span class="pre">-b</span></code> lets <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> both create and switch to a branch</p>
 </section>
 <section id="create-is-not-an-option">
-<h3>create is not an option<a class="headerlink" href="#create-is-not-an-option" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.6.3. </span>create is not an option<a class="headerlink" href="#create-is-not-an-option" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="n">create</span> <span class="n">example</span>
@@ -867,7 +870,7 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 <p>So, back to our original attempt, is that it thinks we are asking to make a branch named <code class="docutils literal notranslate"><span class="pre">create</span></code> but then sees this extra thing <code class="docutils literal notranslate"><span class="pre">example</span></code> that it doesn’t know what to do with, so blames that for the error.</p>
 </section>
 <section id="chaining-commands-together">
-<h3>Chaining commands together<a class="headerlink" href="#chaining-commands-together" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.6.4. </span>Chaining commands together<a class="headerlink" href="#chaining-commands-together" title="Permalink to this headline">#</a></h3>
 <p>Finally, we tried:</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -886,7 +889,7 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 </ul>
 </section>
 <section id="we-can-list-branches">
-<h3>We can list branches<a class="headerlink" href="#we-can-list-branches" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.6.5. </span>We can list branches<a class="headerlink" href="#we-can-list-branches" title="Permalink to this headline">#</a></h3>
 <p>without any <a class="reference internal" href="../resources/glossary.html#term-argument"><span class="xref std std-term">argument</span></a>, we get a list of the branches that exist`</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -905,7 +908,7 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 </section>
 </section>
 <section id="branches-are-pointers">
-<h2>Branches are pointers<a class="headerlink" href="#branches-are-pointers" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.7. </span>Branches are pointers<a class="headerlink" href="#branches-are-pointers" title="Permalink to this headline">#</a></h2>
 <p>We’ll go back to main</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -970,7 +973,7 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 <p>Note in the above that we have different branches pointed to different commits.</p>
 </section>
 <section id="linking-a-locally-created-branch-to-a-remote">
-<h2>Linking a locally created branch to a remote<a class="headerlink" href="#linking-a-locally-created-branch-to-a-remote" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.8. </span>Linking a locally created branch to a remote<a class="headerlink" href="#linking-a-locally-created-branch-to-a-remote" title="Permalink to this headline">#</a></h2>
 <p>Next we will edit the file so we can create a commit.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1103,7 +1106,7 @@ GitHub side, the main branch was moved from one commit to another. So it then up
 <p>and success!</p>
 </section>
 <section id="merge-conflicts">
-<h2>Merge conflicts<a class="headerlink" href="#merge-conflicts" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.9. </span>Merge conflicts<a class="headerlink" href="#merge-conflicts" title="Permalink to this headline">#</a></h2>
 <p>We are going to <em>intentionally</em> make a merge conflict here.</p>
 <p>This means we are learning two things:</p>
 <ul class="simple">
@@ -1115,11 +1118,11 @@ simplest term because two people did two types of work that were supposed to be 
 turned out not to be.</p>
 <p>To create the merge conflict we are going to edit the same branch in two different ways locally and in browser.  This couls also happen by two different people making edits to the same branch <em>or</em> more commonly, by having edits made on both the compare branch and the base branch of a PR to the same part of the same file.</p>
 <section id="edit-in-browser">
-<h3>Edit in browser<a class="headerlink" href="#edit-in-browser" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.9.1. </span>Edit in browser<a class="headerlink" href="#edit-in-browser" title="Permalink to this headline">#</a></h3>
 <p>First, in your browser edit the <a class="reference external" href="http://about.md">about.md</a> file to have a second fun fact. Commit directly to the <code class="docutils literal notranslate"><span class="pre">fun_fact</span></code> branch.</p>
 </section>
 <section id="edit-locally">
-<h3>Edit locally<a class="headerlink" href="#edit-locally" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.9.2. </span>Edit locally<a class="headerlink" href="#edit-locally" title="Permalink to this headline">#</a></h3>
 <p>Then edit it locally to also have 2 fun facts.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1175,7 +1178,7 @@ turned out not to be.</p>
 </div>
 </section>
 <section id="getting-a-conflict">
-<h3>Getting a conflict<a class="headerlink" href="#getting-a-conflict" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.9.3. </span>Getting a conflict<a class="headerlink" href="#getting-a-conflict" title="Permalink to this headline">#</a></h3>
 <p>Now if we try to pull the changes from GitHub.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1259,7 +1262,7 @@ turned out not to be.</p>
 <p>it tells us what file the issue is in the 2nd line.</p>
 </section>
 <section id="resolving-a-merge-conflict">
-<h3>Resolving a merge conflict<a class="headerlink" href="#resolving-a-merge-conflict" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.9.4. </span>Resolving a merge conflict<a class="headerlink" href="#resolving-a-merge-conflict" title="Permalink to this headline">#</a></h3>
 <p>To resolve manually, we have to edit the file.  We are going to use nano again here.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1380,7 +1383,7 @@ It puts <code class="docutils literal notranslate"><span class="pre">=</span></c
 </section>
 </section>
 <section id="prepare-for-next-class">
-<h2>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.10. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Add file called <span class="target" id="index-0"></span>terminal-vocab.md on a branch linked to this issue.  Fill in the template below:</p></li>
 </ol>
@@ -1405,7 +1408,7 @@ It puts <code class="docutils literal notranslate"><span class="pre">=</span></c
 </div>
 </section>
 <section id="badges">
-<h2>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.11. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -1427,7 +1430,7 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.12. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>branches do not synch automatically</p></li>
 <li><p>branches are pointers to commits</p></li>
@@ -1459,7 +1462,7 @@ Practice</label><div class="sd-tab-content docutils">
     bremote[origin/fun_fact &lt;br&gt; branch] --&gt; |is a pointer to| cB
         </div><p>Over the next few weeks we will keep refining this understanding.</p>
 <section id="new-bash-commands">
-<h3>New bash commands<a class="headerlink" href="#new-bash-commands" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.12.1. </span>New bash commands<a class="headerlink" href="#new-bash-commands" title="Permalink to this headline">#</a></h3>
 <table class="table">
 <colgroup>
 <col style="width: 50%" />
@@ -1478,7 +1481,7 @@ Practice</label><div class="sd-tab-content docutils">
 </table>
 </section>
 <section id="new-git-commands">
-<h3>New git commands<a class="headerlink" href="#new-git-commands" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.12.2. </span>New git commands<a class="headerlink" href="#new-git-commands" title="Permalink to this headline">#</a></h3>
 <table class="table">
 <colgroup>
 <col style="width: 50%" />
@@ -1510,7 +1513,7 @@ Practice</label><div class="sd-tab-content docutils">
 </section>
 </section>
 <section id="experience-report-evidence">
-<h2>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.13. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
 <p>run the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span> <span class="o">&gt;&gt;</span> <span class="n">makeup</span><span class="o">-</span><span class="mi">2024</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mf">02.</span><span class="n">md</span>
 </pre></div>
@@ -1519,7 +1522,7 @@ Practice</label><div class="sd-tab-content docutils">
 <p>commit this file to the experience report branch</p>
 </section>
 <section id="questions-after-todays-class">
-<h2>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.14. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
 </section>
 </section>
 
@@ -1554,6 +1557,24 @@ Practice</label><div class="sd-tab-content docutils">
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-01-30.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Working offline</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../activities/kwl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">KWL Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -1572,41 +1593,41 @@ Practice</label><div class="sd-tab-content docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review">Review</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-the-gh-inclass-repo">Back to the gh-inclass repo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branches-do-not-sync-automatically">Branches do not sync automatically</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-locally">Updating Locally</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-other-tools-do-i-have-to-examine-things-on-the-terminal">What other tools do I have to examine things on the terminal</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-log">Git log</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-a-file">Concatenate a file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review">4.1. Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-the-gh-inclass-repo">4.2. Back to the gh-inclass repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branches-do-not-sync-automatically">4.3. Branches do not sync automatically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-locally">4.4. Updating Locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-other-tools-do-i-have-to-examine-things-on-the-terminal">4.5. What other tools do I have to examine things on the terminal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-log">4.5.1. Git log</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-a-file">4.5.2. Concatenate a file</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-branch-locally">Making a branch locally</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkout-requires-the-branch-to-exist">Checkout requires the branch to exist</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-b-option-lets-checkout-create-a-branch">the -b option lets checkout create a branch</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-is-not-an-option">create is not an option</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chaining-commands-together">Chaining commands together</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-list-branches">We can list branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-branch-locally">4.6. Making a branch locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkout-requires-the-branch-to-exist">4.6.1. Checkout requires the branch to exist</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-b-option-lets-checkout-create-a-branch">4.6.2. the -b option lets checkout create a branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-is-not-an-option">4.6.3. create is not an option</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chaining-commands-together">4.6.4. Chaining commands together</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-list-branches">4.6.5. We can list branches</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branches-are-pointers">Branches are pointers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linking-a-locally-created-branch-to-a-remote">Linking a locally created branch to a remote</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-conflicts">Merge conflicts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-in-browser">Edit in browser</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-locally">Edit locally</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-a-conflict">Getting a conflict</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolving-a-merge-conflict">Resolving a merge conflict</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branches-are-pointers">4.7. Branches are pointers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linking-a-locally-created-branch-to-a-remote">4.8. Linking a locally created branch to a remote</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-conflicts">4.9. Merge conflicts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-in-browser">4.9.1. Edit in browser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-locally">4.9.2. Edit locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-a-conflict">4.9.3. Getting a conflict</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolving-a-merge-conflict">4.9.4. Resolving a merge conflict</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">Prepare for Next Class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">Badges</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-bash-commands">New bash commands</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-git-commands">New git commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">4.10. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">4.11. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">4.12. Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-bash-commands">4.12.1. New bash commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-git-commands">4.12.2. New git commands</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">Questions After Today’s Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">4.13. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">4.14. Questions After Today’s Class</a></li>
 </ul>
   </nav></div>
 
