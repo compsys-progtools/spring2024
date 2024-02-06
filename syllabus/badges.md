@@ -16,6 +16,7 @@ kernelspec:
 This page includes more visual versions of the information on the badge page.  You should read both, but this one is often more helpful, because some of the processes take a lot of words to explain and make more sense with a diagram for a lot of people. 
 
 ```{code-cell} ipython3
+:tags: [hide-input]
 %matplotlib inline
 import os
 from datetime import date,timedelta
@@ -28,7 +29,7 @@ from myst_nb import glue
 # for display on the course website, since Python is not the main outcome of this course
 
 # semester settings
-first_day = date(2024,1,22)
+first_day = date(2024,1,23)
 last_day = date(2024,4,29)
 
 
@@ -44,7 +45,7 @@ meeting_days =[1,3] # datetime has 0=Monday
 penalty_free_end = date(2024, 2, 9)
 
 
-def day_off(cur_date,skip_range_list):
+def day_off(cur_date,skip_range_list=no_class_ranges):
     '''
     is the current date a day off? 
 
@@ -77,7 +78,7 @@ def day_off(cur_date,skip_range_list):
 
 mtg_delta = timedelta(meeting_days[1]-meeting_days[0])
 week_delta = timedelta(7)
-
+weeks = 14
 
 
 possible = [(first_day+week_delta*w, first_day+mtg_delta+week_delta*w) for w in range(weeks)]
@@ -89,7 +90,7 @@ weekly_meetings
 
 # possible = [(first_day+week_delta*w, first_day+mtg_delta+week_delta*w) for w in range(weeks)]
 # weekly_meetings = [[c1,c2] for c1,c2 in possible if not(during_sb(c1))]
-meetings = [m for w in weekly_meetings for m in w if not(m in skips)]
+meetings = [m for w in weekly_meetings for m in w if not(day_off(m))]
 
 
 # build a table for the dates
