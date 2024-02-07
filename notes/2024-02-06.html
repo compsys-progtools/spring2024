@@ -1,0 +1,1954 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5. When do git and bash give me an advantage? &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-02-06';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="prev" title="4. How do branches work?" href="2024-02-01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-01.html">4. How do branches work?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. When do git and bash give me an advantage?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2022/resources/testimonials.html">Advice from Fall 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2023/resources/testimonials.html">Advice from Spring 2023 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2023/resources/testimonials.html">Advice from Fall 2023 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository/edit/main/notes/2024-02-06.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository/issues/new?title=Issue%20on%20page%20%2Fnotes/2024-02-06.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notes/2024-02-06.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>When do git and bash give me an advantage?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-stage">5.1. Setting the stage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-references">5.2. Important references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">5.3. Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-a-project-workign-with-files">5.4. Organizing a project (workign with files)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files-redirects-git-restore">5.5. Files, Redirects, git restore</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-if-i-forget-the-m">5.6. What if I forget the <code class="docutils literal notranslate"><span class="pre">-m</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-files-and-patterns">5.7. Moving files and patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-can-also-rename-files">5.7.1. Move can also rename files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-multiple-files-with-patterns">5.7.2. Moving multiple files with patterns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-files">5.8. Hidden files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gitignore-works-with-patterns-too">5.8.1. Gitignore works with patterns too</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">5.9. Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-commands">5.9.1. New commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-git-commands">5.9.2. New git commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">5.10. Prepare for next class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">5.11. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">5.12. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">5.13. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-exactly-does-the-mv-command-also-work-as-the-rename-function">5.13.1. Why exactly does the mv command also work as the rename function?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-access-the-folders-not-using-terminal">5.13.2. Can you access the . folders not using terminal?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-some-open-source-projects-have-a-lot-of-open-issues-maybe-even-more-issues-than-files">5.13.3. Why do some open source projects have a lot of open issues, maybe even more issues than files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-the-be-used-consistently-to-move-a-bunch-of-file-because-we-used-it-with-the-text-infront-of-the-similarity-and-behind-it-im-just-wondering-how-its-used-for-multiple-files-because-it-was-used-both-before-the-similarity-and-after-the-similarity">5.13.4. How can the “*” be used consistently to move a bunch of file? because we used it with the text infront of the similarity and behind it. i’m just wondering how it’s used for multiple files, because it was used both before the similarity and after the similarity.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-have-some-badges-from-2-weeks-ago-that-are-awaiting-a-second-review-after-changes-had-been-fixed">5.13.5. I have some badges from 2 weeks ago that are awaiting a second review after changes had been fixed.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-close-pull-requests-on-the-terminal">5.13.6. can you close pull requests on the terminal?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-do-mv-will-it-move-all-files">5.13.7. If you do mv * will it move all files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-any-other-ways-of-using-mv-that-havent-been-covered-yet">5.13.8. Are there any other ways of using mv that haven’t been covered yet?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-often-should-we-be-practicing-with-the-terminal-for-git">5.13.9. how often should we be practicing with the terminal for git?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#would-it-be-beneficial-to-organize-files-with-github-rather-than-bash">5.13.10. Would it be beneficial to organize files with github rather than bash?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="when-do-git-and-bash-give-me-an-advantage">
+<h1><span class="section-number">5. </span>When do git and bash give me an advantage?<a class="headerlink" href="#when-do-git-and-bash-give-me-an-advantage" title="Permalink to this headline">#</a></h1>
+<p>so far we have used git and bash to accomplish familiar goals, and git and bash feel like just extra work for familiar goals.</p>
+<p>Today, we will start to see why git and bash are essential skills: they give you efficiency gains and time traveling super powers (within your work, only, sorry)</p>
+<section id="setting-the-stage">
+<h2><span class="section-number">5.1. </span>Setting the stage<a class="headerlink" href="#setting-the-stage" title="Permalink to this headline">#</a></h2>
+<p>Discuss your prepare work with your neighbors. Share what project you looked at and discuss the following.
+If you all looked at the same repo, split up and look at different ones now.</p>
+<ul class="simple">
+<li><p>What things were common across different repos?</p></li>
+<li><p>What was different?</p></li>
+</ul>
+</section>
+<section id="important-references">
+<h2><span class="section-number">5.2. </span>Important references<a class="headerlink" href="#important-references" title="Permalink to this headline">#</a></h2>
+<p>Use these for checking facts and resources.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/index.html">bash</a></p></li>
+<li><p><a class="reference external" href="https://git-scm.com/docs">git</a></p></li>
+</ul>
+</section>
+<section id="setup">
+<h2><span class="section-number">5.3. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
+<p>First, we’ll go back to our github inclass folder</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">gh</span><span class="o">-</span><span class="n">inclass</span><span class="o">-</span><span class="n">sp24</span><span class="o">-</span><span class="n">brownsarahm</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Find your PR that I opened for you today that has the title, “2/6 in class activity”</p>
+<p>I am going to use the <code class="docutils literal notranslate"><span class="pre">gh</span></code> CLI for this.  It might not work on Windows unless you got gh and GitBash configured correctly.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you get this working on windows and write it up, it can be a community badge (or if it’s really complicated, we can talk about explore)</p>
+</div>
+</aside>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh</span> <span class="n">pr</span> <span class="nb">list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Showing 1 of 1 open pull request in compsys-progtools/gh-inclass-sp24-brownsarahm</span>
+
+<span class="gp">#</span><span class="m">5</span><span class="w">  </span><span class="m">2</span>/6<span class="w"> </span><span class="k">in</span><span class="w"> </span>class<span class="w"> </span>activity<span class="w">  </span>organizing_ac<span class="w">  </span>about<span class="w"> </span><span class="m">1</span><span class="w"> </span>hour<span class="w"> </span>ago
+</pre></div>
+</div>
+<p>It shows me the number of total PRs and then for each one:</p>
+<ul class="simple">
+<li><p>the PR number (remember there is one sequence of numbers for issues and PRs)</p></li>
+<li><p>PR title</p></li>
+<li><p>branch name</p></li>
+<li><p>when it was created</p></li>
+</ul>
+<p>Mine was 5, so I can view it with this command:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh</span> <span class="n">pr</span> <span class="n">view</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">2/6 in class activity #5</span>
+<span class="go">Draft • brownsarahm wants to merge 1 commit into main from organizing_ac • about 1 hour ago</span>
+<span class="go">+17 -0 • No checks</span>
+
+
+<span class="go">  this draft PR https://github.blog/2019-02-14-introducing-draft-pull-</span>
+<span class="go">  requests/ adds some example files that we will use during class</span>
+<span class="go">  on 2/6.  \n\n wait until class time (or when you make up class </span>
+<span class="go">  by following the notes) to do anything with this PR            </span>
+
+
+<span class="go">View this pull request on GitHub: https://github.com/compsys-progtools/gh-inclass-sp24-brownsarahm/pull/5</span>
+</pre></div>
+</div>
+<p>by default it shows the contents of the PR message and then the link to view in browser</p>
+<p>Alternatively, we can use the <code class="docutils literal notranslate"><span class="pre">--web</span></code> option to open it in browser.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh</span> <span class="n">pr</span> <span class="n">view</span> <span class="mi">5</span> <span class="o">--</span><span class="n">web</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Opening github.com/compsys-progtools/gh-inclass-sp24-brownsarahm/pull/5 in your browser.</span>
+</pre></div>
+</div>
+<p>Then we merged in the PR after converting it from a draft PR to a regular PR using the “Ready for Review” button.</p>
+<p>Then back locally, we check where we are</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch fun_fact</span>
+<span class="go">Your branch is up to date with &#39;origin/fun_fact&#39;.</span>
+
+<span class="go">nothing to commit, working tree clean</span>
+</pre></div>
+</div>
+</section>
+<section id="organizing-a-project-workign-with-files">
+<h2><span class="section-number">5.4. </span>Organizing a project (workign with files)<a class="headerlink" href="#organizing-a-project-workign-with-files" title="Permalink to this headline">#</a></h2>
+<p>A common question is about how to organize projects.  While our main focus
+in this class session is the <code class="docutils literal notranslate"><span class="pre">bash</span></code> commands to do it, the <em>task</em> that we are
+going to do is to organize a hypothetical python project</p>
+<p>Put another way, we are using organizing a project as the <em>context</em> to motivate practicing with
+bash commands for moving files.</p>
+<p>A different the instructor might go through a slide deck that lists commands and describes what each one does and then have examples at the end.  Instead, we are going to focus on organizing files, and I will introduce the commands we need along the ways.</p>
+<p>We’ll go back to main first</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Switched to branch &#39;main&#39;</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+</pre></div>
+</div>
+<p>Then we will get the update from main.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">remote: Enumerating objects: 20, done.</span>
+<span class="go">remote: Counting objects: 100% (20/20), done.</span>
+<span class="go">remote: Compressing objects: 100% (9/9), done.</span>
+<span class="go">remote: Total 19 (delta 1), reused 17 (delta 0), pack-reused 0</span>
+<span class="go">Unpacking objects: 100% (19/19), 2.46 KiB | 114.00 KiB/s, done.</span>
+<span class="go">From https://github.com/compsys-progtools/gh-inclass-sp24-brownsarahm</span>
+<span class="go">   1e2a45f..9f39946  main          -&gt; origin/main</span>
+<span class="go"> * [new branch]      organizing_ac -&gt; origin/organizing_ac</span>
+<span class="go">Updating 1e2a45f..9f39946</span>
+<span class="go">Fast-forward</span>
+<span class="go"> API.md                 | 1 +</span>
+<span class="go"> CONTRIBUTING.md        | 1 +</span>
+<span class="go"> LICENSE.md             | 1 +</span>
+<span class="go"> _config.yml            | 1 +</span>
+<span class="go"> _toc.yml               | 1 +</span>
+<span class="go"> abstract_base_class.py | 1 +</span>
+<span class="go"> alternative_classes.py | 1 +</span>
+<span class="go"> example.md             | 1 +</span>
+<span class="go"> helper_functions.py    | 1 +</span>
+<span class="go"> important_classes.py   | 1 +</span>
+<span class="go"> philosophy.md          | 1 +</span>
+<span class="go"> scratch.ipynb          | 1 +</span>
+<span class="go"> setup.py               | 1 +</span>
+<span class="go"> test_abc.py            | 1 +</span>
+<span class="go"> tests_alt.py           | 1 +</span>
+<span class="go"> tests_helpers.py       | 1 +</span>
+<span class="go"> tests_imp.py           | 1 +</span>
+<span class="go"> 17 files changed, 17 insertions(+)</span>
+<span class="go"> create mode 100644 API.md</span>
+<span class="go"> create mode 100644 CONTRIBUTING.md</span>
+<span class="go"> create mode 100644 LICENSE.md</span>
+<span class="go"> create mode 100644 _config.yml</span>
+<span class="go"> create mode 100644 _toc.yml</span>
+<span class="go"> create mode 100644 abstract_base_class.py</span>
+<span class="go"> create mode 100644 alternative_classes.py</span>
+<span class="go"> create mode 100644 example.md</span>
+<span class="go"> create mode 100644 helper_functions.py</span>
+<span class="go"> create mode 100644 important_classes.py</span>
+<span class="go"> create mode 100644 philosophy.md</span>
+<span class="go"> create mode 100644 scratch.ipynb</span>
+<span class="go"> create mode 100644 setup.py</span>
+<span class="go"> create mode 100644 test_abc.py</span>
+<span class="go"> create mode 100644 tests_alt.py</span>
+<span class="go"> create mode 100644 tests_helpers.py</span>
+<span class="go"> create mode 100644 tests_imp.py</span>
+</pre></div>
+</div>
+<p>next we are going to pretend we worked on the project and made a bunch of files</p>
+<p>I gave a bunch of files, each with a short phrase in them.</p>
+<ul class="simple">
+<li><p>none of these are functional files</p></li>
+<li><p>the phrases mean you can inspect them on the terminal</p></li>
+</ul>
+<p>We can view the contents of a file with <code class="docutils literal notranslate"><span class="pre">cat</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cat</span></code> concatenates the contents of a file to stdout, which is a special file that our terminal reads</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">file with function with instructions for pip </span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>file extensions are for people; they do not specify how  the file is actually written . these are all <em>actually</em> plain text files, despite different file exensions.</p>
+</div>
+<p>Before we start organizing, we will make a new branch.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">organization</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Switched to a new branch &#39;organization&#39;</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">nothing to commit, working tree clean</span>
+</pre></div>
+</div>
+</section>
+<section id="files-redirects-git-restore">
+<h2><span class="section-number">5.5. </span>Files, Redirects, git restore<a class="headerlink" href="#files-redirects-git-restore" title="Permalink to this headline">#</a></h2>
+<p>Let’s first look at the README file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>GitHub<span class="w"> </span>Practice
+
+<span class="go">Name: Sarah Brown</span>
+</pre></div>
+</div>
+<p>Echo allows us to send a message to stdout.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;hello&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hello</span>
+</pre></div>
+</div>
+<p>Now we are going to put these two things together, but first let’s connect what we are about to learn to something you have probably seen before.</p>
+<p>Think about a time you opened a file within a program that you wrote. For example</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fopen</span></code> in C</p></li>
+<li><p>or <code class="docutils literal notranslate"><span class="pre">open</span></code> in Python</p></li>
+</ul>
+<p>in both cases one parameter is the file to open, what other parameters have you used?</p>
+<p>Typically we also have to tell it what <em>mode</em> to open the file with, and some options are:</p>
+<ul class="simple">
+<li><p>read</p></li>
+<li><p>write</p></li>
+<li><p>append</p></li>
+</ul>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p>References</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos/2.2.0?topic=functions-fopen-open-file">C language docs from IBM</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#open">Python official docs</a></p></li>
+</ul>
+<p><em>C is not an open source language in the typical sense so there is no “official” C docs</em></p>
+</div>
+</aside>
+<p>We can also <strong>redirect</strong> the contents of a command from stdout to a file in <code class="docutils literal notranslate"><span class="pre">bash</span></code>. Like file operations while programming there is a similar concept to this mode.</p>
+<p>There are two types of redirects, like there are two ways to write to a file, more generally:</p>
+<ul class="simple">
+<li><p>write (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>)</p></li>
+<li><p>append (<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>)</p></li>
+</ul>
+<p>We will use append first.
+We can add contents to files with <code class="docutils literal notranslate"><span class="pre">echo</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;hello&quot;</span> <span class="o">&gt;&gt;</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>This command does not return anything, because instead of writing to stdout, it wrote to the file.</p>
+<p>We can see the impact by looking at the README file.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>GitHub<span class="w"> </span>Practice
+
+<span class="go">Name: Sarah Brown</span>
+<span class="go">hello</span>
+</pre></div>
+</div>
+<p>We can redirect other commands too:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span> <span class="o">&gt;&gt;</span> <span class="n">curgit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>we see this created a new file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">API.md			example.md</span>
+<span class="go">CONTRIBUTING.md		helper_functions.py</span>
+<span class="go">LICENSE.md		important_classes.py</span>
+<span class="go">README.md		philosophy.md</span>
+<span class="go">_config.yml		scratch.ipynb</span>
+<span class="go">_toc.yml		setup.py</span>
+<span class="go">about.md		test_abc.py</span>
+<span class="go">abstract_base_class.py	tests_alt.py</span>
+<span class="go">alternative_classes.py	tests_helpers.py</span>
+<span class="go">curgit			tests_imp.py</span>
+</pre></div>
+</div>
+<p>and we can look at its contents too</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">curgit</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   README.md</span>
+
+<span class="go">Untracked files:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="go">	curgit</span>
+
+<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</pre></div>
+</div>
+<p>This also highlights a bit more about how the redirect works.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">curgit</span></code> file was created first, and then the command was run, with its output goign to that file instead of to stdout.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Redirections.html">Redirect docs</a></p>
+<p>Note this also explains that <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> is for redirecting inputs (stdin is <em>also</em> a file like stdout and has input, like your keyboard)</p>
+</div>
+<p>this is not a file we actually want, which gives us a chance to learn another new bash command:
+<code class="docutils literal notranslate"><span class="pre">rm</span></code> for remove</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="n">curgit</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Note that this is a true, full, and complete DELETE, this does not put the file in your recycling bin or the apple trash can that you can recover the file from, it is <strong>gone</strong> for real.</p>
+<p>We will see soon a way around this, because git can help.</p>
+<p><em>use <code class="docutils literal notranslate"><span class="pre">rm</span></code> with great care</em></p>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   README.md</span>
+
+<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</pre></div>
+</div>
+<p>Now we have made some changes we want, so let’s commit our changes.</p>
+<p>When we want to commit all files that are changed or deleted we can use the <a class="reference external" href="https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--a"><code class="docutils literal notranslate"><span class="pre">-a</span></code> option</a>. This does not do anything to untracked files.  Thi option is short for all, and can also be used like <code class="docutils literal notranslate"><span class="pre">--all</span></code>, so you cannot pick a subset of files out with this option.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;add to readme&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[organization 29ffc88] add to readme</span>
+<span class="go"> 1 file changed, 1 insertion(+)</span>
+</pre></div>
+</div>
+<p>and we confirm that it is what we want</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">nothing to commit, working tree clean</span>
+</pre></div>
+</div>
+<p>clean working area, ready to keep going</p>
+<p>Now, let’s go back to thinking about redirects. We saw that with two <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> we appended to the file.  With just <em>one</em> what happens?</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;hello&quot;</span> <span class="o">&gt;</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we look at the file:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hello</span>
+</pre></div>
+</div>
+<p>It wrote over.  This would be bad, we lost content, but this is what git is for!</p>
+<p>It is <em>very very</em> easy to undo work since our last commit.</p>
+<p>This is good for times when you have something you have an idea and you do not know if it is going to work, so you make a commit before you try it. Then you can try it out.  If it doesn’t work you can undo and go back to the place where you made the commit.</p>
+<p>We can also use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> for a hint.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   README.md</span>
+
+<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</pre></div>
+</div>
+<p>Notice that it tells us what to do <code class="docutils literal notranslate"><span class="pre">(use</span> <span class="pre">&quot;git</span> <span class="pre">restore</span> <span class="pre">&lt;file&gt;...&quot;</span> <span class="pre">to</span> <span class="pre">discard</span> <span class="pre">changes</span> <span class="pre">in</span> <span class="pre">working</span> <span class="pre">directory)</span></code>.  The version of <a class="reference external" href="http://README.md">README.md</a> that we broke is in the working directory but not commited to git, so git refers to them as “changes” in the working directory.</p>
+<p>Let’s follow the hint</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">restore</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>First we will check with git</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">nothing to commit, working tree clean</span>
+</pre></div>
+</div>
+<p>back to a clean working tree is a good sign!</p>
+<p>and it looks like it did before the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> line. and we can check the file too</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>GitHub<span class="w"> </span>Practice
+
+<span class="go">Name: Sarah Brown</span>
+<span class="go">hello</span>
+</pre></div>
+</div>
+<p>back how we wanted it!</p>
+</section>
+<section id="what-if-i-forget-the-m">
+<h2><span class="section-number">5.6. </span>What if I forget the <code class="docutils literal notranslate"><span class="pre">-m</span></code><a class="headerlink" href="#what-if-i-forget-the-m" title="Permalink to this headline">#</a></h2>
+<p>Now we will add some text to the README so we have a single point of reference about what these files are “about”</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;|file | contents |</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="o">------|</span> <span class="o">-------</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">abstract_base_class</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">core</span> <span class="n">abstract</span> <span class="n">classes</span> <span class="k">for</span> <span class="n">the</span> <span class="n">project</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">helper_functions</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">utitly</span> <span class="n">funtions</span> <span class="n">that</span> <span class="n">are</span> <span class="n">called</span> <span class="n">by</span> <span class="n">many</span> <span class="n">classes</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">important_classes</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">classes</span> <span class="n">that</span> <span class="n">inherit</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">abc</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">alternative_classes</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">classes</span> <span class="n">that</span> <span class="n">inherit</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">abc</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">LICENSE</span><span class="o">.</span><span class="n">md</span> <span class="o">|</span> <span class="n">the</span> <span class="n">info</span> <span class="n">on</span> <span class="n">how</span> <span class="n">the</span> <span class="n">code</span> <span class="n">can</span> <span class="n">be</span> <span class="n">reused</span><span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">CONTRIBUTING</span><span class="o">.</span><span class="n">md</span> <span class="o">|</span> <span class="n">instructions</span> <span class="k">for</span> <span class="n">how</span> <span class="n">people</span> <span class="n">can</span> <span class="n">contribute</span> <span class="n">to</span> <span class="n">the</span> <span class="n">project</span><span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">file</span> <span class="k">with</span> <span class="n">function</span> <span class="k">with</span> <span class="n">instructions</span> <span class="k">for</span> <span class="n">pip</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">test_abc</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">tests</span> <span class="k">for</span> <span class="n">constructors</span> <span class="ow">and</span> <span class="n">methods</span> <span class="ow">in</span> <span class="n">abstract_base_class</span><span class="o">.</span><span class="n">py</span><span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">tests_helpers</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">tests</span> <span class="k">for</span> <span class="n">constructors</span> <span class="ow">and</span> <span class="n">methods</span> <span class="ow">in</span> <span class="n">helper_functions</span><span class="o">.</span><span class="n">py</span><span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">tests_imp</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">tests</span> <span class="k">for</span> <span class="n">constructors</span> <span class="ow">and</span> <span class="n">methods</span> <span class="ow">in</span> <span class="n">important_classes</span><span class="o">.</span><span class="n">py</span><span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">tests_alt</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">tests</span> <span class="k">for</span> <span class="n">constructors</span> <span class="ow">and</span> <span class="n">methods</span> <span class="ow">in</span> <span class="n">alternative_classes</span><span class="o">.</span><span class="n">py</span><span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">API</span><span class="o">.</span><span class="n">md</span> <span class="o">|</span> <span class="n">jupyterbook</span> <span class="n">file</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">api</span> <span class="n">documentation</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">_config</span><span class="o">.</span><span class="n">yml</span> <span class="o">|</span> <span class="n">jupyterbook</span> <span class="n">config</span> <span class="k">for</span> <span class="n">documentation</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">_toc</span><span class="o">.</span><span class="n">yml</span> <span class="o">|</span> <span class="n">jupyter</span> <span class="n">book</span> <span class="n">toc</span> <span class="n">file</span> <span class="k">for</span> <span class="n">documentation</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">philosophy</span><span class="o">.</span><span class="n">md</span> <span class="o">|</span> <span class="n">overview</span> <span class="n">of</span> <span class="n">how</span> <span class="n">the</span> <span class="n">code</span> <span class="ow">is</span> <span class="n">organized</span> <span class="k">for</span> <span class="n">docs</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">example</span><span class="o">.</span><span class="n">md</span> <span class="o">|</span> <span class="n">myst</span> <span class="n">notebook</span> <span class="n">example</span> <span class="n">of</span> <span class="n">using</span> <span class="n">the</span> <span class="n">code</span> <span class="o">|</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="n">scratch</span><span class="o">.</span><span class="n">ipynb</span> <span class="o">|</span> <span class="n">jupyter</span> <span class="n">notebook</span> <span class="kn">from</span> <span class="nn">dev</span> <span class="o">|</span><span class="s2">&quot; &gt;&gt; README.md</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>this explains each file a little bit more than the name of it does.
+We see there are sort of 5 groups of files:</p>
+<ul class="simple">
+<li><p>about the project/repository</p></li>
+<li><p>code that defines a python module</p></li>
+<li><p>test code</p></li>
+<li><p>documentation</p></li>
+<li><p>extra files that “we know” we can delete.</p></li>
+</ul>
+<p>We also learn something about bash:
+using the open quote <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> then you stay inside that until you close it. when you press enter the command does not run until after you close the quotes</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   README.md</span>
+
+<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</pre></div>
+</div>
+<p>This time we will add separately</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and commit without using <code class="docutils literal notranslate"><span class="pre">-m</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>This brings us into <a class="reference external" href="https://www.vim.org/">vim</a>. vim is a ubiquitous, but not novice friendly terminal text editor.</p>
+<p>What is is doing is making a temporary file for you, opening it in the vim editor and waiting for you to write a commit message.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>What you need to know about vim:</p>
+<ul class="simple">
+<li><p>it has 2 modes, command and edit</p></li>
+<li><p>in command mode pressing keys does not enter text, but does commands</p></li>
+<li><p>in edit mode, it says <code class="docutils literal notranslate"><span class="pre">~insert~</span></code> at the bottom</p></li>
+<li><p>to get into edit mode press <a href="#id1"><span class="problematic" id="id2">a</span></a></p></li>
+<li><p>to get into command mode press <a href="#id3"><span class="problematic" id="id4">escape</span></a></p></li>
+<li><p>to exit type <code class="docutils literal notranslate"><span class="pre">:wq</span></code> and press <kbd class="kbd docutils literal notranslate">enter</kbd> or <kbd class="kbd docutils literal notranslate">return</kbd></p></li>
+</ul>
+</div>
+<p>Once you edit your temp file so that there is a line without a <code class="docutils literal notranslate"><span class="pre">#</span></code> that has your commit message and exit, your commit gets created.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[organization 260c9c3] describe the files</span>
+<span class="go"> 1 file changed, 19 insertions(+)</span>
+</pre></div>
+</div>
+</section>
+<section id="moving-files-and-patterns">
+<h2><span class="section-number">5.7. </span>Moving files and patterns<a class="headerlink" href="#moving-files-and-patterns" title="Permalink to this headline">#</a></h2>
+<p>First, we’ll make a directory with <code class="docutils literal notranslate"><span class="pre">mkdir</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">docs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that it worked with <code class="docutils literal notranslate"><span class="pre">ls</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">API.md			example.md</span>
+<span class="go">CONTRIBUTING.md		helper_functions.py</span>
+<span class="go">LICENSE.md		important_classes.py</span>
+<span class="go">README.md		philosophy.md</span>
+<span class="go">_config.yml		scratch.ipynb</span>
+<span class="go">_toc.yml		setup.py</span>
+<span class="go">about.md		test_abc.py</span>
+<span class="go">abstract_base_class.py	tests_alt.py</span>
+<span class="go">alternative_classes.py	tests_helpers.py</span>
+<span class="go">docs			tests_imp.py</span>
+</pre></div>
+</div>
+<p>next we will move a file there with <code class="docutils literal notranslate"><span class="pre">mv</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span> <span class="n">philosophy</span><span class="o">.</span><span class="n">md</span> <span class="n">docs</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>what this does is change the path of the file from <code class="docutils literal notranslate"><span class="pre">.../gh-inclass-sp24-brownsarahm/philosophy.md</span></code> to <code class="docutils literal notranslate"><span class="pre">.../gh-inclass-sp24-brownsarahm/docs/philosophy.md</span></code></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>moving a file means changing its path; it does not rewrite the file.</p>
+<p>While it is useful to think of a path like an address, a path is not tied to a specific memory location on the disk. The operating system keeps an index of the human readable paths that relates them to atual memory locations on the storage device.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mv</span></code> updates that index, not the actual storage device.</p>
+</div>
+<p>This doesn’t return anything, but we can see the effect with <code class="docutils literal notranslate"><span class="pre">ls</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">API.md			example.md</span>
+<span class="go">CONTRIBUTING.md		helper_functions.py</span>
+<span class="go">LICENSE.md		important_classes.py</span>
+<span class="go">README.md		scratch.ipynb</span>
+<span class="go">_config.yml		setup.py</span>
+<span class="go">_toc.yml		test_abc.py</span>
+<span class="go">about.md		tests_alt.py</span>
+<span class="go">abstract_base_class.py	tests_helpers.py</span>
+<span class="go">alternative_classes.py	tests_imp.py</span>
+<span class="go">docs</span>
+</pre></div>
+</div>
+<p>the <code class="docutils literal notranslate"><span class="pre">philosophy.md</span></code> file is no longer visible in the current working directory.</p>
+<p>We can also use <code class="docutils literal notranslate"><span class="pre">ls</span></code> with a relative or absolute path of a directory to list tht location instead of our current working directory.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">docs</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">philosophy.md</span>
+</pre></div>
+</div>
+<section id="move-can-also-rename-files">
+<h3><span class="section-number">5.7.1. </span>Move can also rename files<a class="headerlink" href="#move-can-also-rename-files" title="Permalink to this headline">#</a></h3>
+<p>We have one file with <code class="docutils literal notranslate"><span class="pre">test_</span></code> and a bunch of others with <code class="docutils literal notranslate"><span class="pre">tests_</span></code>.  We want them all to follow the same pattern, so let’s rename.</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">mv</span></code> to change the name as well. This is because “moving” a file and
+is really about changing its path, not actually copying it from one location to
+another and the file name is a part of the path.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span> <span class="n">test_abc</span><span class="o">.</span><span class="n">py</span> <span class="n">tests_abc</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This changes the path from <code class="docutils literal notranslate"><span class="pre">.../test_abc.py</span></code> to <code class="docutils literal notranslate"><span class="pre">.../tests_abc.py</span></code> to. It is doing the same thing as when we use it to move a file from one folder to another folder,  but changing a different part of the path.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">API.md			example.md</span>
+<span class="go">CONTRIBUTING.md		helper_functions.py</span>
+<span class="go">LICENSE.md		important_classes.py</span>
+<span class="go">README.md		scratch.ipynb</span>
+<span class="go">_config.yml		setup.py</span>
+<span class="go">_toc.yml		tests_abc.py</span>
+<span class="go">about.md		tests_alt.py</span>
+<span class="go">abstract_base_class.py	tests_helpers.py</span>
+<span class="go">alternative_classes.py	tests_imp.py</span>
+<span class="go">docs</span>
+</pre></div>
+</div>
+</section>
+<section id="moving-multiple-files-with-patterns">
+<h3><span class="section-number">5.7.2. </span>Moving multiple files with patterns<a class="headerlink" href="#moving-multiple-files-with-patterns" title="Permalink to this headline">#</a></h3>
+<p>let’s look at the list of files again.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">API.md			example.md</span>
+<span class="go">CONTRIBUTING.md		helper_functions.py</span>
+<span class="go">LICENSE.md		important_classes.py</span>
+<span class="go">README.md		scratch.ipynb</span>
+<span class="go">_config.yml		setup.py</span>
+<span class="go">_toc.yml		tests_abc.py</span>
+<span class="go">about.md		tests_alt.py</span>
+<span class="go">abstract_base_class.py	tests_helpers.py</span>
+<span class="go">alternative_classes.py	tests_imp.py</span>
+<span class="go">docs</span>
+</pre></div>
+</div>
+<p>We have a lot of <code class="docutils literal notranslate"><span class="pre">tests_</span></code> files, we will put them all in one folder.  First we create the folder:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">tests</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">*</span></code> <a class="reference external" href="https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm">wildcard operator</a> to move all files that match the pattern.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span> <span class="n">tests_</span><span class="o">*</span> <span class="n">tests</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, we confirm it worked by seeing that they are no longer in the working directory.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">API.md			alternative_classes.py</span>
+<span class="go">CONTRIBUTING.md		docs</span>
+<span class="go">LICENSE.md		example.md</span>
+<span class="go">README.md		helper_functions.py</span>
+<span class="go">_config.yml		important_classes.py</span>
+<span class="go">_toc.yml		scratch.ipynb</span>
+<span class="go">about.md		setup.py</span>
+<span class="go">abstract_base_class.py	tests</span>
+</pre></div>
+</div>
+<p>and that they <em>are</em> in <code class="docutils literal notranslate"><span class="pre">tests</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">tests</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tests_abc.py		tests_helpers.py</span>
+<span class="go">tests_alt.py		tests_imp.py</span>
+</pre></div>
+</div>
+<p>success!</p>
+<p>We will do the same thing for the <code class="docutils literal notranslate"><span class="pre">.yml</span></code> files to move them to the docs folder</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span> <span class="o">*.</span><span class="n">yml</span> <span class="n">docs</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we are going to move the Python files that are for the “package” that we have made.  We will make a folder for this too.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">pkg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we want to move all of the <code class="docutils literal notranslate"><span class="pre">.py</span></code> files that have a <code class="docutils literal notranslate"><span class="pre">_</span></code> in the name, because the only one we do not want to move is <code class="docutils literal notranslate"><span class="pre">setup.py</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span> <span class="o">*</span><span class="n">_</span><span class="o">*.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: mv [-f | -i | -n] [-v] source target</span>
+<span class="go">       mv [-f | -i | -n] [-v] source ... directory</span>
+</pre></div>
+</div>
+<p>I made an error here so it gave me usage for the command.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mv</span></code> requires both a source and target, and I did not provide one.</p>
+<p>Once I fix it</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span> <span class="o">*</span><span class="n">_</span><span class="o">*.</span><span class="n">py</span> <span class="n">pkg</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>we see that it works.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some students got a different error message, instead of being told they
+had used the command wrong, their error message said that <code class="docutils literal notranslate"><span class="pre">important_classes.py</span></code> is not a directory.  That tells me that what happened was the <code class="docutils literal notranslate"><span class="pre">*_*.py</span></code> was expanded to a list of files and then <code class="docutils literal notranslate"><span class="pre">mv</span></code> tried to work on the list of files using all but the last one as sources and tried to use the last one as the destination.</p>
+<p>To debug, I tried comparing bash versions, but it appears that we had the same version, so why we saw different behavior is TBD.</p>
+<p><strong>this is worth a community badge if you can explain why</strong></p>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin20)</span>
+<span class="go">Copyright (C) 2007 Free Software Foundation, Inc.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="hidden-files">
+<h2><span class="section-number">5.8. </span>Hidden files<a class="headerlink" href="#hidden-files" title="Permalink to this headline">#</a></h2>
+<p>We are going to make a special hidden file and an extra one. We will use the following command:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">touc</span> <span class="o">.</span><span class="n">secret</span> <span class="o">.</span><span class="n">gitignore</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">bash: touc: command not found</span>
+</pre></div>
+</div>
+<p>I spelled <code class="docutils literal notranslate"><span class="pre">touch</span></code> wrong so <code class="docutils literal notranslate"><span class="pre">bash</span></code> told me the command was not found.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="o">.</span><span class="n">secret</span> <span class="o">.</span><span class="n">gitignore</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We also learn 2 things about <code class="docutils literal notranslate"><span class="pre">touch</span></code> and <code class="docutils literal notranslate"><span class="pre">bash</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">touch</span></code> can make multiple files at a time</p></li>
+<li><p>lists in <code class="docutils literal notranslate"><span class="pre">bash</span></code> are separated by spaces and do not require brackets</p></li>
+</ul>
+<p>We can see if it worked:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">API.md		README.md	example.md	setup.py</span>
+<span class="go">CONTRIBUTING.md	about.md	pkg		tests</span>
+<span class="go">LICENSE.md	docs		scratch.ipynb</span>
+</pre></div>
+</div>
+<p>but then notice that we cannot see hidden files as is</p>
+<p>using the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option we can:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.		.secret		about.md	setup.py</span>
+<span class="go">..		API.md		docs		tests</span>
+<span class="go">.git		CONTRIBUTING.md	example.md</span>
+<span class="go">.github		LICENSE.md	pkg</span>
+<span class="go">.gitignore	README.md	scratch.ipynb</span>
+</pre></div>
+</div>
+<p>lets put some content in the secret (it will actually <em>not</em> be going to GitHub)</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;my dev secret&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">.</span><span class="n">secret</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can check with git</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">Changes to be committed:</span>
+<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">	new file:   tests_abc.py</span>
+
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	deleted:    _config.yml</span>
+<span class="go">	deleted:    _toc.yml</span>
+<span class="go">	deleted:    abstract_base_class.py</span>
+<span class="go">	deleted:    alternative_classes.py</span>
+<span class="go">	deleted:    helper_functions.py</span>
+<span class="go">	deleted:    important_classes.py</span>
+<span class="go">	deleted:    philosophy.md</span>
+<span class="go">	deleted:    test_abc.py</span>
+<span class="go">	deleted:    tests_abc.py</span>
+<span class="go">	deleted:    tests_alt.py</span>
+<span class="go">	deleted:    tests_helpers.py</span>
+<span class="go">	deleted:    tests_imp.py</span>
+
+<span class="go">Untracked files:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="go">	.gitignore</span>
+<span class="go">	.secret</span>
+<span class="go">	docs/</span>
+<span class="go">	pkg/</span>
+<span class="go">	tests/</span>
+</pre></div>
+</div>
+<p>we have lots of changes, including he secret file.  it is not tracked yet, but git is still telling us that it sees it.  We want git to <em>ignore</em> the secret file.</p>
+<p>gitignore lets us <em>not</em> track certain files</p>
+<p>let’s ignore that <code class="docutils literal notranslate"><span class="pre">.secret</span></code> file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;.secret&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">.</span><span class="n">gitignore</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we check in with git again</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">Changes to be committed:</span>
+<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">	new file:   tests_abc.py</span>
+
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	deleted:    _config.yml</span>
+<span class="go">	deleted:    _toc.yml</span>
+<span class="go">	deleted:    abstract_base_class.py</span>
+<span class="go">	deleted:    alternative_classes.py</span>
+<span class="go">	deleted:    helper_functions.py</span>
+<span class="go">	deleted:    important_classes.py</span>
+<span class="go">	deleted:    philosophy.md</span>
+<span class="go">	deleted:    test_abc.py</span>
+<span class="go">	deleted:    tests_abc.py</span>
+<span class="go">	deleted:    tests_alt.py</span>
+<span class="go">	deleted:    tests_helpers.py</span>
+<span class="go">	deleted:    tests_imp.py</span>
+
+<span class="go">Untracked files:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="go">	.gitignore</span>
+<span class="go">	docs/</span>
+<span class="go">	pkg/</span>
+<span class="go">	tests/</span>
+</pre></div>
+</div>
+<p>and the <code class="docutils literal notranslate"><span class="pre">.secret</span></code> file is no longer there! git is not checking on that file at all.</p>
+<section id="gitignore-works-with-patterns-too">
+<h3><span class="section-number">5.8.1. </span>Gitignore works with patterns too<a class="headerlink" href="#gitignore-works-with-patterns-too" title="Permalink to this headline">#</a></h3>
+<p>First, I’ll make a folder</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">my_secrets</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>then go into it</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">my_secrets</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and make a bunch of files</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">d</span> <span class="n">e</span> <span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">Changes to be committed:</span>
+<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">	new file:   ../tests_abc.py</span>
+
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	deleted:    ../_config.yml</span>
+<span class="go">	deleted:    ../_toc.yml</span>
+<span class="go">	deleted:    ../abstract_base_class.py</span>
+<span class="go">	deleted:    ../alternative_classes.py</span>
+<span class="go">	deleted:    ../helper_functions.py</span>
+<span class="go">	deleted:    ../important_classes.py</span>
+<span class="go">	deleted:    ../philosophy.md</span>
+<span class="go">	deleted:    ../test_abc.py</span>
+<span class="go">	deleted:    ../tests_abc.py</span>
+<span class="go">	deleted:    ../tests_alt.py</span>
+<span class="go">	deleted:    ../tests_helpers.py</span>
+<span class="go">	deleted:    ../tests_imp.py</span>
+
+<span class="go">Untracked files:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="go">	../.gitignore</span>
+<span class="go">	../docs/</span>
+<span class="go">	./</span>
+<span class="go">	../pkg/</span>
+<span class="go">	../tests/</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>notice that the paths all start with <code class="docutils literal notranslate"><span class="pre">..</span></code> because we are in a <em>subdirectory</em> of the git repo, but not the top of it.</p>
+</div>
+<p>we will go back up</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">..</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and now ignore that folder we just made:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="n">my_secrets</span><span class="o">/*</span> <span class="o">&gt;&gt;</span> <span class="o">.</span><span class="n">gitignore</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>next we check in with git</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">Changes to be committed:</span>
+<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">	new file:   tests_abc.py</span>
+
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	deleted:    _config.yml</span>
+<span class="go">	deleted:    _toc.yml</span>
+<span class="go">	deleted:    abstract_base_class.py</span>
+<span class="go">	deleted:    alternative_classes.py</span>
+<span class="go">	deleted:    helper_functions.py</span>
+<span class="go">	deleted:    important_classes.py</span>
+<span class="go">	deleted:    philosophy.md</span>
+<span class="go">	deleted:    test_abc.py</span>
+<span class="go">	deleted:    tests_abc.py</span>
+<span class="go">	deleted:    tests_alt.py</span>
+<span class="go">	deleted:    tests_helpers.py</span>
+<span class="go">	deleted:    tests_imp.py</span>
+
+<span class="go">Untracked files:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="go">	.gitignore</span>
+<span class="go">	docs/</span>
+<span class="go">	my_secrets/</span>
+<span class="go">	pkg/</span>
+<span class="go">	tests/</span>
+</pre></div>
+</div>
+<p>It did not work because we did not put the text we were adding to <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> with echo in quotes. Let’s fix it and then inspect futher what happened</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;my_secrets/*&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">.</span><span class="n">gitignore</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we check again</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch organization</span>
+<span class="go">Changes to be committed:</span>
+<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">	new file:   tests_abc.py</span>
+
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	deleted:    _config.yml</span>
+<span class="go">	deleted:    _toc.yml</span>
+<span class="go">	deleted:    abstract_base_class.py</span>
+<span class="go">	deleted:    alternative_classes.py</span>
+<span class="go">	deleted:    helper_functions.py</span>
+<span class="go">	deleted:    important_classes.py</span>
+<span class="go">	deleted:    philosophy.md</span>
+<span class="go">	deleted:    test_abc.py</span>
+<span class="go">	deleted:    tests_abc.py</span>
+<span class="go">	deleted:    tests_alt.py</span>
+<span class="go">	deleted:    tests_helpers.py</span>
+<span class="go">	deleted:    tests_imp.py</span>
+
+<span class="go">Untracked files:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="go">	.gitignore</span>
+<span class="go">	docs/</span>
+<span class="go">	pkg/</span>
+<span class="go">	tests/</span>
+</pre></div>
+</div>
+<p>It works!</p>
+<p>To inspect, let’s look at the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">.</span><span class="n">gitignore</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.secret</span>
+<span class="go">my_secrets/a my_secrets/b my_secrets/c my_secrets/d my_secrets/e my_secrets/f</span>
+<span class="go">my_secrets/*</span>
+</pre></div>
+</div>
+<p>We see that it has a list of all of the files that match the pattern <code class="docutils literal notranslate"><span class="pre">my_secrets/*</span></code> on the second line.  That would match to <em>each</em> of those files, but not to the directory itself. In contrast, the last line matches both the files and the directory itself.</p>
+<p>Finally, we will add and commit. We need to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> directly because we have files that are untracked that we want to track.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;oranizizng&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[organization e3b192a] oranizizng</span>
+<span class="go"> 12 files changed, 3 insertions(+)</span>
+<span class="go"> create mode 100644 .gitignore</span>
+<span class="go"> rename _config.yml =&gt; docs/_config.yml (100%)</span>
+<span class="go"> rename _toc.yml =&gt; docs/_toc.yml (100%)</span>
+<span class="go"> rename philosophy.md =&gt; docs/philosophy.md (100%)</span>
+<span class="go"> rename abstract_base_class.py =&gt; pkg/abstract_base_class.py (100%)</span>
+<span class="go"> rename alternative_classes.py =&gt; pkg/alternative_classes.py (100%)</span>
+<span class="go"> rename helper_functions.py =&gt; pkg/helper_functions.py (100%)</span>
+<span class="go"> rename important_classes.py =&gt; pkg/important_classes.py (100%)</span>
+<span class="go"> rename test_abc.py =&gt; tests/tests_abc.py (100%)</span>
+<span class="go"> rename tests_alt.py =&gt; tests/tests_alt.py (100%)</span>
+<span class="go"> rename tests_helpers.py =&gt; tests/tests_helpers.py (100%)</span>
+<span class="go"> rename tests_imp.py =&gt; tests/tests_imp.py (100%)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="summary">
+<h2><span class="section-number">5.9. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>stdout is a file, that is displayed on the terminal</p></li>
+<li><p>“moving” a file does not re-write the data to a different part of the disk, it updates its adress only</p></li>
+<li><p>the wildcard operator <code class="docutils literal notranslate"><span class="pre">*</span></code> allows us to use patterns with bash commands</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">touch</span></code> can accept a list of files</p></li>
+<li><p>bash lists are space delimited without any brackets</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file prevents files from being in your repo</p></li>
+</ul>
+<section id="new-commands">
+<h3><span class="section-number">5.9.1. </span>New commands<a class="headerlink" href="#new-commands" title="Permalink to this headline">#</a></h3>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>command</p></th>
+<th class="head"><p>explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">'message'</span></code></p></td>
+<td><p>repeat ‘message’ to stdout</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>write redirect</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
+<td><p>append redirect</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">file</span></code></p></td>
+<td><p>remove (delete) <code class="docutils literal notranslate"><span class="pre">file</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="new-git-commands">
+<h3><span class="section-number">5.9.2. </span>New git commands<a class="headerlink" href="#new-git-commands" title="Permalink to this headline">#</a></h3>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>command</p></th>
+<th class="head"><p>explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span> <span class="pre">-m</span> <span class="pre">'msg'</span></code></p></td>
+<td><p>the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option adds modified files (but not untracked)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="prepare-for-next-class">
+<h2><span class="section-number">5.10. </span>Prepare for next class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="badges">
+<h2><span class="section-number">5.11. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
+</div>
+</div>
+</section>
+<section id="experience-report-evidence">
+<h2><span class="section-number">5.12. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<p>redirect the history to a file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">&gt;&gt;</span> <span class="n">makeup_2023</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mf">21.</span><span class="n">md</span>
+</pre></div>
+</div>
+<p>then move the file created to your KWL repo on your experience report branch.</p>
+</section>
+<section id="questions-after-todays-class">
+<h2><span class="section-number">5.13. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<section id="why-exactly-does-the-mv-command-also-work-as-the-rename-function">
+<h3><span class="section-number">5.13.1. </span>Why exactly does the mv command also work as the rename function?<a class="headerlink" href="#why-exactly-does-the-mv-command-also-work-as-the-rename-function" title="Permalink to this headline">#</a></h3>
+<p>There is also a <code class="docutils literal notranslate"><span class="pre">rename</span></code> utility, but <code class="docutils literal notranslate"><span class="pre">mv</span></code> can do both because “moving” a file is just changing its path.</p>
+</section>
+<section id="can-you-access-the-folders-not-using-terminal">
+<h3><span class="section-number">5.13.2. </span>Can you access the . folders not using terminal?<a class="headerlink" href="#can-you-access-the-folders-not-using-terminal" title="Permalink to this headline">#</a></h3>
+<p>Yes, but I do not know the specifics for each operating system.  Usually I think you can right click or control a setting somewhere.</p>
+</section>
+<section id="why-do-some-open-source-projects-have-a-lot-of-open-issues-maybe-even-more-issues-than-files">
+<h3><span class="section-number">5.13.3. </span>Why do some open source projects have a lot of open issues, maybe even more issues than files?<a class="headerlink" href="#why-do-some-open-source-projects-have-a-lot-of-open-issues-maybe-even-more-issues-than-files" title="Permalink to this headline">#</a></h3>
+<p>Some open source projects get innundated with bug reports or questions.  Some projects even use issues for other things.  For example, <a class="reference external" href="https://github.com/carpentries/trainers">the Carpentries trainers repo</a> uses issues to keep track of proposals for running a leadership committee of a group of people. The journal of open source software uses the <a class="reference external" href="https://github.com/openjournals/joss-reviews/issues">joss-reviews</a> repo to do peer reviews, it has 12 files and 291 open issues + 6017 closed issues.</p>
+</section>
+<section id="how-can-the-be-used-consistently-to-move-a-bunch-of-file-because-we-used-it-with-the-text-infront-of-the-similarity-and-behind-it-im-just-wondering-how-its-used-for-multiple-files-because-it-was-used-both-before-the-similarity-and-after-the-similarity">
+<h3><span class="section-number">5.13.4. </span>How can the “*” be used consistently to move a bunch of file? because we used it with the text infront of the similarity and behind it. i’m just wondering how it’s used for multiple files, because it was used both before the similarity and after the similarity.<a class="headerlink" href="#how-can-the-be-used-consistently-to-move-a-bunch-of-file-because-we-used-it-with-the-text-infront-of-the-similarity-and-behind-it-im-just-wondering-how-its-used-for-multiple-files-because-it-was-used-both-before-the-similarity-and-after-the-similarity" title="Permalink to this headline">#</a></h3>
+<p>It fills in for any number of characters.</p>
+</section>
+<section id="i-have-some-badges-from-2-weeks-ago-that-are-awaiting-a-second-review-after-changes-had-been-fixed">
+<h3><span class="section-number">5.13.5. </span>I have some badges from 2 weeks ago that are awaiting a second review after changes had been fixed.<a class="headerlink" href="#i-have-some-badges-from-2-weeks-ago-that-are-awaiting-a-second-review-after-changes-had-been-fixed" title="Permalink to this headline">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do not merge an unapproved badge</p>
+</div>
+<p>Re-request a review</p>
+</section>
+<section id="can-you-close-pull-requests-on-the-terminal">
+<h3><span class="section-number">5.13.6. </span>can you close pull requests on the terminal?<a class="headerlink" href="#can-you-close-pull-requests-on-the-terminal" title="Permalink to this headline">#</a></h3>
+<p>Not with git because pull requests are not a git feature, but it is a feature of github. The <code class="docutils literal notranslate"><span class="pre">gh</span></code> CLI can do this.</p>
+</section>
+<section id="if-you-do-mv-will-it-move-all-files">
+<h3><span class="section-number">5.13.7. </span>If you do mv * will it move all files?<a class="headerlink" href="#if-you-do-mv-will-it-move-all-files" title="Permalink to this headline">#</a></h3>
+<p>In the current working directory.</p>
+</section>
+<section id="are-there-any-other-ways-of-using-mv-that-havent-been-covered-yet">
+<h3><span class="section-number">5.13.8. </span>Are there any other ways of using mv that haven’t been covered yet?<a class="headerlink" href="#are-there-any-other-ways-of-using-mv-that-havent-been-covered-yet" title="Permalink to this headline">#</a></h3>
+<p>No those are basically the two purposes.</p>
+</section>
+<section id="how-often-should-we-be-practicing-with-the-terminal-for-git">
+<h3><span class="section-number">5.13.9. </span>how often should we be practicing with the terminal for git?<a class="headerlink" href="#how-often-should-we-be-practicing-with-the-terminal-for-git" title="Permalink to this headline">#</a></h3>
+<p>Ideally, you work on badges on at least several of the days we do not have class so that you are working with it close to every day.</p>
+<p>You could also start trying to use them for your other classes.</p>
+</section>
+<section id="would-it-be-beneficial-to-organize-files-with-github-rather-than-bash">
+<h3><span class="section-number">5.13.10. </span>Would it be beneficial to organize files with github rather than bash?<a class="headerlink" href="#would-it-be-beneficial-to-organize-files-with-github-rather-than-bash" title="Permalink to this headline">#</a></h3>
+<p>GitHub cannot organize files and doing do in broswer would be slow and difficult.  We will see that GitHub code spaces give us a virtual machine that we can work with.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-02-01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>How do branches work?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../activities/kwl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">KWL Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-stage">5.1. Setting the stage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-references">5.2. Important references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">5.3. Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-a-project-workign-with-files">5.4. Organizing a project (workign with files)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files-redirects-git-restore">5.5. Files, Redirects, git restore</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-if-i-forget-the-m">5.6. What if I forget the <code class="docutils literal notranslate"><span class="pre">-m</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-files-and-patterns">5.7. Moving files and patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-can-also-rename-files">5.7.1. Move can also rename files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-multiple-files-with-patterns">5.7.2. Moving multiple files with patterns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-files">5.8. Hidden files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gitignore-works-with-patterns-too">5.8.1. Gitignore works with patterns too</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">5.9. Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-commands">5.9.1. New commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-git-commands">5.9.2. New git commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">5.10. Prepare for next class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">5.11. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">5.12. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">5.13. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-exactly-does-the-mv-command-also-work-as-the-rename-function">5.13.1. Why exactly does the mv command also work as the rename function?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-access-the-folders-not-using-terminal">5.13.2. Can you access the . folders not using terminal?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-some-open-source-projects-have-a-lot-of-open-issues-maybe-even-more-issues-than-files">5.13.3. Why do some open source projects have a lot of open issues, maybe even more issues than files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-the-be-used-consistently-to-move-a-bunch-of-file-because-we-used-it-with-the-text-infront-of-the-similarity-and-behind-it-im-just-wondering-how-its-used-for-multiple-files-because-it-was-used-both-before-the-similarity-and-after-the-similarity">5.13.4. How can the “*” be used consistently to move a bunch of file? because we used it with the text infront of the similarity and behind it. i’m just wondering how it’s used for multiple files, because it was used both before the similarity and after the similarity.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-have-some-badges-from-2-weeks-ago-that-are-awaiting-a-second-review-after-changes-had-been-fixed">5.13.5. I have some badges from 2 weeks ago that are awaiting a second review after changes had been fixed.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-close-pull-requests-on-the-terminal">5.13.6. can you close pull requests on the terminal?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-do-mv-will-it-move-all-files">5.13.7. If you do mv * will it move all files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-any-other-ways-of-using-mv-that-havent-been-covered-yet">5.13.8. Are there any other ways of using mv that haven’t been covered yet?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-often-should-we-be-practicing-with-the-terminal-for-git">5.13.9. how often should we be practicing with the terminal for git?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#would-it-be-beneficial-to-organize-files-with-github-rather-than-bash">5.13.10. Would it be beneficial to organize files with github rather than bash?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

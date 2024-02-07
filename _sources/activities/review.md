@@ -41,3 +41,10 @@ Activities:
 Activities:
 ```{include} ../_review/2024-02-01.md
 ```
+## 2024-02-06
+
+[related notes](../notes/2024-02-06)
+
+Activities:
+```{include} ../_review/2024-02-06.md
+```
