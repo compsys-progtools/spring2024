@@ -36,3 +36,10 @@ The correct answer is not as important for these activities as it is to do them 
 
 ```{include} ../_prepare/2024-02-06.md
 ```
+## 2024-02-06
+
+[related notes](../notes/2024-02-06)
+
+Activities:
+```{include} ../_prepare/2024-02-06.md
+```
