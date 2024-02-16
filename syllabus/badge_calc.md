@@ -94,10 +94,10 @@ per_badge_df_mrw = pd.DataFrame(ind_badges_mrw,columns=['example','badge','compl
 
 learning_df = pd.Series(learning_weights,name ='complexity').reset_index()
 learning_df['badge_type'] = 'learning'
-comm_df  = pd.Series(community_weights,name='weight').reset_index()
-comm_df['badge_type'] = 'community'
+# comm_df  = pd.Series(community_weights,name='weight').reset_index()
+# comm_df['badge_type'] = 'community'
 # nans are for learning badges which all ahve weight 1
-influence_df = pd.concat([learning_df,comm_df]).fillna(1).rename(columns={'index':'badge'})
+influence_df = learning_df.fillna(1).rename(columns={'index':'badge'})
 # final df
 influence_df['influence'] = influence_df['complexity']*influence_df['weight']
 ```
@@ -146,7 +146,7 @@ the grade plans on the grading page and the thresholds above assume you earn the
     - 9
     - event
 *   - Early bird
-    - 6 review + practice submitted by 2/15 
+    - 6 review + practice submitted by 2/19 
     - 9
     - event
 *   - Descriptive commits
