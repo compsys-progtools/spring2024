@@ -1,0 +1,1481 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>7. How do programmers communicate about code? &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-02-15';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="prev" title="6. What is a commit?" href="2024-02-08.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-01.html">4. How do branches work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-06.html">5. When do git and bash give me an advantage?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-08.html">6. What <em>is</em> a commit?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. How do programmers communicate about code?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2022/resources/testimonials.html">Advice from Fall 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2023/resources/testimonials.html">Advice from Spring 2023 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2023/resources/testimonials.html">Advice from Fall 2023 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository/edit/main/notes/2024-02-15.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository/issues/new?title=Issue%20on%20page%20%2Fnotes/2024-02-15.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notes/2024-02-15.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How do programmers communicate about code?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-documentation">7.1. Why Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-documentation">7.2. What is documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-documentation-so-important">7.2.1. Why is documentation so important?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-how-do-we-do-it">7.3. So, how do we do it?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterbook">7.4. Jupyterbook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-a-git-repo-locally">7.5. Starting a git repo locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retiring-racist-language">7.5.1. Retiring racist language</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-a-jupyter-book">7.6. Structure of a Jupyter book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dev-tools-mean-we-do-not-have-to-write-bibliographies-manually">7.6.1. Dev tools mean we do not have to write bibliographies manually</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-documentation">7.7. Building Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-built-files">7.8. Ignoring Built files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-push-a-repo-that-i-made-locally-to-github">7.9. How do I push a repo that I made locally to GitHub?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">7.10. Prepare for next class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">7.11. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">7.12. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">7.13. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-create-a-new-remote-through-the-terminal-without-using-the-github-ui">7.13.1. Can you create a new remote through the terminal without using the github ui?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-jupyterbook-different-than-other-ides-or-editors">7.13.2. How is jupyterbook different than other ides or editors?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-doctrees-folder-inside-build-with-files-like-environment-pickle">7.13.3. What is the .doctrees/ folder inside _build/ with files like environment.pickle?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-building-necessary-couldnt-it-just-be-a-part-of-compiling">7.13.4. Why is building necessary? Couldn’t it just be a part of compiling?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-other-uses-are-there-for-jupyter-notebook">7.13.5. What other uses are there for jupyter notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#did-we-create-a-repo-locally">7.13.6. Did we create a repo locally?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-add-more-files-and-sections-to-your-jupyter-books-website">7.13.7. How to add more files and sections to your Jupyter Books website</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="how-do-programmers-communicate-about-code">
+<h1><span class="section-number">7. </span>How do programmers communicate about code?<a class="headerlink" href="#how-do-programmers-communicate-about-code" title="Permalink to this headline">#</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>check if your codespace has uncommitted changes on <a class="reference external" href="https://github.com/codespaces">github.com/codespaces</a></p>
+<p>note:</p>
+<ul class="simple">
+<li><p>you can only have 2 active at a time(green dots)</p></li>
+<li><p>you can see if any have uncommitted changes</p></li>
+<li><p>you can <a class="reference external" href="https://docs.github.com/en/codespaces/troubleshooting/exporting-changes-to-a-branch">export those changes to a branch</a> from this page</p></li>
+</ul>
+</div>
+<p>Today we are going to pick up from where we left off talking about the conventional commits.</p>
+<p>That is a core example of the types of detailed communication we do in programming that is embedded into the work.</p>
+<section id="why-documentation">
+<h2><span class="section-number">7.1. </span>Why Documentation<a class="headerlink" href="#why-documentation" title="Permalink to this headline">#</a></h2>
+<p>Today we will talk about documentation, there are several reasons this is important:</p>
+<ul class="simple">
+<li><p><strong>using</strong> official documentation is the best way to get better at the tools</p></li>
+<li><p>understanding how documentation is designed and built will help you use it better</p></li>
+<li><p><strong>writing</strong> and  <strong>maintaining</strong> documentation is really important part of working on a team</p></li>
+<li><p>documentation building tools are a type of developer tool (and these are generally good software design)</p></li>
+</ul>
+<p>Design is best learned from examples. Some of the best examples of software <em>design</em> come from developer tools.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://third-bit.com/sdxjs/">source (js version)</a></p></li>
+<li><p><a class="reference external" href="https://third-bit.com/sdxpy/">source (python version)</a></p></li>
+</ul>
+<p>In particular documentation tools are really good examples of:</p>
+<ul class="simple">
+<li><p>pattern matching</p></li>
+<li><p>modularity and abstraction</p></li>
+<li><p>automation</p></li>
+<li><p>the build process beyond compiling</p></li>
+</ul>
+<p>By the end of today’s class you will be able to:</p>
+<ul class="simple">
+<li><p>describe different types of documentation</p></li>
+<li><p>find different information in a code repo</p></li>
+<li><p>generate documentation as html</p></li>
+<li><p>ignore content from a repo</p></li>
+<li><p>create a repo locally and push to GitHub</p></li>
+</ul>
+</section>
+<section id="what-is-documentation">
+<h2><span class="section-number">7.2. </span>What is documentation<a class="headerlink" href="#what-is-documentation" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://link.springer.com/article/10.1007/s10606-018-9333-1/tables/1">documentation types table</a></p>
+<p>from <a class="reference external" href="https://link.springer.com/article/10.1007/s10606-018-9333-1">ethnography of docuemtnation data science</a></p>
+<section id="why-is-documentation-so-important">
+<h3><span class="section-number">7.2.1. </span>Why is documentation so important?<a class="headerlink" href="#why-is-documentation-so-important" title="Permalink to this headline">#</a></h3>
+<p>we should probably spend more time on it</p>
+<p><img alt="differenc ein time spent vs should" src="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10606-018-9333-1/MediaObjects/10606_2018_9333_Fig4_HTML.png?as=webp" /></p>
+<p><a class="reference external" href="https://link.springer.com/article/10.1007/s10606-018-9333-1/figures/4">via</a>
+<a class="reference external" href="https://bids.berkeley.edu/news/most-developers-think-we-should-spend-more-time-documentation">source</a></p>
+</section>
+</section>
+<section id="so-how-do-we-do-it">
+<h2><span class="section-number">7.3. </span>So, how do we do it?<a class="headerlink" href="#so-how-do-we-do-it" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://docathon.github.io/docathon/pages/resources.html#documentation-tools">Documenation Tools</a></p>
+<p><a class="reference external" href="https://www.writethedocs.org/">write the docs</a></p>
+<p><a class="reference external" href="https://lwn.net/Articles/705224/">linux kernel uses sphinx</a> and here is <a class="reference external" href="https://lwn.net/Articles/692704/">why</a> and <a class="reference external" href="https://lwn.net/Articles/692705/">how it works</a></p>
+</section>
+<section id="jupyterbook">
+<h2><span class="section-number">7.4. </span>Jupyterbook<a class="headerlink" href="#jupyterbook" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://jupyterbook.org/intro.html">Jupyterbook</a> wraps sphinx and uses markdown instead of restructured text. The project authors <a class="reference external" href="https://jupyterbook.org/en/stable/explain/sphinx.html">note in the documenation</a> that it “can be thought of as an <em>opinionated distribution of Sphinx</em>”. We’re goign to use this.</p>
+<p>navigate to your  folder for this course (mine is <code class="docutils literal notranslate"><span class="pre">inclass/systems</span></code>)</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Documents</span><span class="o">/</span><span class="n">inclass</span><span class="o">/</span><span class="n">systems</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can confirm that <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> is installed by checking the version.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Jupyter Book      : 0.15.1</span>
+<span class="go">External ToC      : 0.3.1</span>
+<span class="go">MyST-Parser       : 0.18.1</span>
+<span class="go">MyST-NB           : 0.17.2</span>
+<span class="go">Sphinx Book Theme : 1.0.1</span>
+<span class="go">Jupyter-Cache     : 0.6.1</span>
+<span class="go">NbClient          : 0.5.13</span>
+</pre></div>
+</div>
+<p>We will run a command to create a jupyterbook from a template, the command has 3 parts:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> is a program (the thing we installed)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create</span></code> is a subcommand (one action that program can do)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tiny-book</span></code> is an argument (a mandatory input to that action)</p></li>
+</ul>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is <em>structurally</em> similar to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span></code> is a program</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add</span></code> is a subcommand</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code> is a path, and an argument</p></li>
+</ul>
+</div>
+</aside>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">create</span> <span class="n">tiny</span><span class="o">-</span><span class="n">book</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">===============================================================================</span>
+
+<span class="go">Your book template can be found at</span>
+
+<span class="go">    tiny-book/</span>
+
+<span class="go">===============================================================================</span>
+</pre></div>
+</div>
+<p>We see that it succeeds</p>
+<p>You can make it with any name,
+beacuse the name is an argument or input</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">create</span> <span class="n">example</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">===============================================================================</span>
+
+<span class="go">Your book template can be found at</span>
+
+<span class="go">    example/</span>
+
+<span class="go">===============================================================================</span>
+</pre></div>
+</div>
+<p>Each one makes a directory, we can see by listing</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">example				tiny-book</span>
+<span class="go">gh-inclass-sp24-brownsarahm</span>
+</pre></div>
+</div>
+<p>And we can delete the second one since we do not actually want it.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="n">example</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rm: example/: is a directory</span>
+</pre></div>
+</div>
+<p>we get an error because it is not well defined to delete a directory, and potentially risky, so <code class="docutils literal notranslate"><span class="pre">rm</span></code> is written to throw an error</p>
+<p>Instead, we have to tell it two additional things:</p>
+<ul class="simple">
+<li><p>to delete recusively <code class="docutils literal notranslate"><span class="pre">r</span></code></p></li>
+<li><p>to force it to do something risky with <code class="docutils literal notranslate"><span class="pre">f</span></code></p></li>
+</ul>
+<p><em>note</em> we can stack single character options together with a single <code class="docutils literal notranslate"><span class="pre">-</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">example</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we will go into the folder we mad and explore it some</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">tiny</span><span class="o">-</span><span class="n">book</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.			intro.md		notebooks.ipynb</span>
+<span class="go">..			logo.png		references.bib</span>
+<span class="go">_config.yml		markdown-notebooks.md	requirements.txt</span>
+<span class="go">_toc.yml		markdown.md</span>
+</pre></div>
+</div>
+</section>
+<section id="starting-a-git-repo-locally">
+<h2><span class="section-number">7.5. </span>Starting a git repo locally<a class="headerlink" href="#starting-a-git-repo-locally" title="Permalink to this headline">#</a></h2>
+<p>We made this folder, but we have not used any git operations on it yet, it is actually not a git repo, which we <em>could</em> tell from the output above, but let’s use git to inspect and get another hint.</p>
+<p>We can try <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">fatal: not a git repository (or any of the parent directories): .git</span>
+</pre></div>
+</div>
+<p>This tells us the <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory is missing form the current path and all parent directories.</p>
+<p>To make it a git repo we use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> with the path we want to initialize, which currently is <code class="docutils literal notranslate"><span class="pre">.</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">init</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hint: Using &#39;master&#39; as the name for the initial branch. This default branch name</span>
+<span class="go">hint: is subject to change. To configure the initial branch name to use in all</span>
+<span class="go">hint: of your new repositories, which will suppress this warning, call:</span>
+<span class="go">hint: </span>
+<span class="go">hint: 	git config --global init.defaultBranch &lt;name&gt;</span>
+<span class="go">hint: </span>
+<span class="go">hint: Names commonly chosen instead of &#39;master&#39; are &#39;main&#39;, &#39;trunk&#39; and</span>
+<span class="go">hint: &#39;development&#39;. The just-created branch can be renamed via this command:</span>
+<span class="go">hint: </span>
+<span class="go">hint: 	git branch -m &lt;name&gt;</span>
+<span class="go">Initialized empty Git repository in /Users/brownsarahm/Documents/inclass/systems/tiny-book/.git/</span>
+</pre></div>
+</div>
+<p>Here we are faced with a social aspect of computing that is <em>also</em> a good reminder about how git actually works</p>
+<section id="retiring-racist-language">
+<span id="nomaster"></span><h3><span class="section-number">7.5.1. </span>Retiring racist language<a class="headerlink" href="#retiring-racist-language" title="Permalink to this headline">#</a></h3>
+<p>Historically the default branch was called master.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mail.gnome.org/archives/desktop-devel-list/2019-May/msg00066.html">derived from a master/slave analogy</a> which is not even how git works, but was adopted terminology from other projects</p></li>
+<li><p><a class="reference external" href="https://github.com/github/renaming">GitHub no longer does</a></p></li>
+<li><p><a class="reference external" href="https://sfconservancy.org/news/2020/jun/23/gitbranchname/">the broader community is changing as well</a></p></li>
+<li><p><a class="reference external" href="https://lore.kernel.org/git/pull.656.v4.git.1593009996.gitgitgadget&#64;gmail.com/">git allows you to make your default not be master</a></p></li>
+<li><p><a class="reference external" href="https://twitter.com/xpasky/status/1271477451756056577">literally the person who chose the names “master” and “origin” regrets that choice</a> the name main is a more accurate and not harmful term and the current convention.</p></li>
+</ul>
+<p>we’ll change our default branch to main</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">m</span> <span class="n">main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and check in with git now</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+
+<span class="go">No commits yet</span>
+
+<span class="go">Untracked files:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="go">	_config.yml</span>
+<span class="go">	_toc.yml</span>
+<span class="go">	intro.md</span>
+<span class="go">	logo.png</span>
+<span class="go">	markdown-notebooks.md</span>
+<span class="go">	markdown.md</span>
+<span class="go">	notebooks.ipynb</span>
+<span class="go">	references.bib</span>
+<span class="go">	requirements.txt</span>
+
+<span class="go">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span>
+</pre></div>
+</div>
+<p>this time it works and we see a two important things:</p>
+<ul class="simple">
+<li><p>there are no previous commits</p></li>
+<li><p>all of the files are untracked</p></li>
+</ul>
+<p>and we will commit the template so that we have it saved as a point we could go back to.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have to add separately because the files are <strong>untracked</strong> we cannot use the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option on commit</p>
+<p>and then we will commit with a simple message</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;jupyter book template&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[main (root-commit) e34f91d] jupyter book template</span>
+<span class="go"> 9 files changed, 341 insertions(+)</span>
+<span class="go"> create mode 100644 _config.yml</span>
+<span class="go"> create mode 100644 _toc.yml</span>
+<span class="go"> create mode 100644 intro.md</span>
+<span class="go"> create mode 100644 logo.png</span>
+<span class="go"> create mode 100644 markdown-notebooks.md</span>
+<span class="go"> create mode 100644 markdown.md</span>
+<span class="go"> create mode 100644 notebooks.ipynb</span>
+<span class="go"> create mode 100644 references.bib</span>
+<span class="go"> create mode 100644 requirements.txt</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="structure-of-a-jupyter-book">
+<h2><span class="section-number">7.6. </span>Structure of a Jupyter book<a class="headerlink" href="#structure-of-a-jupyter-book" title="Permalink to this headline">#</a></h2>
+<p>We will explore the output by looking at the files</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">_config.yml		logo.png		notebooks.ipynb</span>
+<span class="go">_toc.yml		markdown-notebooks.md	references.bib</span>
+<span class="go">intro.md		markdown.md		requirements.txt</span>
+</pre></div>
+</div>
+<p>A jupyter book has two required files (<code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>), some for content, and some helpers that are common but not required.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jupyterbook.org/customize/config.html#configuration-defaults">config defaults</a></p></li>
+<li><p><a class="reference external" href="https://jupyterbook.org/structure/toc.html#structure-of-a-book">toc file formatting rules</a></p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">*.md</span></code> files are content</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">.bib</span></code> file is bibiolography information</p></li>
+<li><p>The other files are optional, but common. <a class="reference external" href="https://pip.pypa.io/en/stable/user_guide/#requirements-files">Requirements.txt</a> is the format for pip to install python depndencies. There are different standards in other languages for how</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the extention (<code class="docutils literal notranslate"><span class="pre">.yml</span></code>) is <a class="reference external" href="https://yaml.org/">yaml</a>, which stands for “YAML Ain’t Markup Language”. It consists of key, value pairs and is deigned to be a human-friendly way to encode data for use in any programming language.</p>
+</div>
+<p>The table of contents file describe how to put the other files in order.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">_toc</span><span class="o">.</span><span class="n">yml</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Table<span class="w"> </span>of<span class="w"> </span>contents
+<span class="gp"># </span>Learn<span class="w"> </span>more<span class="w"> </span>at<span class="w"> </span>https://jupyterbook.org/customize/toc.html
+
+<span class="go">format: jb-book</span>
+<span class="go">root: intro</span>
+<span class="go">chapters:</span>
+<span class="go">- file: markdown</span>
+<span class="go">- file: notebooks</span>
+<span class="go">- file: markdown-notebooks</span>
+</pre></div>
+</div>
+<p>The configuration file, tells jupyter-book basic iformation about the book, it provides all of the settings that jupyterbook and sphinx need to render the content as whatever output format we want.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">_config</span><span class="o">.</span><span class="n">yml</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Book<span class="w"> </span>settings
+<span class="gp"># </span>Learn<span class="w"> </span>more<span class="w"> </span>at<span class="w"> </span>https://jupyterbook.org/customize/config.html
+
+<span class="go">title: My sample book</span>
+<span class="go">author: The Jupyter Book Community</span>
+<span class="go">logo: logo.png</span>
+
+<span class="gp"># </span>Force<span class="w"> </span>re-execution<span class="w"> </span>of<span class="w"> </span>notebooks<span class="w"> </span>on<span class="w"> </span>each<span class="w"> </span>build.
+<span class="gp"># </span>See<span class="w"> </span>https://jupyterbook.org/content/execute.html
+<span class="go">execute:</span>
+<span class="go">  execute_notebooks: force</span>
+
+<span class="gp"># </span>Define<span class="w"> </span>the<span class="w"> </span>name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>latex<span class="w"> </span>output<span class="w"> </span>file<span class="w"> </span><span class="k">for</span><span class="w"> </span>PDF<span class="w"> </span>builds
+<span class="go">latex:</span>
+<span class="go">  latex_documents:</span>
+<span class="go">    targetname: book.tex</span>
+
+<span class="gp"># </span>Add<span class="w"> </span>a<span class="w"> </span>bibtex<span class="w"> </span>file<span class="w"> </span>so<span class="w"> </span>that<span class="w"> </span>we<span class="w"> </span>can<span class="w"> </span>create<span class="w"> </span>citations
+<span class="go">bibtex_bibfiles:</span>
+<span class="go">  - references.bib</span>
+
+<span class="gp"># </span>Information<span class="w"> </span>about<span class="w"> </span>where<span class="w"> </span>the<span class="w"> </span>book<span class="w"> </span>exists<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>web
+<span class="go">repository:</span>
+<span class="go">  url: https://github.com/executablebooks/jupyter-book  # Online location of your book</span>
+<span class="go">  path_to_book: docs  # Optional path to your book, relative to the repository root</span>
+<span class="go">  branch: master  # Which branch of the repository should be used when creating links (optional)</span>
+
+<span class="gp"># </span>Add<span class="w"> </span>GitHub<span class="w"> </span>buttons<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>book
+<span class="gp"># </span>See<span class="w"> </span>https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+<span class="go">html:</span>
+<span class="go">  use_issues_button: true</span>
+<span class="go">  use_repository_button: true</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">_config.yml		logo.png		notebooks.ipynb</span>
+<span class="go">_toc.yml		markdown-notebooks.md	references.bib</span>
+<span class="go">intro.md		markdown.md		requirements.txt</span>
+</pre></div>
+</div>
+<section id="dev-tools-mean-we-do-not-have-to-write-bibliographies-manually">
+<h3><span class="section-number">7.6.1. </span>Dev tools mean we do not have to write bibliographies manually<a class="headerlink" href="#dev-tools-mean-we-do-not-have-to-write-bibliographies-manually" title="Permalink to this headline">#</a></h3>
+<p>bibliographies are generated with <a class="reference external" href="http://www.bibtex.org/">bibtex</a> which takes structured information from the references in a <a class="reference external" href="http://www.bibtex.org/Format/">bibtex file</a> with help from <a class="reference external" href="https://sphinxcontrib-bibtex.readthedocs.io/en/latest/">sphinxcontrib-bibtex</a></p>
+<p>For general reference, reference managers like <a class="reference external" href="https://www.zotero.org/">zotero</a> and <a class="reference external" href="https://www.mendeley.com/">mendeley</a> can track all of your sources and output the references in bibtex format that you can use anywhere or sync with tools like MS Word or Google Docs.</p>
+<p>The one last file tells us what dependencies we have</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>If your book generates with error messages run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">jupyter-book</span>
+<span class="go">matplotlib</span>
+<span class="go">numpy</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="building-documentation">
+<h2><span class="section-number">7.7. </span>Building Documentation<a class="headerlink" href="#building-documentation" title="Permalink to this headline">#</a></h2>
+<p>We can transform from raw source to an output by <strong>building</strong> the book</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Running Jupyter-Book v0.15.1</span>
+<span class="go">Source Folder: /Users/brownsarahm/Documents/inclass/systems/tiny-book</span>
+<span class="go">Config Path: /Users/brownsarahm/Documents/inclass/systems/tiny-book/_config.yml</span>
+<span class="go">Output Path: /Users/brownsarahm/Documents/inclass/systems/tiny-book/_build/html</span>
+<span class="go">Running Sphinx v4.5.0</span>
+<span class="go">making output directory... done</span>
+<span class="go">[etoc] Changing master_doc to &#39;intro&#39;</span>
+<span class="go">checking bibtex cache... out of date</span>
+<span class="go">parsing bibtex file /Users/brownsarahm/Documents/inclass/systems/tiny-book/references.bib... parsed 5 entries</span>
+<span class="go">myst v0.18.1: MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions=[&#39;colon_fence&#39;, &#39;dollarmath&#39;, &#39;linkify&#39;, &#39;substitution&#39;, &#39;tasklist&#39;], disable_syntax=[], all_links_external=False, url_schemes=[&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;], ref_domains=None, highlight_code_blocks=True, number_code_blocks=[], title_to_header=False, heading_anchors=None, heading_slug_func=None, footnote_transition=True, words_per_minute=200, sub_delimiters=(&#39;{&#39;, &#39;}&#39;), linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;)</span>
+<span class="go">myst-nb v0.17.2: NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, execution_mode=&#39;force&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)</span>
+<span class="go">Using jupyter-cache at: /Users/brownsarahm/Documents/inclass/systems/tiny-book/_build/.jupyter_cache</span>
+<span class="go">building [mo]: targets for 0 po files that are out of date</span>
+<span class="go">building [html]: targets for 4 source files that are out of date</span>
+<span class="go">updating environment: [new config] 4 added, 0 changed, 0 removed</span>
+<span class="go">/Users/brownsarahm/Documents/inclass/systems/tiny-book/markdown-notebooks.md: Executing notebook using local CWD [mystnb]</span>
+<span class="go">0.00s - Debugger warning: It seems that frozen modules are being used, which may</span>
+<span class="go">0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off</span>
+<span class="go">0.00s - to python to disable frozen modules.</span>
+<span class="go">0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.</span>
+<span class="go">0.00s - Debugger warning: It seems that frozen modules are being used, which may</span>
+<span class="go">0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off</span>
+<span class="go">0.00s - to python to disable frozen modules.</span>
+<span class="go">0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.</span>
+<span class="go">/Users/brownsarahm/Documents/inclass/systems/tiny-book/markdown-notebooks.md: Executed notebook in 2.18 seconds [mystnb]</span>
+<span class="go">/Users/brownsarahm/Documents/inclass/systems/tiny-book/notebooks.ipynb: Executing notebook using local CWD [mystnb]</span>
+<span class="go">0.00s - Debugger warning: It seems that frozen modules are being used, which may</span>
+<span class="go">0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off</span>
+<span class="go">0.00s - to python to disable frozen modules.</span>
+<span class="go">0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.</span>
+<span class="go">/Users/brownsarahm/Documents/inclass/systems/tiny-book/notebooks.ipynb: Executed notebook in 2.44 seconds [mystnb]</span>
+
+<span class="go">looking for now-outdated files... none found</span>
+<span class="go">pickling environment... done</span>
+<span class="go">checking consistency... done</span>
+<span class="go">preparing documents... done</span>
+<span class="go">writing output... [100%] notebooks                                         </span>
+<span class="go">generating indices... genindex done</span>
+<span class="go">writing additional pages... search done</span>
+<span class="go">copying images... [100%] _build/jupyter_execute/137405a2a8521f521f06724f6d604e5a5544cce7bd94d903975cee58b0605ccb.png</span>
+<span class="go">copying static files... done</span>
+<span class="go">copying extra files... done</span>
+<span class="go">dumping search index in English (code: en)... done</span>
+<span class="go">dumping object inventory... done</span>
+<span class="go">build succeeded.</span>
+
+<span class="go">The HTML pages are in _build/html.</span>
+<span class="go">[etoc] missing index.html written as redirect to &#39;intro.html&#39;</span>
+
+<span class="go">===============================================================================</span>
+
+<span class="go">Finished generating HTML for book.</span>
+<span class="go">Your book&#39;s HTML pages are here:</span>
+<span class="go">    _build/html/</span>
+<span class="go">You can look at your book by opening this file in a browser:</span>
+<span class="go">    _build/html/index.html</span>
+<span class="go">Or paste this line directly into your browser bar:</span>
+<span class="go">    file:///Users/brownsarahm/Documents/inclass/systems/tiny-book/_build/html/index.html            </span>
+
+<span class="go">===============================================================================</span>
+</pre></div>
+</div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>Which files created by the template are not included in the rendered output? How could you tell?</p>
+</div>
+<p>Now we can look at what it did</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">_build			logo.png		references.bib</span>
+<span class="go">_config.yml		markdown-notebooks.md	requirements.txt</span>
+<span class="go">_toc.yml		markdown.md</span>
+<span class="go">intro.md		notebooks.ipynb</span>
+</pre></div>
+</div>
+<p>we note that this made a new folder called <code class="docutils literal notranslate"><span class="pre">_build</span></code>. we can look inside there.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">_build</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">html		jupyter_execute</span>
+</pre></div>
+</div>
+<p>and in the html folder:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">_images			index.html		objects.inv</span>
+<span class="go">_sources		intro.html		search.html</span>
+<span class="go">_sphinx_design_static	markdown-notebooks.html	searchindex.js</span>
+<span class="go">_static			markdown.html</span>
+<span class="go">genindex.html		notebooks.html</span>
+</pre></div>
+</div>
+<p>We can also copy the path to the file and open it in our browser</p>
+<p>we can change the size of a browswer window or use the screen size settings in inspect mode to see that this site is responsive.</p>
+<p>We didn’t have to write any html and we got a responsive site!</p>
+<p>If you wanted to change the styling with sphinx you can use built in
+<a class="reference external" href="https://sphinx-themes.org/">themes</a> which tell sphinx to put different
+files in the <code class="docutils literal notranslate"><span class="pre">_static</span></code> folder when it builds your site, but you don’t have to change any of your content!  If you like working on front end things (which is great! it’s just not alwasy the goal) you can even
+build <a class="reference external" href="https://www.sphinx-doc.org/en/master/development/theming.html">your own theme</a> that can work with sphinx.</p>
+</section>
+<section id="ignoring-built-files">
+<h2><span class="section-number">7.8. </span>Ignoring Built files<a class="headerlink" href="#ignoring-built-files" title="Permalink to this headline">#</a></h2>
+<p>The built site files are compeltey redundant, content wise, to the original markdown files.</p>
+<p>We do not want to keep track of changes for the built files since they are generated from the source files. It’s redundant and makes it less clear where someone should update content.</p>
+<p>Git helps us with this with the .gitignore</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;_build/&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">.</span><span class="n">gitignore</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we check with git status</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+<span class="go">Untracked files:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="go">	.gitignore</span>
+
+<span class="go">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span>
+</pre></div>
+</div>
+<p>only the gitingore file itself is listed! just as we want.</p>
+<p>now that’s the only new file as far as git is concerned, so we will track this,</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and finally commit</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;ignore built site&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[main 844f6e4] ignore built site</span>
+<span class="go"> 1 file changed, 1 insertion(+)</span>
+<span class="go"> create mode 100644 .gitignore</span>
+</pre></div>
+</div>
+</section>
+<section id="how-do-i-push-a-repo-that-i-made-locally-to-github">
+<h2><span class="section-number">7.9. </span>How do I push a repo that I made locally to GitHub?<a class="headerlink" href="#how-do-i-push-a-repo-that-i-made-locally-to-github" title="Permalink to this headline">#</a></h2>
+<p>Right now, we do not have any remotes, so if we try to push it will fail. Next we will see how to fix that.</p>
+<p>First let’s confirm</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">fatal: No configured push destination.</span>
+<span class="go">Either specify the URL from the command-line or configure a remote repository using</span>
+
+<span class="go">    git remote add &lt;name&gt; &lt;url&gt;</span>
+
+<span class="go">and then push using the remote name</span>
+
+<span class="go">    git push &lt;name&gt;</span>
+</pre></div>
+</div>
+<p>and it tells us how to fix it.  This is why inspection is so powerful in
+developer tools, that is where we developers give one another hints.</p>
+<p>Right now, we do not have any remotes</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For today, we will create an empty github repo shared with me, by accepting the assignment linked in prismia or ask a TA/instructor if you are making up class.</p>
+<p>More generally, you can <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/create-a-repo">create a repo</a></p>
+<p>That default page for an empty repo if you do not initiate it with any files will give you the instructions for what remote to add.</p>
+<p>Now we add the remote</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">compsys</span><span class="o">-</span><span class="n">progtools</span><span class="o">/</span><span class="n">tiny</span><span class="o">-</span><span class="n">book</span><span class="o">-</span><span class="n">brownsarahm</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we can try to push</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">fatal: The current branch main has no upstream branch.</span>
+<span class="go">To push the current branch and set the remote as upstream, use</span>
+
+<span class="go">    git push --set-upstream origin main</span>
+
+<span class="go">To have this happen automatically for branches without a tracking</span>
+<span class="go">upstream, see &#39;push.autoSetupRemote&#39; in &#39;git help config&#39;.</span>
+</pre></div>
+</div>
+<p>we get an error, becuse we need to link the branch locally to a remote branch</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">upstream</span> <span class="n">origin</span> <span class="n">main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">To https://github.com/compsys-progtools/tiny-book-brownsarahm.git</span>
+<span class="go"> ! [rejected]        main -&gt; main (fetch first)</span>
+<span class="go">error: failed to push some refs to &#39;https://github.com/compsys-progtools/tiny-book-brownsarahm.git&#39;</span>
+<span class="go">hint: Updates were rejected because the remote contains work that you do</span>
+<span class="go">hint: not have locally. This is usually caused by another repository pushing</span>
+<span class="go">hint: to the same ref. You may want to first integrate the remote changes</span>
+<span class="go">hint: (e.g., &#39;git pull ...&#39;) before pushing again.</span>
+<span class="go">hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.</span>
+</pre></div>
+</div>
+<p>now we get an error because the remote and local have different commits</p>
+<p>We follow the instruction again, and pull</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">remote: Enumerating objects: 5, done.</span>
+<span class="go">remote: Counting objects: 100% (5/5), done.</span>
+<span class="go">remote: Compressing objects: 100% (2/2), done.</span>
+<span class="go">remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0</span>
+<span class="go">Unpacking objects: 100% (5/5), 1.70 KiB | 348.00 KiB/s, done.</span>
+<span class="go">From https://github.com/compsys-progtools/tiny-book-brownsarahm</span>
+<span class="go"> * [new branch]      feedback   -&gt; origin/feedback</span>
+<span class="go"> * [new branch]      main       -&gt; origin/main</span>
+<span class="go">There is no tracking information for the current branch.</span>
+<span class="go">Please specify which branch you want to merge with.</span>
+<span class="go">See git-pull(1) for details.</span>
+
+<span class="go">    git pull &lt;remote&gt; &lt;branch&gt;</span>
+
+<span class="go">If you wish to set tracking information for this branch you can do so with:</span>
+
+<span class="go">    git branch --set-upstream-to=origin/&lt;branch&gt; main</span>
+</pre></div>
+</div>
+<p>we see the fetch part works, but then the linking fails</p>
+<p>We need to tell it how to link on pull</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">From https://github.com/compsys-progtools/tiny-book-brownsarahm</span>
+<span class="go"> * branch            main       -&gt; FETCH_HEAD</span>
+<span class="go">hint: You have divergent branches and need to specify how to reconcile them.</span>
+<span class="go">hint: You can do so by running one of the following commands sometime before</span>
+<span class="go">hint: your next pull:</span>
+<span class="go">hint: </span>
+<span class="go">hint:   git config pull.rebase false  # merge</span>
+<span class="go">hint:   git config pull.rebase true   # rebase</span>
+<span class="go">hint:   git config pull.ff only       # fast-forward only</span>
+<span class="go">hint: </span>
+<span class="go">hint: You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default</span>
+<span class="go">hint: preference for all repositories. You can also pass --rebase, --no-rebase,</span>
+<span class="go">hint: or --ff-only on the command line to override the configured default per</span>
+<span class="go">hint: invocation.</span>
+<span class="go">fatal: Need to specify how to reconcile divergent branches.</span>
+</pre></div>
+</div>
+<p>and we get an error about how they have different histories.</p>
+<p>we tell it how we want it to resolve that</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">main</span> <span class="o">--</span><span class="n">rebase</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">From https://github.com/compsys-progtools/tiny-book-brownsarahm</span>
+<span class="go"> * branch            main       -&gt; FETCH_HEAD</span>
+<span class="go">Successfully rebased and updated refs/heads/main.</span>
+</pre></div>
+</div>
+<p>and success!</p>
+<p>and now we can actually push</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">upstream</span> <span class="n">origin</span> <span class="n">main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Enumerating objects: 15, done.</span>
+<span class="go">Counting objects: 100% (15/15), done.</span>
+<span class="go">Delta compression using up to 8 threads</span>
+<span class="go">Compressing objects: 100% (12/12), done.</span>
+<span class="go">Writing objects: 100% (14/14), 16.53 KiB | 8.26 MiB/s, done.</span>
+<span class="go">Total 14 (delta 1), reused 0 (delta 0), pack-reused 0</span>
+<span class="go">remote: Resolving deltas: 100% (1/1), done.</span>
+<span class="go">To https://github.com/compsys-progtools/tiny-book-brownsarahm.git</span>
+<span class="go">   e5287d8..22f2227  main -&gt; main</span>
+<span class="go">branch &#39;main&#39; set up to track &#39;origin/main&#39;.</span>
+</pre></div>
+</div>
+</section>
+<section id="prepare-for-next-class">
+<h2><span class="section-number">7.10. </span>Prepare for next class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Think through and make some notes about what you have learned about design so far. Try to answer the questions below in <code class="docutils literal notranslate"><span class="pre">design_before.md</span></code>.  If you do not now know how to answer any of the questions, write in what questions you have.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- What past experiences with making decisions about design of software do you have?
+- what experiences studying design do you have? 
+- What processes, decisions, and practices come to mind when you think about designing software?
+- From your experiences as a user, how you would describe the design of command line tools vs other GUI based tools?
+</pre></div>
+</div>
+</section>
+<section id="badges">
+<h2><span class="section-number">7.11. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Review the notes, <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">jupyterbook docs</a>, and experiment with the <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> CLI to determine what files are required to make <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span></code> run. Make your kwl repo into a jupyter book. Set it so that the <code class="docutils literal notranslate"><span class="pre">_build</span></code> directory is not under version control. Complete basic customization setps for the necessary files and ensure that you do not add template files to your KWL repo.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">docs.md</span></code> to your KWL repo and explain the most important things to know about documentation in your own words using other programming concepts you have learned so far.  Include in a markdown (same as HTML <code class="docutils literal notranslate"><span class="pre">&lt;!--</span> <span class="pre">comment</span> <span class="pre">--&gt;</span></code> ) comment the list of CSC courses you have taken for context while we give you feedback.</p></li>
+</ol>
+<p><strong>build idea</strong> build a sphinx extension that adds a particular feature to a documentation website.  You can start a proposal and discuss ideas with Dr. Brown</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Review the notes, <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">jupyterbook docs</a>, and experiment with the <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> CLI to determine what files are required to make <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span></code> run. Make your kwl repo into a jupyter book. Set it so that the <code class="docutils literal notranslate"><span class="pre">_build</span></code> directory is not under version control. Complete basic customization setps for the necessary files and ensure that you do not add template files to your KWL repo.</p></li>
+<li><p>Learn about the documentation ecosystem in another language that you know using at least one official source and additional sources as you find helpful. In <span class="target" id="index-0"></span>docs_ecosystems.md include a summary of your findings and compare and contrast it to jupyter book/sphinx.  Include a <a class="reference external" href="https://jupyterbook.org/en/stable/content/citations.html">bibtex based bibliography</a> of the sources you used. You can use <a class="reference external" href="https://url-to-bibtex.vercel.app/">this generator</a> for informal sources and <a class="reference external" href="https://digitalmeasures.oregonstate.edu/training/export-bibtex-google-scholar">google scholar</a> for formal sources.</p></li>
+</ol>
+<p><strong>explore idea</strong> extend the conversion of your repo into a jupyter book by making links among pages, adding an intro, and adding a github action so that a pdf is generated and added to an <a class="reference external" href="https://git-scm.com/docs/git-checkout/2.14.6#Documentation/git-checkout.txt---orphanltnewbranchgt">orphan branch</a> named <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>. Plus use at least 2 other jupyter book features from the docs, specify or discuss, your extended features with Dr. Brown in your proposal.</p>
+</div>
+</div>
+</section>
+<section id="experience-report-evidence">
+<h2><span class="section-number">7.12. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<p>Link to your tinybook repo.  in the experience report PR</p>
+</section>
+<section id="questions-after-todays-class">
+<h2><span class="section-number">7.13. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<section id="can-you-create-a-new-remote-through-the-terminal-without-using-the-github-ui">
+<h3><span class="section-number">7.13.1. </span>Can you create a new remote through the terminal without using the github ui?<a class="headerlink" href="#can-you-create-a-new-remote-through-the-terminal-without-using-the-github-ui" title="Permalink to this headline">#</a></h3>
+<p>If you knew the URL of the remote, yes, if the remote is on GitHub, you have to use either <a class="reference external" href="http://github.com">github.com</a> in your browser or use the <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">cli</span></code> tool’s command <a class="reference external" href="https://cli.github.com/manual/gh_repo_create"><code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">repo</span> <span class="pre">create</span></code></a></p>
+</section>
+<section id="how-is-jupyterbook-different-than-other-ides-or-editors">
+<h3><span class="section-number">7.13.2. </span>How is jupyterbook different than other ides or editors?<a class="headerlink" href="#how-is-jupyterbook-different-than-other-ides-or-editors" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> is not an editor or IDE, it is a tool for building websites or pdfs.</p>
+<p>Jupyter Notebook is a single stream of computational analysis. Jupyter Lab is a more IDE like interface for doing compuational analyses. Both are part of <a class="reference external" href="https://jupyter.org/">project jupyter</a> and <a class="reference external" href="https://github.com/jupyter">on GitHub</a></p>
+<p><a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter book</a> is for publishing book like documents as websites and to other forms designed to be compatible with jupyter notebooks, but is a part of a separate <a class="reference external" href="https://github.com/executablebooks">executable books</a> project.  It is specialized for cases where there is computation in the code.  See <span class="xref myst">their gallery</span> for examples.  I use it for <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/notes/2022-09-21.html">CSC310 that has code and plots in the notes</a></p>
+<p><a class="reference external" href="https://jupyterbook.org/en/stable/explain/sphinx.html#:~:text=opinionated%20distribution%20of%20Sphinx">Jupyter-book is an opinionated distribution</a> of  <a class="reference external" href="https://www.sphinx-doc.org/">sphinx</a> which can also be used to document other languages like <a class="reference external" href="https://devblogs.microsoft.com/cppblog/clear-functional-c-documentation-with-sphinx-breathe-doxygen-cmake/">C++</a></p>
+</section>
+<section id="what-is-the-doctrees-folder-inside-build-with-files-like-environment-pickle">
+<h3><span class="section-number">7.13.3. </span>What is the .doctrees/ folder inside _build/ with files like environment.pickle?<a class="headerlink" href="#what-is-the-doctrees-folder-inside-build-with-files-like-environment-pickle" title="Permalink to this headline">#</a></h3>
+<p>That is an intermediate step between the markdown and the final HTML.</p>
+<p>There is <a class="reference external" href="https://www.sphinx-doc.org/en/master/extdev/nodes.html">api level docs</a></p>
+</section>
+<section id="why-is-building-necessary-couldnt-it-just-be-a-part-of-compiling">
+<h3><span class="section-number">7.13.4. </span>Why is building necessary? Couldn’t it just be a part of compiling?<a class="headerlink" href="#why-is-building-necessary-couldnt-it-just-be-a-part-of-compiling" title="Permalink to this headline">#</a></h3>
+<p>Building is a more general process of transforming from source to an output format. Compling is a specific step withing building for some programming languages.  We will learn more about the build process for C later.</p>
+<p>What we did today was building, but not compiling.</p>
+</section>
+<section id="what-other-uses-are-there-for-jupyter-notebook">
+<h3><span class="section-number">7.13.5. </span>What other uses are there for jupyter notebook<a class="headerlink" href="#what-other-uses-are-there-for-jupyter-notebook" title="Permalink to this headline">#</a></h3>
+<p>The course website is an example. They also maintain a <a class="reference external" href="https://executablebooks.org/en/latest/gallery/">gallery of jupyter books</a></p>
+</section>
+<section id="did-we-create-a-repo-locally">
+<h3><span class="section-number">7.13.6. </span>Did we create a repo locally?<a class="headerlink" href="#did-we-create-a-repo-locally" title="Permalink to this headline">#</a></h3>
+<p>yes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span> <span class="pre">.</span></code> created a repo locally</p>
+</section>
+<section id="how-to-add-more-files-and-sections-to-your-jupyter-books-website">
+<h3><span class="section-number">7.13.7. </span>How to add more files and sections to your Jupyter Books website<a class="headerlink" href="#how-to-add-more-files-and-sections-to-your-jupyter-books-website" title="Permalink to this headline">#</a></h3>
+<p>Create more files in the folder and then update the <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>.  For example, this whole website is jupyter book, see how many files are in the <a class="reference external" href="https://github.com/compsys-progtools/spring2024/">repo</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-02-08.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>What <em>is</em> a commit?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../activities/kwl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">KWL Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-documentation">7.1. Why Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-documentation">7.2. What is documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-documentation-so-important">7.2.1. Why is documentation so important?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-how-do-we-do-it">7.3. So, how do we do it?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterbook">7.4. Jupyterbook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-a-git-repo-locally">7.5. Starting a git repo locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retiring-racist-language">7.5.1. Retiring racist language</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-a-jupyter-book">7.6. Structure of a Jupyter book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dev-tools-mean-we-do-not-have-to-write-bibliographies-manually">7.6.1. Dev tools mean we do not have to write bibliographies manually</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-documentation">7.7. Building Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-built-files">7.8. Ignoring Built files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-push-a-repo-that-i-made-locally-to-github">7.9. How do I push a repo that I made locally to GitHub?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">7.10. Prepare for next class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">7.11. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">7.12. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">7.13. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-create-a-new-remote-through-the-terminal-without-using-the-github-ui">7.13.1. Can you create a new remote through the terminal without using the github ui?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-jupyterbook-different-than-other-ides-or-editors">7.13.2. How is jupyterbook different than other ides or editors?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-doctrees-folder-inside-build-with-files-like-environment-pickle">7.13.3. What is the .doctrees/ folder inside _build/ with files like environment.pickle?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-building-necessary-couldnt-it-just-be-a-part-of-compiling">7.13.4. Why is building necessary? Couldn’t it just be a part of compiling?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-other-uses-are-there-for-jupyter-notebook">7.13.5. What other uses are there for jupyter notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#did-we-create-a-repo-locally">7.13.6. Did we create a repo locally?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-add-more-files-and-sections-to-your-jupyter-books-website">7.13.7. How to add more files and sections to your Jupyter Books website</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -55,3 +55,10 @@ Activities:
 Activities:
 ```{include} ../_review/2024-02-08.md
 ```
+## 2024-02-15
+
+[related notes](../notes/2024-02-15)
+
+Activities:
+```{include} ../_review/2024-02-15.md
+```
