@@ -1,0 +1,1210 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Why are these tools like this? &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-02-22';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-01.html">4. How do branches work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-06.html">5. When do git and bash give me an advantage?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-08.html">6. What <em>is</em> a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-15.html">7. How do programmers communicate about code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-20.html">8. How do I choose a Programming Language for a project?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2022/resources/testimonials.html">Advice from Fall 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2023/resources/testimonials.html">Advice from Spring 2023 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2023/resources/testimonials.html">Advice from Fall 2023 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository/edit/main/notes/2024-02-22.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024# The URL to your book's repository/issues/new?title=Issue%20on%20page%20%2Fnotes/2024-02-22.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notes/2024-02-22.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Why are these tools like this?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-we-study-design">Why should we study design?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-studying-developer-tools">Why are we studying developer tools?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-philosophy">Unix Philosophy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#philosophy-in-practice-using-pipes">Philosophy in practice, using pipes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-from-source">Installing from source</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-study-computer-systems">How do we Study (computer) Systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior">Behavior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraction">Abstraction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-this-class">Prepare for this class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-will-we-be-starting-the-collabrative-work">when will we be starting the collabrative work?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally">Are the <code class="docutils literal notranslate"><span class="pre">sysgetassignment</span></code> and <code class="docutils literal notranslate"><span class="pre">cspt</span></code> stuff just to work on badges locally?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#would-it-make-sense-to-make-terminals-more-user-friendly">Would it make sense to make terminals more user friendly?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-your-definition-of-abstraction">What is your definition of abstraction?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-more-differences-between-monolothic-and-composable-designs">What are More differences between monolothic and composable designs?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="why-are-these-tools-like-this">
+<h1>Why are these tools like this?<a class="headerlink" href="#why-are-these-tools-like-this" title="Permalink to this headline">#</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Remember: this is an upper level course; I am not looking for you to give me back the things I say to you.</p>
+<p>I am looking to see that you can use and apply the things we do in other contexts.</p>
+<ul class="simple">
+<li><p>sometimes this is practical: eg git &amp; bash</p></li>
+<li><p>sometimes this is conceptual: eg PL &amp; today</p></li>
+</ul>
+<p>This means I look for you to draw connections between ideas.</p>
+</div>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
+<p>Let’s take some time to se up what we are going to talk about today.</p>
+<p>We will talk about two main things:</p>
+<ul class="simple">
+<li><p>Unix Philosophy</p></li>
+<li><p>Strategies to study systems</p></li>
+</ul>
+<p>In CS we tend to be more implicit about design, but that makes it hard to learn and keep track of.</p>
+<p>Today’s goal is to be more explicit, disucssing some principles and seeing how you have already interacted wit them.</p>
+<p>Today we’re going to do a bit more practical stuff, but we are also going to start to get into the philosophy of how things are organized.</p>
+<p>Understanding the context and principles will help you:</p>
+<ul class="simple">
+<li><p>remember how to do things</p></li>
+<li><p>form reliable hypotheses about how to fix problems you have not seen before</p></li>
+<li><p>help you understand when you should do things as they have always been done and when you should challenge and change things.</p></li>
+</ul>
+<section id="why-should-we-study-design">
+<h3>Why should we study design?<a class="headerlink" href="#why-should-we-study-design" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>it is easy to get distracted by implementation, syntax, algorithms</p></li>
+<li><p>but the core <em>principles</em> of design organize ideas into simpler rules</p></li>
+</ul>
+</section>
+<section id="why-are-we-studying-developer-tools">
+<h3>Why are we studying developer tools?<a class="headerlink" href="#why-are-we-studying-developer-tools" title="Permalink to this headline">#</a></h3>
+<p>Recall:</p>
+<blockquote>
+<div><p>The best way to learn design is to study examples [Schon1984, Petre2016], and some of the best examples of software design come from the tools programmers use in their own work.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://third-bit.com/sdxjs/">Software design by example</a></p>
+<p><em>note</em></p>
+<ul class="simple">
+<li><p>we will talk about some history in this course</p></li>
+<li><p>I will not take a “great men of history” approach, where I have you learn a bunch of people and what each one of them did</p></li>
+</ul>
+<p>This is because:</p>
+<ul class="simple">
+<li><p>I think that history is important context for making decisions</p></li>
+<li><p>Many of these “great men” are actually, in many ways, Not Great^TM</p></li>
+<li><p>It <em>is</em> important to remember that all of this work was done by <em>people</em></p></li>
+<li><p>all people are imperfect</p></li>
+<li><p>when people are deeply influential, ignoring their role in history is not effective, we cannot undo what they did</p></li>
+<li><p>we do not have to admire them or even say their names to acknowledge the work</p></li>
+<li><p>computing technology has been used in Very Bad ways and in Definitely Good ways</p></li>
+</ul>
+</section>
+</section>
+<section id="unix-philosophy">
+<h2>Unix Philosophy<a class="headerlink" href="#unix-philosophy" title="Permalink to this headline">#</a></h2>
+<p>sources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Unix_philosophy">wiki</a></p></li>
+<li><p><a class="reference external" href="http://www.catb.org/~esr/writings/taoup/html/ch01s06.html">a free book</a></p></li>
+<li><p>composability over monolithic design</p></li>
+<li><p>social conventions</p></li>
+</ul>
+<p>The tenets:</p>
+<ol class="arabic simple">
+<li><p>Make it easy to write, test, and run programs.</p></li>
+<li><p>Interactive use instead of batch processing.</p></li>
+<li><p>Economy and elegance of design due to size constraints (“salvation through suffering”).</p></li>
+<li><p>Self-supporting system: all Unix software is maintained under Unix.</p></li>
+</ol>
+<p>For better or <a class="reference external" href="http://www.ceri.memphis.edu/people/smalley/ESCI7205_misc_files/The_truth_about_Unix_cleaned.pdf">worse</a> unix philosophy is dominant, so understanding it is important.</p>
+<p>This critique is written that unix is not a good system for  “normal folks” not in its effectiveness as a context for <em>developers</em> which is where *nix (unix, linux) systems remain popular.</p>
+<p>context:<br />
+<em>“normal folks” is the author’s term; my guess is that it is attempting to describe a typical, nondeveloper computer user</em>
+<em>terminology to refer to people has changed a lot over time; when we study concepts from primary sources, we have to interpret the document through the lens of what was normal at the time the document was written, not to excuse bad behavior but to not be distracted and see what is there</em></p>
+<p>In what ways might it make sense to design developer tools differently than everyday user tools?</p>
+<section id="philosophy-in-practice-using-pipes">
+<h3>Philosophy in practice, using pipes<a class="headerlink" href="#philosophy-in-practice-using-pipes" title="Permalink to this headline">#</a></h3>
+<p><strong>If you have the <code class="docutils literal notranslate"><span class="pre">gh</span></code> CLI installed and working locally</strong>: open the terminal that it works in and navigate to your KWL repo.</p>
+<p><strong>If you <em>do not</em> have <code class="docutils literal notranslate"><span class="pre">gh</span></code> CLI  working locally</strong>, open a codespace on the main branch of your KWL repo</p>
+<p>(I have it working locally and working locally lets me save my terminal output for the notes more easily)</p>
+<p>To check if your <code class="docutils literal notranslate"><span class="pre">gh</span></code> CLI is working:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Work seamlessly with GitHub from the command line.</span>
+
+<span class="go">USAGE</span>
+<span class="go">  gh &lt;command&gt; &lt;subcommand&gt; [flags]</span>
+
+<span class="go">CORE COMMANDS</span>
+<span class="go">  auth:        Authenticate gh and git with GitHub</span>
+<span class="go">  browse:      Open the repository in the browser</span>
+<span class="go">  codespace:   Connect to and manage codespaces</span>
+<span class="go">  gist:        Manage gists</span>
+<span class="go">  issue:       Manage issues</span>
+<span class="go">  org:         Manage organizations</span>
+<span class="go">  pr:          Manage pull requests</span>
+<span class="go">  project:     Work with GitHub Projects.</span>
+<span class="go">  release:     Manage releases</span>
+<span class="go">  repo:        Manage repositories</span>
+
+<span class="go">GITHUB ACTIONS COMMANDS</span>
+<span class="go">  cache:       Manage Github Actions caches</span>
+<span class="go">  run:         View details about workflow runs</span>
+<span class="go">  workflow:    View details about GitHub Actions workflows</span>
+
+<span class="go">EXTENSION COMMANDS</span>
+<span class="go">  classroom:   Extension classroom</span>
+
+<span class="go">ALIAS COMMANDS</span>
+<span class="go">  co:          Alias for &quot;pr checkout&quot;</span>
+
+<span class="go">ADDITIONAL COMMANDS</span>
+<span class="go">  alias:       Create command shortcuts</span>
+<span class="go">  api:         Make an authenticated GitHub API request</span>
+<span class="go">  completion:  Generate shell completion scripts</span>
+<span class="go">  config:      Manage configuration for gh</span>
+<span class="go">  extension:   Manage gh extensions</span>
+<span class="go">  gpg-key:     Manage GPG keys</span>
+<span class="go">  label:       Manage labels</span>
+<span class="go">  ruleset:     View info about repo rulesets</span>
+<span class="go">  search:      Search for repositories, issues, and pull requests</span>
+<span class="go">  secret:      Manage GitHub secrets</span>
+<span class="go">  ssh-key:     Manage SSH keys</span>
+<span class="go">  status:      Print information about relevant issues, pull requests, and notifications across repositories</span>
+<span class="go">  variable:    Manage GitHub Actions variables</span>
+
+<span class="go">HELP TOPICS</span>
+<span class="go">  actions:     Learn about working with GitHub Actions</span>
+<span class="go">  environment: Environment variables that can be used with gh</span>
+<span class="go">  exit-codes:  Exit codes used by gh</span>
+<span class="go">  formatting:  Formatting options for JSON data exported from gh</span>
+<span class="go">  mintty:      Information about using gh with MinTTY</span>
+<span class="go">  reference:   A comprehensive reference of all gh commands</span>
+
+<span class="go">FLAGS</span>
+<span class="go">  --help      Show help for command</span>
+<span class="go">  --version   Show gh version</span>
+
+<span class="go">EXAMPLES</span>
+<span class="go">   gh issue create</span>
+<span class="go">   gh repo clone cli/cli</span>
+<span class="go">   gh pr checkout 321</span>
+
+<span class="go">LEARN MORE</span>
+<span class="go">  Use &#39;gh &lt;command&gt; &lt;subcommand&gt; --help&#39; for more information about a command.</span>
+<span class="go">  Read the manual at https://cli.github.com/manual</span>
+</pre></div>
+</div>
+<p>When we use it without a subcommand, it gives us help output a list of all the commeands that we can use.  If it is <em>not</em> working, you would get a <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> error.</p>
+<p>We will navigate to the kwl repo</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">kwl</span><span class="o">-</span><span class="n">sp24</span><span class="o">-</span><span class="n">brownsarahm</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s inpsect the action file that creates the issues for your badges.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">.</span><span class="n">github</span><span class="o">/</span><span class="n">workflows</span><span class="o">/</span><span class="n">getassignment</span><span class="o">.</span><span class="n">yml</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">name: Create badge issues (Do not run manually)</span>
+<span class="go">on:</span>
+<span class="go">  workflow_dispatch</span>
+
+<span class="gp"># </span>once<span class="w"> </span>you<span class="w"> </span>edit,<span class="w"> </span>change<span class="w"> </span>the<span class="w"> </span>name
+
+<span class="go">jobs:</span>
+<span class="go">  check-contents:</span>
+<span class="go">    runs-on: ubuntu-latest</span>
+<span class="go">    steps:</span>
+<span class="go">    - uses: actions/checkout@v2</span>
+<span class="go">    </span>
+<span class="gp">    # </span>Install<span class="w"> </span>dependencies
+<span class="go">    - name: Set up Python 3.9</span>
+<span class="go">      uses: actions/setup-python@v4</span>
+<span class="go">      with:</span>
+<span class="go">        python-version: 3.9</span>
+<span class="go">    </span>
+<span class="go">    - name: Install Utils</span>
+<span class="go">      run: |</span>
+<span class="go">        pip install git+https://github.com/introcompsys/courseutils@main</span>
+<span class="go">    - name: Get badge requirements</span>
+<span class="go">      run: |</span>
+<span class="gp">        # </span>prepare<span class="w"> </span>badge<span class="w"> </span>lines
+<span class="go">        pretitle=&quot;prepare-&quot;$(sysgetbadgedate --prepare)</span>
+<span class="go">        sysgetassignment --type prepare | gh issue create --title $pretitle --label prepare --body-file -</span>
+<span class="gp">        # </span>review<span class="w"> </span>badge<span class="w"> </span>lines
+<span class="go">        rtitle=&quot;review-&quot;$(sysgetbadgedate --review)</span>
+<span class="go">        sysgetassignment --type review | gh issue create --title $rtitle --label review --body-file -</span>
+<span class="gp">        # </span>practice<span class="w"> </span>badge<span class="w"> </span>lines
+<span class="go">        pratitle=&quot;practice-&quot;$(sysgetbadgedate --practice)</span>
+<span class="go">        sysgetassignment --type practice| gh issue create --title $pratitle --label practice --body-file -</span>
+<span class="go">      env:</span>
+<span class="go">        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}</span>
+<span class="gp">#  </span>edit<span class="w"> </span>the<span class="w"> </span>run<span class="w"> </span>step<span class="w"> </span>above<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>level<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>you<span class="w"> </span>want.<span class="w"> </span>
+<span class="gp">#  </span>You<span class="w"> </span>should<span class="w"> </span>keep<span class="w"> </span>the<span class="w"> </span>prepare,<span class="w"> </span>because<span class="w"> </span>they<span class="w"> </span>are<span class="w"> </span>required<span class="w"> </span><span class="k">for</span><span class="w"> </span>experience<span class="w"> </span>badges<span class="w"> </span>
+<span class="gp">#     </span>You<span class="w"> </span>may<span class="w"> </span>choose<span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span>only<span class="w"> </span>the<span class="w"> </span>review<span class="w"> </span>or<span class="w"> </span>only<span class="w"> </span>the<span class="w"> </span>practice<span class="w"> </span><span class="o">(</span>and<span class="w"> </span>change<span class="w"> </span>this<span class="w"> </span>any<span class="w"> </span><span class="nb">time</span><span class="o">)</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>We see that several things, but this output is also kind of long,</p>
+<p>We can cut only a part of the output by using a pipe.  A pipe connects the output of one command to the input of the next.  It uses stdout and stdin files to do this.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">head</span></code> command returns the top of a file and its <code class="docutils literal notranslate"><span class="pre">-n</span></code> option lets us choose how many lines at the top of the file, so we will use this to get the first 26 lines.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">.</span><span class="n">github</span><span class="o">/</span><span class="n">workflows</span><span class="o">/</span><span class="n">getassignment</span><span class="o">.</span><span class="n">yml</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="mi">26</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(I picked 26 in advance to get the right number for this example, this)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">name: Create badge issues (Do not run manually)</span>
+<span class="go">on:</span>
+<span class="go">  workflow_dispatch</span>
+
+<span class="gp"># </span>once<span class="w"> </span>you<span class="w"> </span>edit,<span class="w"> </span>change<span class="w"> </span>the<span class="w"> </span>name
+
+<span class="go">jobs:</span>
+<span class="go">  check-contents:</span>
+<span class="go">    runs-on: ubuntu-latest</span>
+<span class="go">    steps:</span>
+<span class="go">    - uses: actions/checkout@v2</span>
+<span class="go">    </span>
+<span class="gp">    # </span>Install<span class="w"> </span>dependencies
+<span class="go">    - name: Set up Python 3.9</span>
+<span class="go">      uses: actions/setup-python@v4</span>
+<span class="go">      with:</span>
+<span class="go">        python-version: 3.9</span>
+<span class="go">    </span>
+<span class="go">    - name: Install Utils</span>
+<span class="go">      run: |</span>
+<span class="go">        pip install git+https://github.com/introcompsys/courseutils@main</span>
+<span class="go">    - name: Get badge requirements</span>
+<span class="go">      run: |</span>
+<span class="gp">        # </span>prepare<span class="w"> </span>badge<span class="w"> </span>lines
+<span class="go">        pretitle=&quot;prepare-&quot;$(sysgetbadgedate --prepare)</span>
+<span class="go">        sysgetassignment --type prepare | gh issue create --title $pretitle --label prepare --body-file -</span>
+</pre></div>
+</div>
+<p>Here we see a few key things:</p>
+<ul class="simple">
+<li><p>on the last line it uses a pipe <code class="docutils literal notranslate"><span class="pre">|</span></code> to connect a command <code class="docutils literal notranslate"><span class="pre">sysgetassignment</span></code> to the <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">issue</span> <span class="pre">create</span></code> command.</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">issue</span> <span class="pre">create</span></code> command uses the <code class="docutils literal notranslate"><span class="pre">--body-file</span></code> option with a value  <code class="docutils literal notranslate"><span class="pre">-</span></code>; this uses std in, but since this is to the right of the pipe, it puts the output of the first command into this option</p></li>
+<li><p>the 2nd to last line creates a variable (we will learn this more later) and the last line uses that variable</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">Utils</span></code> step, installs some custom code.</p></li>
+</ul>
+<p>We know that this action is what is used to create badge issues, so this custom code must be what gets information from the course website to get the assignments and prepare them for your badge issues.</p>
+</section>
+<section id="installing-from-source">
+<h3>Installing from source<a class="headerlink" href="#installing-from-source" title="Permalink to this headline">#</a></h3>
+<p>As we saw in the action, we can install python packages from source via git.  let’s install the new version of the code</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">compsys</span><span class="o">-</span><span class="n">progtools</span><span class="o">/</span><span class="n">courseutils</span><span class="nd">@main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Collecting git+https://github.com/compsys-progtools/courseutils@main</span>
+<span class="go">  Cloning https://github.com/compsys-progtools/courseutils (to revision main) to /private/var/folders/8g/px8bm7bj0_j31j71yh6mfd_r0000gn/T/pip-req-build-shqisbrk</span>
+<span class="go">  Running command git clone --filter=blob:none --quiet https://github.com/compsys-progtools/courseutils /private/var/folders/8g/px8bm7bj0_j31j71yh6mfd_r0000gn/T/pip-req-build-shqisbrk</span>
+<span class="go">  Resolved https://github.com/compsys-progtools/courseutils to commit 2220b76eba38662aa1a6172fdfd46700e3f9cce3</span>
+<span class="go">  Preparing metadata (setup.py) ... done</span>
+
+<span class="go">Successfully installed syscourseutils-0.4.0</span>
+</pre></div>
+</div>
+<p>This shows at the top it clones the repo to a temporary location on your system (or codespace) and then installs it from the source code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I truncated this output for the website</p>
+</div>
+<p>Now we can use a command from the packaage.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sysgetassignment</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">404: Not Found</span>
+</pre></div>
+</div>
+<p>With default settings, it says 404.</p>
+<p>We know that it goes online.  So, for example, if you turn your wifi off and then try it again, you will get a different error.</p>
+<p>To learn more about this, lets use the <code class="docutils literal notranslate"><span class="pre">--help</span></code> option.<br />
+A lot of CLI tools have this option.  In this program, that I made,
+the Python library <code class="docutils literal notranslate"><span class="pre">click</span></code> that I used to make this, provides the <code class="docutils literal notranslate"><span class="pre">help</span></code> option automatically to show the documentation or lets me as the developer add help text to options.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sysgetassignment</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage: sysgetassignment [OPTIONS]</span>
+
+<span class="go">  get the assignment text formatted (CLI entrypoint)</span>
+
+<span class="go">Options:</span>
+<span class="go">  --type TEXT  type can be prepare, review, or practice</span>
+<span class="go">  --date TEXT  date should be YYYY-MM-DD of the tasks you</span>
+<span class="go">               want</span>
+<span class="go">  --help       Show this message and exit.</span>
+</pre></div>
+</div>
+<p>Now we can see that it can take some options.</p>
+<p>If we do not provide a date, I can tell you (and I should add to the documentation), it uses today’s date.  Since we ran this on a day with class, before the badges were posted, the file it looked for did not exist, so we got 404.</p>
+<p>We can use the options to get the last posted practice badge</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sysgetassignment</span> <span class="o">--</span><span class="n">date</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">20</span> <span class="o">--</span><span class="nb">type</span> <span class="n">practice</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">- [ ] Describe a type of project where it would be worth it for you to learn a language you have never used before in `newlanguage.md` This should be based in what types of features for the language your project would require and/or what would contribute to the long term health of the project.</span>
+<span class="go">- [ ] Learn about one of the following languages that you have not used before: [R](https://www.r-project.org/), [Julia](https://julialang.org/), [Clojure](https://clojure.org/guides/getting_started), [Zig](https://ziglang.org/), [Go](https://go.dev/), [erlang](https://www.erlang.org/), [Elixir](https://elixir-lang.org/) or another language you are curious about that appeared in the Developer survey. For example you might be interest in the [top paying languages](https://survey.stackoverflow.co/2023/#technology-top-paying-technologies). Use the official documentation.  Answer the following questions in `languagelearning.md`:</span>
+
+<span class="go">    ```</span>
+<span class="go">    - [ ] What is this language designed for?</span>
+<span class="go">    - [ ] What Programming paradigm(s) does it support?</span>
+<span class="go">    - [ ] Give at least 1 example of a programming language that experience in would make it **easy** to learn this language and explain why. </span>
+<span class="go">    - [ ] Give at least 1 example of a programming language that experience in would make it **hard** to learn this language and explain why. </span>
+<span class="go">    - [ ] What is its most unique feature(s)?</span>
+<span class="go">    ```</span>
+
+<span class="go">hint: for questions 3 &amp; 4, for example learning Python first does not make it easy to learn C++, but learning C makes it very easy to learn C++. </span>
+
+<span class="gp">#</span><span class="c1"># Explore badge option </span>
+
+<span class="go">Actually try out one of the langauges above in a new repo created from [this asssignment](https://classroom.github.com/a/ENi8xpR_). </span>
+
+<span class="go">**work on a branch and commit after each step**</span>
+
+<span class="go">- [ ] Setup the devcontainer to provide the compiler/interpreter for the language of your choice. See [features](https://containers.dev/features)</span>
+<span class="go">- [ ] Add top extensions related to the language to the devcontainer. </span>
+<span class="go">- [ ] Add a [gitignore](https://github.com/github/gitignore) file for that language</span>
+<span class="go">- [ ] Write a hello world type program in the language and make sure it runs. </span>
+<span class="go">- [ ] Use the official documentation to figure out a common task in the language and write an example program that completes something typical for that language (eg a sort data analysis in R). You may use GitHub Co-pilot in the code space to help write the code.  </span>
+<span class="go">- [ ] Test your understanding of the code by trying to modify it. </span>
+<span class="go">- [ ] Fill in the prompts in the README (follow the comments)</span>
+<span class="go">- [ ] Answer the questions in the README of the template repo.  </span>
+</pre></div>
+</div>
+<p>and it works!</p>
+<p>By calling without the the type, we can see what it gives as the default,</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sysgetassignment</span> <span class="o">--</span><span class="n">date</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">20</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">- [ ] Think through and make some notes about what you have learned about design so far. Try to answer the questions below in `design_before.md`.  If you do not now know how to answer any of the questions, write in what questions you have. </span>
+
+<span class="go">``` </span>
+<span class="go">- What past experiences with making decisions about design of software do you have?</span>
+<span class="go">- what experiences studying design do you have? </span>
+<span class="go">- What processes, decisions, and practices come to mind when you think about designing software?</span>
+<span class="go">- From your experiences as a user, how you would describe the design of command line tools vs other GUI based tools?</span>
+<span class="go">```</span>
+</pre></div>
+</div>
+<p>which we see is prepare</p>
+<p>We can also install from a different  branch</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">compsys</span><span class="o">-</span><span class="n">progtools</span><span class="o">/</span><span class="n">courseutils</span><span class="nd">@sub_command</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Collecting git+https://github.com/compsys-progtools/courseutils@sub_command</span>
+<span class="go">  Cloning https://github.com/compsys-progtools/courseutils (to revision sub_command) to /private/var/folders/8g/px8bm7bj0_j31j71yh6mfd_r0000gn/T/pip-req-build-ubwyoelb</span>
+<span class="go">  Running command git clone --filter=blob:none --quiet https://github.com/compsys-progtools/courseutils /private/var/folders/8g/px8bm7bj0_j31j71yh6mfd_r0000gn/T/pip-req-build-ubwyoelb</span>
+<span class="go">  Running command git checkout -b sub_command --track origin/sub_command</span>
+<span class="go">  Switched to a new branch &#39;sub_command&#39;</span>
+<span class="go">  branch &#39;sub_command&#39; set up to track &#39;origin/sub_command&#39;.</span>
+<span class="go">  Resolved https://github.com/compsys-progtools/courseutils to commit bbf6192f911f7ce295e4cc6da4b011c5320b2fb0</span>
+<span class="go">  Preparing metadata (setup.py) ... done</span>
+<span class="go">Requirement already satisfied: Click in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from syscourseutils==1.0.2) (8.1.7)</span>
+<span class="go">Requirement already satisfied: pandas in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from syscourseutils==1.0.2) (2.0.3)</span>
+<span class="go">Requirement already satisfied: lxml in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from syscourseutils==1.0.2) (4.9.2)</span>
+<span class="go">Requirement already satisfied: numpy in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from syscourseutils==1.0.2) (1.24.3)</span>
+<span class="go">Requirement already satisfied: requests in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from syscourseutils==1.0.2) (2.31.0)</span>
+<span class="go">Requirement already satisfied: html5lib in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from syscourseutils==1.0.2) (1.1)</span>
+<span class="go">Requirement already satisfied: six&gt;=1.9 in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from html5lib-&gt;syscourseutils==1.0.2) (1.16.0)</span>
+<span class="go">Requirement already satisfied: webencodings in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from html5lib-&gt;syscourseutils==1.0.2) (0.5.1)</span>
+<span class="go">Requirement already satisfied: python-dateutil&gt;=2.8.2 in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from pandas-&gt;syscourseutils==1.0.2) (2.8.2)</span>
+<span class="go">Requirement already satisfied: pytz&gt;=2020.1 in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from pandas-&gt;syscourseutils==1.0.2) (2022.7)</span>
+<span class="go">Requirement already satisfied: tzdata&gt;=2022.1 in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from pandas-&gt;syscourseutils==1.0.2) (2023.3)</span>
+<span class="go">Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from requests-&gt;syscourseutils==1.0.2) (2.0.4)</span>
+<span class="go">Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from requests-&gt;syscourseutils==1.0.2) (3.4)</span>
+<span class="go">Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from requests-&gt;syscourseutils==1.0.2) (1.26.16)</span>
+<span class="go">Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/brownsarahm/anaconda3/lib/python3.11/site-packages (from requests-&gt;syscourseutils==1.0.2) (2023.7.22)</span>
+<span class="go">Building wheels for collected packages: syscourseutils</span>
+<span class="go">  Building wheel for syscourseutils (setup.py) ... done</span>
+<span class="go">  Created wheel for syscourseutils: filename=syscourseutils-1.0.2-py3-none-any.whl size=16292 sha256=10ce631c7b45acb85334f8762dbed91d1c9530b443ee92b731e5730e547f223c</span>
+<span class="go">  Stored in directory: /private/var/folders/8g/px8bm7bj0_j31j71yh6mfd_r0000gn/T/pip-ephem-wheel-cache-mmemuo33/wheels/7b/b7/64/6a1c2f1fd945bc80f64f3a179f51ce6c739342727446e4359b</span>
+<span class="go">Successfully built syscourseutils</span>
+<span class="go">Installing collected packages: syscourseutils</span>
+<span class="go">  Attempting uninstall: syscourseutils</span>
+<span class="go">    Found existing installation: syscourseutils 0.4.0</span>
+<span class="go">    Uninstalling syscourseutils-0.4.0:</span>
+<span class="go">      Successfully uninstalled syscourseutils-0.4.0</span>
+<span class="go">Successfully installed syscourseutils-1.0.2</span>
+</pre></div>
+</div>
+<p>Note the version updates, and goes from 0.4.0 to 1.0.2. I made some breaking changes on this branch, so I used semantic versioning to jump the major.</p>
+<p>It now has an overall command with subcommands.
+we can use that command, cspt in order to get the list of other commands.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cspt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage: cspt [OPTIONS] COMMAND [ARGS]...</span>
+
+<span class="go">Options:</span>
+<span class="go">  --help  Show this message and exit.</span>
+
+<span class="go">Commands:</span>
+<span class="go">  createtoyfiles  from a source file create a set of...</span>
+<span class="go">  earlybonus      check if early bonus is met from...</span>
+<span class="go">  exportac        export ac files for site from lesson</span>
+<span class="go">  exporthandout   export prismia version of the content</span>
+<span class="go">  exportprismia   export prismia version of the content</span>
+<span class="go">  getassignment   get the assignment text formatted</span>
+<span class="go">  getbadgedate    cli for calculate badge date</span>
+<span class="go">  kwlcsv          generate the activity file csv file...</span>
+<span class="go">  mkchecklist     transform input file to a gh markdown...</span>
+<span class="go">  parsedate       process select non dates</span>
+<span class="go">  prfixlist       check json output for titles that...</span>
+<span class="go">  processexport   transform output from mac terminal...</span>
+<span class="go">  progressreport  list PR titles from json or - to use...</span>
+<span class="go">  titlecheck</span>
+</pre></div>
+</div>
+<p>This command should now work for you in your KWL, but we will revisit this in lab.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh</span> <span class="n">pr</span> <span class="nb">list</span> <span class="o">--</span><span class="n">json</span> <span class="n">title</span><span class="p">,</span><span class="n">latestReviews</span> <span class="o">|</span> <span class="n">cspt</span> <span class="n">prfixlist</span> <span class="o">-</span> <span class="o">|</span> <span class="n">cspt</span> <span class="n">mkchecklist</span> <span class="o">-</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="how-do-we-study-computer-systems">
+<h2>How do we Study (computer) Systems<a class="headerlink" href="#how-do-we-study-computer-systems" title="Permalink to this headline">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This section has more detail than we did in class</p>
+</div>
+<p>When we think of something as a system, we can study it different ways:</p>
+<ul class="simple">
+<li><p>input/output behavior</p></li>
+<li><p>components</p></li>
+</ul>
+<p>For complex systems, we also use <em>abstraction</em></p>
+<p>These basic ideas apply whether a computer system or not.  We can probe an object that we want to udnerstand in different ways.</p>
+<p>In a lot of disciplines people are taught one or the other, or they divide professionally into theorists or experimentalists along the lines.</p>
+<p>People are the most effective at working with, within, and manipulating systems when they have multiple ways to achieve the same goal.</p>
+<p>These are not mutually exclusive, we will use them all together in this course.</p>
+<p>When we study a system we can do so in three main main ways.  We can look at the input/output behavior of the system as a whole,  we can look at the individual components, or we can adopt the abstractions that were developed.</p>
+<p>For each component, we can look at its behavior or the subcomponents.  We can take what we know from all fo the components and piece that together.  However, for a complex system, we cannot match individual components up to the high level behavior.  This is true in both computers and other complex systems. In the first computers in the 1940s, the only things they did was arithmetic and you could match from their components al the way up pretty easily.  Modern computers connect to the internet, send signals, load complex graphics, play sounds and many other things that are harder to decompose all at once. Outside of computers, scientists have a pretty good idea of how neurons work and that appears to be the same across mammals and other species (eg squid) but we do not understand how the whole brain of a mammal works, not even smaller mammals with less complex social lives than humans.  Understanding the parts is not always enough to understand all of the complex ways the parts can work together.  Computers are much less complicated than brains.  They were made by brains.</p>
+<p>But that fact motivates another way to study a complex  system, across levels of abstraction. You can abstract away details and focus on one representation. This can be tied literally to components, but it can also be conceptual.  For example, in CSC211 you use a model of stack and heap for memory.  It’s useful for understanding programming, but is not exactly what the hardware does.  At times, it is even more useful though than understanding exactly what the hardware does.  These abstractions also serve a social, practical purpose.  In computing, and society at large really, we use <em>standards</em> these are sets of guidelines for how to build things.  Like when you use a function, you need to know it’s API and what it is supposed to do in order to use it.  The developers could change how it does that without impacting your program, as long as the API is not changed and the high level input/output behavior stays the same.</p>
+<section id="behavior">
+<h3>Behavior<a class="headerlink" href="#behavior" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Try something,  see what happens</p>
+</div></blockquote>
+<p>This is probably how you first learned to use a computer.  Maybe a parent showed you how to do a few things, but then you probably tried other things.  For most of you, this may have been when you were very young and much less afraid of breaking things. Over time you learned how to do things and what behaviors to expect.  You also learned categories of things.  Like once you learned one social media app and that others were also <em>social media</em> you then looked for similar features.  Maybe you learned one video game had the option to save and expected it in the next one.</p>
+<p>Video games and social media are <em>classes</em> or <em>categories</em> of software and each game and app are <em>instances</em>.  Similarly, an Integrated Development Environment (IDE) is a category of software and VS Code, … are instances.  Also, version control is a category of software and git is an instance. A git host is also a category and GitHub is an instance.  Just as before you were worried about details you transferred features from one instance to another within categories, I want you to think about what you know from one IDE and how that would help you learn another.  We will study the actual features of IDE a=and what you might want to know about them so that you can choose your own.  Becoming a more independent developer you’ll start to have your own opinions about which one is better.  Think about about a person in your life who finds computers and technology overall intimidating or frustrating.  They likely only use one social media app if at all, or maybe they only know to make documents in Microsoft word and they think that Google Docs is too much to learn, because they didn’t transfer ideas from one to the other.</p>
+<p>We have focused on the behavior of individual applications to this point, but there is also the overall behavior of the system in broad terms, typing on the keyboard we expect the characters to show (and when they don’t for example in a shell password, we’re surprised and concerned it is not working).</p>
+<p>Run the following command and describe what happens</p>
+<p>This gives a list of PRs that you might want to check on</p>
+<p>use pipes to produce list of bad titles, pipe into checker</p>
+</section>
+<section id="components">
+<h3>Components<a class="headerlink" href="#components" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Take it apart, asess the pieces</p>
+</div></blockquote>
+<p>We have the high level parts: keyboard, mouse, monitor/screen, tower/computer. Inside we also tend to know there is a power supply, a motherboard, graphics card, memory, etc.</p>
+<p>We can study how each of these parts works while not worrying about the others but having them there.  This is probably how you learned to use a mouse. You focused your attention on the mouse and saw what else happened.</p>
+<p>Or we can take an individual component and isolate it to study it alone.  For a mouse this would be hard. Without a computer attached its output is not very visible.  To do this, we would need additional tools to interpret its output and examine it.  Most computer components actually would need additional tools, to measure the electrical signals, but we could examine what happens at each part one at a time to then build up what they do.</p>
+<p>This idea, however that we can use another tool to understand each component is an important one.  This  is also a way to again, take care and study each piece even within a software-alone system without worrying about the hardware.</p>
+<p>Let’s break the command down and examine each piece.  What piece should we start from?</p>
+</section>
+<section id="abstraction">
+<h3>Abstraction<a class="headerlink" href="#abstraction" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>use a model</p>
+</div></blockquote>
+<p>As we talked about the behavior and abstraction, we talked some about software and some about hardware. These are the two coarsest ways we can think about a computer system at different levels of abstraction. We can think about it only in physical terms and examine the patterns of electricity flow or we can think about only the software and not worry about the hardware, at a higher level of abstraction.</p>
+<p>However, two levels is not really enough to understand how computer systems are designed.</p>
+<p><img alt="layers" src="https://www.secplicity.org/wp-content/uploads/2018/09/AvG0R-1.jpg" /></p>
+<p>Application - the software you run.</p>
+<p>Algorithm - the way that it is implemented, in mathematical level</p>
+<p>Programming language - the way that it is implemented for a computer.</p>
+<p>Let’s take a simple example, let’s say we are talking about a simple search program that we wrote that finds xx.  We can say that you put in a part of a file name and it shows you all the ones with a similar name. That description is at the application level it gives the high level behavior, but not the step by step of how it does it.  Let’s say we implemented it using bubble search then searches by … That’s the algorithm level, this is still abstract and could be implemented in different ways, but we know the steps and we can use this to know some things about how fast it will be, what types of result swill make it slower, etc. At the programming level language then we know which language it was done in and we see more details. At this level, we can see the specific data structures and controls structures.  These implementation details can also impact performance in terms of space(memory) or time.  Still at this level, we do not need to know how the actual hardware works, but we see it in increasing detail.
+At each level we have different types of operations.  At the application we might have input, press enter, get results. At the algorithm we have check the value, compare.  At the programming language level we need more specifics too, like assign or append.</p>
+<p>After the Programming language level, there is assembly.
+The advantage to assembly is that it is hardware independent and human readable. It is low level and limited to what the hardware <em>can</em> do, but it is a version of that that can be run on different hardware.
+It is much lower level.  When you compile a program, it is translated to assembly.  At this level, programs written in different level become indistinguishable. This has much lower level operations. We can do various calculations, but not things like compare. Things that were one step before, like assign become two, choose a memory location, then write to memory.
+This level of abstraction is the level of detail we will think about most.  We’ll look at the others, but spend much less time below here.</p>
+<p>Machine code translates to binary from assembly.</p>
+<p>The instruction set architecture is, notice, where the line between software and hardware lives.  This is because these are specific to the actual hardware, this is the level where there are different instructions if you have an Intel chip vs an Apple chip. This level reduces down the instructions even more specifically to the specifics things that an individual piece of hardware does and how they dit.</p>
+<p>The microarchitecture is the specific circuits: networks of smaller individual components. Again, we can treat the components as blocks and focus on how they work together. At this level we still have calculations like add, multiply, compare, negate, and we can store values and read them. That is all we have at this point though. At this level there are all binary numbers.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We actually only need NAND, we will see how later.</p>
+</div>
+</aside>
+<p>The actual gates (components that implement logical operations) and registers (components that hold values) break everything down to logical operations.  Instead of adding, we have a series of <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">nand</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, and <code class="docutils literal notranslate"><span class="pre">xor</span></code> put together over individual bits.  Instead of numbers, we have <code class="docutils literal notranslate"><span class="pre">registers</span></code> that store individual zeros or ones. In a modern digital, electrical computer, at this level we have to actually watch the flow of electricity through the circuit and worry about things like the number of gates and whether or not the calculations finish at the same time or having other parts wait so that they are all working together.  We will see later that when we try to allow multiple cores to work independently, we have to handle these timing issues at the higher levels as well. However, a register and gate can be implemented in different ways at the device level.</p>
+<p>The device (or transistor in modern electrical digital computers) level, is where things transition between analog and digital.  The world we live in is actually all analog.  We just pay attention to lots of things at a time scale at which they appear to be be digital.  Over time devices have changed from mechanical switches to electronic transistors.  Material science innovations at the physics level have improved the transistors further over time, allowing them to be smaller and more heat efficient.  Because of abstraction, these changes could be plugged into new hardware without having to make any changes at any software levels. However, they do <em>enable</em> improvements at the higher levels.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For example, Bayesian statistics is a philosophy that treats probability as subjective uncertainty instead of as frequency.  This has some interpretative differences, but most importantly it means that we always need an extra factor (multiplied term) in our calculations.  This makes all of the math <strong>much</strong> more complex. For many decades Bayesian statistics was not practical for anything but the simplest models.  However, with improvements to computers, that opened new options at the algorithm level.  The first large scale application of this type of statistics was by Microsoft after their researchers built a Bayesian player model for player matching in Halo.</p>
+</div>
+</section>
+</section>
+<section id="prepare-for-this-class">
+<h2>Prepare for this class<a class="headerlink" href="#prepare-for-this-class" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>review the notes on <a class="reference external" href="https://compsys-progtools.github.io/spring2024/notes/2024-02-08.html">what is a commit</a>. In <span class="target" id="index-0"></span>gitdef.md on the branch for this issue, try to describe git in the four ways we described a commit.  <strong>the point here is to think about what you know for git and practice remembering it, not “get the right answer”; this is prepare work, we only check that it is complete, not correct</strong></p></li>
+<li><p>Start recording notes on <em>how</em> you use IDEs for the next couple of weeks using the template file below. We will come back to these notes in class later, but it is best to record over a time period instead of trying to remember at that time. Store your notes in your kwl repo in <span class="target" id="index-1"></span>idethoughts.md on an <code class="docutils literal notranslate"><span class="pre">ide_prep</span></code> branch. <strong>This is prep for after spring break, it does not go in the Feb 27 experience branch; keep this branch open until it is specifically asked for</strong></p></li>
+</ol>
+</section>
+<section id="badges">
+<h2>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Read today’s notes when they are posted.</p></li>
+<li><p>Most real projects partly adhere and at least partly deviate from any major design philosophy or paradigm. Review the open source project you looked at for the <code class="docutils literal notranslate"><span class="pre">software.md</span></code> file from before and decide if it more adheres to or deviates from the unix philosophy. Add a <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Unix</span> <span class="pre">Philosophy</span> <span class="pre">&lt;Adherance/Deviation</span></code> section to your <span class="target" id="index-2"></span>software.md, setting the title to indicate your decision and explain your decision in that section. Provide at least two specific examples, using links to specific lines of code or specific sections in the documentation that support your claims.</p></li>
+<li><p>create <span class="target" id="index-3"></span>methods.md and answer the following:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- Reflecting on your own programming practice, is initial understanding of concepts or debugging later more challenging for you? and why? Your answer here will be &quot;your chosen context&quot; for the rest of the questions. 
+- which of the three methods for studying a system do you use most often in your chosen context? Give an example, like an anectdote of learnign something new or a tricky bug you solved. 
+- do you think using a different strategy might help you in your chosen context sometimes? why or why not? 
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Most real projects partly adhere and at least partly deviate from any major design philosophy or paradigm. Add a <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Unix</span> <span class="pre">Philosophy</span></code> section to your <span class="target" id="index-4"></span>software.md about how that project adheres to and deviates from the unix philosophy. Be specific, using links to specific lines of code or specific sections in the documentation that support your claims. Provide at least one example of both adhering and deviating from the philosophy and three total examples (that is 2 examples for one side and one for the other).  You can see what badge <code class="docutils literal notranslate"><span class="pre">software.md</span></code> was previously assigned in and the original instructions <a class="reference external" href="https://compsys-progtools.github.io/spring2024/genindex.html">on the KWL file list</a>.</p></li>
+<li><p>create <span class="target" id="index-5"></span>methods.md and answer the following:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- which of the three methods for studying a system do you use most often when debugging? Give an example
+- which do you use when you are trying to understand something new? Is it the same as when you are debugging? why or why not
+- do you think the ones you use most often are consistently effective? why or why not? When do they work or not work? (for either learning new thing or debugging)
+- what are you most interested in trying that might be different for either learning new things or debugging?
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="experience-report-evidence">
+<h2>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="questions-after-todays-class">
+<h2>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<section id="when-will-we-be-starting-the-collabrative-work">
+<h3>when will we be starting the collabrative work?<a class="headerlink" href="#when-will-we-be-starting-the-collabrative-work" title="Permalink to this headline">#</a></h3>
+<p>Next week in lab, you’ll have time to form groups and start working together</p>
+</section>
+<section id="are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally">
+<h3>Are the <code class="docutils literal notranslate"><span class="pre">sysgetassignment</span></code> and <code class="docutils literal notranslate"><span class="pre">cspt</span></code> stuff just to work on badges locally?<a class="headerlink" href="#are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally" title="Permalink to this headline">#</a></h3>
+<p>And they’re how I get the issues created in your repos.  This exercise was to show you behind the scenes how the course itself applies some of these concepts.</p>
+</section>
+<section id="would-it-make-sense-to-make-terminals-more-user-friendly">
+<h3>Would it make sense to make terminals more user friendly?<a class="headerlink" href="#would-it-make-sense-to-make-terminals-more-user-friendly" title="Permalink to this headline">#</a></h3>
+<p>In a sense, we have done some; there is still more of what is called “cognitive load” or how much a person has to hold in memory, but at the same time, the interactive nature helps.  It means you can, for example, run a command with the help option and then figrue out what you need.  There are added colors, and more advanced tab complete options.</p>
+<p>You can also customize your terminal locally and add aliases, to autmate things you personally do often or make it more like how you want it to be.</p>
+<p><em>explore ideas: (do one of the following and document/write it up)</em></p>
+<ul class="simple">
+<li><p>customize your prompt on your main terminal to align with how your think or your personal preferences</p></li>
+<li><p>create an alias to make something you do often easier</p></li>
+<li><p>customize your vscode experience and share your customized settings as a recommendation to others with explanation of what you like and why</p></li>
+</ul>
+</section>
+<section id="what-is-your-definition-of-abstraction">
+<h3>What is your definition of abstraction?<a class="headerlink" href="#what-is-your-definition-of-abstraction" title="Permalink to this headline">#</a></h3>
+<p>I use it in different contexts, in slightly different ways (eg teaching this class is very different than my research collaboration with affective neuroscientists writing a theoretical piece on a new approach to psychological science).  The most concise, useful definition I like is that to abstract is to hide or summarize a level of detail that is not useful for the taks at hand.</p>
+</section>
+<section id="what-are-more-differences-between-monolothic-and-composable-designs">
+<h3>What are More differences between monolothic and composable designs?<a class="headerlink" href="#what-are-more-differences-between-monolothic-and-composable-designs" title="Permalink to this headline">#</a></h3>
+<p>This is a good explore badge topic.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-we-study-design">Why should we study design?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-studying-developer-tools">Why are we studying developer tools?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-philosophy">Unix Philosophy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#philosophy-in-practice-using-pipes">Philosophy in practice, using pipes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-from-source">Installing from source</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-study-computer-systems">How do we Study (computer) Systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior">Behavior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraction">Abstraction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-this-class">Prepare for this class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-will-we-be-starting-the-collabrative-work">when will we be starting the collabrative work?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally">Are the <code class="docutils literal notranslate"><span class="pre">sysgetassignment</span></code> and <code class="docutils literal notranslate"><span class="pre">cspt</span></code> stuff just to work on badges locally?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#would-it-make-sense-to-make-terminals-more-user-friendly">Would it make sense to make terminals more user friendly?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-your-definition-of-abstraction">What is your definition of abstraction?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-more-differences-between-monolothic-and-composable-designs">What are More differences between monolothic and composable designs?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
