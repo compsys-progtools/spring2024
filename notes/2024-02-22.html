@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Why are these tools like this? &#8212; Computer Systems and Programming Tools</title>
+    <title>9. Why are these tools like this? &#8212; Computer Systems and Programming Tools</title>
   
   
   
@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-02-22';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="prev" title="8. How do I choose a Programming Language for a project?" href="2024-02-20.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -169,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
@@ -178,6 +180,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2024-02-08.html">6. What <em>is</em> a commit?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-02-15.html">7. How do programmers communicate about code?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-02-20.html">8. How do I choose a Programming Language for a project?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Why are these tools like this?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -421,31 +424,31 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-we-study-design">Why should we study design?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-studying-developer-tools">Why are we studying developer tools?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">9.1. Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-we-study-design">9.1.1. Why should we study design?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-studying-developer-tools">9.1.2. Why are we studying developer tools?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-philosophy">Unix Philosophy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#philosophy-in-practice-using-pipes">Philosophy in practice, using pipes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-from-source">Installing from source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-philosophy">9.2. Unix Philosophy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#philosophy-in-practice-using-pipes">9.2.1. Philosophy in practice, using pipes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-from-source">9.2.2. Installing from source</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-study-computer-systems">How do we Study (computer) Systems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior">Behavior</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraction">Abstraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-study-computer-systems">9.3. How do we Study (computer) Systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior">9.3.1. Behavior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">9.3.2. Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraction">9.3.3. Abstraction</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-this-class">Prepare for this class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">Badges</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">Questions After Today’s Class</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-will-we-be-starting-the-collabrative-work">when will we be starting the collabrative work?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally">Are the <code class="docutils literal notranslate"><span class="pre">sysgetassignment</span></code> and <code class="docutils literal notranslate"><span class="pre">cspt</span></code> stuff just to work on badges locally?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#would-it-make-sense-to-make-terminals-more-user-friendly">Would it make sense to make terminals more user friendly?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-your-definition-of-abstraction">What is your definition of abstraction?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-more-differences-between-monolothic-and-composable-designs">What are More differences between monolothic and composable designs?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-this-class">9.4. Prepare for this class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">9.5. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">9.6. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">9.7. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-will-we-be-starting-the-collabrative-work">9.7.1. when will we be starting the collabrative work?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally">9.7.2. Are the <code class="docutils literal notranslate"><span class="pre">sysgetassignment</span></code> and <code class="docutils literal notranslate"><span class="pre">cspt</span></code> stuff just to work on badges locally?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#would-it-make-sense-to-make-terminals-more-user-friendly">9.7.3. Would it make sense to make terminals more user friendly?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-your-definition-of-abstraction">9.7.4. What is your definition of abstraction?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-more-differences-between-monolothic-and-composable-designs">9.7.5. What are More differences between monolothic and composable designs?</a></li>
 </ul>
 </li>
 </ul>
@@ -460,7 +463,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="why-are-these-tools-like-this">
-<h1>Why are these tools like this?<a class="headerlink" href="#why-are-these-tools-like-this" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">9. </span>Why are these tools like this?<a class="headerlink" href="#why-are-these-tools-like-this" title="Permalink to this headline">#</a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Remember: this is an upper level course; I am not looking for you to give me back the things I say to you.</p>
@@ -472,7 +475,7 @@ document.write(`
 <p>This means I look for you to draw connections between ideas.</p>
 </div>
 <section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.1. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <p>Let’s take some time to se up what we are going to talk about today.</p>
 <p>We will talk about two main things:</p>
 <ul class="simple">
@@ -489,14 +492,14 @@ document.write(`
 <li><p>help you understand when you should do things as they have always been done and when you should challenge and change things.</p></li>
 </ul>
 <section id="why-should-we-study-design">
-<h3>Why should we study design?<a class="headerlink" href="#why-should-we-study-design" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.1.1. </span>Why should we study design?<a class="headerlink" href="#why-should-we-study-design" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>it is easy to get distracted by implementation, syntax, algorithms</p></li>
 <li><p>but the core <em>principles</em> of design organize ideas into simpler rules</p></li>
 </ul>
 </section>
 <section id="why-are-we-studying-developer-tools">
-<h3>Why are we studying developer tools?<a class="headerlink" href="#why-are-we-studying-developer-tools" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.1.2. </span>Why are we studying developer tools?<a class="headerlink" href="#why-are-we-studying-developer-tools" title="Permalink to this headline">#</a></h3>
 <p>Recall:</p>
 <blockquote>
 <div><p>The best way to learn design is to study examples [Schon1984, Petre2016], and some of the best examples of software design come from the tools programmers use in their own work.</p>
@@ -520,7 +523,7 @@ document.write(`
 </section>
 </section>
 <section id="unix-philosophy">
-<h2>Unix Philosophy<a class="headerlink" href="#unix-philosophy" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.2. </span>Unix Philosophy<a class="headerlink" href="#unix-philosophy" title="Permalink to this headline">#</a></h2>
 <p>sources:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Unix_philosophy">wiki</a></p></li>
@@ -542,7 +545,7 @@ document.write(`
 <em>terminology to refer to people has changed a lot over time; when we study concepts from primary sources, we have to interpret the document through the lens of what was normal at the time the document was written, not to excuse bad behavior but to not be distracted and see what is there</em></p>
 <p>In what ways might it make sense to design developer tools differently than everyday user tools?</p>
 <section id="philosophy-in-practice-using-pipes">
-<h3>Philosophy in practice, using pipes<a class="headerlink" href="#philosophy-in-practice-using-pipes" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.2.1. </span>Philosophy in practice, using pipes<a class="headerlink" href="#philosophy-in-practice-using-pipes" title="Permalink to this headline">#</a></h3>
 <p><strong>If you have the <code class="docutils literal notranslate"><span class="pre">gh</span></code> CLI installed and working locally</strong>: open the terminal that it works in and navigate to your KWL repo.</p>
 <p><strong>If you <em>do not</em> have <code class="docutils literal notranslate"><span class="pre">gh</span></code> CLI  working locally</strong>, open a codespace on the main branch of your KWL repo</p>
 <p>(I have it working locally and working locally lets me save my terminal output for the notes more easily)</p>
@@ -724,7 +727,7 @@ document.write(`
 <p>We know that this action is what is used to create badge issues, so this custom code must be what gets information from the course website to get the assignments and prepare them for your badge issues.</p>
 </section>
 <section id="installing-from-source">
-<h3>Installing from source<a class="headerlink" href="#installing-from-source" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.2.2. </span>Installing from source<a class="headerlink" href="#installing-from-source" title="Permalink to this headline">#</a></h3>
 <p>As we saw in the action, we can install python packages from source via git.  let’s install the new version of the code</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -927,7 +930,7 @@ we can use that command, cspt in order to get the list of other commands.</p>
 </section>
 </section>
 <section id="how-do-we-study-computer-systems">
-<h2>How do we Study (computer) Systems<a class="headerlink" href="#how-do-we-study-computer-systems" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.3. </span>How do we Study (computer) Systems<a class="headerlink" href="#how-do-we-study-computer-systems" title="Permalink to this headline">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>This section has more detail than we did in class</p>
@@ -946,7 +949,7 @@ we can use that command, cspt in order to get the list of other commands.</p>
 <p>For each component, we can look at its behavior or the subcomponents.  We can take what we know from all fo the components and piece that together.  However, for a complex system, we cannot match individual components up to the high level behavior.  This is true in both computers and other complex systems. In the first computers in the 1940s, the only things they did was arithmetic and you could match from their components al the way up pretty easily.  Modern computers connect to the internet, send signals, load complex graphics, play sounds and many other things that are harder to decompose all at once. Outside of computers, scientists have a pretty good idea of how neurons work and that appears to be the same across mammals and other species (eg squid) but we do not understand how the whole brain of a mammal works, not even smaller mammals with less complex social lives than humans.  Understanding the parts is not always enough to understand all of the complex ways the parts can work together.  Computers are much less complicated than brains.  They were made by brains.</p>
 <p>But that fact motivates another way to study a complex  system, across levels of abstraction. You can abstract away details and focus on one representation. This can be tied literally to components, but it can also be conceptual.  For example, in CSC211 you use a model of stack and heap for memory.  It’s useful for understanding programming, but is not exactly what the hardware does.  At times, it is even more useful though than understanding exactly what the hardware does.  These abstractions also serve a social, practical purpose.  In computing, and society at large really, we use <em>standards</em> these are sets of guidelines for how to build things.  Like when you use a function, you need to know it’s API and what it is supposed to do in order to use it.  The developers could change how it does that without impacting your program, as long as the API is not changed and the high level input/output behavior stays the same.</p>
 <section id="behavior">
-<h3>Behavior<a class="headerlink" href="#behavior" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.3.1. </span>Behavior<a class="headerlink" href="#behavior" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p>Try something,  see what happens</p>
 </div></blockquote>
@@ -958,7 +961,7 @@ we can use that command, cspt in order to get the list of other commands.</p>
 <p>use pipes to produce list of bad titles, pipe into checker</p>
 </section>
 <section id="components">
-<h3>Components<a class="headerlink" href="#components" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.3.2. </span>Components<a class="headerlink" href="#components" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p>Take it apart, asess the pieces</p>
 </div></blockquote>
@@ -969,7 +972,7 @@ we can use that command, cspt in order to get the list of other commands.</p>
 <p>Let’s break the command down and examine each piece.  What piece should we start from?</p>
 </section>
 <section id="abstraction">
-<h3>Abstraction<a class="headerlink" href="#abstraction" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.3.3. </span>Abstraction<a class="headerlink" href="#abstraction" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p>use a model</p>
 </div></blockquote>
@@ -1004,14 +1007,14 @@ This level of abstraction is the level of detail we will think about most.  We�
 </section>
 </section>
 <section id="prepare-for-this-class">
-<h2>Prepare for this class<a class="headerlink" href="#prepare-for-this-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.4. </span>Prepare for this class<a class="headerlink" href="#prepare-for-this-class" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>review the notes on <a class="reference external" href="https://compsys-progtools.github.io/spring2024/notes/2024-02-08.html">what is a commit</a>. In <span class="target" id="index-0"></span>gitdef.md on the branch for this issue, try to describe git in the four ways we described a commit.  <strong>the point here is to think about what you know for git and practice remembering it, not “get the right answer”; this is prepare work, we only check that it is complete, not correct</strong></p></li>
 <li><p>Start recording notes on <em>how</em> you use IDEs for the next couple of weeks using the template file below. We will come back to these notes in class later, but it is best to record over a time period instead of trying to remember at that time. Store your notes in your kwl repo in <span class="target" id="index-1"></span>idethoughts.md on an <code class="docutils literal notranslate"><span class="pre">ide_prep</span></code> branch. <strong>This is prep for after spring break, it does not go in the Feb 27 experience branch; keep this branch open until it is specifically asked for</strong></p></li>
 </ol>
 </section>
 <section id="badges">
-<h2>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.5. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -1044,20 +1047,20 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.6. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
 </section>
 <section id="questions-after-todays-class">
-<h2>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.7. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
 <section id="when-will-we-be-starting-the-collabrative-work">
-<h3>when will we be starting the collabrative work?<a class="headerlink" href="#when-will-we-be-starting-the-collabrative-work" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.7.1. </span>when will we be starting the collabrative work?<a class="headerlink" href="#when-will-we-be-starting-the-collabrative-work" title="Permalink to this headline">#</a></h3>
 <p>Next week in lab, you’ll have time to form groups and start working together</p>
 </section>
 <section id="are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally">
-<h3>Are the <code class="docutils literal notranslate"><span class="pre">sysgetassignment</span></code> and <code class="docutils literal notranslate"><span class="pre">cspt</span></code> stuff just to work on badges locally?<a class="headerlink" href="#are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.7.2. </span>Are the <code class="docutils literal notranslate"><span class="pre">sysgetassignment</span></code> and <code class="docutils literal notranslate"><span class="pre">cspt</span></code> stuff just to work on badges locally?<a class="headerlink" href="#are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally" title="Permalink to this headline">#</a></h3>
 <p>And they’re how I get the issues created in your repos.  This exercise was to show you behind the scenes how the course itself applies some of these concepts.</p>
 </section>
 <section id="would-it-make-sense-to-make-terminals-more-user-friendly">
-<h3>Would it make sense to make terminals more user friendly?<a class="headerlink" href="#would-it-make-sense-to-make-terminals-more-user-friendly" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.7.3. </span>Would it make sense to make terminals more user friendly?<a class="headerlink" href="#would-it-make-sense-to-make-terminals-more-user-friendly" title="Permalink to this headline">#</a></h3>
 <p>In a sense, we have done some; there is still more of what is called “cognitive load” or how much a person has to hold in memory, but at the same time, the interactive nature helps.  It means you can, for example, run a command with the help option and then figrue out what you need.  There are added colors, and more advanced tab complete options.</p>
 <p>You can also customize your terminal locally and add aliases, to autmate things you personally do often or make it more like how you want it to be.</p>
 <p><em>explore ideas: (do one of the following and document/write it up)</em></p>
@@ -1068,11 +1071,11 @@ Practice</label><div class="sd-tab-content docutils">
 </ul>
 </section>
 <section id="what-is-your-definition-of-abstraction">
-<h3>What is your definition of abstraction?<a class="headerlink" href="#what-is-your-definition-of-abstraction" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.7.4. </span>What is your definition of abstraction?<a class="headerlink" href="#what-is-your-definition-of-abstraction" title="Permalink to this headline">#</a></h3>
 <p>I use it in different contexts, in slightly different ways (eg teaching this class is very different than my research collaboration with affective neuroscientists writing a theoretical piece on a new approach to psychological science).  The most concise, useful definition I like is that to abstract is to hide or summarize a level of detail that is not useful for the taks at hand.</p>
 </section>
 <section id="what-are-more-differences-between-monolothic-and-composable-designs">
-<h3>What are More differences between monolothic and composable designs?<a class="headerlink" href="#what-are-more-differences-between-monolothic-and-composable-designs" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.7.5. </span>What are More differences between monolothic and composable designs?<a class="headerlink" href="#what-are-more-differences-between-monolothic-and-composable-designs" title="Permalink to this headline">#</a></h3>
 <p>This is a good explore badge topic.</p>
 </section>
 </section>
@@ -1109,6 +1112,24 @@ Practice</label><div class="sd-tab-content docutils">
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-02-20.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>How do I choose a Programming Language for a project?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../activities/kwl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">KWL Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -1127,31 +1148,31 @@ Practice</label><div class="sd-tab-content docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-we-study-design">Why should we study design?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-studying-developer-tools">Why are we studying developer tools?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">9.1. Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-we-study-design">9.1.1. Why should we study design?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-studying-developer-tools">9.1.2. Why are we studying developer tools?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-philosophy">Unix Philosophy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#philosophy-in-practice-using-pipes">Philosophy in practice, using pipes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-from-source">Installing from source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-philosophy">9.2. Unix Philosophy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#philosophy-in-practice-using-pipes">9.2.1. Philosophy in practice, using pipes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-from-source">9.2.2. Installing from source</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-study-computer-systems">How do we Study (computer) Systems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior">Behavior</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraction">Abstraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-study-computer-systems">9.3. How do we Study (computer) Systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior">9.3.1. Behavior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">9.3.2. Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraction">9.3.3. Abstraction</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-this-class">Prepare for this class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">Badges</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">Questions After Today’s Class</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-will-we-be-starting-the-collabrative-work">when will we be starting the collabrative work?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally">Are the <code class="docutils literal notranslate"><span class="pre">sysgetassignment</span></code> and <code class="docutils literal notranslate"><span class="pre">cspt</span></code> stuff just to work on badges locally?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#would-it-make-sense-to-make-terminals-more-user-friendly">Would it make sense to make terminals more user friendly?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-your-definition-of-abstraction">What is your definition of abstraction?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-more-differences-between-monolothic-and-composable-designs">What are More differences between monolothic and composable designs?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-this-class">9.4. Prepare for this class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">9.5. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">9.6. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">9.7. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-will-we-be-starting-the-collabrative-work">9.7.1. when will we be starting the collabrative work?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-sysgetassignment-and-cspt-stuff-just-to-work-on-badges-locally">9.7.2. Are the <code class="docutils literal notranslate"><span class="pre">sysgetassignment</span></code> and <code class="docutils literal notranslate"><span class="pre">cspt</span></code> stuff just to work on badges locally?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#would-it-make-sense-to-make-terminals-more-user-friendly">9.7.3. Would it make sense to make terminals more user friendly?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-your-definition-of-abstraction">9.7.4. What is your definition of abstraction?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-more-differences-between-monolothic-and-composable-designs">9.7.5. What are More differences between monolothic and composable designs?</a></li>
 </ul>
 </li>
 </ul>
