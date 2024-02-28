@@ -181,6 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-02-15.html">7. How do programmers communicate about code?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-02-20.html">8. How do I choose a Programming Language for a project?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-02-22.html">9. Why are these tools like this?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2024-02-27.html">10. What <em>is</em> git?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="current nav bd-sidenav">
@@ -432,6 +433,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2024-02-13</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2024-02-20</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">2024-02-27</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2024-02-29</a></li>
 </ul>
             </nav>
         </div>
@@ -569,12 +571,36 @@ Project : &lt;markdown link to repo&gt;
 </section>
 <section id="id8">
 <h2>2024-02-27<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
-<p><span class="xref myst">related notes</span></p>
+<p><a class="reference internal" href="../notes/2024-02-27.html"><span class="doc std std-doc">related notes</span></a></p>
 <p>Activities:</p>
 <ol class="arabic simple">
 <li><p>review the notes on <a class="reference external" href="https://compsys-progtools.github.io/spring2024/notes/2024-02-08.html">what is a commit</a>. In <span class="target" id="index-3"></span>gitdef.md on the branch for this issue, try to describe git in the four ways we described a commit.  <strong>the point here is to think about what you know for git and practice remembering it, not “get the right answer”; this is prepare work, we only check that it is complete, not correct</strong></p></li>
 <li><p>Start recording notes on <em>how</em> you use IDEs for the next couple of weeks using the template file below. We will come back to these notes in class later, but it is best to record over a time period instead of trying to remember at that time. Store your notes in your kwl repo in <span class="target" id="index-4"></span>idethoughts.md on an <code class="docutils literal notranslate"><span class="pre">ide_prep</span></code> branch. <strong>This is prep for after spring break, it does not go in the Feb 27 experience branch; keep this branch open until it is specifically asked for</strong></p></li>
 </ol>
+</section>
+<section id="id9">
+<h2>2024-02-29<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<p><span class="xref myst">related notes</span></p>
+<p>Activities:</p>
+<p>Create a file <code class="docutils literal notranslate"><span class="pre">gitcommandsbreakdown.md</span></code> and for each command in the template below break down what steps it must do based on what we have learned so far about git objects.  I started the first one as an example based on what we discussed today, fill in the others.  In class on Thursday, we will make a commit using plumbing commands, so thinking about what you already know about commits will prepare you to learn this material.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># What git commands do</span>
+
+<span class="c1">## `git status`</span>
+
+<span class="o">-</span> <span class="n">check</span> <span class="n">the</span> <span class="n">branch</span> <span class="n">of</span> <span class="n">the</span> <span class="n">HEAD</span> <span class="n">pointer</span>
+<span class="o">-</span> <span class="n">compare</span> <span class="n">the</span> <span class="n">HEAD</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">FETCH_HEAD</span><span class="p">,</span> <span class="k">if</span> <span class="n">different</span> <span class="n">trace</span> <span class="n">back</span> <span class="n">through</span> <span class="n">parent</span> <span class="n">commits</span> <span class="n">to</span> <span class="n">find</span> <span class="n">out</span> <span class="n">how</span> <span class="n">many</span> <span class="n">commits</span> <span class="n">apart</span> <span class="n">they</span> <span class="n">are</span> <span class="ow">and</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">ahead</span> <span class="p">(</span><span class="ow">or</span> <span class="k">if</span> <span class="n">both</span> <span class="n">ahead</span> <span class="ow">and</span> <span class="n">behind</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">compare</span> <span class="n">the</span> <span class="n">snapshot</span> <span class="n">at</span> <span class="n">the</span> <span class="n">HEAD</span> <span class="n">pointer</span><span class="s1">&#39;s commit to the current working directory</span>
+<span class="o">-</span> <span class="k">if</span> <span class="n">staging</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">,</span> <span class="n">compare</span> <span class="n">that</span> <span class="n">to</span> <span class="n">the</span> <span class="n">working</span> <span class="n">directory</span>
+
+<span class="c1">## `git commit`</span>
+
+<span class="o">-</span> 
+
+<span class="c1">## `git add`</span>
+
+<span class="o">-</span> 
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -653,6 +679,7 @@ Project : &lt;markdown link to repo&gt;
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2024-02-13</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2024-02-20</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">2024-02-27</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2024-02-29</a></li>
 </ul>
   </nav></div>
 
