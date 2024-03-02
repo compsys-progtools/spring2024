@@ -1,7 +1,7 @@
 # Team Repo
 
 ```{warning}
-This will change for spring 2024 
+We will not use this in spring 2024
 ```
 
 (groupcontrib)=

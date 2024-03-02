@@ -68,30 +68,36 @@ git Workflow
 
 HEAD
   a file in the .git directory that indicates what is currently  checked out (think of the current branch)
-
+  
 
 merge
   putting two branches together so that you can access files in another branch that are not available in yours
 
+
 merge conflict
+  when two branches to be merged edit the same lines and git cannot automatically merge the changes
 
 
 mermaid
   mermaid syntax allows user to create precise, detailed diagrams in markdown files.
 
+
 hash function
   the actual function that does the hashing of the input (a key, an object, etc.)
 
+
 hashing
   transforming an input of arbitrary length to a unique fixed length output (the output is called a hash; used in hash tables and when git hashes commits). 
-  
+
+
 integrated development environment
   also known as an IDE, puts together all of the tools a developer would need to produce code (source code editor, debugger, ability to run code) into one application so that everything can be done in one place. can also have extra features such as showing your file tree and connecting to git and/or github.
 
 
 interpreted code
   code that is directly executed from a high level language. more expensive computationally because it cannot be optimized and therefore can be slower.
-  
+
+
 issue
   provides the ability to easily track ideas, feedback, tasks, or bugs. branches can be created for specific issues. an issue is open when it is created. pull requests have the ability to close issues. see more in the [docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
 
@@ -99,29 +105,42 @@ issue
 Linker
   a program that links together the object files and libraries to output an executable file.
 
+
 option
   also known as a flag, a  parameter to a command line program that change its behavior, different from an argument
   
+
 path
   the "location" of a file or folder(directory) in a computer
+
 
 pointer
   a variable that stores the address of another variable
 
+
 pull (changes from a repository)
   download changes from a remote repository and update the local repository with these changes.
+
 
 [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
   allow other users to review and request changes on branches. after a pull request recieves approval you can merge the changed content to the main branch.
 
+
 PR
   short for {term}`pull request`
+
 
 push (changes to a repository)
   to put whatever you were working on from your local machine onto a remote copy of the repository in a version control system.
 
+
 relative path
   the path defined **relative** to another file or the current working directory; may start with a name, includes a single file name or may start with `./`
+
+
+remote
+  a copy of the repository hosted on a server
+
 
 repository
   a project folder with tracking information in it in the form of a .git directory in it
@@ -156,11 +175,13 @@ terminal
 tree objects
   type of git object in git that helps store multiple files with their hashes (similar to directories in a file system)
 
+
 yml
     see YAML
 
 [YAML](https://yaml.org/)  
     a file specification that stores key-value pairs. It is commonly used for configurations and settings. 
+
 
 zsh
   zsh or z shell is built on top of the bash shell and contains new features
