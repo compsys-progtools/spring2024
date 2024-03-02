@@ -6,26 +6,9 @@ Build may be individual or in pairs.
 
 If you have selected to do a project, please use the following template to propose a bulid
 
+```{literalinclude} ../_worksheets/build_proposal.md
 ```
-## < Project Tite >
 
-<!-- insert a 1 sentence summary  -->
-
-### Objectives
-
-<!-- in this section describe the overall goals in terms of what you will learn and the problem you will solve. this should be 2-5 sentences, it can be bullet points/numbered or a paragraph  -->
-
-### Method
-
- <!-- describe what you will do , will it be research, write & present? will there be something you build? will you do experiments?-->
-
-### Deliverables
-
-<!-- list what your project will produce with target deadlines for each-->  
-
-### Milestones
-
-```
 
 The deliverables will depend on what your method is, which depend on your goals. It must be approved and the final submitted will have to meet what is approved.  Some guidance:
 - any code or text should be managed with git (can be GitHub or elsewhere)
