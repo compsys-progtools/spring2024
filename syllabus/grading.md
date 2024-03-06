@@ -227,9 +227,14 @@ Learning to ask questions is important.  Your questions can be clarifying (eg be
 covered well enough to think of hypothetical scenarios or options or what might come next.  Basically, focused curiosity. 
 ```
 
+(labcheckout)=
 ### Lab Checkouts
 
+You earn credit for lab by attending and completing core tasks as defined in a lab issue posted to your repo each week.  Work that needs to be correct through revisions will be left to a review or practice badge. 
 
+You will have to have a short meeting with a TA or intructor to get credit for each lab. In the lab instructions there will be a checklist that the TA or instructor will use to confirm you are on track.  In these conversations, we will make sure that you know how to do key procedural tasks so that you are set up to continue working independently. 
+
+To make up a lab, complete the tasks from the lab issue on your own and attend office hours to complete the checkout. 
 
 ### Review and Practice Badges
 
