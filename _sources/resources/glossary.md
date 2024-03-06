@@ -29,6 +29,10 @@ Compiled Code
   code that is put through a compiler to turn it into lower level assemlby language before it is executed. must be compiled and re-executed everytime you make a change.
 
 
+detached head
+  a state of a git repo where the head pointer is set to a commit without a branch also pointing to the commit
+
+
 directory
   a collection of files typically created for organizational purposes
 
@@ -136,6 +140,10 @@ push (changes to a repository)
 
 relative path
   the path defined **relative** to another file or the current working directory; may start with a name, includes a single file name or may start with `./`
+
+
+release
+  a distribution of your code, related to a git tag
 
 
 remote

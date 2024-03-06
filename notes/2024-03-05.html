@@ -1,0 +1,1832 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>12. Why did we learn the plubming commands? &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-03-05';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="prev" title="11. How does git make a commit?" href="2024-02-29.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-01.html">4. How do branches work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-06.html">5. When do git and bash give me an advantage?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-08.html">6. What <em>is</em> a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-15.html">7. How do programmers communicate about code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-20.html">8. How do I choose a Programming Language for a project?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-22.html">9. Why are these tools like this?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-27.html">10. What <em>is</em> git?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-29.html">11. How does git make a commit?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Why did we learn the plubming commands?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2022/resources/testimonials.html">Advice from Fall 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2023/resources/testimonials.html">Advice from Spring 2023 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2023/resources/testimonials.html">Advice from Fall 2023 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/edit/main/notes/2024-03-05.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/issues/new?title=Issue%20on%20page%20%2Fnotes/2024-03-05.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notes/2024-03-05.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Why did we learn the plubming commands?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todays-questions">12.1. Today’s Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-git-status-do">12.2. What does git status do?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branches-are-references">12.3. Branches are references</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-our-commit-missing">12.3.1. Why is our commit missing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-a-branch-manually">12.3.2. Updating a branch manually</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-tags">12.4. Git tags</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-with-git">12.5. Debugging with git</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#any-commit-can-be-checked-out">12.6. Any commit can be checked out</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotated-commits-create-objects">12.7. Annotated commits create objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-git-help-with-work-in-progress">12.8. How can git help with  work in Progress?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">12.9. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">12.10. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">12.11. Questions After Today’s Class</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="why-did-we-learn-the-plubming-commands">
+<h1><span class="section-number">12. </span>Why did we learn the plubming commands?<a class="headerlink" href="#why-did-we-learn-the-plubming-commands" title="Permalink to this headline">#</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you miss class or lab for any reason you are responsible for making it up per the instructions in the syllabus. You do not need to notify me why you are missing class and I do not judge your reasons for missing class for short absences. For longer absences you may <a class="reference external" href="https://compsys-progtools.github.io/spring2024/syllabus/uri_statements.html?highlight=makeup#excused-absences">email me to make a plan</a>.</p>
+<p>For <a class="reference internal" href="../syllabus/grading.html#labcheckout"><span class="std std-ref">lab makeup</span></a> this includes attending office hours for the checkout step.</p>
+<p>For <a class="reference internal" href="../syllabus/grading.html#expmakeup"><span class="std std-ref">class makeup</span></a> this includes an alternative path to your experience badge.  Note that in class actitivies may build, so it is important to review the notes ASAP so that you are ready to participate in the next class you attend.</p>
+</div>
+<p>You will not typically use them on a day to day basis, but they are a good way to see what happens at the interim steps and make sure that you have the right understanding of what git does.</p>
+<p>A <strong>correct</strong> understanding is essential for using more advanced features</p>
+<p>While there is of course some content that we want you to know after this course, my goal is also to teach you process, by modeling it.</p>
+<p>No one will every know all of the things but you can be fast or slow at finding answers.</p>
+<p>And you can find correct answers, incorrect answers, or looks-okay-but-you-will-regret-this-later answers.</p>
+<p>My goal is that you get good at <em>quickly</em> finding <strong>correct</strong> answers.</p>
+<p>Large language models will not do that for you.</p>
+<p><strong>Note</strong> I checked and confirmed that some of the assignments will be answered incorrectly by LLMs because they are about very specific details that most people who write blogs and code excerpts on stack overflow etc do incorrectly.</p>
+<section id="todays-questions">
+<h2><span class="section-number">12.1. </span>Today’s Questions<a class="headerlink" href="#todays-questions" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>What are references?</p></li>
+<li><p>How can can I release and share my code?</p></li>
+<li><p>How else can git help me?</p></li>
+</ul>
+</section>
+<section id="what-does-git-status-do">
+<h2><span class="section-number">12.2. </span>What does git status do?<a class="headerlink" href="#what-does-git-status-do" title="Permalink to this headline">#</a></h2>
+<p><em>compares the working directory to the current state of the active branch</em></p>
+<ul class="simple">
+<li><p>we cansee the working directory with: <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
+<li><p>we can see the active branch in the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> file</p></li>
+<li><p>what is its status?</p></li>
+</ul>
+<p>Recall that we:</p>
+<ul class="simple">
+<li><p>crated a blob objct directly</p></li>
+<li><p>creataed a file</p></li>
+<li><p>hashed the file, to create its blob object</p></li>
+<li><p>added the file to the index</p></li>
+<li><p>wrote the tree</p></li>
+<li><p>created a commit</p></li>
+</ul>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>For a community badge, make an item in the bulleted list here link to the sections of the notes from the last class using <a class="reference external" href="https://jupyterbook.org/en/stable/content/references.html#reference-section-labels">reference links</a>. (credit for ones that have not been put in a PR)</p>
+</div>
+</aside>
+<p>Let’s use inspection to review where our repo is left off from last week.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+
+<span class="go">No commits yet</span>
+
+<span class="go">Changes to be committed:</span>
+<span class="go">  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">	new file:   test.txt</span>
+
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   test.txt</span>
+</pre></div>
+</div>
+<p>We see that git status still thinks the file is only staged, but not committed.</p>
+<p>From this we learn that index is not emptied when we create a commit.</p>
+<p>We see that the file is both staged and has changes not staged because we edited the file after we had staged it.</p>
+<p>This reminds us that the staging area is manual, like all git operations.  git does not run continously, which makes it faster and less resource intensive.</p>
+<p>We also note that this says we are on the main branch , and that we have no commits yet.  Let’s try to understand why it says we have no commits when we thougth we made one</p>
+</section>
+<section id="branches-are-references">
+<h2><span class="section-number">12.3. </span>Branches are references<a class="headerlink" href="#branches-are-references" title="Permalink to this headline">#</a></h2>
+<p>branches are not git objects, they are references.</p>
+<p>We can see that by where they are stored.</p>
+<p>How can we inspect to see where references are stored?</p>
+<p>using ls and/or find</p>
+<section id="why-is-our-commit-missing">
+<h3><span class="section-number">12.3.1. </span>Why is our commit missing?<a class="headerlink" href="#why-is-our-commit-missing" title="Permalink to this headline">#</a></h3>
+<p>We can see our list of object with <code class="docutils literal notranslate"><span class="pre">find</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">objects</span><span class="o">/</span> <span class="o">-</span><span class="nb">type</span> <span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.git/objects//0c/1e7391ca4e59584f8b773ecdbbb9467eba1547</span>
+<span class="go">.git/objects//d6/70460b4b4aece5915caf5c68d12f560a9fe3e4</span>
+<span class="go">.git/objects//d8/329fc1cc938780ffdd9f94e0d364e0ea74f579</span>
+<span class="go">.git/objects//e3/ba10cb02de504d4f48b9af4934ddcc4d0be3df</span>
+<span class="go">.git/objects//83/baae61804e65cc73a7201a7252750c76066a30</span>
+</pre></div>
+</div>
+<p>Since we made most of these objects as not commits, the hashes are mostly shared, but one of the hashes is unique so we worked together to identify that one.</p>
+<p>Then for that unique hash, we confirmed it was a commit using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">cat-file</span></code> to view its type</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">cat</span><span class="o">-</span><span class="n">file</span> <span class="o">-</span><span class="n">t</span> <span class="n">e3ba</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">commit</span>
+</pre></div>
+</div>
+<p>as expected</p>
+<p>Now let’s look at what the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> pointer says to try to understand why it does not see that commit, since we know that git status works from <code class="docutils literal notranslate"><span class="pre">HEAD</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">HEAD</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ref: refs/heads/main</span>
+</pre></div>
+</div>
+<p>this is consistent with the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> said, so this is not yet explaining</p>
+<p>now we can check what the branch points to</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">heads</span><span class="o">/</span><span class="n">main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>as expected when the tab complete did not work</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cat: .git/refs/heads/main: No such file or directory</span>
+</pre></div>
+</div>
+<p>it has not even made a file to track what commit the main branch points to.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>git creates updates the file for the branch each time you add a commit with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>, the first time <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> is run it also creates the file</p>
+</div>
+<p>If we look in the folder, we can see what is in there</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">heads</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>but it is empty</p>
+</section>
+<section id="updating-a-branch-manually">
+<h3><span class="section-number">12.3.2. </span>Updating a branch manually<a class="headerlink" href="#updating-a-branch-manually" title="Permalink to this headline">#</a></h3>
+<p>The branch file is named as the branch (here <code class="docutils literal notranslate"><span class="pre">main</span></code>) and stored in the <code class="docutils literal notranslate"><span class="pre">.git/refs/heads/</span></code> folder and contains the full hash of the commit that branch is pointing to.</p>
+<p>Since we made the commit manually, we need to move the branch manually too. We will use echo, by copyting the full hash from above (I copied the part after the last <code class="docutils literal notranslate"><span class="pre">/</span></code> in the list of objects above and then typed the <code class="docutils literal notranslate"><span class="pre">e3</span></code> before pasting).</p>
+<p>Mine looks like:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="n">e3ba10cb02de504d4f48b9af4934ddcc4d0be3df</span> <span class="o">&gt;</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">heads</span><span class="o">/</span><span class="n">main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>but your commit hash will be different than mine.</p>
+<p>Now we check with git again:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   test.txt</span>
+
+<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</pre></div>
+</div>
+<p>and now we can see that it no longer sees the staged file and <em>does</em> see our commit.</p>
+<p>So we now have HEAD-&gt; main and main -&gt; our commit -&gt; tree –&gt; blob.</p>
+</section>
+</section>
+<section id="git-tags">
+<h2><span class="section-number">12.4. </span>Git tags<a class="headerlink" href="#git-tags" title="Permalink to this headline">#</a></h2>
+<p>The other type of git reference is called a tag. There are two types of tags:</p>
+<ul class="simple">
+<li><p>a lightweight tag is like a branch that does not move</p></li>
+<li><p>an annotated tag is a git object, like a commit almost.</p></li>
+</ul>
+<p>We can see where they are stored in the <code class="docutils literal notranslate"><span class="pre">refs</span></code> folder:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">heads	remotes	tags</span>
+</pre></div>
+</div>
+<p>Remember:</p>
+<ul class="simple">
+<li><p>heads are branches (like <code class="docutils literal notranslate"><span class="pre">main</span></code>)</p></li>
+<li><p>remotes are servers that we can push to (eg <code class="docutils literal notranslate"><span class="pre">https://github.com/...</span></code>)</p></li>
+</ul>
+<p>Before we make a tag, let’s make sure we are on the most up to date main.
+First we check the branch and working directory:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+
+<span class="go">nothing to commit, working tree clean</span>
+</pre></div>
+</div>
+<p>main, clean working tree is good.</p>
+<p>Next we pull to update from github</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">remote: Enumerating objects: 4, done.</span>
+<span class="go">remote: Counting objects: 100% (4/4), done.</span>
+<span class="go">remote: Compressing objects: 100% (2/2), done.</span>
+<span class="go">remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0</span>
+<span class="go">Unpacking objects: 100% (3/3), 955 bytes | 136.00 KiB/s, done.</span>
+<span class="go">From https://github.com/compsys-progtools/gh-inclass-sp24-brownsarahm</span>
+<span class="go"> * [new branch]      1-create-a-add-a-classmate -&gt; origin/1-create-a-add-a-classmate</span>
+<span class="go">Already up to date.</span>
+</pre></div>
+</div>
+<p>and we get the updates</p>
+<p>Now, to make a tag we use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">&lt;name</span> <span class="pre">of</span> <span class="pre">tag&gt;</span></code> to create a lightweight tag</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">tag</span> <span class="n">v1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This command has no output, but we will inspect</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">tags</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">v1</span>
+</pre></div>
+</div>
+<p>we see this created a file for the tag,</p>
+<p>we will look at this too</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">tags</span><span class="o">/</span><span class="n">v1</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">0d6ef1d3db0729088d515b35b588f39af5b770fd</span>
+</pre></div>
+</div>
+<p>the lightweight tag is just like a branch, another pointer to the commit.</p>
+<p>The difference is that this does not move when we create new commits, so this is like a shortcut to a specific commit.</p>
+<p>We can see the tag relative to branches in the log as well:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">commit 0d6ef1d3db0729088d515b35b588f39af5b770fd (HEAD -&gt; main, tag: v1, origin/main, origin/HEAD)</span>
+<span class="go">Merge: 9f39946 e3b192a</span>
+<span class="go">Author: Sarah Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Thu Feb 8 13:43:19 2024 -0500</span>
+
+<span class="go">    Merge pull request #6 from compsys-progtools/organization</span>
+<span class="go">    </span>
+<span class="go">    first pass organizing</span>
+
+<span class="go">commit e3b192aa0cd490226e8adcd81d3d0b95adb5676b (origin/organization, organization)</span>
+<span class="go">Author: Sarah M Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Feb 6 13:41:53 2024 -0500</span>
+
+<span class="go">    oranizizng</span>
+
+<span class="go">commit 260c9c309922970f80bfa2c93cc23bcfbb962740</span>
+<span class="go">Author: Sarah M Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Feb 6 13:06:20 2024 -0500</span>
+
+<span class="go">    describe the files</span>
+
+<span class="go">commit 29ffc88519103085ed3a2ab01cffb3c99d70fc6a</span>
+<span class="go">Author: Sarah M Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Feb 6 12:59:20 2024 -0500</span>
+</pre></div>
+</div>
+<p>If we push:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Everything up-to-date</span>
+</pre></div>
+</div>
+<p>we see nothing happens initially.</p>
+<p>Tags have to be pushed explicitly</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">--</span><span class="n">tags</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Total 0 (delta 0), reused 0 (delta 0), pack-reused 0</span>
+<span class="go">To https://github.com/compsys-progtools/gh-inclass-sp24-brownsarahm.git</span>
+<span class="go"> * [new tag]         v1 -&gt; v1</span>
+</pre></div>
+</div>
+<p>then it sends the information to GitHub</p>
+<p>Next we looked at how <a class="reference external" href="https://docs.github.com/en/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags">tags are represented on github</a>. After opening the repo up in browser:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh</span> <span class="n">repo</span> <span class="n">view</span> <span class="o">--</span><span class="n">web</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tags enable <a class="reference internal" href="../resources/glossary.html#term-release"><span class="xref std std-term">release</span></a>s, where are <a class="reference external" href="https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases">defined on github as</a>:</p>
+<blockquote>
+<div><p>Releases are deployable software iterations you can package and make available for a wider audience to download and use.</p>
+</div></blockquote>
+<p>We can <a class="reference external" href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release">create a relese for the tag we made</a>.</p>
+</section>
+<section id="debugging-with-git">
+<h2><span class="section-number">12.5. </span>Debugging with git<a class="headerlink" href="#debugging-with-git" title="Permalink to this headline">#</a></h2>
+<p>git will help you do a binary search to find what commit introduced a bug.</p>
+<p>we have to tell it to start, then tell it that the current commit is bad, then tell it the last good commit (or a reference to it)</p>
+<p>To do this we need to have to tell it what commit was good, this is one of the reasons that using tags can be helpful</p>
+<p>there are multiple ways to refer to a point in the history</p>
+<p><a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection">revision selection</a></p>
+<p>First let’s choose a point to use as our last good commit by scanning the previous commits.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">commit 0d6ef1d3db0729088d515b35b588f39af5b770fd (HEAD -&gt; main, tag: v1, origin/main, origin/HEAD)</span>
+<span class="go">Merge: 9f39946 e3b192a</span>
+<span class="go">Author: Sarah Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Thu Feb 8 13:43:19 2024 -0500</span>
+
+<span class="go">    Merge pull request #6 from compsys-progtools/organization</span>
+<span class="go">    </span>
+<span class="go">    first pass organizing</span>
+
+<span class="go">commit e3b192aa0cd490226e8adcd81d3d0b95adb5676b (origin/organization, organization)</span>
+<span class="go">Author: Sarah M Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Feb 6 13:41:53 2024 -0500</span>
+
+<span class="go">    oranizizng</span>
+
+<span class="go">commit 260c9c309922970f80bfa2c93cc23bcfbb962740</span>
+<span class="go">Author: Sarah M Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Feb 6 13:06:20 2024 -0500</span>
+
+<span class="go">    describe the files</span>
+
+<span class="go">commit 29ffc88519103085ed3a2ab01cffb3c99d70fc6a</span>
+<span class="go">Author: Sarah M Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Feb 6 12:59:20 2024 -0500</span>
+
+<span class="go">    add to readme</span>
+
+<span class="go">commit 9f399466ad6a1ad572e104209f4469eb8cd48516</span>
+<span class="go">Merge: 1e2a45f fca59e8</span>
+<span class="go">Author: Sarah Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Feb 6 12:43:18 2024 -0500</span>
+
+<span class="go">    Merge pull request #5 from compsys-progtools/organizing_ac</span>
+<span class="go">    </span>
+<span class="go">    2/6 in class activity</span>
+
+<span class="go">commit fca59e8cca05bb0861f9348a40fe8300b3d55637 (origin/organizing_ac)</span>
+<span class="go">Author: Sarah M Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Feb 6 11:21:21 2024 -0500</span>
+
+<span class="go">    add files for organizing</span>
+
+<span class="go">commit 1e2a45fbca5ce7bf775827f5f4dbe23b6561cff4 (my_branch_cehckoutb, my_branch)</span>
+<span class="go">Merge: faef6af 81c6f18</span>
+<span class="go">Author: Sarah Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Thu Feb 1 12:51:17 2024 -0500</span>
+
+<span class="go">    Merge pull request #4 from compsys-progtools/2-create-an-about-file</span>
+<span class="go">    </span>
+<span class="go">    create about file close s #2</span>
+
+<span class="go">commit 81c6f187f146caaaf43d97bc1bb8ed237142f4c3 (origin/2-create-an-about-file, 2-create-an-about-file)</span>
+<span class="go">Author: Sarah M Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Jan 30 13:33:54 2024 -0500</span>
+
+<span class="go">    create about file close s #2</span>
+<span class="go">:</span>
+<span class="go">    </span>
+<span class="go">    2/6 in class activity</span>
+
+<span class="go">commit fca59e8cca05bb0861f9348a40fe8300b3d55637 (origin/organizing_ac)</span>
+<span class="go">Author: Sarah M Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Feb 6 11:21:21 2024 -0500</span>
+
+<span class="go">    add files for organizing</span>
+</pre></div>
+</div>
+<p>Let’s choose the commit where we left the <code class="docutils literal notranslate"><span class="pre">create-an-about</span></code> branch.</p>
+<p>This log shows history like this</p>
+<div class="mermaid">
+            gitGraph
+    commit id: &quot; &quot;
+    branch about
+    checkout about
+    commit id: &quot;fca59e&quot;
+    commit id: &quot;81c6f1&quot;
+    checkout main
+    merge about id: &quot;1e2a45&quot;
+    commit id: &quot;9f399466&quot;
+    commit id: &quot;29ffc885&quot;
+    commit id: &quot;260c9c3&quot;
+    commit id: &quot;e3b192a&quot;
+    commit id: &quot;0d6ef1d&quot;
+        </div><p>We will start <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">bisect</span></code> first, this is our search for the “bad commit”</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">bisect</span> <span class="n">start</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">status: waiting for both good and bad commits</span>
+</pre></div>
+</div>
+<p>it tells us its progress at each step and what we need to do next, tell it the good and bad commits</p>
+<p>Now, lets tell it that the current commit is bad, this reprsents that we just rcevied the bug report.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">bisect</span> <span class="n">bad</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">status: waiting for good commit(s), bad commit known</span>
+</pre></div>
+</div>
+<p>now we get the updated status, so now it has labeled the last commit on the main branch as bad</p>
+<div class="mermaid">
+            gitGraph
+    commit id: &quot; &quot;
+    branch about
+    checkout about
+    commit id: &quot;81c6f1 &quot;
+    commit id: &quot;fca59e&quot;
+    checkout main
+    merge about id: &quot;1e2a45&quot;
+    commit id: &quot;9f399466 &quot;
+    commit id: &quot;29ffc885&quot;
+    commit id: &quot;260c9c3&quot;
+    commit id: &quot;e3b192a&quot;
+    commit id: &quot;0d6ef1d &quot;
+        </div><p>next we tell it what was the last known, not necessarily the last, good commit.  We’ll use the about branch commit. This would represent a case where maybe we switched to to that branch locally, ran a test for the the new bug and it passed.</p>
+<p>my commit was <code class="docutils literal notranslate"><span class="pre">81c6</span></code>, yours will be different</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">bisect</span> <span class="n">good</span> <span class="mi">81</span><span class="n">c6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="mermaid">
+            gitGraph
+    commit id: &quot; &quot;
+    branch about
+    checkout about
+    commit id: &quot;81c6f1 (good)&quot;
+    commit id: &quot;fca59e&quot;
+    checkout main
+    merge about id: &quot;1e2a45&quot;
+    commit id: &quot;9f399466&quot;
+    commit id: &quot;29ffc885&quot;
+    commit id: &quot;260c9c3&quot;
+    commit id: &quot;e3b192a&quot;
+    commit id: &quot;0d6ef1d (bad)&quot;
+        </div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Bisecting: 3 revisions left to test after this (roughly 2 steps)</span>
+<span class="go">[9f399466ad6a1ad572e104209f4469eb8cd48516] Merge pull request #5 from compsys-progtools/organizing_ac</span>
+</pre></div>
+</div>
+<p>It tells us where it checked out</p>
+<div class="mermaid">
+            gitGraph
+    commit id: &quot; &quot;
+    branch about
+    checkout about
+    commit id: &quot;81c6f1 (good)&quot;
+    commit id: &quot;fca59e&quot;
+    checkout main
+    merge about id: &quot;1e2a45&quot;
+    commit id: &quot;9f399466 (current)&quot;
+    commit id: &quot;29ffc885&quot;
+    commit id: &quot;260c9c3&quot;
+    commit id: &quot;e3b192a&quot;
+    commit id: &quot;0d6ef1d (bad)&quot;
+        </div><p>We wil label this commit as also bad</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">bisect</span> <span class="n">bad</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="mermaid">
+            gitGraph
+    commit id: &quot; &quot;
+    branch about
+    checkout about
+    commit id: &quot;81c6f1 (good)&quot;
+    commit id: &quot;fca59e&quot;
+    checkout main
+    merge about id: &quot;1e2a45&quot;
+    commit id: &quot;9f399466 (bad)&quot;
+    commit id: &quot;29ffc885&quot;
+    commit id: &quot;260c9c3&quot;
+    commit id: &quot;e3b192a&quot;
+    commit id: &quot;0d6ef1d (bad)&quot;
+        </div><p>Now git labels all of the commits between the good commit and bad commit as bad:</p>
+<div class="mermaid">
+                commit id: &quot; &quot;
+    branch about
+    checkout about
+    commit id: &quot;81c6f1 (good)&quot;
+    commit id: &quot;fca59e&quot;
+    checkout main
+    merge about id: &quot;1e2a45&quot;
+    commit id: &quot;9f399466 (bad)&quot;
+    commit id: &quot;29ffc885 (bad)&quot;
+    commit id: &quot;260c9c3 (bad)&quot;
+    commit id: &quot;e3b192a (bad)&quot;
+    commit id: &quot;0d6ef1d (bad)&quot;
+        </div><p>and it checks out the next commit we need to look at:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Bisecting: 0 revisions left to test after this (roughly 1 step)</span>
+<span class="go">[fca59e8cca05bb0861f9348a40fe8300b3d55637] add files for organizing</span>
+</pre></div>
+</div>
+<div class="mermaid">
+            gitGraph TB: 
+    commit id: &quot; &quot;
+    branch about
+    checkout about
+    commit id: &quot;81c6f1 (good)&quot;
+    commit id: &quot;fca59e (current)&quot;
+    checkout main
+    merge about id: &quot;1e2a45&quot;
+    commit id: &quot;9f399466 (bad)&quot;
+    commit id: &quot;29ffc885 (bad)&quot;
+    commit id: &quot;260c9c3 (bad)&quot;
+    commit id: &quot;e3b192a (bad)&quot;
+    commit id: &quot;0d6ef1d (bad)&quot;
+        </div><p>We will label this as good:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">bisect</span> <span class="n">good</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="mermaid">
+            gitGraph TB:
+    commit id: &quot; &quot;
+    branch about
+    checkout about
+    commit id: &quot;81c6f1 (good)&quot;
+    commit id: &quot;fca59e (good)&quot;
+    checkout main
+    merge about id: &quot;1e2a45&quot;
+    commit id: &quot;9f399466 (bad)&quot;
+    commit id: &quot;29ffc885 (bad)&quot;
+    commit id: &quot;260c9c3 (bad)&quot;
+    commit id: &quot;e3b192a (bad)&quot;
+    commit id: &quot;0d6ef1d (bad)&quot;
+        </div><p>Now git tells us the first bad commit, and a bunch of details about that first bad commit:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">9f399466ad6a1ad572e104209f4469eb8cd48516 is the first bad commit</span>
+<span class="go">commit 9f399466ad6a1ad572e104209f4469eb8cd48516</span>
+<span class="go">Merge: 1e2a45f fca59e8</span>
+<span class="go">Author: Sarah Brown &lt;brownsarahm@uri.edu&gt;</span>
+<span class="go">Date:   Tue Feb 6 12:43:18 2024 -0500</span>
+
+<span class="go">    Merge pull request #5 from compsys-progtools/organizing_ac</span>
+<span class="go">    </span>
+<span class="go">    2/6 in class activity</span>
+
+<span class="go"> API.md                 | 1 +</span>
+<span class="go"> CONTRIBUTING.md        | 1 +</span>
+<span class="go"> LICENSE.md             | 1 +</span>
+<span class="go"> _config.yml            | 1 +</span>
+<span class="go"> _toc.yml               | 1 +</span>
+<span class="go"> abstract_base_class.py | 1 +</span>
+<span class="go"> alternative_classes.py | 1 +</span>
+<span class="go"> example.md             | 1 +</span>
+<span class="go"> helper_functions.py    | 1 +</span>
+<span class="go"> important_classes.py   | 1 +</span>
+<span class="go"> philosophy.md          | 1 +</span>
+<span class="go"> scratch.ipynb          | 1 +</span>
+<span class="go"> setup.py               | 1 +</span>
+<span class="go"> test_abc.py            | 1 +</span>
+<span class="go"> tests_alt.py           | 1 +</span>
+<span class="go"> tests_helpers.py       | 1 +</span>
+<span class="go"> tests_imp.py           | 1 +</span>
+<span class="go"> 17 files changed, 17 insertions(+)</span>
+<span class="go"> create mode 100644 API.md</span>
+<span class="go"> create mode 100644 CONTRIBUTING.md</span>
+<span class="go"> create mode 100644 LICENSE.md</span>
+<span class="go"> create mode 100644 _config.yml</span>
+<span class="go"> create mode 100644 _toc.yml</span>
+<span class="go"> create mode 100644 abstract_base_class.py</span>
+<span class="go"> create mode 100644 alternative_classes.py</span>
+<span class="go"> create mode 100644 example.md</span>
+<span class="go"> create mode 100644 helper_functions.py</span>
+<span class="go"> create mode 100644 important_classes.py</span>
+<span class="go"> create mode 100644 philosophy.md</span>
+<span class="go"> create mode 100644 scratch.ipynb</span>
+<span class="go"> create mode 100644 setup.py</span>
+<span class="go"> create mode 100644 test_abc.py</span>
+<span class="go"> create mode 100644 tests_alt.py</span>
+<span class="go"> create mode 100644 tests_helpers.py</span>
+<span class="go"> create mode 100644 tests_imp.py</span>
+</pre></div>
+</div>
+<p>Note our final labeling of commits is:</p>
+<div class="mermaid">
+            gitGraph TB:
+    commit id: &quot; &quot;
+    branch about
+    checkout about
+    commit id: &quot;81c6f1 (good)&quot;
+    commit id: &quot;fca59e (good)&quot;
+    checkout main
+    merge about id: &quot;1e2a45 (good by def)&quot;
+    commit id: &quot;9f399466 (first bad)&quot;
+    commit id: &quot;29ffc885 (bad)&quot;
+    commit id: &quot;260c9c3 (bad)&quot;
+    commit id: &quot;e3b192a (bad)&quot;
+    commit id: &quot;0d6ef1d (bad)&quot;
+        </div><p>We did not need to inspect the merge commit because git could tell it was only a merge commit and did not add any changes to files; if it had been a merge conflict resovled with the merge commit, we would have had to check it.</p>
+<p>Here we can then inspect what changes were made and figure out how to fix the bug.</p>
+<p>Let’s dig a bit futher into what the current status is.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">HEAD detached at fca59e8</span>
+<span class="go">You are currently bisecting, started from branch &#39;main&#39;.</span>
+<span class="go">  (use &quot;git bisect reset&quot; to get back to the original branch)</span>
+
+<span class="go">Untracked files:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="go">	.secret</span>
+<span class="go">	my_sectrest/</span>
+
+<span class="go">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span>
+</pre></div>
+</div>
+<p>This is new, we have checked out a commit, instead of  a branch so we have a <a class="reference internal" href="../resources/glossary.html#term-detached-head"><span class="xref std std-term">detached head</span></a></p>
+<figure class="align-default" id="detached-head-comic">
+<img alt="https://wizardzines.com/images/uploads/detached-head-state.png" src="https://wizardzines.com/images/uploads/detached-head-state.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12.1 </span><span class="caption-text">A comic from <a class="reference external" href="https://wizardzines.com/">wizard zines</a> that has detailed alt text at the “Read the transript” link on the <a class="reference external" href="https://wizardzines.com/comics/detached-head-state/">source page</a>.</span><a class="headerlink" href="#detached-head-comic" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We also see some untracked files.  This is because at the tip of the main branch, where we were previously, these files existed and were listed in the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></p>
+<p>We can see more about what bisect did by looking in the .git directory</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">BISECT_ANCESTORS_OK	FETCH_HEAD		index</span>
+<span class="go">BISECT_EXPECTED_REV	HEAD			info</span>
+<span class="go">BISECT_LOG		ORIG_HEAD		logs</span>
+<span class="go">BISECT_NAMES		REBASE_HEAD		objects</span>
+<span class="go">BISECT_START		config			packed-refs</span>
+<span class="go">BISECT_TERMS		description		refs</span>
+<span class="go">COMMIT_EDITMSG		hooks</span>
+</pre></div>
+</div>
+<p>it created files for all of the steps in the active bisect</p>
+<p>Now we go back to whre we were before the biset</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">bisect</span> <span class="n">reset</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Previous HEAD position was fca59e8 add files for organizing</span>
+<span class="go">Switched to branch &#39;main&#39;</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+</pre></div>
+</div>
+<p>in this case, main</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+
+<span class="go">nothing to commit, working tree clean</span>
+</pre></div>
+</div>
+<p>here we see the gitignroe is back</p>
+</section>
+<section id="any-commit-can-be-checked-out">
+<h2><span class="section-number">12.6. </span>Any commit can be checked out<a class="headerlink" href="#any-commit-can-be-checked-out" title="Permalink to this headline">#</a></h2>
+<p>We can also check out the error prone commit direct if we need to go back to fix again.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">fca59</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Note: switching to &#39;fca59&#39;.</span>
+
+<span class="go">You are in &#39;detached HEAD&#39; state. You can look around, make experimental</span>
+<span class="go">changes and commit them, and you can discard any commits you make in this</span>
+<span class="go">state without impacting any branches by switching back to a branch.</span>
+
+<span class="go">If you want to create a new branch to retain commits you create, you may</span>
+<span class="go">do so (now or later) by using -c with the switch command. Example:</span>
+
+<span class="go">  git switch -c &lt;new-branch-name&gt;</span>
+
+<span class="go">Or undo this operation with:</span>
+
+<span class="go">  git switch -</span>
+
+<span class="go">Turn off this advice by setting config variable advice.detachedHead to false</span>
+
+<span class="go">HEAD is now at fca59e8 add files for organizing</span>
+</pre></div>
+</div>
+<p>This way git gives us advice on how to handle our detached head.</p>
+</section>
+<section id="annotated-commits-create-objects">
+<h2><span class="section-number">12.7. </span>Annotated commits create objects<a class="headerlink" href="#annotated-commits-create-objects" title="Permalink to this headline">#</a></h2>
+<p>Maybe, we do not know how to fix this , but we want to make the commit easy for a colleague to find.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">tag</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;introduced imaginary bug&#39;</span> <span class="n">v0</span><span class="mf">.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>this time we will use <code class="docutils literal notranslate"><span class="pre">-a</span></code> to make an annotated tag and pass the message for is with <code class="docutils literal notranslate"><span class="pre">-m</span></code></p>
+<p>We can</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">tags</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">v0.1	v1</span>
+</pre></div>
+</div>
+<p>we see it created a file like before</p>
+<p>So we can look at the file again</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">tags</span><span class="o">/</span><span class="n">v0</span><span class="mf">.1</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">6b459a1dcf4e2a0ecec1ec41b03d60af4043e9a3</span>
+</pre></div>
+</div>
+<p>but this time the file points to a different object, not the commit.</p>
+<p>We can inspect this object with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">cat-file</span></code>:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">cat</span><span class="o">-</span><span class="n">file</span> <span class="o">-</span><span class="n">t</span>  <span class="mi">6</span><span class="n">b45</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tag</span>
+</pre></div>
+</div>
+<p>it is a new type: tag</p>
+<p>and check its content</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">cat</span><span class="o">-</span><span class="n">file</span> <span class="o">-</span><span class="n">p</span>  <span class="mi">6</span><span class="n">b45</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">object fca59e8cca05bb0861f9348a40fe8300b3d55637</span>
+<span class="go">type commit</span>
+<span class="go">tag v0.1</span>
+<span class="go">tagger Sarah M Brown &lt;brownsarahm@uri.edu&gt; 1709663041 -0500</span>
+
+<span class="go">introduced imaginary bug</span>
+</pre></div>
+</div>
+<p>This is a lot like the content of a commit, but instead of pointing to a tree it points to the a commit.</p>
+</section>
+<section id="how-can-git-help-with-work-in-progress">
+<h2><span class="section-number">12.8. </span>How can git help with  work in Progress?<a class="headerlink" href="#how-can-git-help-with-work-in-progress" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning">git stash</a></p>
+<p>What if you have worked on something part way, but not finished it, so you do not want to make a commit yet, but you need to switch and work on something else?</p>
+<p>Let’s go back to main</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Previous HEAD position was fca59e8 add files for organizing</span>
+<span class="go">Switched to branch &#39;main&#39;</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+</pre></div>
+</div>
+<p>and create some work in progress:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s1">&#39;not done yet&#39;</span><span class="o">&gt;&gt;</span><span class="n">example</span><span class="o">.</span><span class="n">md</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>we will look at our file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">example</span><span class="o">.</span><span class="n">md</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">myst notebook example of using the code for doc websitenot done yet</span>
+</pre></div>
+</div>
+<p>and check in with git</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   example.md</span>
+
+<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</pre></div>
+</div>
+<p>Now lets consider that we have some other work we need to do.  We also do not want to lose this work, or make a commit for it yet. What can we do?</p>
+<p>This is what the git “stash” is for.  Stash is a first</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code>
+stores temporary changes without making a commit so that we can come back to them.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Saved working directory and index state WIP on main: 0d6ef1d Merge pull request #6 from compsys-progtools/organization</span>
+</pre></div>
+</div>
+<p>We can see the impact of this like :</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+
+<span class="go">nothing to commit, working tree clean</span>
+</pre></div>
+</div>
+<p>Then we can do something else</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;important &quot;</span> <span class="o">&gt;&gt;</span> <span class="n">about</span><span class="o">.</span><span class="n">md</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>check in again</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   about.md</span>
+
+<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</pre></div>
+</div>
+<p>make a new branch</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">important_about</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Switched to a new branch &#39;important_about&#39;</span>
+</pre></div>
+</div>
+<p>and add</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>we’ll check agian</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch important_about</span>
+<span class="go">Changes to be committed:</span>
+<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">	modified:   about.md</span>
+</pre></div>
+</div>
+<p>our stashed content is still not interfering</p>
+<p>and then commit this</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;add about improtatn fact&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[important_about c3bee12] add about improtatn fact</span>
+<span class="go"> 1 file changed, 1 insertion(+)</span>
+</pre></div>
+</div>
+<p>now we can go back to main</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Switched to branch &#39;main&#39;</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+</pre></div>
+</div>
+<p>we can apply our changes with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">apply</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="n">apply</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   example.md</span>
+
+<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</pre></div>
+</div>
+<p>and we get them back</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">important_about</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">M	example.md</span>
+<span class="go">Switched to branch &#39;important_about&#39;</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch important_about</span>
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   example.md</span>
+
+<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Saved working directory and index state WIP on important_about: c3bee12 add about improtatn fact</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="nb">list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">stash@{0}: WIP on important_about: c3bee12 add about improtatn fact</span>
+<span class="go">stash@{1}: WIP on main: 0d6ef1d Merge pull request #6 from compsys-progtools/organization</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch important_about</span>
+<span class="go">nothing to commit, working tree clean</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="n">pop</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch important_about</span>
+<span class="go">Changes not staged for commit:</span>
+<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">	modified:   example.md</span>
+
+<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+<span class="go">Dropped refs/stash@{0} (4862b97ea83e0ddf04ca2344f33df90b1a78feb5)</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="nb">list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">stash@{0}: WIP on main: 0d6ef1d Merge pull request #6 from compsys-progtools/organization</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch important_about</span>
+<span class="go">Changes to be committed:</span>
+<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">	modified:   example.md</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">M	example.md</span>
+<span class="go">Switched to branch &#39;main&#39;</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+
+<span class="go">Changes to be committed:</span>
+<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">	modified:   example.md</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1"># Prepare for Next Class </span>
+
+<span class="go">```{include} ../_prepare/2024-03-07.md</span>
+</pre></div>
+</div>
+</section>
+<section id="badges">
+<h2><span class="section-number">12.9. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Use git bisect to find the first bad commit in the <span class="xref myst">toy bug repo</span>, save the command history and the bad commit hash to <span class="target" id="index-0"></span>git_debug.md</p></li>
+<li><p>Create <span class="target" id="index-1"></span>tagtypeexplore.md  with the template below. Determine how  many of the tags in the course website are annotated vs lightweight using. (You may need to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">--tags</span></code> in your clone of the course website)</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Tags
+
+&lt;!-- short defintion/description in your own words of what a tag is and what it is for --&gt;
+
+
+## Inspecting tags
+
+Course website tags by type: 
+- annoted:
+- lightweight: 
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Practice using git to fix problem using a git command from the <a class="reference external" href="https://git-scm.com/docs">patching or debugging section of the docs</a>. Create a log of what you did using the history or git log into a file <span class="target" id="index-2"></span>git_debug_story.md. If you have a project in another class or another badge in this class that causes you to use one of these features in a real scenario, that can count.  If not, for example, you could create a “bug” and then use bisect to find it.</p></li>
+<li><p>Create <span class="target" id="index-3"></span>tagtypes.md  with the template below. Include an experiment that shows which if either type of tag creates a new git object. There are two types, try creating one of each a lightwight tag (provide only the tag name- what we did in class) and an annotated (provide a name and a message with <code class="docutils literal notranslate"><span class="pre">-m</span></code>).</p></li>
+<li><p>Determine how  many of the tags in the course website are annotated vs lightweight using. (You may need to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">--tags</span></code> in your clone of the course website)</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Tags
+
+&lt;!-- short defintion/description in your own words of what a tag is and what it is for --&gt;
+
+
+## Comparing tag types 
+
+&lt;!-- include your experiment terminal history  and interpretation --&gt;
+
+## Inspecting tags
+
+Course website tags by type: 
+- annoted:
+- lightweight: 
+&lt;!-- include lists of tags for each type --&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="experience-report-evidence">
+<h2><span class="section-number">12.10. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="questions-after-todays-class">
+<h2><span class="section-number">12.11. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-02-29.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>How does git make a commit?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../activities/kwl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">KWL Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todays-questions">12.1. Today’s Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-git-status-do">12.2. What does git status do?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branches-are-references">12.3. Branches are references</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-our-commit-missing">12.3.1. Why is our commit missing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-a-branch-manually">12.3.2. Updating a branch manually</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-tags">12.4. Git tags</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-with-git">12.5. Debugging with git</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#any-commit-can-be-checked-out">12.6. Any commit can be checked out</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotated-commits-create-objects">12.7. Annotated commits create objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-git-help-with-work-in-progress">12.8. How can git help with  work in Progress?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">12.9. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">12.10. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">12.11. Questions After Today’s Class</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
