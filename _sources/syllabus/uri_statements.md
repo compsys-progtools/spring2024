@@ -63,9 +63,9 @@ Absences due to serious illness or traumatic loss, religious observances, or par
 
 For short absences (1-2 classes) for any reason, you can follow the [makeup procedures](expmakeup).
 
-For extended absences for excused reasons, email Dr. Brown when you are ready to get caught up and she will help you make a plan for the best order to complete missed work so that you are able to participate in subsequent activities. Extensions on badges will be provided if needed for excused absences. In your plan, include what class sessions you missed by date. 
+For extended excused absences, email Dr. Brown when you are ready to get caught up and she will help you make a plan for the best order to complete missed work so that you are able to participate in subsequent activities. Extensions on badges will be provided if needed for excused absences. In your plan, include what class sessions you missed by date. 
 
-For unexcused absences, the makeup procedures apply, but not the assistance plan via email, only regularly scheduled office hours. 
+For unexcused absences, the makeup procedures apply, but not the assistance plan via email, only regularly scheduled office hours unless you have class during all of those hours and then you will be allowed to use a special appointment. 
 
 ### Mental Health and Wellness: 
 
