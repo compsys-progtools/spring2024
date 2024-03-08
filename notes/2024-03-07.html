@@ -1,0 +1,1238 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>13. What is a commit number? &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-03-07';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="prev" title="12. Why did we learn the plubming commands?" href="2024-03-05.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-01.html">4. How do branches work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-06.html">5. When do git and bash give me an advantage?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-08.html">6. What <em>is</em> a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-15.html">7. How do programmers communicate about code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-20.html">8. How do I choose a Programming Language for a project?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-22.html">9. Why are these tools like this?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-27.html">10. What <em>is</em> git?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-29.html">11. How does git make a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-05.html">12. Why did we learn the plubming commands?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. What is a commit number?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2022/resources/testimonials.html">Advice from Fall 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2023/resources/testimonials.html">Advice from Spring 2023 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2023/resources/testimonials.html">Advice from Fall 2023 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/edit/main/notes/2024-03-07.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/issues/new?title=Issue%20on%20page%20%2Fnotes/2024-03-07.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notes/2024-03-07.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>What is a commit number?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-hash">13.1. What is a hash?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hashes-are-fixed-length">13.1.1. Hashes are fixed length</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hashes-are-unique">13.1.2. Hashes are unique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hashes-are-not-reversible">13.1.3. Hashes are not reversible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similar-inputs-yeild-uncorrelated-outputs">13.1.4. Similar inputs yeild  uncorrelated outputs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-hashes-be-used">13.2. How can hashes be used?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hashing-in-passwords">13.2.1. Hashing in passwords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hashing-in-git">13.2.2. Hashing in Git</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-git-hashes">13.3. Working with git hashes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-are-hashes-computed">13.4. How are hashes computed?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-get-to-the-alphanumeric-hashes-we-see">13.5. How do we get to the alphanumeric hashes we see?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-number">13.5.1. What is a Number ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-number-system">13.5.2. What is a number system?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hindu-arabic-number-system">13.5.3. Hindu Arabic Number system</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#where-does-the-name-come-from">13.5.3.1. Where does the name come from?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerals">13.5.3.2. Numerals</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#place-based">13.5.3.3. Place based</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roman-numerals">13.5.4. Roman Numerals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-bases">13.6. Comparing  Bases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal">13.6.1. Decimal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary">13.6.2. Binary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#octal">13.6.3. Octal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hexadecimal">13.6.4. Hexadecimal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">13.7. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">13.8. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gittransition">13.9. gittransition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">13.10. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">13.11. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#will-we-be-approved-for-requests-to-join-teams-for-builds-from-the-discussion-posts-made">13.11.1. Will we be approved for requests to join teams for builds from the discussion posts made?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-learn-more-about-how-to-use-sha-256">13.11.2. want to learn more about how to use sha-256</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-all-the-parts-of-the-sha-hashing-algroithm">13.11.3. What are all the parts of the SHA hashing algroithm?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-gits-algorithm-hardened">13.11.4. What makes git’s algorithm “hardened”?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-any-benefits-of-a-number-system-like-roman-numerals-over-the-hindu-arabic-system">13.12. Are there any benefits of a number system like Roman Numerals over the Hindu-Arabic system?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-git-have-a-plan-to-change-its-hashing-algorithm-in-the-future">13.12.1. Does git have a plan to change its hashing algorithm in the future?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-most-secure-hash-algorithm">13.12.2. what is the most secure hash algorithm?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-you-think-it-would-be-as-easy-for-us-to-do-math-with-a-octal-base-8-system-as-it-is-with-a-decimal-base-10-system-is-if-we-learned-it-just-as-early">13.12.3. Do you think it would be as easy for us to do math with a octal (base 8) system as it is with a decimal (base 10) system is if we learned it just as early?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#will-quantum-computing-be-able-to-decript-things-such-as-hash-encriptions">13.12.4. Will quantum computing be able to decript things such as hash encriptions ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-git-hashes-unique-universally-or-just-across-the-repository">13.12.5. Are the git hashes unique universally, or just across the repository?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="what-is-a-commit-number">
+<h1><span class="section-number">13. </span>What is a commit number?<a class="headerlink" href="#what-is-a-commit-number" title="Permalink to this headline">#</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>spring break is like a time pause (you get an extra week on things assigned last week and this week)</p></li>
+</ul>
+</div>
+<section id="what-is-a-hash">
+<h2><span class="section-number">13.1. </span>What is a hash?<a class="headerlink" href="#what-is-a-hash" title="Permalink to this headline">#</a></h2>
+<p>a hash is:</p>
+<ul class="simple">
+<li><p>a fixed size value that can be used to represent data of arbitrary sizes</p></li>
+<li><p>the <em>output</em> of a hashing function</p></li>
+<li><p>often fixed to a hash table</p></li>
+</ul>
+<p>Common examples of hashing are lookup tables and encryption with a cyrptographic hash.</p>
+<p>A hashing function could be really simple, to read off a hash table, or it can
+be more complex.</p>
+<p>If we want to represent the status of a program running it has two possible
+outcomes: success or failure. We can use the following hash table and a function
+that takes in the content and returns the corresponding hash. Then we could pass
+around the 0 and 1 as a single bit of information that corresponds to the outcomes.</p>
+<p>For example:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Hash</p></td>
+<td><p>content</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Failure</p></td>
+</tr>
+</tbody>
+</table>
+<p>In a more complex scenario, imagine trying to hash all of the new terms you learn
+in class.</p>
+<p>A table would be hard for this, because until you have seen them all, you
+do not know how many there will be.  A more effective way to hash this, is to
+derive a <em>hashing function</em> that is a general strategy.</p>
+<p>A <em>cyrptographic</em> hash is additionally:</p>
+<ul class="simple">
+<li><p>unique</p></li>
+<li><p>not reversible</p></li>
+<li><p>similar inputs hash to very different values so they appear uncorrelated</p></li>
+</ul>
+<p>Now lets go through each of these properties</p>
+<section id="hashes-are-fixed-length">
+<h3><span class="section-number">13.1.1. </span>Hashes are fixed length<a class="headerlink" href="#hashes-are-fixed-length" title="Permalink to this headline">#</a></h3>
+<p>So, no matter the size of the input, we get back the same length.</p>
+<p>This is good for memory allocation reasons.</p>
+</section>
+<section id="hashes-are-unique">
+<h3><span class="section-number">13.1.2. </span>Hashes are unique<a class="headerlink" href="#hashes-are-unique" title="Permalink to this headline">#</a></h3>
+<p>This means that two  different values we put in should give different results.</p>
+<p>For this property alone, a simple function could work:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">basic_unique</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">input</span>
+</pre></div>
+</div>
+<p>but this is not a hash because its length would not be constant and not a cryptographic has because it is easily reversible.</p>
+</section>
+<section id="hashes-are-not-reversible">
+<h3><span class="section-number">13.1.3. </span>Hashes are not reversible<a class="headerlink" href="#hashes-are-not-reversible" title="Permalink to this headline">#</a></h3>
+<p>This means that given the hash, we cannot compute the input.</p>
+<p>An example of a nonreversible function is modulus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">13</span><span class="o">%</span><span class="k">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">%</span><span class="k">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>It can be any function that gives the same output for two (or more) values.</p>
+</section>
+<section id="similar-inputs-yeild-uncorrelated-outputs">
+<h3><span class="section-number">13.1.4. </span>Similar inputs yeild  uncorrelated outputs<a class="headerlink" href="#similar-inputs-yeild-uncorrelated-outputs" title="Permalink to this headline">#</a></h3>
+<p>We can see this using git:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;it&#39;s almost spring&quot;</span> <span class="o">|</span> <span class="n">git</span> <span class="nb">hash</span><span class="o">-</span><span class="nb">object</span> <span class="o">--</span><span class="n">stdin</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">1327354a0d47111e361ec52acc46b9509bed69a0</span>
+</pre></div>
+</div>
+<p>and we get a hash</p>
+<p>and then we change it just a little bit:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;it&#39;s almsot spring&quot;</span> <span class="o">|</span> <span class="n">git</span> <span class="nb">hash</span><span class="o">-</span><span class="nb">object</span> <span class="o">--</span><span class="n">stdin</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">f798473089b4a00684cd0f13a6f2d1d7a0e033ba</span>
+</pre></div>
+</div>
+<p>and now the hash is completely different</p>
+</section>
+</section>
+<section id="how-can-hashes-be-used">
+<h2><span class="section-number">13.2. </span>How can hashes be used?<a class="headerlink" href="#how-can-hashes-be-used" title="Permalink to this headline">#</a></h2>
+<p>Hashes can then be used for a lot of purposes:</p>
+<ul class="simple">
+<li><p>message integrity (when sending a message, the unhashed message and its hash are both sent; the message is real if the sent message can be hashed to produce the same has)</p></li>
+<li><p>password verification (password selected by the user is hashed and the hash is stored; when attempting to login, the input is hashed and the hashes are compared)</p></li>
+<li><p>file or data identifier (eg in git)</p></li>
+</ul>
+<section id="hashing-in-passwords">
+<h3><span class="section-number">13.2.1. </span>Hashing in passwords<a class="headerlink" href="#hashing-in-passwords" title="Permalink to this headline">#</a></h3>
+<p>Passowrds can be encrypted and the encrypted information is stored, then when you submit a candidate password it can compare the hash of the submitted password to the hash that was stored.  Since the hashing function is nonreversible, they cannot see the password.</p>
+<p>Some sites are negligent and store passwords unencrypted, if your browser warns you about such a site, proceed with caution and definitely do not reuse a password you ever use. (you <em>should never</em> reuse passwords, but especially do not if there is a warning)</p>
+<p>An attacker who gets an encyrpted database, cannot actually read the passwords, but they could build a lookup table.  For example, “password” is a bad password because it has been hashed in basically every algorithm and then the value of it can be reversed.  Choosing an uncommon password makes it less likely that your password exists in a lookup table.</p>
+<p>For example, in SHA-1 the hashing algorithm that git uses</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;password&quot;</span> <span class="o">|</span> <span class="n">git</span> <span class="nb">hash</span><span class="o">-</span><span class="nb">object</span> <span class="o">--</span><span class="n">stdin</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">f3097ab13082b70f67202aab7dd9d1b35b7ceac2</span>
+</pre></div>
+</div>
+</section>
+<section id="hashing-in-git">
+<h3><span class="section-number">13.2.2. </span>Hashing in Git<a class="headerlink" href="#hashing-in-git" title="Permalink to this headline">#</a></h3>
+<p>In git we hash both the content directly to store it in the database (.git) directory
+and the commit information.</p>
+<p>Recall, when we were working in our toy repo we created an empty repository and
+then added content directly, we all got the same hash, but when we used git
+commit our commits had different hashes because we have different names and
+made the commits at different seconds. We also saw that <em>two</em> entries were
+created in the <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory for the commit.</p>
+<p>Git was originally designed to use SHA-1.</p>
+<p>Then the <a class="reference external" href="https://shattered.io/">SHA-1 collision attack</a> was discovered</p>
+<p>Git switched to hardened HSA-1 in response to a collision.</p>
+<blockquote>
+<div><p>In that case it adjusts the SHA-1 computation to result in a safe hash. This means that it will compute the regular SHA-1 hash for files without a collision attack, but produce a special hash for files with a collision attack, where both files will have a different unpredictable hash.
+<a class="reference external" href="https://crypto.stackexchange.com/questions/44141/what-is-hardened-sha-1-how-does-it-work-and-how-much-protection-does-it-offer">from</a>.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://git-scm.com/docs/hash-function-transition/">they will change again soon</a></p>
+<p>git uses the SHA hash primarily for uniuqeness, not privacy</p>
+<p>It does provide some <em>security</em> assurances, because we can check the content
+against the hash to make sure it is what it matches.</p>
+<p>This is a Secure Hashing Algorithm that is derived from cryptography.  Because
+it is secure, no set of mathematical options can directly decrypt an SHA-1  hash.
+It is designed so that any possible content that we put in it returns a unique
+key. It uses a combination of bit level operations on the content to produce the
+unique values.</p>
+<p>This means
+it can produce <span class="math notranslate nohighlight">\(2^160\)</span> different hashes. Which makes the probability of a collision very low.</p>
+<blockquote class="epigraph">
+<div><p>The number of randomly hashed objects needed to ensure a 50% probability of a single collision is about <span class="math notranslate nohighlight">\(2^{80}\)</span> (the formula for determining collision probability is <span class="math notranslate nohighlight">\(p = (n(n-1)/2) * (1/2^160))\)</span>. <span class="math notranslate nohighlight">\(2^{80}\)</span>) is 1.2 x 1024 or 1 million billion billion. That’s 1,200 times the number of grains of sand on the earth.</p>
+<p class="attribution">—<a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection">A SHORT NOTE ABOUT SHA-1 in the Git Documentation</a>
+</p>
+</div></blockquote>
+</section>
+</section>
+<section id="working-with-git-hashes">
+<h2><span class="section-number">13.3. </span>Working with git hashes<a class="headerlink" href="#working-with-git-hashes" title="Permalink to this headline">#</a></h2>
+<p>Mostly, a shorter version of the commit is sufficient to be unique, so we can use those to refer to commits by just a few characters:</p>
+<ul class="simple">
+<li><p>minimum 4</p></li>
+<li><p>must be unique</p></li>
+</ul>
+<p>we’ll see this in our github inclass repo</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">gh</span><span class="o">-</span><span class="n">inclass</span><span class="o">-</span><span class="n">sp24</span><span class="o">-</span><span class="n">brownsarahm</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>by using some options on <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> to make it easier to read a set of them</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="n">abbrev</span><span class="o">-</span><span class="n">commit</span> <span class="o">--</span><span class="n">pretty</span><span class="o">=</span><span class="n">oneline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">9f39946 (HEAD) Merge pull request #5 from compsys-progtools/organizing_ac</span>
+<span class="go">fca59e8 (tag: v0.1, origin/organizing_ac) add files for organizing</span>
+<span class="go">1e2a45f (my_branch_cehckoutb, my_branch) Merge pull request #4 from compsys-progtools/2-create-an-about-file</span>
+<span class="go">81c6f18 (origin/2-create-an-about-file, 2-create-an-about-file) create about file close s #2</span>
+<span class="go">faef6af start readme, closes #3</span>
+<span class="go">98cff65 Initial commit</span>
+</pre></div>
+</div>
+<p>For most project 7 characters is enough and by default, git will give you 7 digits if you use <code class="docutils literal notranslate"><span class="pre">--abbrev-commit</span></code> and git will automatically use more if needed.</p>
+</section>
+<section id="how-are-hashes-computed">
+<h2><span class="section-number">13.4. </span>How are hashes computed?<a class="headerlink" href="#how-are-hashes-computed" title="Permalink to this headline">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>I did not have this explicitly in class, but it was implied and I thought it was better to add it here</p>
+</div>
+<p>Hashes are computed on the binary representation of the data, most treat that as numbers and then perform mathematical operations.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/SHA-1#Examples_and_pseudocode">you can see the psuedocode to SHA-1</a></p>
+<p>we’ll work a small example, Python can convert characters to ints:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>115
+</pre></div>
+</div>
+</div>
+</div>
+<p>and ints to binary</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bin</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0b1110011&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>with some extra at the start, so if we just want the binary string</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)))[</span><span class="mi">2</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1110011&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use this to make a function that performs an xor based hash.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">xor_hash</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    a simple hashing algorithm based on xor that can take a message of </span>
+<span class="sd">    any length and return a version of it with a specific bit length n</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">bitstring</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)))[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">message</span><span class="p">])</span>
+
+    <span class="c1"># zero pad to make it a multiple of n</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bitstring</span><span class="p">)</span><span class="o">%</span><span class="k">n</span>
+    <span class="n">num_pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">extra</span><span class="p">)</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">extra</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">padded_bitstring</span> <span class="o">=</span> <span class="n">bitstring</span> <span class="o">+</span> <span class="n">num_pad</span><span class="o">*</span><span class="s1">&#39;0&#39;</span>
+
+    <span class="c1"># split into length n chunks</span>
+    <span class="n">split_bitstring</span> <span class="o">=</span> <span class="p">[</span><span class="n">padded_bitstring</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">padded_bitstring</span><span class="p">),</span> <span class="n">n</span><span class="p">)]</span>
+
+    <span class="c1"># now make them back to integers so we can xor</span>
+    <span class="n">bin_int_strings</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;0b&quot;</span> <span class="o">+</span> <span class="n">bits</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">bits</span> <span class="ow">in</span> <span class="n">split_bitstring</span><span class="p">]</span>
+    
+    <span class="c1"># now xor</span>
+    <span class="n">out_hash_int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">n_int</span> <span class="ow">in</span> <span class="n">bin_int_strings</span><span class="p">:</span>
+        <span class="n">out_hash_int</span> <span class="o">=</span> <span class="n">out_hash_int</span><span class="o">^</span><span class="n">n_int</span>
+
+    <span class="c1"># we would need to left zero pad the binary to keep it correct</span>
+    <span class="n">bin_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">out_hash_int</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="n">extra_out</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bin_str</span><span class="p">)</span><span class="o">%</span><span class="k">n</span>
+    <span class="n">num_pad_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">extra_out</span><span class="p">)</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">extra_out</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">padded_out</span> <span class="o">=</span>  <span class="n">num_pad_out</span><span class="o">*</span><span class="s1">&#39;0&#39;</span> <span class="o">+</span> <span class="n">bin_str</span>
+    <span class="k">return</span> <span class="n">padded_out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can see this visualized on <a class="reference external" href="https://pythontutor.com/render.html#code=message%20%3D%20'test%20message%20to%20hash'%0An%20%3D%207%0Abitstring%20%3D%20''.join%28%5Bstr%28bin%28ord%28c%29%29%29%5B2%3A%5D%20for%20c%20in%20message%5D%29%0A%0A%23%20zero%20pad%20to%20make%20it%20a%20multiple%20of%20n%0Aextra%20%3D%20len%28bitstring%29%25n%0Anum_pad%20%3D%20%28n-extra%29*int%28extra%20%3E0%29%0Apadded_bitstring%20%3D%20bitstring%20%2B%20num_pad*'0'%0A%0A%23%20split%20into%20length%20n%20chunks%0Asplit_bitstring%20%3D%20%5Bpadded_bitstring%5Bi%3Ai%2Bn%5D%20for%20i%20in%20range%280,%20len%28padded_bitstring%29,%20n%29%5D%0A%0A%23%20now%20make%20them%20back%20to%20integers%20so%20we%20can%20xor%0Abin_int_strings%20%3D%20%5Bint%28%220b%22%20%2B%20bits,2%29%20for%20bits%20in%20split_bitstring%5D%0A%0A%23%20now%20xor%0Aout_hash_int%20%3D%200%0Afor%20n_int%20in%20bin_int_strings%3A%0A%20%20%20%20out_hash_int%20%3D%20out_hash_int%5En_int%0A%0A%23%20we%20would%20need%20to%20left%20zero%20pad%20the%20binary%20to%20keep%20it%20correct%0Abin_str%20%3D%20str%28bin%28out_hash_int%29%29%5B2%3A%5D%0Aextra_out%20%3D%20len%28bin_str%29%25n%0Anum_pad_out%20%3D%20%28n-extra_out%29*int%28extra_out%20%3E0%29%0Apadded_out%20%3D%20%20num_pad_out*'0'%20%2B%20bin_str%0Aprint%28%20padded_out%29&amp;cumulative=false&amp;curInstr=124&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">python tutor</a></p>
+<p>We can test that we get something the right length</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xor_hash</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;00001101&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>for different lengths of input</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xor_hash</span><span class="p">(</span><span class="s1">&#39;it is almost break&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;00110000&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a sort of meta function, so we could make simpler, more specific
+functions for each length or we can use it with different ones to see</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xor_hash</span><span class="p">(</span><span class="s1">&#39;it is almost break&#39;</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0010111001001&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is not cryptographic though because similar inputs have correlated outputs.</p>
+</section>
+<section id="how-do-we-get-to-the-alphanumeric-hashes-we-see">
+<h2><span class="section-number">13.5. </span>How do we get to the alphanumeric hashes we see?<a class="headerlink" href="#how-do-we-get-to-the-alphanumeric-hashes-we-see" title="Permalink to this headline">#</a></h2>
+<p>The actual hashing algorithms are mathematical, they work by treating the binary input</p>
+<p>Let’s build this up with some review</p>
+<section id="what-is-a-number">
+<h3><span class="section-number">13.5.1. </span>What is a Number ?<a class="headerlink" href="#what-is-a-number" title="Permalink to this headline">#</a></h3>
+<p>a mathematical object used to count, measure and label</p>
+</section>
+<section id="what-is-a-number-system">
+<h3><span class="section-number">13.5.2. </span>What is a number system?<a class="headerlink" href="#what-is-a-number-system" title="Permalink to this headline">#</a></h3>
+<p>While numbers represent <strong>quantities</strong> that conceptually, exist all over, the numbers themselves are a cultural artifact. For example, we all have a way to represent a single item, but that can look very different.</p>
+<p>for example I could express the value of a single item in different ways:</p>
+<ul class="simple">
+<li><p>1</p></li>
+<li><p>I</p></li>
+</ul>
+</section>
+<section id="hindu-arabic-number-system">
+<h3><span class="section-number">13.5.3. </span>Hindu Arabic Number system<a class="headerlink" href="#hindu-arabic-number-system" title="Permalink to this headline">#</a></h3>
+<p>In modern, western cultures, our number system is called the  hindu-arabic system, it consists of a set of <strong>numerals</strong>: 0,1,2,3,4,5,6,7,8,9 and uses a <strong>place based</strong> system with <strong>base 10</strong>.</p>
+<section id="where-does-the-name-come-from">
+<h4><span class="section-number">13.5.3.1. </span>Where does the name come from?<a class="headerlink" href="#where-does-the-name-come-from" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>invented by Hindu mathematicians in India 600 or earlier</p></li>
+<li><p>called “Arabic” numerals in the West because Arab merchants introduced them to Europeans</p></li>
+<li><p>slow adoption</p></li>
+</ul>
+</section>
+<section id="numerals">
+<h4><span class="section-number">13.5.3.2. </span>Numerals<a class="headerlink" href="#numerals" title="Permalink to this headline">#</a></h4>
+<p>are the visual characters used to represent quantities</p>
+</section>
+<section id="place-based">
+<h4><span class="section-number">13.5.3.3. </span>Place based<a class="headerlink" href="#place-based" title="Permalink to this headline">#</a></h4>
+<p>We use a <strong>place based</strong> system. That means that the position or place of the symbol changes its meaning. So 1, 10, and 100 are all different values. This system is also a decimal system, or base 10. So we refer to the places and the ones (<span class="math notranslate nohighlight">\(10^0\)</span>), the tens (<span class="math notranslate nohighlight">\(10^1\)</span>), the hundreds(<span class="math notranslate nohighlight">\(10^2\)</span>), etc for all powers of 10.</p>
+<p>Number systems can use different characters, use different strategies for representing larger quantities, or both.</p>
+</section>
+</section>
+<section id="roman-numerals">
+<h3><span class="section-number">13.5.4. </span>Roman Numerals<a class="headerlink" href="#roman-numerals" title="Permalink to this headline">#</a></h3>
+<p>is a number system that uses different numerals and is not a place based system</p>
+<p>There are symbols for specific values: 1=I, V=5, X=10, L =50, C = 100, D=500, M = 1000.</p>
+<p>Not all systems are place based, for example Roman numerals.
+In this system the subsequent symbols are either added or subtracted, with no (nonidentity) multipliers based on position.  Instead if the symbol to right is the same or smaller, add the two together, if the left symbol is smaller, subtract it from the one on the right.</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>roman numerals</p></td>
+<td><p>translation</p></td>
+<td><p>value (hindu-arabic)</p></td>
+</tr>
+<tr class="row-even"><td><p>III</p></td>
+<td><p>1+1+1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>IV</p></td>
+<td><p>-1 + 5</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>VI</p></td>
+<td><p>5 +1</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>XLIX</p></td>
+<td><p>-10 + 50 -1 + 10</p></td>
+<td><p>49</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="comparing-bases">
+<h2><span class="section-number">13.6. </span>Comparing  Bases<a class="headerlink" href="#comparing-bases" title="Permalink to this headline">#</a></h2>
+<section id="decimal">
+<h3><span class="section-number">13.6.1. </span>Decimal<a class="headerlink" href="#decimal" title="Permalink to this headline">#</a></h3>
+<p>To represent larger numbers than we have digits on we have a base (10) and then.</p>
+<div class="math notranslate nohighlight">
+\[10 = 10*1 + 1*0\]</div>
+<div class="math notranslate nohighlight">
+\[22 = 10*2 + 1*2 \]</div>
+<p>we have the ones  (<span class="math notranslate nohighlight">\(10^0\)</span>) place, tens (<span class="math notranslate nohighlight">\(10^1\)</span>) place, hundreds (<span class="math notranslate nohighlight">\(10^2\)</span>) place etc.</p>
+</section>
+<section id="binary">
+<h3><span class="section-number">13.6.2. </span>Binary<a class="headerlink" href="#binary" title="Permalink to this headline">#</a></h3>
+<p>Binary is any base two system, and it can be represented using any different characters.</p>
+<p>Binary number systems have origins in  ancient cultures:</p>
+<ul class="simple">
+<li><p>Egypt (fractions) 1200 BC</p></li>
+<li><p>China 9th century BC</p></li>
+<li><p>India 2nd century BC</p></li>
+</ul>
+<p>In computer science we use binary because mechanical computers began using relays (open/closed) to implement logical (boolean) operations and then digital computers use on and off in their circuits.</p>
+<p>We represent binary using the same hindu-arabic symbols that we use for other numbers, but only the 0 and 1(the first two). We also keep it as a place-based number system so the places are the ones(<span class="math notranslate nohighlight">\(2^0\)</span>), twos (<span class="math notranslate nohighlight">\(2^1\)</span>), fours (<span class="math notranslate nohighlight">\(2^2\)</span>), eights (<span class="math notranslate nohighlight">\(2^3\)</span>), etc for all powers of 2.</p>
+<p>so in binary, the number of characters in the word binary is 110.</p>
+<div class="math notranslate nohighlight">
+\[ 10 =&gt; 1*2^1 + 0*2^0 = 1*2 + 0*1 = 2\]</div>
+<p>so  10 in binary  is 2 in decimal</p>
+<p>Convert <span class="math notranslate nohighlight">\( 1001 \)</span> in binary to decimal</p>
+<div class="math notranslate nohighlight">
+\[ 1001 =&gt; 1*8 + 0*4 + 0*2 + 1*1  = 9\]</div>
+</section>
+<section id="octal">
+<h3><span class="section-number">13.6.3. </span>Octal<a class="headerlink" href="#octal" title="Permalink to this headline">#</a></h3>
+<p>Is base 8.</p>
+<p>We use hindu-arabic symbols, 0,1,2,3,4,5,6,7 (the first eight).  Then nine is represented as 11.</p>
+<p>In computer science, this numbering system was popular in 6 bit and 12 bit computers, but is has origins before that.</p>
+<p>Native Americans using the Yuki Language (based in what is now California)<a class="reference external" href="https://www.jstor.org/stable/2686959?origin=crossref&amp;seq=1#metadata_info_tab_contents">used an octal system because they count using the spaces between fingers</a>
+and speakers of the
+<a class="reference external" href="http://linguistics.berkeley.edu/~avelino/Avelino_2006.pdf"> Pamean languages in Mexico </a> count on knuckles in a closed fist.
+Europeans debated using decimal vs octal in the 1600-1800s for various reasons because 8 is better for math mostly. It is also found in Chinese texts dating to 1000BC.</p>
+<p>Some examples:
+$<span class="math notranslate nohighlight">\( 10 = &gt; 1*8^1 + 0*8^0 = 1*8+0*1 = 8\)</span>$
+so 10 in octal is 8 in decimal</p>
+<div class="math notranslate nohighlight">
+\[ 401 =&gt; 4*8^2 + 0*8^1 + 1*8^0 = 4*64 + 1*0 = 257\]</div>
+<p>In computer science we use octal a lot because it reduces every 3 bits of a number in binary to a single character.  So for a large number, in binary say <code class="docutils literal notranslate"><span class="pre">101110001100</span></code> we can change to <code class="docutils literal notranslate"><span class="pre">5614</span></code> which is easier to read, for a person.</p>
+</section>
+<section id="hexadecimal">
+<h3><span class="section-number">13.6.4. </span>Hexadecimal<a class="headerlink" href="#hexadecimal" title="Permalink to this headline">#</a></h3>
+<p>base 16, common in CS because its 4 bits. we use 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F.</p>
+<p>This is commonly used for representing colors</p>
+   <!-- <label for="colorpicker">Color Picker:</label> -->
+   <input type="color" id="colorpicker" value="#0000ff"><p>Some examples:</p>
+<div class="math notranslate nohighlight">
+\[ A5 ==&gt; (9+1)*16^1 + 5*16^0 = 10*16 + 5*1 = 165\]</div>
+<div class="math notranslate nohighlight">
+\[ E40 ==&gt; 14*16^2 + 4*16^1 + 0*16^0 = 14*256 + 4*16 +0*1 = 3648\]</div>
+<p>It is also is how the git hash is 160 bits, or 20 bytes (one byte is 8 bits) but we represent it as 40 characters.  160/4=40.</p>
+</section>
+</section>
+<section id="prepare-for-next-class">
+<h2><span class="section-number">13.7. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<p>Be sure to get some rest during the break. Come to class ready to learn.</p>
+<p>If you do work during the break, be sure to update your ide notes.</p>
+</section>
+<section id="badges">
+<h2><span class="section-number">13.8. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Analyze the xor hashing algorithm in the notes to determine which properties of a cryptographic hash are/not met. Include your analysis in <span class="target" id="index-0"></span>xorhash.md</p></li>
+<li><p>find 2 more real world examples of using other number systems (either different bases or different symbols and bases) <strong>not mentioned in class</strong> that are currently used. Describe the number system and its usage in <span class="target" id="index-1"></span>numbers.md. Include links to your sources and be sure that the sources are trustworthy.</p></li>
+<li><p>Calculate the maximum number of git objects that a repo can have without requiring you to use more than the minimum number of characters to refer to any object and include that number in  <span class="target" id="index-2"></span>gitcounts.md  with a title <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Git</span> <span class="pre">counts</span></code>. Describe the scenario that would get you to that number of objects with the maximum <em>or</em> minimum number of commits in terms of what types of objects would exist.  Assume normal git use with porcelain commands, not atypical cases with plubming commands. <em>If you get stuck, outline what you know and then request a review.</em></p></li>
+</ol>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
+<ol class="arabic simple" start="3">
+<li><p>Analyze the xor hashing algorithm in the notes to determine which properties of a cryptographic hash are/not met. Include your analysis in <span class="target" id="index-3"></span>xorhash.md</p></li>
+<li><p>find 2 more real world examples of using other number systems (either different bases or different symbols and bases) <strong>not mentioned in class</strong> that are currently used. Describe the number system and its usage in <span class="target" id="index-4"></span>numbers.md. Include links to your sources and be sure that the sources are trustworthy.</p></li>
+<li><p>Calculate the maximum number of git objects that a repo can have without requiring you to use more than the minimum number of characters to refer to any object and include that number in  <span class="target" id="index-5"></span>gitcounts_scenarios.md  with a title <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Git</span> <span class="pre">counts</span></code>. Describe 3 scenarios that would get you to that number of objects in terms of what types of objects would exist. For example, what is the maximum number of commits you could have without exceeding that number, how many files could you have? How could you get to that number of objects in the fewest number of commits? What might be a typical way to get there? Assume normal git use with porcelain commands, not atypical cases with plubming commands. <em>If you get stuck, outline what you know and then request a review.</em></p></li>
+<li><p>Read about the Learn more about the <a class="reference external" href="https://shattered.io/">SHA-1 collision attach</a></p></li>
+<li><p>Learn more about how git is working on changing from SHA-1 to SHA-256 and answer the transition questions below <span class="target" id="index-6"></span>gittransition.md</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="gittransition">
+<h2><span class="section-number">13.9. </span>gittransition<a class="headerlink" href="#gittransition" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># transition questions
+
+1. Why make the switch? (in detail, not just *an attack*)
+2. What impact will the switch have on how git works?
+3. Which developers will have the most work to do because of the switch?
+</pre></div>
+</div>
+</section>
+<section id="experience-report-evidence">
+<h2><span class="section-number">13.10. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="questions-after-todays-class">
+<h2><span class="section-number">13.11. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<section id="will-we-be-approved-for-requests-to-join-teams-for-builds-from-the-discussion-posts-made">
+<h3><span class="section-number">13.11.1. </span>Will we be approved for requests to join teams for builds from the discussion posts made?<a class="headerlink" href="#will-we-be-approved-for-requests-to-join-teams-for-builds-from-the-discussion-posts-made" title="Permalink to this headline">#</a></h3>
+<p>Yes</p>
+</section>
+<section id="want-to-learn-more-about-how-to-use-sha-256">
+<h3><span class="section-number">13.11.2. </span>want to learn more about how to use sha-256<a class="headerlink" href="#want-to-learn-more-about-how-to-use-sha-256" title="Permalink to this headline">#</a></h3>
+<p>This is a good community badge or explore option.</p>
+<p>You can start with the <a class="reference external" href="https://git-scm.com/docs/hash-function-transition/#_transition_plan">git transition plan</a></p>
+</section>
+<section id="what-are-all-the-parts-of-the-sha-hashing-algroithm">
+<h3><span class="section-number">13.11.3. </span>What are all the parts of the SHA hashing algroithm?<a class="headerlink" href="#what-are-all-the-parts-of-the-sha-hashing-algroithm" title="Permalink to this headline">#</a></h3>
+<p>You can see SHA-1 <a class="reference external" href="https://en.wikipedia.org/wiki/SHA-1#SHA-1_pseudocode">psuedocode</a> on wikipedia</p>
+</section>
+<section id="what-makes-gits-algorithm-hardened">
+<h3><span class="section-number">13.11.4. </span>What makes git’s algorithm “hardened”?<a class="headerlink" href="#what-makes-gits-algorithm-hardened" title="Permalink to this headline">#</a></h3>
+<p>It uses the regular hashing algorithm, then checks if the resulting hash is vulnerable with a <a class="reference external" href="https://github.com/cr-marcstevens/sha1collisiondetection">detection algorithm</a> and if so, it computes a different hash. <a class="reference external" href="https://shattered.io/#:~:text=Is%20Hardened%20SHA%2D1%20vulnerable%3F">accodring to shattered</a>.</p>
+</section>
+</section>
+<section id="are-there-any-benefits-of-a-number-system-like-roman-numerals-over-the-hindu-arabic-system">
+<h2><span class="section-number">13.12. </span>Are there any benefits of a number system like Roman Numerals over the Hindu-Arabic system?<a class="headerlink" href="#are-there-any-benefits-of-a-number-system-like-roman-numerals-over-the-hindu-arabic-system" title="Permalink to this headline">#</a></h2>
+<p>It is just different, it was something the Romans developed before Europeans had encountered a system like the Hindu-Arabic system.</p>
+<section id="does-git-have-a-plan-to-change-its-hashing-algorithm-in-the-future">
+<h3><span class="section-number">13.12.1. </span>Does git have a plan to change its hashing algorithm in the future?<a class="headerlink" href="#does-git-have-a-plan-to-change-its-hashing-algorithm-in-the-future" title="Permalink to this headline">#</a></h3>
+<p>Yes and a detailed  <a class="reference external" href="https://git-scm.com/docs/hash-function-transition/#_transition_plan">transition plan</a></p>
+</section>
+<section id="what-is-the-most-secure-hash-algorithm">
+<h3><span class="section-number">13.12.2. </span>what is the most secure hash algorithm?<a class="headerlink" href="#what-is-the-most-secure-hash-algorithm" title="Permalink to this headline">#</a></h3>
+<p>This is a good community badge as is, or by comparing several, can be an explore</p>
+</section>
+<section id="do-you-think-it-would-be-as-easy-for-us-to-do-math-with-a-octal-base-8-system-as-it-is-with-a-decimal-base-10-system-is-if-we-learned-it-just-as-early">
+<h3><span class="section-number">13.12.3. </span>Do you think it would be as easy for us to do math with a octal (base 8) system as it is with a decimal (base 10) system is if we learned it just as early?<a class="headerlink" href="#do-you-think-it-would-be-as-easy-for-us-to-do-math-with-a-octal-base-8-system-as-it-is-with-a-decimal-base-10-system-is-if-we-learned-it-just-as-early" title="Permalink to this headline">#</a></h3>
+<p>Yes, if that is what you were used to, that would be it.</p>
+<p>We would learn times tables in different ways possibly or different tricks because we represented the quantities differently, but yes!</p>
+<p>Working out examples of this could be a good explore badge.</p>
+</section>
+<section id="will-quantum-computing-be-able-to-decript-things-such-as-hash-encriptions">
+<h3><span class="section-number">13.12.4. </span>Will quantum computing be able to decript things such as hash encriptions ?<a class="headerlink" href="#will-quantum-computing-be-able-to-decript-things-such-as-hash-encriptions" title="Permalink to this headline">#</a></h3>
+<p>It is good for random things, so it will probably not be better at this than current computers.</p>
+</section>
+<section id="are-the-git-hashes-unique-universally-or-just-across-the-repository">
+<h3><span class="section-number">13.12.5. </span>Are the git hashes unique universally, or just across the repository?<a class="headerlink" href="#are-the-git-hashes-unique-universally-or-just-across-the-repository" title="Permalink to this headline">#</a></h3>
+<p>They only <em>have</em> to be unique withing a single repo, for example in the test repo, we all had some identical hashes.</p>
+<p>The blob and tree hashes are more likely to repeat across repos than commit hashes though because commit hashes cannot really repeat easily because it requires the same person to commit in two different repos (well the same logged in identity) at the same time.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-03-05.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Why did we learn the plubming commands?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../activities/kwl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">KWL Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-hash">13.1. What is a hash?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hashes-are-fixed-length">13.1.1. Hashes are fixed length</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hashes-are-unique">13.1.2. Hashes are unique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hashes-are-not-reversible">13.1.3. Hashes are not reversible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similar-inputs-yeild-uncorrelated-outputs">13.1.4. Similar inputs yeild  uncorrelated outputs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-hashes-be-used">13.2. How can hashes be used?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hashing-in-passwords">13.2.1. Hashing in passwords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hashing-in-git">13.2.2. Hashing in Git</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-git-hashes">13.3. Working with git hashes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-are-hashes-computed">13.4. How are hashes computed?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-get-to-the-alphanumeric-hashes-we-see">13.5. How do we get to the alphanumeric hashes we see?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-number">13.5.1. What is a Number ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-number-system">13.5.2. What is a number system?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hindu-arabic-number-system">13.5.3. Hindu Arabic Number system</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#where-does-the-name-come-from">13.5.3.1. Where does the name come from?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerals">13.5.3.2. Numerals</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#place-based">13.5.3.3. Place based</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roman-numerals">13.5.4. Roman Numerals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-bases">13.6. Comparing  Bases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal">13.6.1. Decimal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary">13.6.2. Binary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#octal">13.6.3. Octal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hexadecimal">13.6.4. Hexadecimal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">13.7. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">13.8. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gittransition">13.9. gittransition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">13.10. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">13.11. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#will-we-be-approved-for-requests-to-join-teams-for-builds-from-the-discussion-posts-made">13.11.1. Will we be approved for requests to join teams for builds from the discussion posts made?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-learn-more-about-how-to-use-sha-256">13.11.2. want to learn more about how to use sha-256</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-all-the-parts-of-the-sha-hashing-algroithm">13.11.3. What are all the parts of the SHA hashing algroithm?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-gits-algorithm-hardened">13.11.4. What makes git’s algorithm “hardened”?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-any-benefits-of-a-number-system-like-roman-numerals-over-the-hindu-arabic-system">13.12. Are there any benefits of a number system like Roman Numerals over the Hindu-Arabic system?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-git-have-a-plan-to-change-its-hashing-algorithm-in-the-future">13.12.1. Does git have a plan to change its hashing algorithm in the future?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-most-secure-hash-algorithm">13.12.2. what is the most secure hash algorithm?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-you-think-it-would-be-as-easy-for-us-to-do-math-with-a-octal-base-8-system-as-it-is-with-a-decimal-base-10-system-is-if-we-learned-it-just-as-early">13.12.3. Do you think it would be as easy for us to do math with a octal (base 8) system as it is with a decimal (base 10) system is if we learned it just as early?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#will-quantum-computing-be-able-to-decript-things-such-as-hash-encriptions">13.12.4. Will quantum computing be able to decript things such as hash encriptions ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-git-hashes-unique-universally-or-just-across-the-repository">13.12.5. Are the git hashes unique universally, or just across the repository?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

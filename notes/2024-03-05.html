@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-03-05';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="next" title="13. What is a commit number?" href="2024-03-07.html" />
     <link rel="prev" title="11. How does git make a commit?" href="2024-02-29.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -184,6 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2024-02-27.html">10. What <em>is</em> git?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-02-29.html">11. How does git make a commit?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Why did we learn the plubming commands?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-07.html">13. What is a commit number?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -441,7 +442,17 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-git-help-with-work-in-progress">12.8. How can git help with  work in Progress?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">12.9. Badges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">12.10. Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">12.11. Questions After Today’s Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">12.11. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-tags-only-applicable-to-commits">12.11.1. Are tags only applicable to commits?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-stash-diffrent-between-all-the-branches-or-it-the-same">12.11.2. Is the stash diffrent between all the branches or it the same.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-git-stash-can-i-create-a-file-on-say-main-stash-and-then-switch-to-another-branch-to-move-that-file-to-that-new-branch-instead">12.11.3. with git stash can I create a file on say main stash and then switch to another branch to move that file to that new branch instead?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-point-of-stash-area-just-in-case-you-do-work-in-the-wrong-branch">12.11.4. Is the point of stash area just in case you do work in the wrong branch?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-debugging-and-you-accidently-call-a-good-commit-a-bad-commit-is-there-a-way-to-reverse-that-or-no">12.11.5. while debugging and you accidently call a good commit a bad commit is there a way to reverse that or no?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-does-git-stash-store-its-stack-is-it-a-file-inside-of-the-git-folder">12.11.6. Where does git stash store its stack, is it a file inside of the .git folder?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-often-are-these-commands-used-in-a-professional-environment">12.11.7. how often are these commands used in a professional environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-wouldnt-i-just-make-a-new-branch-instead-of-leaving-the-changes-floating-in-space">12.11.8. why wouldn’t i just make a new branch instead of leaving the changes floating in space?</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -1691,6 +1702,42 @@ Course website tags by type:
 </section>
 <section id="questions-after-todays-class">
 <h2><span class="section-number">12.11. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<section id="are-tags-only-applicable-to-commits">
+<h3><span class="section-number">12.11.1. </span>Are tags only applicable to commits?<a class="headerlink" href="#are-tags-only-applicable-to-commits" title="Permalink to this headline">#</a></h3>
+<p>tags are defined relative to a commit.</p>
+</section>
+<section id="is-the-stash-diffrent-between-all-the-branches-or-it-the-same">
+<h3><span class="section-number">12.11.2. </span>Is the stash diffrent between all the branches or it the same.<a class="headerlink" href="#is-the-stash-diffrent-between-all-the-branches-or-it-the-same" title="Permalink to this headline">#</a></h3>
+<p>There is one stash per repo, it is a queue shared across branches</p>
+</section>
+<section id="with-git-stash-can-i-create-a-file-on-say-main-stash-and-then-switch-to-another-branch-to-move-that-file-to-that-new-branch-instead">
+<h3><span class="section-number">12.11.3. </span>with git stash can I create a file on say main stash and then switch to another branch to move that file to that new branch instead?<a class="headerlink" href="#with-git-stash-can-i-create-a-file-on-say-main-stash-and-then-switch-to-another-branch-to-move-that-file-to-that-new-branch-instead" title="Permalink to this headline">#</a></h3>
+<p>Yes, sort of, you can create a while while main is checked out and then stash it instead of committing it. Since it gets stashed, not committed, the file is not “on” the branch.</p>
+<p>THen you can switch branches and apply or pop from stash and then commit.</p>
+</section>
+<section id="is-the-point-of-stash-area-just-in-case-you-do-work-in-the-wrong-branch">
+<h3><span class="section-number">12.11.4. </span>Is the point of stash area just in case you do work in the wrong branch?<a class="headerlink" href="#is-the-point-of-stash-area-just-in-case-you-do-work-in-the-wrong-branch" title="Permalink to this headline">#</a></h3>
+<p>No, it actually cannot help if you commit to the wron branch and if you do not commit, you do not need it.</p>
+<p>It is so that you can save work without commiting, get a clean working directory to do something else and then add the work in .</p>
+</section>
+<section id="while-debugging-and-you-accidently-call-a-good-commit-a-bad-commit-is-there-a-way-to-reverse-that-or-no">
+<h3><span class="section-number">12.11.5. </span>while debugging and you accidently call a good commit a bad commit is there a way to reverse that or no?<a class="headerlink" href="#while-debugging-and-you-accidently-call-a-good-commit-a-bad-commit-is-there-a-way-to-reverse-that-or-no" title="Permalink to this headline">#</a></h3>
+<p>It looks like you would have to start over, but you could print the log first to remember what you had already figured out.</p>
+</section>
+<section id="where-does-git-stash-store-its-stack-is-it-a-file-inside-of-the-git-folder">
+<h3><span class="section-number">12.11.6. </span>Where does git stash store its stack, is it a file inside of the .git folder?<a class="headerlink" href="#where-does-git-stash-store-its-stack-is-it-a-file-inside-of-the-git-folder" title="Permalink to this headline">#</a></h3>
+<p>it hashes the content as blobs and stores the pointer to that blob in <code class="docutils literal notranslate"><span class="pre">.git/refs/stash</span></code></p>
+</section>
+<section id="how-often-are-these-commands-used-in-a-professional-environment">
+<h3><span class="section-number">12.11.7. </span>how often are these commands used in a professional environment<a class="headerlink" href="#how-often-are-these-commands-used-in-a-professional-environment" title="Permalink to this headline">#</a></h3>
+<p>this is hard to know, a lot of people are git novices, but I want you to have these as tools so you can be more efficient.</p>
+<p>Being efficient with your time in a salaried job often means you can work fewer hours total or you can get more work done and earn promotions faster.</p>
+</section>
+<section id="why-wouldnt-i-just-make-a-new-branch-instead-of-leaving-the-changes-floating-in-space">
+<h3><span class="section-number">12.11.8. </span>why wouldn’t i just make a new branch instead of leaving the changes floating in space?<a class="headerlink" href="#why-wouldnt-i-just-make-a-new-branch-instead-of-leaving-the-changes-floating-in-space" title="Permalink to this headline">#</a></h3>
+<p>One time to use stash is when you realize you started working without pulling. If you make a commit you will have to deal with the divergent branches, but if you stash, pull, then apply, no such problem.</p>
+<p>Another case is that in some projects, there are standards to not have too many too small commits, so this is a way to avoid that.</p>
+</section>
 </section>
 </section>
 
@@ -1735,11 +1782,11 @@ Course website tags by type:
       </div>
     </a>
     <a class="right-next"
-       href="../activities/kwl.html"
+       href="2024-03-07.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">KWL Chart</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>What is a commit number?</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1775,7 +1822,17 @@ Course website tags by type:
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-git-help-with-work-in-progress">12.8. How can git help with  work in Progress?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">12.9. Badges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">12.10. Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">12.11. Questions After Today’s Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">12.11. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-tags-only-applicable-to-commits">12.11.1. Are tags only applicable to commits?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-stash-diffrent-between-all-the-branches-or-it-the-same">12.11.2. Is the stash diffrent between all the branches or it the same.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-git-stash-can-i-create-a-file-on-say-main-stash-and-then-switch-to-another-branch-to-move-that-file-to-that-new-branch-instead">12.11.3. with git stash can I create a file on say main stash and then switch to another branch to move that file to that new branch instead?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-point-of-stash-area-just-in-case-you-do-work-in-the-wrong-branch">12.11.4. Is the point of stash area just in case you do work in the wrong branch?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-debugging-and-you-accidently-call-a-good-commit-a-bad-commit-is-there-a-way-to-reverse-that-or-no">12.11.5. while debugging and you accidently call a good commit a bad commit is there a way to reverse that or no?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-does-git-stash-store-its-stack-is-it-a-file-inside-of-the-git-folder">12.11.6. Where does git stash store its stack, is it a file inside of the .git folder?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-often-are-these-commands-used-in-a-professional-environment">12.11.7. how often are these commands used in a professional environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-wouldnt-i-just-make-a-new-branch-instead-of-leaving-the-changes-floating-in-space">12.11.8. why wouldn’t i just make a new branch instead of leaving the changes floating in space?</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
