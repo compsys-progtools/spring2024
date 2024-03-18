@@ -60,6 +60,14 @@ Activities:
 Activities:
 ```{include} ../_practice/2024-02-15.md
 ```
+## 2024-02-20
+
+[related notes](../notes/2024-02-20)
+
+Activities:
+```{include} ../_practice/2024-02-20.md
+```
+
 ## 2024-02-22
 
 [related notes](../notes/2024-02-22)
@@ -67,6 +75,7 @@ Activities:
 Activities:
 ```{include} ../_practice/2024-02-22.md
 ```
+
 ## 2024-02-27
 
 [related notes](../notes/2024-02-27)
