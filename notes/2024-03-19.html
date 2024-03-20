@@ -1,0 +1,1150 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>How can I automate things with bash? &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-03-19';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-01.html">4. How do branches work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-06.html">5. When do git and bash give me an advantage?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-08.html">6. What <em>is</em> a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-15.html">7. How do programmers communicate about code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-20.html">8. How do I choose a Programming Language for a project?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-22.html">9. Why are these tools like this?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-27.html">10. What <em>is</em> git?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-29.html">11. How does git make a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-05.html">12. Why did we learn the plubming commands?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-07.html">13. What is a commit number?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2022/resources/testimonials.html">Advice from Fall 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2023/resources/testimonials.html">Advice from Spring 2023 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2023/resources/testimonials.html">Advice from Fall 2023 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/edit/main/notes/2024-03-19.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/issues/new?title=Issue%20on%20page%20%2Fnotes/2024-03-19.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notes/2024-03-19.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How can I automate things with bash?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-an-example-script">Inspecting an example script</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-bash">Variables in Bash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-loops">Bash Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nesting-commands">Nesting commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals-in-bash">Conditionals in bash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#script-files">Script files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent">What parts of the terminal are saved local per window and what parts aren’t?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-functions-in-bash-scripting">Are there functions in bash scripting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges">what is YMAL syntax similar to in terms of other programming langauges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-kind-of-action-could-be-useful">What kind of action could be useful?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-stop-a-loop-break-statement">How to stop a loop (break statement)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-check-values-greater-than-less-than">How to check values (greater than/less than)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-differentiates-a-terminal-and-a-shell">What differentiates a terminal and a shell?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date">How can I change the experience workflow to automatically fill in the date?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="how-can-i-automate-things-with-bash">
+<h1>How can I automate things with bash?<a class="headerlink" href="#how-can-i-automate-things-with-bash" title="Permalink to this headline">#</a></h1>
+<p>So far we have used bash commands to navigate our file system as a way to learn about the file system itself. To do this we used commands like:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm</span></code></p></li>
+</ul>
+<p>Bash is a unix shell for the GNU operating system and it has been adopted in other contexts as well.  It is the default shell on Ubuntu linux as well for example (and many others). This is why we teach it.</p>
+<div class="mermaid">
+            flowchart TD
+    shell --&gt; |is accessed through| terminal
+    bash --&gt; |is instance of| shell
+    zsh --&gt; |is instance of| shell
+    git --&gt; |is a program accessed though | shell
+
+        </div><p>A Unix shell is both a command interpreter and a programming language. As a command interpreter, the shell provides the user interface to the rich set of GNU utilities. The programming language features allow these utilities to be combined.</p>
+<p>Read the official definition of <code class="docutils literal notranslate"><span class="pre">bash</span></code> and a shell in <a class="reference external" href="https://www.gnu.org/software/bash/manual/bash.html#Introduction">the bash manual</a></p>
+<div class="mermaid">
+            flowchart TD
+    subgraph shell
+        pl[programming language]
+        i[command interpreter]
+    end
+
+        </div><section id="inspecting-an-example-script">
+<h2>Inspecting an example script<a class="headerlink" href="#inspecting-an-example-script" title="Permalink to this headline">#</a></h2>
+<p>Today we will start by inspecting the github action file, first we’ll navigate to the folder.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">kwl</span><span class="o">-</span><span class="n">sp24</span><span class="o">-</span><span class="n">brownsarahm</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we’ll look at which files we have</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">.</span><span class="n">github</span><span class="o">/</span><span class="n">workflows</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">create_about.yml	experiencereport.yml	getassignment.yml</span>
+<span class="go">experienceinclass.yml	forgottenexperience.yml</span>
+</pre></div>
+</div>
+<p>Then we will look at the getassignmet one.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">.</span><span class="n">github</span><span class="o">/</span><span class="n">workflows</span><span class="o">/</span><span class="n">getassignment</span><span class="o">.</span><span class="n">yml</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">name: Create badge issues (Do not run manually)</span>
+<span class="go">on:</span>
+<span class="go">  workflow_dispatch</span>
+
+<span class="gp"># </span>once<span class="w"> </span>you<span class="w"> </span>edit,<span class="w"> </span>change<span class="w"> </span>the<span class="w"> </span>name
+
+<span class="go">jobs:</span>
+<span class="go">  check-contents:</span>
+<span class="go">    runs-on: ubuntu-latest</span>
+<span class="go">    steps:</span>
+<span class="go">    - uses: actions/checkout@v2</span>
+<span class="go">    </span>
+<span class="gp">    # </span>Install<span class="w"> </span>dependencies
+<span class="go">    - name: Set up Python 3.9</span>
+<span class="go">      uses: actions/setup-python@v4</span>
+<span class="go">      with:</span>
+<span class="go">        python-version: 3.9</span>
+<span class="go">    </span>
+<span class="go">    - name: Install Utils</span>
+<span class="go">      run: |</span>
+<span class="go">        pip install git+https://github.com/introcompsys/courseutils@main</span>
+<span class="go">    - name: Get badge requirements</span>
+<span class="go">      run: |</span>
+<span class="gp">        # </span>prepare<span class="w"> </span>badge<span class="w"> </span>lines
+<span class="go">        pretitle=&quot;prepare-&quot;$(sysgetbadgedate --prepare)</span>
+<span class="go">        sysgetassignment --type prepare | gh issue create --title $pretitle --label prepare --body-file -</span>
+<span class="gp">        # </span>review<span class="w"> </span>badge<span class="w"> </span>lines
+<span class="go">        rtitle=&quot;review-&quot;$(sysgetbadgedate --review)</span>
+<span class="go">        sysgetassignment --type review | gh issue create --title $rtitle --label review --body-file -</span>
+<span class="gp">        # </span>practice<span class="w"> </span>badge<span class="w"> </span>lines
+<span class="go">        pratitle=&quot;practice-&quot;$(sysgetbadgedate --practice)</span>
+<span class="go">        sysgetassignment --type practice| gh issue create --title $pratitle --label practice --body-file -</span>
+<span class="go">      env:</span>
+<span class="go">        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}</span>
+<span class="gp">#  </span>edit<span class="w"> </span>the<span class="w"> </span>run<span class="w"> </span>step<span class="w"> </span>above<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>level<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>you<span class="w"> </span>want.<span class="w"> </span>
+<span class="gp">#  </span>You<span class="w"> </span>should<span class="w"> </span>keep<span class="w"> </span>the<span class="w"> </span>prepare,<span class="w"> </span>because<span class="w"> </span>they<span class="w"> </span>are<span class="w"> </span>required<span class="w"> </span><span class="k">for</span><span class="w"> </span>experience<span class="w"> </span>badges<span class="w"> </span>
+<span class="gp">#     </span>You<span class="w"> </span>may<span class="w"> </span>choose<span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span>only<span class="w"> </span>the<span class="w"> </span>review<span class="w"> </span>or<span class="w"> </span>only<span class="w"> </span>the<span class="w"> </span>practice<span class="w"> </span><span class="o">(</span>and<span class="w"> </span>change<span class="w"> </span>this<span class="w"> </span>any<span class="w"> </span><span class="nb">time</span><span class="o">)</span><span class="w"> </span>
+</pre></div>
+</div>
+</section>
+<section id="variables-in-bash">
+<h2>Variables in Bash<a class="headerlink" href="#variables-in-bash" title="Permalink to this headline">#</a></h2>
+<p>We can create variables</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MYVAR</span><span class="o">=</span><span class="s2">&quot;my_val&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>notice that there are <strong>no spaces</strong> around the <code class="docutils literal notranslate"><span class="pre">=</span></code>. spaces in bash separate commands and options, so they cannot be in variable declarations.</p>
+<p>and use them with a <code class="docutils literal notranslate"><span class="pre">$</span></code> before the variable name.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>echo $MYVAR
+</pre></div>
+</div>
+</div>
+</div>
+<p>This variable is local, in memory, to the current terminal window, so if we open a separate window and try <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$NAME</span></code> it will not work. We can also see that it does not create any file changes.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">my_val</span>
+</pre></div>
+</div>
+<p>A common mistake is to put a space around the <code class="docutils literal notranslate"><span class="pre">=</span></code> sign, this is actually considered <strong>good style</strong> in many other languages.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;Sarah&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">-bash: NAME: command not found</span>
+</pre></div>
+</div>
+<p>In bash, however, this creates an error.  When there is a space after <code class="docutils literal notranslate"><span class="pre">NAME</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span></code> tried to interpet <code class="docutils literal notranslate"><span class="pre">NAME</span></code> as a bash command, but then it does not find it, so it gives an error.</p>
+<p>Removing the space works again:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>NAME=&quot;Sarah&quot;
+echo $NAME
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Sarah</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>echo $NAME
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Sarah</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">$</span></code> is essential syntax for recalling variables in bash. If we forget it, it treats it as a literal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="n">NAME</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="n">NAME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">NAME</span>
+</pre></div>
+</div>
+<p>so we get the variable <strong>name</strong> out instead of the variable <strong>value</strong></p>
+</section>
+<section id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">#</a></h2>
+<p>Environment variables are global.</p>
+<p>A common one is the <code class="docutils literal notranslate"><span class="pre">PATH</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>echo $PATH
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/Users/brownsarahm/anaconda3/bin:/Users/brownsarahm/anaconda3/condabin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin</span>
+</pre></div>
+</div>
+<p>mine has my anaconda install, yours may be different</p>
+<p>You can store environment variables to be set each time you start a terminal
+in your profile.</p>
+<ul class="simple">
+<li><p>On MacOS this file is: <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code></p></li>
+<li><p>on linux it is <code class="docutils literal notranslate"><span class="pre">~/.baschrc</span></code></p></li>
+</ul>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">~/.</span><span class="n">bash_profile</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">alias pip=pip3</span>
+<span class="go">alias python=python3</span>
+
+<span class="go">export PS1=&quot;\u@\W $ &quot;</span>
+
+<span class="gp"># </span>&gt;&gt;&gt;<span class="w"> </span>conda<span class="w"> </span>initialize<span class="w"> </span>&gt;&gt;&gt;
+<span class="gp"># </span>!!<span class="w"> </span>Contents<span class="w"> </span>within<span class="w"> </span>this<span class="w"> </span>block<span class="w"> </span>are<span class="w"> </span>managed<span class="w"> </span>by<span class="w"> </span><span class="s1">&#39;conda init&#39;</span><span class="w"> </span>!!
+<span class="go">__conda_setup=&quot;$(&#39;/Users/brownsarahm/anaconda3/bin/conda&#39; &#39;shell.bash&#39; &#39;hook&#39; 2&gt; /dev/null)&quot;</span>
+<span class="go">if [ $? -eq 0 ]; then</span>
+<span class="go">    eval &quot;$__conda_setup&quot;</span>
+<span class="go">else</span>
+<span class="go">    if [ -f &quot;/Users/brownsarahm/anaconda3/etc/profile.d/conda.sh&quot; ]; then</span>
+<span class="go">        . &quot;/Users/brownsarahm/anaconda3/etc/profile.d/conda.sh&quot;</span>
+<span class="go">    else</span>
+<span class="go">        export PATH=&quot;/Users/brownsarahm/anaconda3/bin:$PATH&quot;</span>
+<span class="go">    fi</span>
+<span class="go">fi</span>
+<span class="go">unset __conda_setup</span>
+<span class="gp"># </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>conda<span class="w"> </span>initialize<span class="w"> </span><span class="o">&lt;&lt;&lt;</span>
+</pre></div>
+</div>
+<p>A common one you might want to set is:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PS1</span></code> the primary prompt line. Content you can use is <a class="reference external" href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Controlling-the-Prompt">documented in the gnu docs</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alias</span></code> lets you set another name for a program, for exmaple I use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to call <code class="docutils literal notranslate"><span class="pre">pip3</span></code></p></li>
+</ul>
+</section>
+<section id="bash-loops">
+<h2>Bash Loops<a class="headerlink" href="#bash-loops" title="Permalink to this headline">#</a></h2>
+<p>We can also make loops like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>for loopvar in list
+do
+# loop body
+echo $loopvar
+done
+</pre></div>
+</div>
+<p>So, for example:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for name in Sarah Cam Kai
+&gt; do 
+&gt; echo $name
+&gt; done
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> is not typed, it is what happens since the interpreter knows that
+after we write the first line, the command is not complete.</p></li>
+<li><p>a list in bash is items with spaces, no brackets here (<code class="docutils literal notranslate"> <span class="pre">Sarah</span> <span class="pre">Cam</span> <span class="pre">Kai</span></code>)</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Sarah</span>
+<span class="go">Cam</span>
+<span class="go">Kai</span>
+</pre></div>
+</div>
+<p>and this does as expected</p>
+<p>When we get the command back with the up arrow key, it puts it all on one line, because it was one command.  The <code class="docutils literal notranslate"><span class="pre">;</span></code> (semicolon) separates the “lines”</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for name in Sarah Cam Kai; do  echo $name; done
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Sarah</span>
+<span class="go">Cam</span>
+<span class="go">Kai</span>
+</pre></div>
+</div>
+</section>
+<section id="nesting-commands">
+<h2>Nesting commands<a class="headerlink" href="#nesting-commands" title="Permalink to this headline">#</a></h2>
+<p>Let’s look at the action file again</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create badge issues (Do not run manually)</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">workflow_dispatch</span>
+
+<span class="c1"># once you edit, change the name</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">check-contents</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1"># Install dependencies</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python 3.9</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.9</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Utils</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">pip install git+https://github.com/introcompsys/courseutils@main</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get badge requirements</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no"># prepare badge lines</span>
+<span class="w">        </span><span class="no">pretitle=&quot;prepare-&quot;$(sysgetbadgedate --prepare)</span>
+<span class="w">        </span><span class="no">sysgetassignment --type prepare | gh issue create --title $pretitle --label prepare --body-file -</span>
+<span class="w">        </span><span class="no"># review badge lines</span>
+<span class="w">        </span><span class="no">rtitle=&quot;review-&quot;$(sysgetbadgedate --review)</span>
+<span class="w">        </span><span class="no">sysgetassignment --type review | gh issue create --title $rtitle --label review --body-file -</span>
+<span class="w">        </span><span class="no"># practice badge lines</span>
+<span class="w">        </span><span class="no">pratitle=&quot;practice-&quot;$(sysgetbadgedate --practice)</span>
+<span class="w">        </span><span class="no">sysgetassignment --type practice| gh issue create --title $pratitle --label practice --body-file -</span>
+<span class="w">      </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">GH_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<span class="c1">#  edit the run step above for the level(s) you want. </span>
+<span class="c1">#  You should keep the prepare, because they are required for experience badges </span>
+<span class="c1">#     You may choose to get only the review or only the practice (and change this any time) </span>
+</pre></div>
+</div>
+<p>We can run a command to generate the list by putting it inside <code class="docutils literal notranslate"><span class="pre">$()</span></code> to run that command first.  Think kind of like PEMDAS and the <code class="docutils literal notranslate"><span class="pre">$</span></code> in bash is for variables.</p>
+<p>This is useful in combination with the the loop</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for file in $(ls)
+&gt; do 
+&gt; echo $file 
+&gt; done
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">README.md</span>
+<span class="go">community_contributions.md</span>
+<span class="go">experiences</span>
+</pre></div>
+</div>
+<p>the <code class="docutils literal notranslate"><span class="pre">$()</span></code> tells bash to run that command first and then hold its output as a variable for use elsewhere</p>
+<p>If we modify it</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for file in $(ls -a); do  echo $file ; done 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.</span>
+<span class="go">..</span>
+<span class="go">.git</span>
+<span class="go">.github</span>
+<span class="go">.templates</span>
+<span class="go">README.md</span>
+<span class="go">community_contributions.md</span>
+<span class="go">experiences</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="n">hello</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conditionals-in-bash">
+<h2>Conditionals in bash<a class="headerlink" href="#conditionals-in-bash" title="Permalink to this headline">#</a></h2>
+<p>We can also do conditional statements</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test</span> <span class="o">-</span><span class="n">f</span> <span class="o">.</span><span class="n">git</span>
+<span class="o">&gt;</span> <span class="n">then</span>
+<span class="o">&gt;</span> <span class="n">echo</span> <span class="s2">&quot;file&quot;</span>
+<span class="o">&gt;</span> <span class="n">fi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>the key parts of this:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code> checks if a file or directory exists</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">-f</span></code> option makes it check if the item is a <em>file</em></p></li>
+<li><p>what to do if the condition is met goes after a <code class="docutils literal notranslate"><span class="pre">then</span></code> keyword</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">fi</span></code> (backwards<code class="docutils literal notranslate"><span class="pre">if</span></code>) closes the if statment</p></li>
+</ul>
+<p>This returns nothing because it is not a file</p>
+<p>If we switch it, we get output:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test</span> <span class="o">-</span><span class="n">f</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span><span class="p">;</span> <span class="n">then</span> <span class="n">echo</span> <span class="s2">&quot;file&quot;</span><span class="p">;</span> <span class="n">fi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">file</span>
+</pre></div>
+</div>
+<p>We can put the if inside of the loop.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test</span>  <span class="o">.</span><span class="n">git</span><span class="p">;</span> <span class="n">then</span> <span class="n">echo</span> <span class="s2">&quot;exists&quot;</span><span class="p">;</span> <span class="n">fi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">exists</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>echo $(test hello)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for file in $(ls -a); do if test -f $file ;then  echo $file; fi ; done
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">README.md</span>
+<span class="go">community_contributions.md</span>
+</pre></div>
+</div>
+</section>
+<section id="script-files">
+<h2>Script files<a class="headerlink" href="#script-files" title="Permalink to this headline">#</a></h2>
+<p>We can put our script into a file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="n">filecheck</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So that the file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">filecheck</span><span class="o">.</span><span class="n">sh</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>ls<span class="k">)</span>
+<span class="k">do</span><span class="w"> </span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$file</span>
+<span class="w">  </span><span class="k">then</span>
+<span class="w">     </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$file</span>
+<span class="w">  </span><span class="k">fi</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>and run it with <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">&lt;filename&gt;</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">filecheck</span><span class="o">.</span><span class="n">sh</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">README.md</span>
+<span class="go">community_contributions.md</span>
+<span class="go">filecheck.sh</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ex				spring2024</span>
+<span class="go">gh-inclass-sp24-brownsarahm	test</span>
+<span class="go">kwl-sp24-brownsarahm		tiny-book</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">spring2024</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="prepare-for-next-class">
+<h2>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<p>Review your <a class="reference external" href="https://compsys-progtools.github.io/spring2024/activities/prepare.html?highlight=idethoughts.md#:~:text=kwl%20repo%20in-,idethoughts.md,-on%20an%20ide_prep"><code class="docutils literal notranslate"><span class="pre">idethoughts.md</span></code></a> from a few weeks ago and add some summary notes.</p>
+</section>
+<section id="badges">
+<h2>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Update your KWL Chart learned column with what you’ve learned</p></li>
+<li><p>Write a bash script that updates your badges.json file and then generates your progress report using <a class="reference external" href="https://compsys-progtools.github.io/courseutils/index.html">courseutils</a> <em>we will use this in lab on 3/25</em></p></li>
+</ol>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Update your KWL Chart learned column with what you’ve learned</p></li>
+<li><p>Write a bash script that updates your badges.json file and then generates your progress report using <a class="reference external" href="https://compsys-progtools.github.io/courseutils/index.html">courseutils</a> <em>we will use this in lab on 3/25</em></p></li>
+<li><p>Update your action file for getting assignments to use the new courseutils (at compsys-progtools instead of introcompsys)</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="experience-report-evidence">
+<h2>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="questions-after-todays-class">
+<h2>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<section id="what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent">
+<h3>What parts of the terminal are saved local per window and what parts aren’t?<a class="headerlink" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent" title="Permalink to this headline">#</a></h3>
+<p>local variables local, but there are also global variables</p>
+<p>most programs should be per window.</p>
+</section>
+<section id="are-there-functions-in-bash-scripting">
+<h3>Are there functions in bash scripting?<a class="headerlink" href="#are-there-functions-in-bash-scripting" title="Permalink to this headline">#</a></h3>
+<p>Yes <a class="reference external" href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Shell-Functions">see the docs</a></p>
+</section>
+<section id="what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges">
+<h3>what is YMAL syntax similar to in terms of other programming langauges<a class="headerlink" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges" title="Permalink to this headline">#</a></h3>
+<p>It is kind of like a dicionary, but yaml is just a file type, like json or xml, not a a programming language. It is a way to store data that is parse-able.</p>
+</section>
+<section id="what-kind-of-action-could-be-useful">
+<h3>What kind of action could be useful?<a class="headerlink" href="#what-kind-of-action-could-be-useful" title="Permalink to this headline">#</a></h3>
+<p>Anything you might do a alot and would prefer to have automated. Fore xample in calss we have the actions for the badges, the market place has examples.</p>
+<p>there are also the ideas in the discussions.</p>
+</section>
+<section id="how-to-stop-a-loop-break-statement">
+<h3>How to stop a loop (break statement)<a class="headerlink" href="#how-to-stop-a-loop-break-statement" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">break</span></code> exists in <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-break">bash</a></p>
+</section>
+<section id="how-to-check-values-greater-than-less-than">
+<h3>How to check values (greater than/less than)<a class="headerlink" href="#how-to-check-values-greater-than-less-than" title="Permalink to this headline">#</a></h3>
+<p>those are <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html#:~:text=after%20string2%20lexicographically.-,arg1%20OP%20arg2,-OP%20is%20one">operators defines on the conditional page</a></p>
+</section>
+<section id="what-differentiates-a-terminal-and-a-shell">
+<h3>What differentiates a terminal and a shell?<a class="headerlink" href="#what-differentiates-a-terminal-and-a-shell" title="Permalink to this headline">#</a></h3>
+<p>a shell is the language/interpreter terminal is how you access it.</p>
+<p>Sometimes they collapse like powershell is a terminal and shell.</p>
+</section>
+<section id="how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date">
+<h3>How can I change the experience workflow to automatically fill in the date?<a class="headerlink" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date" title="Permalink to this headline">#</a></h3>
+<p>This is nontrival because you would need to edit the file instead of just copying it.  It is a good build badge.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-an-example-script">Inspecting an example script</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-bash">Variables in Bash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-loops">Bash Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nesting-commands">Nesting commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals-in-bash">Conditionals in bash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#script-files">Script files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent">What parts of the terminal are saved local per window and what parts aren’t?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-functions-in-bash-scripting">Are there functions in bash scripting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges">what is YMAL syntax similar to in terms of other programming langauges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-kind-of-action-could-be-useful">What kind of action could be useful?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-stop-a-loop-break-statement">How to stop a loop (break statement)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-check-values-greater-than-less-than">How to check values (greater than/less than)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-differentiates-a-terminal-and-a-shell">What differentiates a terminal and a shell?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date">How can I change the experience workflow to automatically fill in the date?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
