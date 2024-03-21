@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>How can I automate things with bash? &#8212; Computer Systems and Programming Tools</title>
+    <title>14. How can I automate things with bash? &#8212; Computer Systems and Programming Tools</title>
   
   
   
@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-03-19';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="15. What is an IDE?" href="2024-03-21.html" />
+    <link rel="prev" title="13. What is a commit number?" href="2024-03-07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -169,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
@@ -183,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2024-02-29.html">11. How does git make a commit?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-03-05.html">12. Why did we learn the plubming commands?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-03-07.html">13. What is a commit number?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. How can I automate things with bash?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-21.html">15. What is an IDE?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -426,25 +430,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-an-example-script">Inspecting an example script</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-bash">Variables in Bash</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-loops">Bash Loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nesting-commands">Nesting commands</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals-in-bash">Conditionals in bash</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#script-files">Script files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">Prepare for Next Class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">Badges</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">Questions After Today’s Class</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent">What parts of the terminal are saved local per window and what parts aren’t?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-functions-in-bash-scripting">Are there functions in bash scripting?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges">what is YMAL syntax similar to in terms of other programming langauges</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-kind-of-action-could-be-useful">What kind of action could be useful?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-stop-a-loop-break-statement">How to stop a loop (break statement)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-check-values-greater-than-less-than">How to check values (greater than/less than)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-differentiates-a-terminal-and-a-shell">What differentiates a terminal and a shell?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date">How can I change the experience workflow to automatically fill in the date?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-an-example-script">14.1. Inspecting an example script</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-bash">14.2. Variables in Bash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">14.3. Environment Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-loops">14.4. Bash Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nesting-commands">14.5. Nesting commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals-in-bash">14.6. Conditionals in bash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#script-files">14.7. Script files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">14.8. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">14.9. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">14.10. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">14.11. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent">14.11.1. What parts of the terminal are saved local per window and what parts aren’t?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-functions-in-bash-scripting">14.11.2. Are there functions in bash scripting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges">14.11.3. what is YMAL syntax similar to in terms of other programming langauges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-kind-of-action-could-be-useful">14.11.4. What kind of action could be useful?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-stop-a-loop-break-statement">14.11.5. How to stop a loop (break statement)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-check-values-greater-than-less-than">14.11.6. How to check values (greater than/less than)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-differentiates-a-terminal-and-a-shell">14.11.7. What differentiates a terminal and a shell?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date">14.11.8. How can I change the experience workflow to automatically fill in the date?</a></li>
 </ul>
 </li>
 </ul>
@@ -459,7 +463,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-can-i-automate-things-with-bash">
-<h1>How can I automate things with bash?<a class="headerlink" href="#how-can-i-automate-things-with-bash" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">14. </span>How can I automate things with bash?<a class="headerlink" href="#how-can-i-automate-things-with-bash" title="Permalink to this headline">#</a></h1>
 <p>So far we have used bash commands to navigate our file system as a way to learn about the file system itself. To do this we used commands like:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">mv</span></code></p></li>
@@ -487,7 +491,7 @@ document.write(`
     end
 
         </div><section id="inspecting-an-example-script">
-<h2>Inspecting an example script<a class="headerlink" href="#inspecting-an-example-script" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.1. </span>Inspecting an example script<a class="headerlink" href="#inspecting-an-example-script" title="Permalink to this headline">#</a></h2>
 <p>Today we will start by inspecting the github action file, first we’ll navigate to the folder.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -557,7 +561,7 @@ document.write(`
 </div>
 </section>
 <section id="variables-in-bash">
-<h2>Variables in Bash<a class="headerlink" href="#variables-in-bash" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.2. </span>Variables in Bash<a class="headerlink" href="#variables-in-bash" title="Permalink to this headline">#</a></h2>
 <p>We can create variables</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -630,7 +634,7 @@ echo $NAME
 <p>so we get the variable <strong>name</strong> out instead of the variable <strong>value</strong></p>
 </section>
 <section id="environment-variables">
-<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.3. </span>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">#</a></h2>
 <p>Environment variables are global.</p>
 <p>A common one is the <code class="docutils literal notranslate"><span class="pre">PATH</span></code></p>
 <div class="cell tag_skip-execution docutils container">
@@ -685,7 +689,7 @@ in your profile.</p>
 </ul>
 </section>
 <section id="bash-loops">
-<h2>Bash Loops<a class="headerlink" href="#bash-loops" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.4. </span>Bash Loops<a class="headerlink" href="#bash-loops" title="Permalink to this headline">#</a></h2>
 <p>We can also make loops like</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>for loopvar in list
 do
@@ -732,7 +736,7 @@ after we write the first line, the command is not complete.</p></li>
 </div>
 </section>
 <section id="nesting-commands">
-<h2>Nesting commands<a class="headerlink" href="#nesting-commands" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.5. </span>Nesting commands<a class="headerlink" href="#nesting-commands" title="Permalink to this headline">#</a></h2>
 <p>Let’s look at the action file again</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create badge issues (Do not run manually)</span>
 <span class="nt">on</span><span class="p">:</span>
@@ -818,7 +822,7 @@ after we write the first line, the command is not complete.</p></li>
 </div>
 </section>
 <section id="conditionals-in-bash">
-<h2>Conditionals in bash<a class="headerlink" href="#conditionals-in-bash" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.6. </span>Conditionals in bash<a class="headerlink" href="#conditionals-in-bash" title="Permalink to this headline">#</a></h2>
 <p>We can also do conditional statements</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -883,7 +887,7 @@ after we write the first line, the command is not complete.</p></li>
 </div>
 </section>
 <section id="script-files">
-<h2>Script files<a class="headerlink" href="#script-files" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.7. </span>Script files<a class="headerlink" href="#script-files" title="Permalink to this headline">#</a></h2>
 <p>We can put our script into a file</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -956,11 +960,11 @@ after we write the first line, the command is not complete.</p></li>
 </div>
 </section>
 <section id="prepare-for-next-class">
-<h2>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.8. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
 <p>Review your <a class="reference external" href="https://compsys-progtools.github.io/spring2024/activities/prepare.html?highlight=idethoughts.md#:~:text=kwl%20repo%20in-,idethoughts.md,-on%20an%20ide_prep"><code class="docutils literal notranslate"><span class="pre">idethoughts.md</span></code></a> from a few weeks ago and add some summary notes.</p>
 </section>
 <section id="badges">
-<h2>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -982,43 +986,43 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.10. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
 </section>
 <section id="questions-after-todays-class">
-<h2>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.11. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
 <section id="what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent">
-<h3>What parts of the terminal are saved local per window and what parts aren’t?<a class="headerlink" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.1. </span>What parts of the terminal are saved local per window and what parts aren’t?<a class="headerlink" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent" title="Permalink to this headline">#</a></h3>
 <p>local variables local, but there are also global variables</p>
 <p>most programs should be per window.</p>
 </section>
 <section id="are-there-functions-in-bash-scripting">
-<h3>Are there functions in bash scripting?<a class="headerlink" href="#are-there-functions-in-bash-scripting" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.2. </span>Are there functions in bash scripting?<a class="headerlink" href="#are-there-functions-in-bash-scripting" title="Permalink to this headline">#</a></h3>
 <p>Yes <a class="reference external" href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Shell-Functions">see the docs</a></p>
 </section>
 <section id="what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges">
-<h3>what is YMAL syntax similar to in terms of other programming langauges<a class="headerlink" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.3. </span>what is YMAL syntax similar to in terms of other programming langauges<a class="headerlink" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges" title="Permalink to this headline">#</a></h3>
 <p>It is kind of like a dicionary, but yaml is just a file type, like json or xml, not a a programming language. It is a way to store data that is parse-able.</p>
 </section>
 <section id="what-kind-of-action-could-be-useful">
-<h3>What kind of action could be useful?<a class="headerlink" href="#what-kind-of-action-could-be-useful" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.4. </span>What kind of action could be useful?<a class="headerlink" href="#what-kind-of-action-could-be-useful" title="Permalink to this headline">#</a></h3>
 <p>Anything you might do a alot and would prefer to have automated. Fore xample in calss we have the actions for the badges, the market place has examples.</p>
 <p>there are also the ideas in the discussions.</p>
 </section>
 <section id="how-to-stop-a-loop-break-statement">
-<h3>How to stop a loop (break statement)<a class="headerlink" href="#how-to-stop-a-loop-break-statement" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.5. </span>How to stop a loop (break statement)<a class="headerlink" href="#how-to-stop-a-loop-break-statement" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">break</span></code> exists in <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-break">bash</a></p>
 </section>
 <section id="how-to-check-values-greater-than-less-than">
-<h3>How to check values (greater than/less than)<a class="headerlink" href="#how-to-check-values-greater-than-less-than" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.6. </span>How to check values (greater than/less than)<a class="headerlink" href="#how-to-check-values-greater-than-less-than" title="Permalink to this headline">#</a></h3>
 <p>those are <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html#:~:text=after%20string2%20lexicographically.-,arg1%20OP%20arg2,-OP%20is%20one">operators defines on the conditional page</a></p>
 </section>
 <section id="what-differentiates-a-terminal-and-a-shell">
-<h3>What differentiates a terminal and a shell?<a class="headerlink" href="#what-differentiates-a-terminal-and-a-shell" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.7. </span>What differentiates a terminal and a shell?<a class="headerlink" href="#what-differentiates-a-terminal-and-a-shell" title="Permalink to this headline">#</a></h3>
 <p>a shell is the language/interpreter terminal is how you access it.</p>
 <p>Sometimes they collapse like powershell is a terminal and shell.</p>
 </section>
 <section id="how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date">
-<h3>How can I change the experience workflow to automatically fill in the date?<a class="headerlink" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.8. </span>How can I change the experience workflow to automatically fill in the date?<a class="headerlink" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date" title="Permalink to this headline">#</a></h3>
 <p>This is nontrival because you would need to edit the file instead of just copying it.  It is a good build badge.</p>
 </section>
 </section>
@@ -1055,6 +1059,24 @@ Practice</label><div class="sd-tab-content docutils">
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-03-07.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>What is a commit number?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2024-03-21.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>What is an IDE?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -1073,25 +1095,25 @@ Practice</label><div class="sd-tab-content docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-an-example-script">Inspecting an example script</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-bash">Variables in Bash</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-loops">Bash Loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nesting-commands">Nesting commands</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals-in-bash">Conditionals in bash</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#script-files">Script files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">Prepare for Next Class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">Badges</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">Questions After Today’s Class</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent">What parts of the terminal are saved local per window and what parts aren’t?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-functions-in-bash-scripting">Are there functions in bash scripting?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges">what is YMAL syntax similar to in terms of other programming langauges</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-kind-of-action-could-be-useful">What kind of action could be useful?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-stop-a-loop-break-statement">How to stop a loop (break statement)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-check-values-greater-than-less-than">How to check values (greater than/less than)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-differentiates-a-terminal-and-a-shell">What differentiates a terminal and a shell?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date">How can I change the experience workflow to automatically fill in the date?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-an-example-script">14.1. Inspecting an example script</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-bash">14.2. Variables in Bash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">14.3. Environment Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-loops">14.4. Bash Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nesting-commands">14.5. Nesting commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals-in-bash">14.6. Conditionals in bash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#script-files">14.7. Script files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">14.8. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">14.9. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">14.10. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">14.11. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent">14.11.1. What parts of the terminal are saved local per window and what parts aren’t?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-functions-in-bash-scripting">14.11.2. Are there functions in bash scripting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges">14.11.3. what is YMAL syntax similar to in terms of other programming langauges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-kind-of-action-could-be-useful">14.11.4. What kind of action could be useful?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-stop-a-loop-break-statement">14.11.5. How to stop a loop (break statement)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-check-values-greater-than-less-than">14.11.6. How to check values (greater than/less than)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-differentiates-a-terminal-and-a-shell">14.11.7. What differentiates a terminal and a shell?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date">14.11.8. How can I change the experience workflow to automatically fill in the date?</a></li>
 </ul>
 </li>
 </ul>
