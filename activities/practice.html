@@ -187,6 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-03-07.html">13. What is a commit number?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-03-19.html">14. How can I automate things with bash?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-03-21.html">15. What is an IDE?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2024-03-26.html">16. How can I work on a remote server?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="current nav bd-sidenav">
@@ -447,6 +448,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gittransition">gittransition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">2024-03-19</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">2024-03-21</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">2024-03-26</a></li>
 </ul>
             </nav>
         </div>
@@ -696,6 +698,23 @@ Course website tags by type:
 The example code can be any language, can be very simple, can even have a bug in it if that helps your example. You can use an-IDE integrated LLM (eg GitHub Co-pilot, not the chat version) to generate some code for this purpose if you do not have some available to you already, but you cannot share solutions to a course assignment without that instructor’s permission.</p></li>
 </ol>
 </section>
+<section id="id16">
+<h2>2024-03-26<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="../notes/2024-03-26.html"><span class="doc std std-doc">related notes</span></a></p>
+<p>Activities:</p>
+<ol class="arabic">
+<li><p>Answer the following in <span class="target" id="index-28"></span>hpc.md of your KWL repo:  (to think about how the design of the system we used in class impacts programming and connect it to other ideas taught in CS)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. What kinds of things would your code need to do if you were going to run it on an HPC system? 
+2. What sbatch options seem the most helpful?
+3. How might you go about setting the time limits for a script? How could you estimate how long a script will take?
+</pre></div>
+</div>
+</li>
+<li><p>configure <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">ssh keys for your github account</a></p></li>
+<li><p>Find 2 other encyrption algorithms that could be used wiht ssh (hint: try <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ssh</span></code> or <a class="reference external" href="https://man7.org/linux/man-pages/man1/ssh.1.html">read it online</a>) and compare them in <span class="target" id="index-29"></span>encyryption_compare.  Your comparison should be enough to advise someone which is best and why, but need not get into the details.</p></li>
+<li><p>Read through this <a class="reference external" href="https://people.cs.pitt.edu/~kirk/cs1501/notes/rsademo/">rsa encryption demo site</a> site and use it to show what, for a particular public/private key pair (based on small primes) it would look like to pass a message, “It is spring now!” encrypted.  (that is encypt it, and decrypt it with the site, show it’s encrypted version and the key pair and describe what would go where). Put your example in <span class="target" id="index-30"></span>rsademo.md.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -782,6 +801,7 @@ The example code can be any language, can be very simple, can even have a bug in
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gittransition">gittransition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">2024-03-19</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">2024-03-21</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">2024-03-26</a></li>
 </ul>
   </nav></div>
 

@@ -1,0 +1,1343 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>16. How can I work on a remote server? &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-03-26';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="prev" title="15. What is an IDE?" href="2024-03-21.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-01.html">4. How do branches work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-06.html">5. When do git and bash give me an advantage?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-08.html">6. What <em>is</em> a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-15.html">7. How do programmers communicate about code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-20.html">8. How do I choose a Programming Language for a project?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-22.html">9. Why are these tools like this?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-27.html">10. What <em>is</em> git?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-29.html">11. How does git make a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-05.html">12. Why did we learn the plubming commands?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-07.html">13. What is a commit number?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-19.html">14. How can I automate things with bash?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-21.html">15. What is an IDE?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. How can I work on a remote server?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2022/resources/testimonials.html">Advice from Fall 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2023/resources/testimonials.html">Advice from Spring 2023 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2023/resources/testimonials.html">Advice from Fall 2023 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/edit/main/notes/2024-03-26.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/issues/new?title=Issue%20on%20page%20%2Fnotes/2024-03-26.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notes/2024-03-26.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How can I work on a remote server?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-remote-servers-and-hpc-systems">16.1. What are remote servers and HPC systems?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-seawulf">16.2. Connecting to Seawulf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-files">16.3. Downloading files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unzipping-a-file-on-the-command-line">16.4. Unzipping a file on the command line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-large-files">16.5. Working with large files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-file-contents">16.5.1. Searching file Contents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-times-does-mrna-appear-in-the-file-dmel-all-r6-19-gtf">16.5.2. How many times does <code class="docutils literal notranslate"><span class="pre">mRNA</span></code> appear in the file <code class="docutils literal notranslate"><span class="pre">dmel-all-r6.19.gtf</span> </code>?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closing-a-session">16.6. Closing a session</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ssh-keys-to-authenticate">16.7. Using ssh keys to authenticate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-a-key-pair">16.8. Generating a Key Pair</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sending-the-public-key-to-a-server">16.9. Sending the public key to a server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in">16.10. Logging in</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">16.11. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">16.12. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">16.13. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">16.14. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-create-a-server-off-any-internet-connected-pc-and-connect-through-git-bash-akin-to-seawulf">16.14.1. Can you create a server off any internet connected PC and connect through git bash akin to seawulf?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-using-a-remote-server-safe">16.14.2. Is using a remote server safe?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#also-is-a-remote-server-like-how-a-vpn-does-since-you-use-a-computer-that-is-not-yours-to-access-things">16.14.3. Also is a remote server like how a VPN does since you use a computer that is not yours to access things?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-forget-your-password-or-lose-the-ssh-key-file">16.14.4. What happens if you forget your password or lose the SSH key file?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-comapnys-use-their-own-private-hpcs-with-their-employees">16.14.5. do comapnys use their own private HPCs with their employees?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-we-always-allowed-to-use-the-schools-hpc-that-we-used-today-in-class">16.14.6. are we always allowed to use the schools HPC that we used today in class?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-use-an-ssh-key-to-log-in-to-your-github-account-to-allow-you-to-create-push-requests">16.14.7. can you use an ssh key to log in to your github account to allow you to create push requests?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-some-of-the-other-types-of-virtual-machines-and-what-are-there-uses">16.14.8. What are some of the other types of virtual machines and what are there uses?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-capabalities-of-uris-seawulf-vm-what-do-people-usually-do-with-it">16.14.9. What are the capabalities of URI’s seawulf vm? What do people usually do with it?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-other-ways-can-ssh-keys-be-used-for">16.14.10. What other ways can ssh keys be used for?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-any-drawbacks-to-using-an-ssh-key-instead-of-a-password">16.14.11. Are there any drawbacks to using an ssh key instead of a password?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-grep-do">16.14.12. what does grep do?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-ssh-use-a-differnt-encryption-algorithm-thats-not-rsa-thats-more-secure">16.14.13. Can ssh use a differnt encryption algorithm thats not RSA thats more secure?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-sshing-into-a-server-useful">16.14.14. why is sshing into a server useful?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-algorithm-logic-behind-the-two-generated-keys">16.14.15. What is the algorithm/logic behind the two generated keys</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#will-these-ssh-keys-be-able-to-be-decrypted-with-quantum-computing">16.14.16. Will these ssh keys be able to be decrypted with quantum computing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-private-key-so-much-longer-than-the-public-one">16.14.17. why is the private key so much longer than the public one?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="how-can-i-work-on-a-remote-server">
+<h1><span class="section-number">16. </span>How can I work on a remote server?<a class="headerlink" href="#how-can-i-work-on-a-remote-server" title="Permalink to this headline">#</a></h1>
+<p>Today we will connect to a remote server and learn new bash commands for working with the <em>content</em> of files.</p>
+<section id="what-are-remote-servers-and-hpc-systems">
+<h2><span class="section-number">16.1. </span>What are remote servers and HPC systems?<a class="headerlink" href="#what-are-remote-servers-and-hpc-systems" title="Permalink to this headline">#</a></h2>
+<p><img alt="diagram illustrating a remote connection to a login node and compute cluster" src="../_images/hpcsketch.svg" /></p>
+</section>
+<section id="connecting-to-seawulf">
+<h2><span class="section-number">16.2. </span>Connecting to Seawulf<a class="headerlink" href="#connecting-to-seawulf" title="Permalink to this headline">#</a></h2>
+<p>We connect with secure shell or <code class="docutils literal notranslate"><span class="pre">ssh</span></code> from our terminal (GitBash or Putty on windows) to URI’s teaching High Performance Computing (HPC) Cluster <a class="reference external" href="https://web.uri.edu/hpc-research-computing/using-seawulf/">Seawulf</a>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This cluster is for course related purposes at URI, if you want to use a HPC system of some sort for a side project, consider Amazon Web Services, Google Cloud, or Microsoft Azul services, you can get some allocation for free as a student.</p>
+<p>If you are doing research supervised by a URI professor, there are other servers on campus and URI participates in a regional HPC resource as well.</p>
+</div>
+</aside>
+<p>Our login is the part of your uri e-mail address before the &#64;.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">l</span> <span class="n">brownsarahm</span> <span class="n">seawulf</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When it logs in it looks like this and requires you to change your password.  They configure it with a default and with it past expired.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This block is sort of weird, because it is interactive terminal.  I have rendered it all as output, but broken it down to separate chunks to add explanation.</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">The authenticity of host &#39;seawulf.uri.edu (131.128.217.210)&#39; can&#39;t be established.</span>
+<span class="go">ECDSA key fingerprint is SHA256:RwhTUyjWLqwohXiRw+tYlTiJEbqX2n/drCpkIwQVCro.</span>
+<span class="go">Are you sure you want to continue connecting (yes/no/[fingerprint])? y</span>
+<span class="go">Please type &#39;yes&#39;, &#39;no&#39; or the fingerprint: yes</span>
+</pre></div>
+</div>
+<p>Follow the instruction to type <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+<p>I will tell you how to find your default password if you missed class (do not want to post it publicly). Comment on your experience report PR to ask for this information.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Warning: Permanently added &#39;seawulf.uri.edu,131.128.217.210&#39; (ECDSA) to the list of known hosts.</span>
+<span class="go">brownsarahm@seawulf.uri.edu&#39;s password:</span>
+</pre></div>
+</div>
+<p>It does not show charachters when you type your password, but it works when you press enter</p>
+<p>Then it requires you to change your password</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">You are required to change your password immediately (root enforced)</span>
+<span class="go">WARNING: Your password has expired.</span>
+<span class="go">You must change your password now and login again!</span>
+</pre></div>
+</div>
+<p>To change, it asks for you current (default) password first,</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You use the default password when prompted for your username’s password. Then again when it asks for the <code class="docutils literal notranslate"><span class="pre">(current)</span> <span class="pre">UNIX</span> <span class="pre">password:</span></code>. Then you must type the same, new password twice.</p>
+<p><strong>Choose a new password you will remember, we will come back to this server</strong></p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Changing password for user brownsarahm.</span>
+<span class="go">Changing password for brownsarahm.</span>
+<span class="gp gp-VirtualEnv">(current)</span> <span class="go">UNIX password:</span>
+</pre></div>
+</div>
+<p>then the new one twice</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">New password:</span>
+<span class="go">Retype new password:</span>
+<span class="go">passwd: all authentication tokens updated successfully.</span>
+<span class="go">Connection to seawulf.uri.edu closed.</span>
+</pre></div>
+</div>
+<p>after you give it a new password, then it logs you out and you have to log back in.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>brownsarahm@~ $ ssh -l brownsarahm seawulf.uri.edu
+</pre></div>
+</div>
+</div>
+</div>
+<p>When you log in it shows you information about your recent logins.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ ls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ pwd
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the prompt says <code class="docutils literal notranslate"><span class="pre">uriusername&#64;seawulf</span></code> to indicate that you are logged into the server, not working locally.</p>
+</section>
+<section id="downloading-files">
+<h2><span class="section-number">16.3. </span>Downloading files<a class="headerlink" href="#downloading-files" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">wget</span></code> allows you to get files from the web.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ wget http://www.hpc-carpentry.org/hpc-shell/files/bash-lesson.tar.gz
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">--2022-03-08 12:58:09--  http://www.hpc-carpentry.org/hpc-shell/files/bash-lesson.tar.gz</span>
+<span class="go">Resolving www.hpc-carpentry.org (www.hpc-carpentry.org)... 104.21.33.152, 172.67.146.136</span>
+<span class="go">Connecting to www.hpc-carpentry.org (www.hpc-carpentry.org)|104.21.33.152|:80... connected.</span>
+<span class="go">HTTP request sent, awaiting response... 200 OK</span>
+<span class="go">Length: 12534006 (12M) [application/gzip]</span>
+<span class="go">Saving to: ‘bash-lesson.tar.gz’</span>
+
+<span class="go">100%[======================================&gt;] 12,534,006  4.19MB/s   in 2.9s   </span>
+
+<span class="go">2022-03-08 12:58:12 (4.19 MB/s) - ‘bash-lesson.tar.gz’ saved [12534006/12534006]</span>
+</pre></div>
+</div>
+<p>Note that this is a reasonably sized download and it finished very quickly.  This is because the download happened <strong>on the remote server</strong> not your laptop.  The server has a high quality hard-wired connection to the internet that is very fast, unlike the wifi in our classroom.</p>
+<p>This is an advantage of using a remote system.  If your connection is slow, but stable enough to connect, you can do the work on a different computer that has better connection.</p>
+<p>Now we see we have the file.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ ls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">bash-lesson.tar.gz</span>
+</pre></div>
+</div>
+<p>we see the new file!</p>
+</section>
+<section id="unzipping-a-file-on-the-command-line">
+<h2><span class="section-number">16.4. </span>Unzipping a file on the command line<a class="headerlink" href="#unzipping-a-file-on-the-command-line" title="Permalink to this headline">#</a></h2>
+<p>This file is compressed.</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">tar</span></code> to see the manual aka man file of the <code class="docutils literal notranslate"><span class="pre">tar</span></code> program to learn how it works.  You can also read man files <a class="reference external" href="https://www.gnu.org/software/tar/manual/">online from GNU</a> where you can choose your format, <a class="reference external" href="https://www.gnu.org/software/tar/manual/tar.html">this page shows the full version</a>.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ tar -xvf bash-lesson.tar.gz
+</pre></div>
+</div>
+</div>
+</div>
+<p>This command uses the <code class="docutils literal notranslate"><span class="pre">tar</span></code> program and:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code> makes it verbose (I have cut this output here)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> makes it extract</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> option accepts the file name to work on</p></li>
+</ul>
+<p>We can see what it did with <code class="docutils literal notranslate"><span class="pre">ls</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ ls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">bash-lesson.tar.gz                           SRR307026_1.fastq</span>
+<span class="go">dmel-all-r6.19.gtf                           SRR307026_2.fastq</span>
+<span class="go">dmel_unique_protein_isoforms_fb_2016_01.tsv  SRR307027_1.fastq</span>
+<span class="go">gene_association.fb                          SRR307027_2.fastq</span>
+<span class="go">SRR307023_1.fastq                            SRR307028_1.fastq</span>
+<span class="go">SRR307023_2.fastq                            SRR307028_2.fastq</span>
+<span class="go">SRR307024_1.fastq                            SRR307029_1.fastq</span>
+<span class="go">SRR307024_2.fastq                            SRR307029_2.fastq</span>
+<span class="go">SRR307025_1.fastq                            SRR307030_1.fastq</span>
+<span class="go">SRR307025_2.fastq                            SRR307030_2.fastq</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong>
+To extract files to a different directory use the option <code class="docutils literal notranslate"><span class="pre">--directory</span></code>
+<code class="docutils literal notranslate"><span class="pre">--directory</span> <span class="pre">path/to/directory</span></code></p>
+</section>
+<section id="working-with-large-files">
+<h2><span class="section-number">16.5. </span>Working with large files<a class="headerlink" href="#working-with-large-files" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ cat SRR307023_1.fastq 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>this output is truncated for display purposes</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@SRR307023.37289418.1 GA-C_0019:1:120:7087:20418 length=101</span>
+<span class="go">CGAGCGACTTTTGTATAACTATATTTTTCTCGTTCTTGGCTCCGACATCTATACAAATTCAGAAGGCAGTTTTGCGCGTGGAGGGACAATTACAAATTGAG</span>
+<span class="go">...</span>
+<span class="gp">IDIG?IHBGIIDIHIDDDD#@=@##############################################################################</span>
+<span class="go">@SRR307023.37294417.1 GA-C_0019:1:120:18444:20714 length=101</span>
+<span class="go">GGGGCAGTGCTAAGGTACTNGAAAGNNNCNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN</span>
+<span class="go">+SRR307023.37294417.1 GA-C_0019:1:120:18444:20714 length=101</span>
+<span class="go">IIIGIIIHIHHIIIIEFFF#?################################################################################</span>
+<span class="gp">[brownsarahm@seawulf ~]$ </span>head<span class="w"> </span>SRR307023_1.fastq<span class="w"> </span>
+<span class="go">@SRR307023.37289418.1 GA-C_0019:1:120:7087:20418 length=101</span>
+<span class="go">CGAGCGACTTTTGTATAACTATATTTTTCTCGTTCTTGGCTCCGACATCTATACAAATTCAGAAGGCAGTTTTGCGCGTGGAGGGACAATTACAAATTGAG</span>
+<span class="go">+SRR307023.37289418.1 GA-C_0019:1:120:7087:20418 length=101</span>
+<span class="go">GGFGGFHHHHFEBH@G@EGEGHHEHGHHHHHHHHHBHDGHHGDGFHH?H:DFEDEGGGDGD:DBDA=@BBE@G?D?FD8FDGGDD&lt;:BAB4;4;&gt;CF@B3B</span>
+<span class="go">@SRR307023.37289419.1 GA-C_0019:1:120:7127:20414 length=101</span>
+<span class="go">GGGCAGGGCCGTAATCAATGCCCCTCAAACACAAAGTTACTGGGAATTCCAAGTTCATGTGAACAGTTTCAGTTCACAATCCCAAGCATGAAAGGGGTTCA</span>
+<span class="go">+SRR307023.37289419.1 GA-C_0019:1:120:7127:20414 length=101</span>
+<span class="gp">HEHGHHHHH@GGBGBHEH@B=EGDGAADDDEFBEFF8:EB(/,257;.;;94/4.&gt;@3@7?A=:C@72;1@;4;A688:&lt;E@GGG&lt;EG3A###########</span>
+<span class="go">@SRR307023.37289420.1 GA-C_0019:1:120:7204:20410 length=101</span>
+<span class="go">CCACCCACTTAGTGCTGCACTATCAAGCAACACGACTCTTTTGAAACATCATCTAGTAATCATTAACGTTATACGGGCCTGGCACCCTCTATGGGTAAATG</span>
+<span class="gp">[brownsarahm@seawulf ~]$ </span>tail<span class="w"> </span>SRR307023_1.fastq<span class="w"> </span>
+<span class="go">+SRR307023.37294415.1 GA-C_0019:1:120:17521:20714 length=101</span>
+<span class="gp">IIIIIIHIIIHIIIIFFFF#?@;B#############################################################################</span>
+<span class="go">@SRR307023.37294416.1 GA-C_0019:1:120:17598:20714 length=101</span>
+<span class="go">GGGGCACCCACATTATACANAACCANNNANNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN</span>
+<span class="go">+SRR307023.37294416.1 GA-C_0019:1:120:17598:20714 length=101</span>
+<span class="gp">IDIG?IHBGIIDIHIDDDD#@=@##############################################################################</span>
+<span class="go">@SRR307023.37294417.1 GA-C_0019:1:120:18444:20714 length=101</span>
+<span class="go">GGGGCAGTGCTAAGGTACTNGAAAGNNNCNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN</span>
+<span class="go">+SRR307023.37294417.1 GA-C_0019:1:120:18444:20714 length=101</span>
+<span class="go">IIIGIIIHIHHIIIIEFFF#?################################################################################</span>
+</pre></div>
+</div>
+<p>We see that this actually take a long time to output and is way tooo much information to actually read.  In fact, in order to make the website work, I had to cut that content using command line tools, my text editor couldn’t open the file and GitHub was unhappy when I pushed it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I initially used <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code> to pick out the excerpts of the terminal output that I needed, but this year I reused what I had done before</p>
+</div>
+<p>For a file like this, we don’t really want to read the whole file but we do need to know what it’s strucutred like in order to design programs to work with it.</p>
+<p>We can also see how much content is in the file <code class="docutils literal notranslate"><span class="pre">wc</span></code> give a word count,</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ wc SRR307023_1.fastq 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">  20000   40000 1625262 SRR307023_1.fastq</span>
+</pre></div>
+</div>
+<p>We see three numbers, we can use help to see more about that</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ wc --help
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Usage:<span class="w"> </span>wc<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
+<span class="w">  </span>or:<span class="w">  </span>wc<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span>--files0-from<span class="o">=</span>F
+Print<span class="w"> </span>newline,<span class="w"> </span>word,<span class="w"> </span>and<span class="w"> </span>byte<span class="w"> </span>counts<span class="w"> </span><span class="k">for</span><span class="w"> </span>each<span class="w"> </span>FILE,<span class="w"> </span>and<span class="w"> </span>a<span class="w"> </span>total<span class="w"> </span>line<span class="w"> </span><span class="k">if</span>
+more<span class="w"> </span>than<span class="w"> </span>one<span class="w"> </span>FILE<span class="w"> </span>is<span class="w"> </span>specified.<span class="w">  </span>With<span class="w"> </span>no<span class="w"> </span>FILE,<span class="w"> </span>or<span class="w"> </span>when<span class="w"> </span>FILE<span class="w"> </span>is<span class="w"> </span>-,
+<span class="nb">read</span><span class="w"> </span>standard<span class="w"> </span>input.<span class="w">  </span>A<span class="w"> </span>word<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>non-zero-length<span class="w"> </span>sequence<span class="w"> </span>of<span class="w"> </span>characters
+delimited<span class="w"> </span>by<span class="w"> </span>white<span class="w"> </span>space.
+The<span class="w"> </span>options<span class="w"> </span>below<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span><span class="k">select</span><span class="w"> </span>which<span class="w"> </span>counts<span class="w"> </span>are<span class="w"> </span>printed,<span class="w"> </span>always<span class="w"> </span><span class="k">in</span>
+the<span class="w"> </span>following<span class="w"> </span>order:<span class="w"> </span>newline,<span class="w"> </span>word,<span class="w"> </span>character,<span class="w"> </span>byte,<span class="w"> </span>maximum<span class="w"> </span>line<span class="w"> </span>length.
+<span class="w">  </span>-c,<span class="w"> </span>--bytes<span class="w">            </span>print<span class="w"> </span>the<span class="w"> </span>byte<span class="w"> </span>counts
+<span class="w">  </span>-m,<span class="w"> </span>--chars<span class="w">            </span>print<span class="w"> </span>the<span class="w"> </span>character<span class="w"> </span>counts
+<span class="w">  </span>-l,<span class="w"> </span>--lines<span class="w">            </span>print<span class="w"> </span>the<span class="w"> </span>newline<span class="w"> </span>counts
+<span class="w">      </span>--files0-from<span class="o">=</span>F<span class="w">    </span><span class="nb">read</span><span class="w"> </span>input<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>files<span class="w"> </span>specified<span class="w"> </span>by
+<span class="w">                           </span>NUL-terminated<span class="w"> </span>names<span class="w"> </span><span class="k">in</span><span class="w"> </span>file<span class="w"> </span>F<span class="p">;</span>
+<span class="w">                           </span>If<span class="w"> </span>F<span class="w"> </span>is<span class="w"> </span>-<span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>names<span class="w"> </span>from<span class="w"> </span>standard<span class="w"> </span>input
+<span class="w">  </span>-L,<span class="w"> </span>--max-line-length<span class="w">  </span>print<span class="w"> </span>the<span class="w"> </span>length<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>longest<span class="w"> </span>line
+<span class="w">  </span>-w,<span class="w"> </span>--words<span class="w">            </span>print<span class="w"> </span>the<span class="w"> </span>word<span class="w"> </span>counts
+<span class="w">      </span>--help<span class="w">     </span>display<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+<span class="w">      </span>--version<span class="w">  </span>output<span class="w"> </span>version<span class="w"> </span>information<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+
+GNU<span class="w"> </span>coreutils<span class="w"> </span>online<span class="w"> </span>help:<span class="w"> </span>&lt;http://www.gnu.org/software/coreutils/&gt;
+For<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>documentation,<span class="w"> </span>run:<span class="w"> </span>info<span class="w"> </span>coreutils<span class="w"> </span><span class="s1">&#39;wc invocation&#39;</span>
+</pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ wc -l SRR307023_1.fastq 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">20000 SRR307023_1.fastq</span>
+</pre></div>
+</div>
+<p>and then we get only the single output</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">wc</span></code> with patterns</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ wc -l *.fastq
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">   20000 SRR307023_1.fastq</span>
+<span class="go">   20000 SRR307023_2.fastq</span>
+<span class="go">   20000 SRR307024_1.fastq</span>
+<span class="go">   20000 SRR307024_2.fastq</span>
+<span class="go">   20000 SRR307025_1.fastq</span>
+<span class="go">   20000 SRR307025_2.fastq</span>
+<span class="go">   20000 SRR307026_1.fastq</span>
+<span class="go">   20000 SRR307026_2.fastq</span>
+<span class="go">   20000 SRR307027_1.fastq</span>
+<span class="go">   20000 SRR307027_2.fastq</span>
+<span class="go">   20000 SRR307028_1.fastq</span>
+<span class="go">   20000 SRR307028_2.fastq</span>
+<span class="go">   20000 SRR307029_1.fastq</span>
+<span class="go">   20000 SRR307029_2.fastq</span>
+<span class="go">   20000 SRR307030_1.fastq</span>
+<span class="go">   20000 SRR307030_2.fastq</span>
+<span class="go">  320000 total</span>
+</pre></div>
+</div>
+<p>and it gives us each result, plus the total</p>
+<section id="searching-file-contents">
+<h3><span class="section-number">16.5.1. </span>Searching file Contents<a class="headerlink" href="#searching-file-contents" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ grep --help
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Usage:<span class="w"> </span>grep<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span>PATTERN<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
+Search<span class="w"> </span><span class="k">for</span><span class="w"> </span>PATTERN<span class="w"> </span><span class="k">in</span><span class="w"> </span>each<span class="w"> </span>FILE<span class="w"> </span>or<span class="w"> </span>standard<span class="w"> </span>input.
+PATTERN<span class="w"> </span>is,<span class="w"> </span>by<span class="w"> </span>default,<span class="w"> </span>a<span class="w"> </span>basic<span class="w"> </span>regular<span class="w"> </span>expression<span class="w"> </span><span class="o">(</span>BRE<span class="o">)</span>.
+Example:<span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;hello world&#39;</span><span class="w"> </span>menu.h<span class="w"> </span>main.c
+
+Regexp<span class="w"> </span>selection<span class="w"> </span>and<span class="w"> </span>interpretation:
+<span class="w">  </span>-E,<span class="w"> </span>--extended-regexp<span class="w">     </span>PATTERN<span class="w"> </span>is<span class="w"> </span>an<span class="w"> </span>extended<span class="w"> </span>regular<span class="w"> </span>expression<span class="w"> </span><span class="o">(</span>ERE<span class="o">)</span>
+<span class="w">  </span>-F,<span class="w"> </span>--fixed-strings<span class="w">       </span>PATTERN<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span><span class="nb">set</span><span class="w"> </span>of<span class="w"> </span>newline-separated<span class="w"> </span>fixed<span class="w"> </span>strings
+<span class="w">  </span>-G,<span class="w"> </span>--basic-regexp<span class="w">        </span>PATTERN<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>basic<span class="w"> </span>regular<span class="w"> </span>expression<span class="w"> </span><span class="o">(</span>BRE<span class="o">)</span>
+<span class="w">  </span>-P,<span class="w"> </span>--perl-regexp<span class="w">         </span>PATTERN<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>Perl<span class="w"> </span>regular<span class="w"> </span>expression
+<span class="w">  </span>-e,<span class="w"> </span>--regexp<span class="o">=</span>PATTERN<span class="w">      </span>use<span class="w"> </span>PATTERN<span class="w"> </span><span class="k">for</span><span class="w"> </span>matching
+<span class="w">  </span>-f,<span class="w"> </span>--file<span class="o">=</span>FILE<span class="w">           </span>obtain<span class="w"> </span>PATTERN<span class="w"> </span>from<span class="w"> </span>FILE
+<span class="w">  </span>-i,<span class="w"> </span>--ignore-case<span class="w">         </span>ignore<span class="w"> </span><span class="k">case</span><span class="w"> </span>distinctions
+<span class="w">  </span>-w,<span class="w"> </span>--word-regexp<span class="w">         </span>force<span class="w"> </span>PATTERN<span class="w"> </span>to<span class="w"> </span>match<span class="w"> </span>only<span class="w"> </span>whole<span class="w"> </span>words
+<span class="w">  </span>-x,<span class="w"> </span>--line-regexp<span class="w">         </span>force<span class="w"> </span>PATTERN<span class="w"> </span>to<span class="w"> </span>match<span class="w"> </span>only<span class="w"> </span>whole<span class="w"> </span>lines
+<span class="w">  </span>-z,<span class="w"> </span>--null-data<span class="w">           </span>a<span class="w"> </span>data<span class="w"> </span>line<span class="w"> </span>ends<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>byte,<span class="w"> </span>not<span class="w"> </span>newline
+
+Miscellaneous:
+<span class="w">  </span>-s,<span class="w"> </span>--no-messages<span class="w">         </span>suppress<span class="w"> </span>error<span class="w"> </span>messages
+<span class="w">  </span>-v,<span class="w"> </span>--invert-match<span class="w">        </span><span class="k">select</span><span class="w"> </span>non-matching<span class="w"> </span>lines
+<span class="w">  </span>-V,<span class="w"> </span>--version<span class="w">             </span>display<span class="w"> </span>version<span class="w"> </span>information<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+<span class="w">      </span>--help<span class="w">                </span>display<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>text<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+
+Output<span class="w"> </span>control:
+<span class="w">  </span>-m,<span class="w"> </span>--max-count<span class="o">=</span>NUM<span class="w">       </span>stop<span class="w"> </span>after<span class="w"> </span>NUM<span class="w"> </span>matches
+<span class="w">  </span>-b,<span class="w"> </span>--byte-offset<span class="w">         </span>print<span class="w"> </span>the<span class="w"> </span>byte<span class="w"> </span>offset<span class="w"> </span>with<span class="w"> </span>output<span class="w"> </span>lines
+<span class="w">  </span>-n,<span class="w"> </span>--line-number<span class="w">         </span>print<span class="w"> </span>line<span class="w"> </span>number<span class="w"> </span>with<span class="w"> </span>output<span class="w"> </span>lines
+<span class="w">      </span>--line-buffered<span class="w">       </span>flush<span class="w"> </span>output<span class="w"> </span>on<span class="w"> </span>every<span class="w"> </span>line
+<span class="w">  </span>-H,<span class="w"> </span>--with-filename<span class="w">       </span>print<span class="w"> </span>the<span class="w"> </span>file<span class="w"> </span>name<span class="w"> </span><span class="k">for</span><span class="w"> </span>each<span class="w"> </span>match
+<span class="w">  </span>-h,<span class="w"> </span>--no-filename<span class="w">         </span>suppress<span class="w"> </span>the<span class="w"> </span>file<span class="w"> </span>name<span class="w"> </span>prefix<span class="w"> </span>on<span class="w"> </span>output
+<span class="w">      </span>--label<span class="o">=</span>LABEL<span class="w">         </span>use<span class="w"> </span>LABEL<span class="w"> </span>as<span class="w"> </span>the<span class="w"> </span>standard<span class="w"> </span>input<span class="w"> </span>file<span class="w"> </span>name<span class="w"> </span>prefix
+<span class="w">  </span>-o,<span class="w"> </span>--only-matching<span class="w">       </span>show<span class="w"> </span>only<span class="w"> </span>the<span class="w"> </span>part<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>line<span class="w"> </span>matching<span class="w"> </span>PATTERN
+<span class="w">  </span>-q,<span class="w"> </span>--quiet,<span class="w"> </span>--silent<span class="w">     </span>suppress<span class="w"> </span>all<span class="w"> </span>normal<span class="w"> </span>output
+<span class="w">      </span>--binary-files<span class="o">=</span>TYPE<span class="w">   </span>assume<span class="w"> </span>that<span class="w"> </span>binary<span class="w"> </span>files<span class="w"> </span>are<span class="w"> </span>TYPE<span class="p">;</span>
+<span class="w">                            </span>TYPE<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;binary&#39;</span>,<span class="w"> </span><span class="s1">&#39;text&#39;</span>,<span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;without-match&#39;</span>
+<span class="w">  </span>-a,<span class="w"> </span>--text<span class="w">                </span>equivalent<span class="w"> </span>to<span class="w"> </span>--binary-files<span class="o">=</span>text
+<span class="w">  </span>-I<span class="w">                        </span>equivalent<span class="w"> </span>to<span class="w"> </span>--binary-files<span class="o">=</span>without-match
+<span class="w">  </span>-d,<span class="w"> </span>--directories<span class="o">=</span>ACTION<span class="w">  </span>how<span class="w"> </span>to<span class="w"> </span>handle<span class="w"> </span>directories<span class="p">;</span>
+<span class="w">                            </span>ACTION<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;read&#39;</span>,<span class="w"> </span><span class="s1">&#39;recurse&#39;</span>,<span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;skip&#39;</span>
+<span class="w">  </span>-D,<span class="w"> </span>--devices<span class="o">=</span>ACTION<span class="w">      </span>how<span class="w"> </span>to<span class="w"> </span>handle<span class="w"> </span>devices,<span class="w"> </span>FIFOs<span class="w"> </span>and<span class="w"> </span>sockets<span class="p">;</span>
+<span class="w">                            </span>ACTION<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;read&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;skip&#39;</span>
+<span class="w">  </span>-r,<span class="w"> </span>--recursive<span class="w">           </span>like<span class="w"> </span>--directories<span class="o">=</span>recurse
+<span class="w">  </span>-R,<span class="w"> </span>--dereference-recursive
+<span class="w">                            </span>likewise,<span class="w"> </span>but<span class="w"> </span>follow<span class="w"> </span>all<span class="w"> </span>symlinks
+<span class="w">      </span>--include<span class="o">=</span>FILE_PATTERN
+<span class="w">                            </span>search<span class="w"> </span>only<span class="w"> </span>files<span class="w"> </span>that<span class="w"> </span>match<span class="w"> </span>FILE_PATTERN
+<span class="w">      </span>--exclude<span class="o">=</span>FILE_PATTERN
+<span class="w">                            </span>skip<span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>directories<span class="w"> </span>matching<span class="w"> </span>FILE_PATTERN
+<span class="w">      </span>--exclude-from<span class="o">=</span>FILE<span class="w">   </span>skip<span class="w"> </span>files<span class="w"> </span>matching<span class="w"> </span>any<span class="w"> </span>file<span class="w"> </span>pattern<span class="w"> </span>from<span class="w"> </span>FILE
+<span class="w">      </span>--exclude-dir<span class="o">=</span>PATTERN<span class="w"> </span>directories<span class="w"> </span>that<span class="w"> </span>match<span class="w"> </span>PATTERN<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>skipped.
+<span class="w">  </span>-L,<span class="w"> </span>--files-without-match<span class="w"> </span>print<span class="w"> </span>only<span class="w"> </span>names<span class="w"> </span>of<span class="w"> </span>FILEs<span class="w"> </span>containing<span class="w"> </span>no<span class="w"> </span>match
+<span class="w">  </span>-l,<span class="w"> </span>--files-with-matches<span class="w">  </span>print<span class="w"> </span>only<span class="w"> </span>names<span class="w"> </span>of<span class="w"> </span>FILEs<span class="w"> </span>containing<span class="w"> </span>matches
+<span class="w">  </span>-c,<span class="w"> </span>--count<span class="w">               </span>print<span class="w"> </span>only<span class="w"> </span>a<span class="w"> </span>count<span class="w"> </span>of<span class="w"> </span>matching<span class="w"> </span>lines<span class="w"> </span>per<span class="w"> </span>FILE
+<span class="w">  </span>-T,<span class="w"> </span>--initial-tab<span class="w">         </span>make<span class="w"> </span>tabs<span class="w"> </span>line<span class="w"> </span>up<span class="w"> </span><span class="o">(</span><span class="k">if</span><span class="w"> </span>needed<span class="o">)</span>
+<span class="w">  </span>-Z,<span class="w"> </span>--null<span class="w">                </span>print<span class="w"> </span><span class="m">0</span><span class="w"> </span>byte<span class="w"> </span>after<span class="w"> </span>FILE<span class="w"> </span>name
+
+Context<span class="w"> </span>control:
+<span class="w">  </span>-B,<span class="w"> </span>--before-context<span class="o">=</span>NUM<span class="w">  </span>print<span class="w"> </span>NUM<span class="w"> </span>lines<span class="w"> </span>of<span class="w"> </span>leading<span class="w"> </span>context
+<span class="w">  </span>-A,<span class="w"> </span>--after-context<span class="o">=</span>NUM<span class="w">   </span>print<span class="w"> </span>NUM<span class="w"> </span>lines<span class="w"> </span>of<span class="w"> </span>trailing<span class="w"> </span>context
+<span class="w">  </span>-C,<span class="w"> </span>--context<span class="o">=</span>NUM<span class="w">         </span>print<span class="w"> </span>NUM<span class="w"> </span>lines<span class="w"> </span>of<span class="w"> </span>output<span class="w"> </span>context
+<span class="w">  </span>-NUM<span class="w">                      </span>same<span class="w"> </span>as<span class="w"> </span>--context<span class="o">=</span>NUM
+<span class="w">      </span>--group-separator<span class="o">=</span>SEP<span class="w"> </span>use<span class="w"> </span>SEP<span class="w"> </span>as<span class="w"> </span>a<span class="w"> </span>group<span class="w"> </span>separator
+<span class="w">      </span>--no-group-separator<span class="w">  </span>use<span class="w"> </span>empty<span class="w"> </span>string<span class="w"> </span>as<span class="w"> </span>a<span class="w"> </span>group<span class="w"> </span>separator
+<span class="w">      </span>--color<span class="o">[=</span>WHEN<span class="o">]</span>,
+<span class="w">      </span>--colour<span class="o">[=</span>WHEN<span class="o">]</span><span class="w">       </span>use<span class="w"> </span>markers<span class="w"> </span>to<span class="w"> </span>highlight<span class="w"> </span>the<span class="w"> </span>matching<span class="w"> </span>strings<span class="p">;</span>
+<span class="w">                            </span>WHEN<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;always&#39;</span>,<span class="w"> </span><span class="s1">&#39;never&#39;</span>,<span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;auto&#39;</span>
+<span class="w">  </span>-U,<span class="w"> </span>--binary<span class="w">              </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>strip<span class="w"> </span>CR<span class="w"> </span>characters<span class="w"> </span>at<span class="w"> </span>EOL<span class="w"> </span><span class="o">(</span>MSDOS/Windows<span class="o">)</span>
+<span class="w">  </span>-u,<span class="w"> </span>--unix-byte-offsets<span class="w">   </span>report<span class="w"> </span>offsets<span class="w"> </span>as<span class="w"> </span><span class="k">if</span><span class="w"> </span>CRs<span class="w"> </span>were<span class="w"> </span>not<span class="w"> </span>there
+<span class="w">                            </span><span class="o">(</span>MSDOS/Windows<span class="o">)</span>
+
+<span class="s1">&#39;egrep&#39;</span><span class="w"> </span>means<span class="w"> </span><span class="s1">&#39;grep -E&#39;</span>.<span class="w">  </span><span class="s1">&#39;fgrep&#39;</span><span class="w"> </span>means<span class="w"> </span><span class="s1">&#39;grep -F&#39;</span>.
+Direct<span class="w"> </span>invocation<span class="w"> </span>as<span class="w"> </span>either<span class="w"> </span><span class="s1">&#39;egrep&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;fgrep&#39;</span><span class="w"> </span>is<span class="w"> </span>deprecated.
+When<span class="w"> </span>FILE<span class="w"> </span>is<span class="w"> </span>-,<span class="w"> </span><span class="nb">read</span><span class="w"> </span>standard<span class="w"> </span>input.<span class="w">  </span>With<span class="w"> </span>no<span class="w"> </span>FILE,<span class="w"> </span><span class="nb">read</span><span class="w"> </span>.<span class="w"> </span><span class="k">if</span><span class="w"> </span>a<span class="w"> </span>command-line
+-r<span class="w"> </span>is<span class="w"> </span>given,<span class="w"> </span>-<span class="w"> </span>otherwise.<span class="w">  </span>If<span class="w"> </span>fewer<span class="w"> </span>than<span class="w"> </span>two<span class="w"> </span>FILEs<span class="w"> </span>are<span class="w"> </span>given,<span class="w"> </span>assume<span class="w"> </span>-h.
+Exit<span class="w"> </span>status<span class="w"> </span>is<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span>any<span class="w"> </span>line<span class="w"> </span>is<span class="w"> </span>selected,<span class="w"> </span><span class="m">1</span><span class="w"> </span>otherwise<span class="p">;</span>
+<span class="k">if</span><span class="w"> </span>any<span class="w"> </span>error<span class="w"> </span>occurs<span class="w"> </span>and<span class="w"> </span>-q<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>given,<span class="w"> </span>the<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>status<span class="w"> </span>is<span class="w"> </span><span class="m">2</span>.
+
+Report<span class="w"> </span>bugs<span class="w"> </span>to:<span class="w"> </span>bug-grep@gnu.org
+GNU<span class="w"> </span>Grep<span class="w"> </span>home<span class="w"> </span>page:<span class="w"> </span>&lt;http://www.gnu.org/software/grep/&gt;
+General<span class="w"> </span><span class="nb">help</span><span class="w"> </span>using<span class="w"> </span>GNU<span class="w"> </span>software:<span class="w"> </span>&lt;http://www.gnu.org/gethelp/&gt;
+</pre></div>
+</div>
+<p>So we can use it as follows:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ grep length SRR307023_1.fastq 
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>this output is truncated</p>
+</div>
+</aside>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@SRR307023.37289418.1 GA-C_0019:1:120:7087:20418 length=101</span>
+<span class="go">+SRR307023.37289418.1 GA-C_0019:1:120:7087:20418 length=101</span>
+<span class="go">@SRR307023.37289419.1 GA-C_0019:1:120:7127:20414 length=101</span>
+<span class="go">+SRR307023.37289419.1 GA-C_0019:1:120:7127:20414 length=101</span>
+<span class="go">@SRR307023.37289420.1 GA-C_0019:1:120:7204:20410 length=101</span>
+<span class="go">+SRR307023.37289420.1 GA-C_0019:1:120:7204:20410 length=101</span>
+<span class="go">...</span>
+<span class="go">@SRR307023.37294416.1 GA-C_0019:1:120:17598:20714 length=101</span>
+<span class="go">+SRR307023.37294416.1 GA-C_0019:1:120:17598:20714 length=101</span>
+<span class="go">@SRR307023.37294417.1 GA-C_0019:1:120:18444:20714 length=101</span>
+<span class="go">+SRR307023.37294417.1 GA-C_0019:1:120:18444:20714 length=101</span>
+</pre></div>
+</div>
+</section>
+<section id="how-many-times-does-mrna-appear-in-the-file-dmel-all-r6-19-gtf">
+<h3><span class="section-number">16.5.2. </span>How many times does <code class="docutils literal notranslate"><span class="pre">mRNA</span></code> appear in the file <code class="docutils literal notranslate"><span class="pre">dmel-all-r6.19.gtf</span> </code>?<a class="headerlink" href="#how-many-times-does-mrna-appear-in-the-file-dmel-all-r6-19-gtf" title="Permalink to this headline">#</a></h3>
+<p>We can answer this two ways:</p>
+<p><code class="docutils literal notranslate"><span class="pre">grep</span></code> has a <strong>count</strong> option, <code class="docutils literal notranslate"><span class="pre">-c</span></code>:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ grep -c mRNA dmel-all-r6.19.gtf 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">34025</span>
+</pre></div>
+</div>
+<p>or we can use <code class="docutils literal notranslate"><span class="pre">grep</span></code> and <code class="docutils literal notranslate"><span class="pre">wc</span></code> together with a pipe:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ grep  mRNA dmel-all-r6.19.gtf |wc -l
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">34025</span>
+</pre></div>
+</div>
+<p>and we get the same answer.</p>
+</section>
+</section>
+<section id="closing-a-session">
+<h2><span class="section-number">16.6. </span>Closing a session<a class="headerlink" href="#closing-a-session" title="Permalink to this headline">#</a></h2>
+<p>we can use <code class="docutils literal notranslate"><span class="pre">exit</span></code> or <code class="docutils literal notranslate"><span class="pre">logout</span></code> to clsoe the connection, it will also close if you lose internet.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ logout
+Connection to seawulf.uri.edu closed.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-ssh-keys-to-authenticate">
+<h2><span class="section-number">16.7. </span>Using ssh keys to authenticate<a class="headerlink" href="#using-ssh-keys-to-authenticate" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>generate a key pair</p></li>
+<li><p>store the public key on the server</p></li>
+<li><p>Request to login, tell server your public key, get back a session ID from the server</p></li>
+<li><p>if it has that public key, then it generates a random string, encrypts it with your public key and sends it back to your computer</p></li>
+<li><p>On your computer, it decrypts the message + the session ID with your private key then hashes the message and sends it back</p></li>
+<li><p>the server then hashes its copy of the message and session ID and if the hash received and calculated match, then you are loggied in</p></li>
+</ol>
+<p><a class="reference external" href="https://thatsmaths.com/2016/08/11/a-toy-example-of-rsa-encryption/">a toy example</a></p>
+<p><img alt="cheatsheet on ssh from julia evans" src="https://wizardzines.com/comics/ssh/ssh.png" /></p>
+<p><a class="reference external" href="https://wizardzines.com/comics/ssh/">from wizardzines</a></p>
+<p>Lots more networking detals in the <a class="reference external" href="https://wizardzines.com/zines/bite-size-networking/">full zine</a> available for purchase or I have a copy if you want to borrow it.</p>
+</section>
+<section id="generating-a-key-pair">
+<h2><span class="section-number">16.8. </span>Generating a Key Pair<a class="headerlink" href="#generating-a-key-pair" title="Permalink to this headline">#</a></h2>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> to create a keys.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code> option allows us to specify the file name of the keys.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-t</span></code> option allows us to specify the encryption algorithm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-b</span></code> option allows us to specify the size of the key in bits</p></li>
+</ul>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">f</span> <span class="o">~/</span><span class="n">seawulf</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span> <span class="o">-</span><span class="n">b</span> <span class="mi">1024</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Generating public/private rsa key pair.</span>
+<span class="go">/Users/brownsarahm/seawulf already exists.</span>
+<span class="go">Overwrite (y/n)? y</span>
+<span class="go">Enter passphrase (empty for no passphrase): </span>
+<span class="go">Enter same passphrase again: </span>
+<span class="go">Your identification has been saved in /Users/brownsarahm/seawulf.</span>
+<span class="go">Your public key has been saved in /Users/brownsarahm/seawulf.pub.</span>
+<span class="go">The key fingerprint is:</span>
+<span class="go">SHA256:UExqbNzmhmxW/rCWvUxb77wU6O7CmUI57G3cBvbYKco brownsarahm@231.126.20.172.s.wireless.uri.edu</span>
+<span class="go">The key&#39;s randomart image is:</span>
+<span class="go">+---[RSA 1024]----+</span>
+<span class="go">|       oo        |</span>
+<span class="go">|     o +.        |</span>
+<span class="go">|      B +        |</span>
+<span class="go">|     + B     .   |</span>
+<span class="go">|      =.S.  . .  |</span>
+<span class="go">|     o .=*o.   . |</span>
+<span class="go">|       o+*+Oo..  |</span>
+<span class="go">|       ooo@=*+   |</span>
+<span class="go">|        E++=o.=. |</span>
+<span class="go">+----[SHA256]-----+</span>
+</pre></div>
+</div>
+<p>We can see it created a file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">~/</span><span class="n">seawulf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/Users/brownsarahm/seawulf</span>
+</pre></div>
+</div>
+<p>or even look at the public key</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">~/</span><span class="n">seawulf</span><span class="o">.</span><span class="n">pub</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDBurS41c5YmFybXWSDM7QQZdj0/5sCSJsEcS3Cqxm00veJK/c6gqlvftrjOGzmQH9t6VL8MA5scmL8IQqqubfKsVOjLbp7enQNwdxCA6z/v365XAUuvpyEfAxMyT2dxCpdnWdGnDABBAeIqdP4McoBNWQfKjeMwif0hK94vlhCzw== brownsarahm@231.126.20.172.s.wireless.uri.edu</span>
+</pre></div>
+</div>
+</section>
+<section id="sending-the-public-key-to-a-server">
+<h2><span class="section-number">16.9. </span>Sending the public key to a server<a class="headerlink" href="#sending-the-public-key-to-a-server" title="Permalink to this headline">#</a></h2>
+<p>again <code class="docutils literal notranslate"><span class="pre">-i</span></code> to specify the file name</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">copy</span><span class="o">-</span><span class="nb">id</span> <span class="o">-</span><span class="n">i</span> <span class="o">~/</span><span class="n">seawulf</span> <span class="n">brownsarahm</span><span class="nd">@seawulf</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/Users/brownsarahm/seawulf.pub&quot;</span>
+<span class="go">/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</span>
+<span class="go">/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys</span>
+<span class="go">brownsarahm@seawulf.uri.edu&#39;s password: </span>
+
+<span class="go">Number of key(s) added:        1</span>
+
+<span class="go">Now try logging into the machine, with:   &quot;ssh &#39;brownsarahm@seawulf.uri.edu&#39;&quot;</span>
+<span class="go">and check to make sure that only the key(s) you wanted were added.</span>
+</pre></div>
+</div>
+</section>
+<section id="logging-in">
+<h2><span class="section-number">16.10. </span>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this headline">#</a></h2>
+<p>To login without usng a password you have to tell ssh which key to use:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">i</span> <span class="o">~/</span><span class="n">seawulf</span> <span class="n">brownsarahm</span><span class="nd">@seawulf</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Last login: Tue Mar 26 12:54:22 2024 from 172.20.126.231</span>
+<span class="gp">[brownsarahm@seawulf ~]$ </span>client_loop:<span class="w"> </span>send<span class="w"> </span>disconnect:<span class="w"> </span>Broken<span class="w"> </span>pipe
+</pre></div>
+</div>
+<p>Or you can add the following to your <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="n">seawulf</span>
+  <span class="n">Hostname</span> <span class="n">seawulf</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">edu</span>
+  <span class="n">Username</span> <span class="n">brownsarahm</span>
+  <span class="n">IdentityFile</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">seawulf</span>
+</pre></div>
+</div>
+</section>
+<section id="prepare-for-next-class">
+<h2><span class="section-number">16.11. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<p>Make sure you have your ssh key configured to seawulf</p>
+</section>
+<section id="badges">
+<h2><span class="section-number">16.12. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
+<ol class="arabic">
+<li><p>Answer the following in <span class="target" id="index-0"></span>hpc.md of your KWL repo:  (to think about how the design of the system we used in class impacts programming and connect it to other ideas taught in CS)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. What kinds of things would your code need to do if you were going to run it on an HPC system? 
+1. What sbatch options seem the most helpful?
+1. How might you go about setting the time limits for a script? How could you estimate how long a script will take?
+</pre></div>
+</div>
+</li>
+<li><p>Read through this <a class="reference external" href="https://people.cs.pitt.edu/~kirk/cs1501/notes/rsademo/">rsa encryption demo site</a> to review how it works. Find 2 other encyrption algorithms that could be used wiht ssh (hint: try <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ssh</span></code> or <a class="reference external" href="https://man7.org/linux/man-pages/man1/ssh.1.html">read it online</a>) and compare them in <span class="target" id="index-1"></span>encyryption_compare.  Your comparison should be enough to advise someone which is best and why, but need not get into the details.</p></li>
+<li><p>Post your public key and then decrypte the message we give you back.</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
+<ol class="arabic">
+<li><p>Answer the following in <span class="target" id="index-2"></span>hpc.md of your KWL repo:  (to think about how the design of the system we used in class impacts programming and connect it to other ideas taught in CS)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. What kinds of things would your code need to do if you were going to run it on an HPC system? 
+2. What sbatch options seem the most helpful?
+3. How might you go about setting the time limits for a script? How could you estimate how long a script will take?
+</pre></div>
+</div>
+</li>
+<li><p>configure <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">ssh keys for your github account</a></p></li>
+<li><p>Find 2 other encyrption algorithms that could be used wiht ssh (hint: try <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ssh</span></code> or <a class="reference external" href="https://man7.org/linux/man-pages/man1/ssh.1.html">read it online</a>) and compare them in <span class="target" id="index-3"></span>encyryption_compare.  Your comparison should be enough to advise someone which is best and why, but need not get into the details.</p></li>
+<li><p>Read through this <a class="reference external" href="https://people.cs.pitt.edu/~kirk/cs1501/notes/rsademo/">rsa encryption demo site</a> site and use it to show what, for a particular public/private key pair (based on small primes) it would look like to pass a message, “It is spring now!” encrypted.  (that is encypt it, and decrypt it with the site, show it’s encrypted version and the key pair and describe what would go where). Put your example in <span class="target" id="index-4"></span>rsademo.md.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="experience-report-evidence">
+<h2><span class="section-number">16.13. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="questions-after-todays-class">
+<h2><span class="section-number">16.14. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<section id="can-you-create-a-server-off-any-internet-connected-pc-and-connect-through-git-bash-akin-to-seawulf">
+<h3><span class="section-number">16.14.1. </span>Can you create a server off any internet connected PC and connect through git bash akin to seawulf?<a class="headerlink" href="#can-you-create-a-server-off-any-internet-connected-pc-and-connect-through-git-bash-akin-to-seawulf" title="Permalink to this headline">#</a></h3>
+<p>You can create <em>a</em> server and connect through <code class="docutils literal notranslate"><span class="pre">ssh</span></code> from any terminal, yes.  Not all will have <em>all</em> of the features of seawulf though.</p>
+</section>
+<section id="is-using-a-remote-server-safe">
+<h3><span class="section-number">16.14.2. </span>Is using a remote server safe?<a class="headerlink" href="#is-using-a-remote-server-safe" title="Permalink to this headline">#</a></h3>
+<p>Depends on the server itself.  Using the ones from URI are in most senses and in most cases Amazon, Google and Microsoft ones are, depending on what type of safety.  Using corporate ones might mean they have access to some of your data.</p>
+</section>
+<section id="also-is-a-remote-server-like-how-a-vpn-does-since-you-use-a-computer-that-is-not-yours-to-access-things">
+<h3><span class="section-number">16.14.3. </span>Also is a remote server like how a VPN does since you use a computer that is not yours to access things?<a class="headerlink" href="#also-is-a-remote-server-like-how-a-vpn-does-since-you-use-a-computer-that-is-not-yours-to-access-things" title="Permalink to this headline">#</a></h3>
+<p>It has that in common, but that is about the end of the similarity.  This is a good explore topic.</p>
+</section>
+<section id="what-happens-if-you-forget-your-password-or-lose-the-ssh-key-file">
+<h3><span class="section-number">16.14.4. </span>What happens if you forget your password or lose the SSH key file?<a class="headerlink" href="#what-happens-if-you-forget-your-password-or-lose-the-ssh-key-file" title="Permalink to this headline">#</a></h3>
+<p>For seawulf, you have to email ITS to get your account reset.</p>
+<p>Generally, you talk to someone who has admin rights. If that’s you… you could fully lose access.</p>
+</section>
+<section id="do-comapnys-use-their-own-private-hpcs-with-their-employees">
+<h3><span class="section-number">16.14.5. </span>do comapnys use their own private HPCs with their employees?<a class="headerlink" href="#do-comapnys-use-their-own-private-hpcs-with-their-employees" title="Permalink to this headline">#</a></h3>
+<p>Sometimes, othertimes they use Amazon, Google, or Microsoft ones.  Those three companies made their own so big they sell access to them to inviduals and other companies alongside their cloud offerings.</p>
+<p>Most universities host their own and some share theirs. See, for example <a class="reference external" href="https://its.uri.edu/research-computing/high-performance-research-computing/">HPC at URI</a> which access to includes the <a class="reference external" href="https://www.mghpcc.org/">Mass Green High performance computing center</a> which is a collab between BU, MIT, Northeastern, UMASS, and Harvard initially that URI has joined.</p>
+</section>
+<section id="are-we-always-allowed-to-use-the-schools-hpc-that-we-used-today-in-class">
+<h3><span class="section-number">16.14.6. </span>are we always allowed to use the schools HPC that we used today in class?<a class="headerlink" href="#are-we-always-allowed-to-use-the-schools-hpc-that-we-used-today-in-class" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://its.uri.edu/research-computing/using-seawulf/">seawulf</a> is specifically for teaching purposes, there are not good data policies for it and your account could be deactivated after the semester is over.  If you are doing something for class you can use it, including badges or just tinkering to understand.  If you are interested in a side proejct, let me know the purpose and I can help you determine and access a more appropriate HPC system.</p>
+</section>
+<section id="can-you-use-an-ssh-key-to-log-in-to-your-github-account-to-allow-you-to-create-push-requests">
+<h3><span class="section-number">16.14.7. </span>can you use an ssh key to log in to your github account to allow you to create push requests?<a class="headerlink" href="#can-you-use-an-ssh-key-to-log-in-to-your-github-account-to-allow-you-to-create-push-requests" title="Permalink to this headline">#</a></h3>
+<p>yes!</p>
+</section>
+<section id="what-are-some-of-the-other-types-of-virtual-machines-and-what-are-there-uses">
+<h3><span class="section-number">16.14.8. </span>What are some of the other types of virtual machines and what are there uses?<a class="headerlink" href="#what-are-some-of-the-other-types-of-virtual-machines-and-what-are-there-uses" title="Permalink to this headline">#</a></h3>
+<p>What we did today was a <em>server</em> not a <em>virtual machine</em> a virtual machine is an isolated system within another system; a server is what hosts virtual machines, and the web.</p>
+<p>More broadly, this is a big open question, that is a good explore topic.</p>
+</section>
+<section id="what-are-the-capabalities-of-uris-seawulf-vm-what-do-people-usually-do-with-it">
+<h3><span class="section-number">16.14.9. </span>What are the capabalities of URI’s seawulf vm? What do people usually do with it?<a class="headerlink" href="#what-are-the-capabalities-of-uris-seawulf-vm-what-do-people-usually-do-with-it" title="Permalink to this headline">#</a></h3>
+<p>You can read the <a class="reference external" href="https://its.uri.edu/research-computing/seawulf-specs/">seawulf specs</a> to see what hardward and software it has and the <a class="reference external" href="https://its.uri.edu/research-computing/using-seawulf/">using seawulf</a> page for general information about it.</p>
+<p>It is used for learning HPC or doing HPC-requiring computations in courses.</p>
+</section>
+<section id="what-other-ways-can-ssh-keys-be-used-for">
+<h3><span class="section-number">16.14.10. </span>What other ways can ssh keys be used for?<a class="headerlink" href="#what-other-ways-can-ssh-keys-be-used-for" title="Permalink to this headline">#</a></h3>
+<p>They’re used for authentication, signatures, or message passing.</p>
+</section>
+<section id="are-there-any-drawbacks-to-using-an-ssh-key-instead-of-a-password">
+<h3><span class="section-number">16.14.11. </span>Are there any drawbacks to using an ssh key instead of a password?<a class="headerlink" href="#are-there-any-drawbacks-to-using-an-ssh-key-instead-of-a-password" title="Permalink to this headline">#</a></h3>
+<p>Not really, passwords are weak.</p>
+</section>
+<section id="what-does-grep-do">
+<h3><span class="section-number">16.14.12. </span>what does grep do?<a class="headerlink" href="#what-does-grep-do" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">grep</span></code> searches the <em>contents</em> of a file</p>
+</section>
+<section id="can-ssh-use-a-differnt-encryption-algorithm-thats-not-rsa-thats-more-secure">
+<h3><span class="section-number">16.14.13. </span>Can ssh use a differnt encryption algorithm thats not RSA thats more secure?<a class="headerlink" href="#can-ssh-use-a-differnt-encryption-algorithm-thats-not-rsa-thats-more-secure" title="Permalink to this headline">#</a></h3>
+<p>Yes, see its <code class="docutils literal notranslate"><span class="pre">man</span></code> file</p>
+</section>
+<section id="why-is-sshing-into-a-server-useful">
+<h3><span class="section-number">16.14.14. </span>why is sshing into a server useful?<a class="headerlink" href="#why-is-sshing-into-a-server-useful" title="Permalink to this headline">#</a></h3>
+<p>Until a few years ago it was the <em>only</em> way to access most servers.  Now, more provide a browser based interface, but running that interface uses computational power.  So it is more efficient to access with ssh.  It also means you can, eg edit in your local IDE but then push and run on a remote server all in one window.</p>
+</section>
+<section id="what-is-the-algorithm-logic-behind-the-two-generated-keys">
+<h3><span class="section-number">16.14.15. </span>What is the algorithm/logic behind the two generated keys<a class="headerlink" href="#what-is-the-algorithm-logic-behind-the-two-generated-keys" title="Permalink to this headline">#</a></h3>
+<p>This is probably best understood through an <a class="reference external" href="https://people.cs.pitt.edu/~kirk/cs1501/notes/rsademo/">rsa demo</a></p>
+</section>
+<section id="will-these-ssh-keys-be-able-to-be-decrypted-with-quantum-computing">
+<h3><span class="section-number">16.14.16. </span>Will these ssh keys be able to be decrypted with quantum computing?<a class="headerlink" href="#will-these-ssh-keys-be-able-to-be-decrypted-with-quantum-computing" title="Permalink to this headline">#</a></h3>
+<p>RSA is actually not the most secure already, it is simpler to understand though, so it is a good place to start. Quantum computing, however to the best of my knowledge does not improve encryption breaking, but this is also a good explore topic.</p>
+</section>
+<section id="why-is-the-private-key-so-much-longer-than-the-public-one">
+<h3><span class="section-number">16.14.17. </span>why is the private key so much longer than the public one?<a class="headerlink" href="#why-is-the-private-key-so-much-longer-than-the-public-one" title="Permalink to this headline">#</a></h3>
+<p>short answer: It contains extra information</p>
+<p>Long answer: <a class="reference external" href="https://security.stackexchange.com/questions/90169/rsa-public-key-and-private-key-lengths">this stackexchange post explains it well</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-03-21.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>What is an IDE?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../activities/kwl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">KWL Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-remote-servers-and-hpc-systems">16.1. What are remote servers and HPC systems?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-seawulf">16.2. Connecting to Seawulf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-files">16.3. Downloading files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unzipping-a-file-on-the-command-line">16.4. Unzipping a file on the command line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-large-files">16.5. Working with large files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-file-contents">16.5.1. Searching file Contents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-times-does-mrna-appear-in-the-file-dmel-all-r6-19-gtf">16.5.2. How many times does <code class="docutils literal notranslate"><span class="pre">mRNA</span></code> appear in the file <code class="docutils literal notranslate"><span class="pre">dmel-all-r6.19.gtf</span> </code>?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closing-a-session">16.6. Closing a session</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ssh-keys-to-authenticate">16.7. Using ssh keys to authenticate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-a-key-pair">16.8. Generating a Key Pair</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sending-the-public-key-to-a-server">16.9. Sending the public key to a server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in">16.10. Logging in</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">16.11. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">16.12. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">16.13. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">16.14. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-create-a-server-off-any-internet-connected-pc-and-connect-through-git-bash-akin-to-seawulf">16.14.1. Can you create a server off any internet connected PC and connect through git bash akin to seawulf?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-using-a-remote-server-safe">16.14.2. Is using a remote server safe?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#also-is-a-remote-server-like-how-a-vpn-does-since-you-use-a-computer-that-is-not-yours-to-access-things">16.14.3. Also is a remote server like how a VPN does since you use a computer that is not yours to access things?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-forget-your-password-or-lose-the-ssh-key-file">16.14.4. What happens if you forget your password or lose the SSH key file?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-comapnys-use-their-own-private-hpcs-with-their-employees">16.14.5. do comapnys use their own private HPCs with their employees?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-we-always-allowed-to-use-the-schools-hpc-that-we-used-today-in-class">16.14.6. are we always allowed to use the schools HPC that we used today in class?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-use-an-ssh-key-to-log-in-to-your-github-account-to-allow-you-to-create-push-requests">16.14.7. can you use an ssh key to log in to your github account to allow you to create push requests?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-some-of-the-other-types-of-virtual-machines-and-what-are-there-uses">16.14.8. What are some of the other types of virtual machines and what are there uses?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-capabalities-of-uris-seawulf-vm-what-do-people-usually-do-with-it">16.14.9. What are the capabalities of URI’s seawulf vm? What do people usually do with it?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-other-ways-can-ssh-keys-be-used-for">16.14.10. What other ways can ssh keys be used for?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-any-drawbacks-to-using-an-ssh-key-instead-of-a-password">16.14.11. Are there any drawbacks to using an ssh key instead of a password?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-grep-do">16.14.12. what does grep do?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-ssh-use-a-differnt-encryption-algorithm-thats-not-rsa-thats-more-secure">16.14.13. Can ssh use a differnt encryption algorithm thats not RSA thats more secure?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-sshing-into-a-server-useful">16.14.14. why is sshing into a server useful?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-algorithm-logic-behind-the-two-generated-keys">16.14.15. What is the algorithm/logic behind the two generated keys</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#will-these-ssh-keys-be-able-to-be-decrypted-with-quantum-computing">16.14.16. Will these ssh keys be able to be decrypted with quantum computing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-private-key-so-much-longer-than-the-public-one">16.14.17. why is the private key so much longer than the public one?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
