@@ -1,0 +1,1811 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>17. What happens when I build code in C? &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-03-28';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="prev" title="16. How can I work on a remote server?" href="2024-03-26.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-01.html">4. How do branches work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-06.html">5. When do git and bash give me an advantage?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-08.html">6. What <em>is</em> a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-15.html">7. How do programmers communicate about code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-20.html">8. How do I choose a Programming Language for a project?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-22.html">9. Why are these tools like this?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-27.html">10. What <em>is</em> git?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-29.html">11. How does git make a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-05.html">12. Why did we learn the plubming commands?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-07.html">13. What is a commit number?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-19.html">14. How can I automate things with bash?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-21.html">15. What is an IDE?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-26.html">16. How can I work on a remote server?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. What happens when I build code in C?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2022/resources/testimonials.html">Advice from Fall 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2023/resources/testimonials.html">Advice from Spring 2023 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2023/resources/testimonials.html">Advice from Fall 2023 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/edit/main/notes/2024-03-28.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/issues/new?title=Issue%20on%20page%20%2Fnotes/2024-03-28.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notes/2024-03-28.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>What happens when I build code in C?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-buiding-code">17.1. What is <em>buiding</em> code?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-overview">17.2. An overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ssh-keys">17.3. Using SSH Keys</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-an-interactive-session">17.4. Using an interactive session</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-program">17.5. A simple program</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-with-gcc">17.6. Preprocessing with gcc</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling">17.7. Compiling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assembling">17.8. Assembling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linking">17.9. Linking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">17.10. Putting it all together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-multiple-files">17.11. Working with multiple files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-object-file-not-human-readable">17.12. Why is the object file not human readable?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prelude-repl">17.13. Prelude: REPL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characters-to-integers">17.13.1. Characters to Integers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">17.14. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">17.15. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">17.16. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">17.17. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#would-these-all-work-the-same-within-the-kwl-or-another-directory">17.17.1. Would these all work the same within the kwl or another directory?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-any-current-day-scenario-where-knowing-how-to-write-code-in-assembly-would-be-advantageous">17.17.2. is there any current day scenario where knowing how to write code in assembly would be advantageous?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-one-process-know-that-the-one-before-it-is-done">17.17.3. How does one process know that the one before it is done?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-my-time-runs-out-in-my-node-what-happens-to-the-files-are-they-deleted-and-lost">17.17.4. If my time runs out in my node, what happens to the files, are they deleted and lost?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-way-is-the-most-efficient-for-compiling-code">17.17.5. What way is the most efficient for compiling code?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-process-for-python-similar-to-the-one-in-c">17.17.6. Is the process for Python similar to the one in C?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-did-the-extensions-mean">17.17.7. What did the extensions mean?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-languages-can-we-use-through-ssh">17.17.8. What languages can we use through ssh?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-compiler-link-two-object-files-together-if-they-are-so-unreadable">17.17.9. How does the compiler link two object files together if they are so unreadable?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-seawulf-used-for">17.17.10. what is seawulf used for?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-gcc-only-used-for-c-or-can-it-also-be-used-for-c">17.17.11. Is <code class="docutils literal notranslate"><span class="pre">gcc</span></code> only used for C or can it also be used for C++?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-write-a-program-with-multiple-function-then-how-does-the-computer-know-to-jump-between-different-functions-since-a-program-runs-through-the-program-line-by-line">17.17.12. If we write a program with multiple function, then how does the computer “know” to jump between different functions, since a program runs through the program line by line?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-a-standard-compiler-that-is-recognized-universally">17.17.13. Is there a “standard” compiler that is recognized universally?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="what-happens-when-i-build-code-in-c">
+<h1><span class="section-number">17. </span>What happens when I build code in C?<a class="headerlink" href="#what-happens-when-i-build-code-in-c" title="Permalink to this headline">#</a></h1>
+<section id="what-is-buiding-code">
+<h2><span class="section-number">17.1. </span>What is <em>buiding</em> code?<a class="headerlink" href="#what-is-buiding-code" title="Permalink to this headline">#</a></h2>
+<p>Building is transforming code from the input format to the final format.</p>
+<p>This can mean different things in different contexts. For example:</p>
+<ul class="simple">
+<li><p>the course website is built from markdown files in to html output</p></li>
+<li><p>a C program is built from source code to executables</p></li>
+</ul>
+<p>We sometimes say that compiling takes code from source to executable, but this process is actually multiple stages and compiling is <em>one</em> of those steps.</p>
+<p>We will focus on <em>what</em> has to happen more than <em>how</em> it all happens.</p>
+<p>CSC301, 402, 501, 502 go into greater detail on how languages work.</p>
+<p>Our goal is to:</p>
+<ul class="simple">
+<li><p>(where applicable) give you a preview</p></li>
+<li><p>get enough understanding of what happens to know where to look when debugging</p></li>
+</ul>
+</section>
+<section id="an-overview">
+<h2><span class="section-number">17.2. </span>An overview<a class="headerlink" href="#an-overview" title="Permalink to this headline">#</a></h2>
+<div class="mermaid">
+            flowchart TD
+    a[[system files]] --&gt; |lib.o| linker
+    write{write code} --&gt; |my_program.c| preprocessor 
+    preprocessor --&gt; |my_program.i | compiler
+    compiler --&gt; |my_program.s| assembler 
+    assembler --&gt; |my_program.o| linker 
+    linker --&gt; |my_program, my_program.exe| run{run code}
+    b[[build dir]] --&gt; |helper.o| linker
+        </div><p>This flowchart describes the build process for C. We are going to go through each step of the process and inspect the output of each step to build our understanding up.</p>
+</section>
+<section id="using-ssh-keys">
+<h2><span class="section-number">17.3. </span>Using SSH Keys<a class="headerlink" href="#using-ssh-keys" title="Permalink to this headline">#</a></h2>
+<p>We are going to work on seawulf so that we all have the same compiler.</p>
+<p>To use it we use he <code class="docutils literal notranslate"><span class="pre">-i</span></code> option and then the path to the private key file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">i</span> <span class="o">~/</span><span class="n">seawulf</span> <span class="n">brownsarahm</span><span class="nd">@seawulf</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Last login: Tue Mar 26 13:43:48 2024 from 172.20.126.231</span>
+</pre></div>
+</div>
+</section>
+<section id="using-an-interactive-session">
+<h2><span class="section-number">17.4. </span>Using an interactive session<a class="headerlink" href="#using-an-interactive-session" title="Permalink to this headline">#</a></h2>
+<p>Last class we worked on the login node, but that is not best practice.</p>
+<p>Today we will use an interactive session using the <code class="docutils literal notranslate"><span class="pre">interactive</span></code> program.</p>
+<p>First we’ll look at its help</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage: interactive [-c] [-p] [-J] [-w]</span>
+
+<span class="go">Optional arguments:</span>
+<span class="go">    -c: number of CPU cores to request (default: 1)</span>
+<span class="go">    -p: partition to run job in (default: general)</span>
+<span class="go">    -J: job name (default: interactive)</span>
+<span class="go">    -w: node name</span>
+
+<span class="go">NB: interactive jobs have a time limit of 8 hours.</span>
+
+<span class="go">Written by: Alan Orth &lt;a.orth@cgiar.org&gt;</span>
+</pre></div>
+</div>
+<p>Then we will start one with all default settings</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ interactive
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">salloc: Granted job allocation 27371</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes n005 are ready for job</span>
+</pre></div>
+</div>
+<p>it tells us what it is doing while it gets ready.</p>
+<p>We see that the prompt changes, now we are <code class="docutils literal notranslate"><span class="pre">&#64;n005</span></code> instead of <code class="docutils literal notranslate"><span class="pre">&#64;seawulf</span></code>, lets check out working directory:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 ~]$ ls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">bash-lesson.tar.gz                           SRR307026_1.fastq</span>
+<span class="go">dmel-all-r6.19.gtf                           SRR307026_2.fastq</span>
+<span class="go">dmel_unique_protein_isoforms_fb_2016_01.tsv  SRR307027_1.fastq</span>
+<span class="go">gene_association.fb                          SRR307027_2.fastq</span>
+<span class="go">SRR307023_1.fastq                            SRR307028_1.fastq</span>
+<span class="go">SRR307023_2.fastq                            SRR307028_2.fastq</span>
+<span class="go">SRR307024_1.fastq                            SRR307029_1.fastq</span>
+<span class="go">SRR307024_2.fastq                            SRR307029_2.fastq</span>
+<span class="go">SRR307025_1.fastq                            SRR307030_1.fastq</span>
+<span class="go">SRR307025_2.fastq                            SRR307030_2.fastq</span>
+</pre></div>
+</div>
+<p>our files are still there.  The <em>compute</em> changed, but not our disk space location.</p>
+<p>And our working directory is the same:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 ~]$ pwd
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/home/brownsarahm</span>
+</pre></div>
+</div>
+<p>still our home directory</p>
+<p>We will make an empty directory to work in for today.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 ~]$ mkdir compilec
+</pre></div>
+</div>
+</div>
+</div>
+<p>and go into it to work</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 ~]$ cd compilec/
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-simple-program">
+<h2><span class="section-number">17.5. </span>A simple program<a class="headerlink" href="#a-simple-program" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ nano hello.c
+</pre></div>
+</div>
+</div>
+</div>
+<p>and wew will put in a simple hello world
+program</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>we will confirm that it exists</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ls
+hello.c
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="preprocessing-with-gcc">
+<h2><span class="section-number">17.6. </span>Preprocessing with gcc<a class="headerlink" href="#preprocessing-with-gcc" title="Permalink to this headline">#</a></h2>
+<p>First we handle the preprocessing which pulls in headers that are included.  We will use the compiler
+<a class="reference external" href="https://man7.org/linux/man-pages/man1/gcc.1.html">gcc</a></p>
+<p>We will use <code class="docutils literal notranslate"><span class="pre">gcc</span></code> for many steps, and use its options to have it do subsets of what it can possibly do:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-E</span></code> stops after preprocessing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code> makes it write the .i file and passes the file name for it</p></li>
+</ul>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -E hello.c -o  hello.i
+</pre></div>
+</div>
+</div>
+</div>
+<p>If it succeeds, we see no output, but we can check the folder</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ls
+</pre></div>
+</div>
+</div>
+</div>
+<p>now we have a new file</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hello.c  hello.i</span>
+</pre></div>
+</div>
+<p>We can inspect what it does using <code class="docutils literal notranslate"><span class="pre">wc</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ wc -l hello.c
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">6 hello.c</span>
+</pre></div>
+</div>
+<p>we started with just 6 lines of code</p>
+<p>and we can compare that to the preprocessed file:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ wc -l hello.i
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">842 hello.i</span>
+</pre></div>
+</div>
+<p>and see we get a lot more</p>
+<p>Since it is long, we will fist look at the top</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ head hello.i
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp"># 1 &quot;hello.c&quot;</span>
+<span class="cp"># 1 &quot;&lt;built-in&gt;&quot;</span>
+<span class="cp"># 1 &quot;&lt;command-line&gt;&quot;</span>
+<span class="cp"># 1 &quot;/usr/include/stdc-predef.h&quot; 1 3 4</span>
+<span class="cp"># 1 &quot;&lt;command-line&gt;&quot; 2</span>
+<span class="cp"># 1 &quot;hello.c&quot;</span>
+<span class="cp"># 1 &quot;/usr/include/stdio.h&quot; 1 3 4</span>
+<span class="cp"># 27 &quot;/usr/include/stdio.h&quot; 3 4</span>
+<span class="cp"># 1 &quot;/usr/include/features.h&quot; 1 3 4</span>
+<span class="cp"># 375 &quot;/usr/include/features.h&quot; 3 4</span>
+</pre></div>
+</div>
+<p>and the end</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ tail hello.i
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>Look at this whole file, try changing the base program to remove the include and then see what the preprocessed file is like</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I have set this cell to use C syntax highlighting even though on a terminal output it would not</p>
+</div>
+</aside>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">funlockfile</span><span class="w"> </span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">__stream</span><span class="p">)</span><span class="w"> </span><span class="n">__attribute__</span><span class="w"> </span><span class="p">((</span><span class="n">__nothrow__</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">__leaf__</span><span class="p">));</span>
+<span class="cp"># 943 &quot;/usr/include/stdio.h&quot; 3 4</span>
+
+<span class="cp"># 2 &quot;hello.c&quot; 2</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>we see that our original program, is at the end of the file, and the beginning is where the include line has been expanded.</p>
+</section>
+<section id="compiling">
+<h2><span class="section-number">17.7. </span>Compiling<a class="headerlink" href="#compiling" title="Permalink to this headline">#</a></h2>
+<p>Next we take our preprocessed file and compile it to get assembly code.</p>
+<p>Again, we use <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-S</span></code> tells it to produce assembly</p></li>
+<li><p>we will use the preprocessed file as input</p></li>
+</ul>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -S hello.i
+</pre></div>
+</div>
+</div>
+</div>
+<p>again, there is no output</p>
+<p>but we can see what it output:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hello.c  hello.i  hello.s</span>
+</pre></div>
+</div>
+<p>we have a new file as well with the <code class="docutils literal notranslate"><span class="pre">.s</span></code> extension.</p>
+<p>Again, lets inspect</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ wc -l hello.s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">25 hello.s</span>
+</pre></div>
+</div>
+<p>this is longer than the source, but not as long as the header. The header contains lots of information that we <em>might</em> need, but the assembly is only what we <em>do</em>.</p>
+<p>And it’s manageable, so we inspect it directly:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ cat hello.s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">	.file	&quot;hello.c&quot;</span>
+<span class="go">	.section	.rodata</span>
+<span class="go">.LC0:</span>
+<span class="go">	.string	&quot;Hello world&quot;</span>
+<span class="go">	.text</span>
+<span class="go">	.globl	main</span>
+<span class="go">	.type	main, @function</span>
+<span class="go">main:</span>
+<span class="go">.LFB0:</span>
+<span class="go">	.cfi_startproc</span>
+<span class="go">	pushq	%rbp</span>
+<span class="go">	.cfi_def_cfa_offset 16</span>
+<span class="go">	.cfi_offset 6, -16</span>
+<span class="go">	movq	%rsp, %rbp</span>
+<span class="go">	.cfi_def_cfa_register 6</span>
+<span class="go">	movl	$.LC0, %edi</span>
+<span class="go">	call	puts</span>
+<span class="go">	popq	%rbp</span>
+<span class="go">	.cfi_def_cfa 7, 8</span>
+<span class="go">	ret</span>
+<span class="go">	.cfi_endproc</span>
+<span class="go">.LFE0:</span>
+<span class="go">	.size	main, .-main</span>
+<span class="go">	.ident	&quot;GCC: (GNU) 4.8.5 20150623 (Red Hat 4.8.5-44)&quot;</span>
+<span class="go">	.section	.note.GNU-stack,&quot;&quot;,@progbits</span>
+</pre></div>
+</div>
+<p>There are many more steps and they are lower level operations, but it is text stored in the file.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Learning more about assembly languages is a good explore badge topic</p>
+</div>
+</section>
+<section id="assembling">
+<h2><span class="section-number">17.8. </span>Assembling<a class="headerlink" href="#assembling" title="Permalink to this headline">#</a></h2>
+<p>Assembling is to take the assembly code and get object code.  Assembly is relatively broad and there are families of assembly code, it is also still written <em>for humans</em> to understand it readily.  It’s more complex than source code because it is closer to the hardware.  The object code however, is specific instructions to your machine and not human readable.</p>
+<p>Again, with <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-c</span></code> tells it to stop at the object file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code> again gives it the name of the file to write</p></li>
+</ul>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -c hello.s -o hello.o
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, check what it does by looking at files</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hello.c  hello.i  hello.o  hello.s</span>
+</pre></div>
+</div>
+<p>now we see a new file, the <code class="docutils literal notranslate"><span class="pre">.o</span></code></p>
+<p>and again check its length</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ wc -l hello.o
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">5 hello.o</span>
+</pre></div>
+</div>
+<p>this is even shorter,</p>
+<p>we can check how many characters and words</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ wc  hello.o
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">   5   17 1496 hello.o</span>
+</pre></div>
+</div>
+<p>it is not even too many characters</p>
+<p>let’s look at it</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ cat hello.o
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ELF&gt;?@@</span>
+<span class="go">UH???]?Hello worldGCC: (GNU) 4.8.5 20150623 (Red Hat 4.8.5-44)zRx</span>
+<span class="go">K                                                               A?C</span>
+<span class="go">??      hello.cmainputs</span>
+
+
+<span class="go">???????? .symtab.strtab.shstrtab.rela.text.data.bss.rodata.comment.note.GNU-stack.rela.eh_frame @?0</span>
+<span class="go">&amp;PP1P</span>
+<span class="go">     90\.B?W?R@</span>
+<span class="go">?</span>
+<span class="go">	?0a</span>
+</pre></div>
+</div>
+<p>This is not machine readable, though:</p>
+</section>
+<section id="linking">
+<h2><span class="section-number">17.9. </span>Linking<a class="headerlink" href="#linking" title="Permalink to this headline">#</a></h2>
+<p>Now we can link it all together; in this program there are not a lot of other depdencies, but this fills in anything from libraries and outputs an executble</p>
+<p>once again with <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code> flag specifies the name for output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-lm</span></code> tells it to link from the .o file.</p></li>
+</ul>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -o hello hello.o -lm 
+</pre></div>
+</div>
+</div>
+</div>
+<p>again we can look at the directory</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ls
+</pre></div>
+</div>
+</div>
+</div>
+<p>the file was a different color to indicate that it is executable</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hello  hello.c  hello.i  hello.o  hello.s</span>
+</pre></div>
+</div>
+<p>We can look at this too:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ cat hello
+</pre></div>
+</div>
+</div>
+</div>
+<p>but it is compltely unreadable</p>
+<p>Finally we can run our program</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ./hello
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Hello world</span>
+</pre></div>
+</div>
+</section>
+<section id="putting-it-all-together">
+<h2><span class="section-number">17.10. </span>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">#</a></h2>
+<p>We can repeat with a different name and work directly from source to executable:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -o demohello hello.c -lm
+</pre></div>
+</div>
+</div>
+</div>
+<p>and run again.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ./demohello 
+</pre></div>
+</div>
+</div>
+</div>
+<p>it runs the same</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Hello world</span>
+</pre></div>
+</div>
+<p>Next we can edit our program and add a !</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ nano hello.c
+</pre></div>
+</div>
+</div>
+</div>
+<p>so that it looks like this</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>if we link the object file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -o hello hello.o -lm 
+</pre></div>
+</div>
+</div>
+</div>
+<p>and run</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ./hello 
+</pre></div>
+</div>
+</div>
+</div>
+<p>we see no change</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Hello world</span>
+</pre></div>
+</div>
+<p>Now we can buld completely from source that we editied and run</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -o hello hello.c -lm 
+[brownsarahm@n005 compilec]$ ./hello 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Hello world!</span>
+</pre></div>
+</div>
+<p>now it has it</p>
+</section>
+<section id="working-with-multiple-files">
+<h2><span class="section-number">17.11. </span>Working with multiple files<a class="headerlink" href="#working-with-multiple-files" title="Permalink to this headline">#</a></h2>
+<p>This all looks a bit different if we have our code split across files.</p>
+<p>we will make a new file <code class="docutils literal notranslate"><span class="pre">main.c</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ nano main.c
+</pre></div>
+</div>
+</div>
+</div>
+<p>with content as follows</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Used to illustrate separate compilation.</span>
+<span class="cm">Created: Joe Zachary, October 22, 1992</span>
+<span class="cm">Modified:</span>
+<span class="cm">*/</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please enter a small positive integer: &quot;</span><span class="p">);</span>
+<span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;The sum of the first n integers is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;The product of the first n integers is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">product</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then <code class="docutils literal notranslate"><span class="pre">help.c</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ nano help.c
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Used to illustrate separate compilation</span>
+
+<span class="cm">Created: Joe Zachary, October 22, 1992</span>
+<span class="cm">Modified:</span>
+
+<span class="cm">*/</span>
+
+<span class="cm">/* Requires that &quot;n&quot; be positive. Returns the sum of the</span>
+<span class="cm">  first &quot;n&quot; integers. */</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">  </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w"> </span><span class="k">return</span><span class="p">(</span><span class="n">total</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="cm">/* Requires that &quot;n&quot; be positive. Returns the product of the</span>
+<span class="cm">  first &quot;n&quot; integers. */</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">product</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">  </span><span class="n">total</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w"> </span><span class="k">return</span><span class="p">(</span><span class="n">total</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can explore <code class="docutils literal notranslate"><span class="pre">gcc</span></code> options</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc --help
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage: gcc [options] file...</span>
+<span class="go">Options:</span>
+<span class="go">  -pass-exit-codes         Exit with highest error code from a phase</span>
+<span class="go">  --help                   Display this information</span>
+<span class="go">  --target-help            Display target specific command line options</span>
+<span class="go">  --help={common|optimizers|params|target|warnings|[^]{joined|separate|undocumented}}[,...]</span>
+<span class="go">                           Display specific types of command line options</span>
+<span class="go">  (Use &#39;-v --help&#39; to display command line options of sub-processes)</span>
+<span class="go">  --version                Display compiler version information</span>
+<span class="go">  -dumpspecs               Display all of the built in spec strings</span>
+<span class="go">  -dumpversion             Display the version of the compiler</span>
+<span class="go">  -dumpmachine             Display the compiler&#39;s target processor</span>
+<span class="go">  -print-search-dirs       Display the directories in the compiler&#39;s search path</span>
+<span class="go">  -print-libgcc-file-name  Display the name of the compiler&#39;s companion library</span>
+<span class="go">  -print-file-name=&lt;lib&gt;   Display the full path to library &lt;lib&gt;</span>
+<span class="go">  -print-prog-name=&lt;prog&gt;  Display the full path to compiler component &lt;prog&gt;</span>
+<span class="go">  -print-multiarch         Display the target&#39;s normalized GNU triplet, used as</span>
+<span class="go">                           a component in the library path</span>
+<span class="go">  -print-multi-directory   Display the root directory for versions of libgcc</span>
+<span class="go">  -print-multi-lib         Display the mapping between command line options and</span>
+<span class="go">                           multiple library search directories</span>
+<span class="go">  -print-multi-os-directory Display the relative path to OS libraries</span>
+<span class="go">  -print-sysroot           Display the target libraries directory</span>
+<span class="go">  -print-sysroot-headers-suffix Display the sysroot suffix used to find headers</span>
+<span class="go">  -Wa,&lt;options&gt;            Pass comma-separated &lt;options&gt; on to the assembler</span>
+<span class="go">  -Wp,&lt;options&gt;            Pass comma-separated &lt;options&gt; on to the preprocessor</span>
+<span class="go">  -Wl,&lt;options&gt;            Pass comma-separated &lt;options&gt; on to the linker</span>
+<span class="go">  -Xassembler &lt;arg&gt;        Pass &lt;arg&gt; on to the assembler</span>
+<span class="go">  -Xpreprocessor &lt;arg&gt;     Pass &lt;arg&gt; on to the preprocessor</span>
+<span class="go">  -Xlinker &lt;arg&gt;           Pass &lt;arg&gt; on to the linker</span>
+<span class="go">  -save-temps              Do not delete intermediate files</span>
+<span class="go">  -save-temps=&lt;arg&gt;        Do not delete intermediate files</span>
+<span class="go">  -no-canonical-prefixes   Do not canonicalize paths when building relative</span>
+<span class="go">                           prefixes to other gcc components</span>
+<span class="go">  -pipe                    Use pipes rather than intermediate files</span>
+<span class="go">  -time                    Time the execution of each subprocess</span>
+<span class="go">  -specs=&lt;file&gt;            Override built-in specs with the contents of &lt;file&gt;</span>
+<span class="go">  -std=&lt;standard&gt;          Assume that the input sources are for &lt;standard&gt;</span>
+<span class="go">  --sysroot=&lt;directory&gt;    Use &lt;directory&gt; as the root directory for headers</span>
+<span class="go">                           and libraries</span>
+<span class="go">  -B &lt;directory&gt;           Add &lt;directory&gt; to the compiler&#39;s search paths</span>
+<span class="go">  -v                       Display the programs invoked by the compiler</span>
+<span class="go">  -###                     Like -v but options quoted and commands not executed</span>
+<span class="go">  -E                       Preprocess only; do not compile, assemble or link</span>
+<span class="go">  -S                       Compile only; do not assemble or link</span>
+<span class="go">  -c                       Compile and assemble, but do not link</span>
+<span class="go">  -o &lt;file&gt;                Place the output into &lt;file&gt;</span>
+<span class="go">  -pie                     Create a position independent executable</span>
+<span class="go">  -shared                  Create a shared library</span>
+<span class="go">  -x &lt;language&gt;            Specify the language of the following input files</span>
+<span class="go">                           Permissible languages include: c c++ assembler none</span>
+<span class="go">                           &#39;none&#39; means revert to the default behavior of</span>
+<span class="go">                           guessing the language based on the file&#39;s extension</span>
+
+<span class="go">Options starting with -g, -f, -m, -O, -W, or --param are automatically</span>
+<span class="go"> passed on to the various sub-processes invoked by gcc.  In order to pass</span>
+<span class="go"> other options on to these processes the -W&lt;letter&gt; options must be used.</span>
+
+<span class="go">For bug reporting instructions, please see:</span>
+<span class="go">&lt;http://bugzilla.redhat.com/bugzilla&gt;.</span>
+</pre></div>
+</div>
+<p>First we can make the two objects:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -Wall -g -c main.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">main.c:8:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]</span>
+<span class="go"> void main () {</span>
+<span class="go">      ^</span>
+<span class="go">main.c: In function ‘main’:</span>
+<span class="go">main.c:12:2: warning: implicit declaration of function ‘sum’ [-Wimplicit-function-declaration]</span>
+<span class="go">  printf(&quot;The sum of the first n integers is %d\n&quot;, sum(n));</span>
+<span class="go">  ^</span>
+<span class="go">main.c:13:2: warning: implicit declaration of function ‘product’ [-Wimplicit-function-declaration]</span>
+<span class="go">  printf(&quot;The product of the first n integers is %d\n&quot;, product(n));</span>
+<span class="go">  ^</span>
+</pre></div>
+</div>
+<p>we need to declare soemthing about the <code class="docutils literal notranslate"><span class="pre">sum</span></code> and <code class="docutils literal notranslate"><span class="pre">product</span></code> functions here, so lets edit.</p>
+<p>We can get around this, by telling main about the functions by adding</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">product</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>to the <code class="docutils literal notranslate"><span class="pre">main.c</span></code></p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ nano main.c
+</pre></div>
+</div>
+</div>
+</div>
+<p>so we finally have:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Used to illustrate separate compilation.</span>
+<span class="cm">Created: Joe Zachary, October 22, 1992</span>
+<span class="cm">Modified:</span>
+<span class="cm">*/</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">product</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please enter a small positive integer: &quot;</span><span class="p">);</span>
+<span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;The sum of the first n integers is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;The product of the first n integers is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">product</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now we try again</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -Wall -g -c main.c
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">main.c:10:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]</span>
+<span class="go"> void main () {</span>
+<span class="go">      ^</span>
+</pre></div>
+</div>
+<p>we will leave only the one, which we will leave</p>
+<p>Now we preprocess, compile and assemble the helper code:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -Wall -g -c help.c
+</pre></div>
+</div>
+</div>
+</div>
+<p>and look at what was created</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">demohello  hello.c  hello.o  help.c  main.c</span>
+<span class="go">hello      hello.i  hello.s  help.o  main.o</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>One reason we split code is to make it readable, but another reason is what we just did.  We can compile each file separately, when your code is large and compiling takes a long time, splitting it will mean you only have to recompile the file(s) you have recently changed and relink, instead of recompiling everything.</p>
+</div>
+<p>and finally we link them.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ gcc -o demo main.o help.o -lm
+</pre></div>
+</div>
+</div>
+</div>
+<p>and then we can run</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ./demo
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Please enter a small positive integer: 5</span>
+<span class="go">The sum of the first n integers is 15</span>
+<span class="go">The product of the first n integers is 120</span>
+</pre></div>
+</div>
+</section>
+<section id="why-is-the-object-file-not-human-readable">
+<h2><span class="section-number">17.12. </span>Why is the object file not human readable?<a class="headerlink" href="#why-is-the-object-file-not-human-readable" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://learning.oreilly.com/library/view/beautiful-code/9780596510046/ch17.html#from_code_to_pointers">https://learning.oreilly.com/library/view/beautiful-code/9780596510046/ch17.html#from_code_to_pointers</a></p>
+<p>The object file displays as random weird characters because it is written to disk in a different format than our terminal reads it in.
+It is the specific instructions (from the assembly) and memory addresses written to a file in binary.
+Our terminal reads it one byte (8bits) at a time and interprets those as characters.</p>
+<p>Today, we will see how characters are represented as integers, then binary, and read and write files in binary of strings we know to see how it what happens and mimic something like how that object file happened by writing as binary and then reading it as characters.</p>
+</section>
+<section id="prelude-repl">
+<h2><span class="section-number">17.13. </span>Prelude: REPL<a class="headerlink" href="#prelude-repl" title="Permalink to this headline">#</a></h2>
+<p>One way we can use many interpreted languages, including Python is to treat the interpreter like an application and then interact with it in the terminal.</p>
+<p>This is called the Read, Execute, Print Loop or REPL.</p>
+<p>We can execute simple expressions like mathemeatical expressions:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ python3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Python 3.6.8 (default, Nov 14 2023, 16:29:52) </span>
+<span class="go">[GCC 4.8.5 20150623 (Red Hat 4.8.5-44)] on linux</span>
+<span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span><span class="o">+</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<p>and it will print the result</p>
+<p>We can create variables</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;sarah&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>but assignment does not return anything, so nothing is printed.</p>
+<p>We can see the value of a variable, by typing its name</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sarah&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>and then it prints the value</p>
+<section id="characters-to-integers">
+<h3><span class="section-number">17.13.1. </span>Characters to Integers<a class="headerlink" href="#characters-to-integers" title="Permalink to this headline">#</a></h3>
+<p>Python provides a builtin function <a class="reference external" href="https://docs.python.org/3.10/library/functions.html?highlight=ord#ord"><code class="docutils literal notranslate"><span class="pre">ord</span></code></a> to find the Unicode key for that character.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>66
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97
+</pre></div>
+</div>
+</div>
+</div>
+<p>This structure, the <code class="docutils literal notranslate"><span class="pre">[]</span></code> is called a list comprehension. It
+executes a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop in order to build a <code class="docutils literal notranslate"><span class="pre">list</span></code>.  In the REPL,
+it will then print out the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[115, 97, 114, 97, 104]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get the integer representation for each one.</p>
+<p>There was a question about anonymous functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums_string</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums_string</span><span class="p">(</span><span class="s1">&#39;sarah brown&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[115, 97, 114, 97, 104, 32, 98, 114, 111, 119, 110]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that it’s important to try multiple things if you aren’t sure the format you are getting back or to check the official documents, as Denno found by testing this with his name in lowercase.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s1">&#39;denno&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[100, 101, 110, 110, 111]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Coincidentally, the letters in his name all fall into the hundreds and only require 0 and 1 in decimal, so it looks like they could be 3 bit binary numbers.</p>
+<p>Python also allows us to change content into a byte array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bytearray</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bytearray(b&#39;\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>It does not display in the 0 and 1 like a string that we might expect, but it does change the type.</p>
+<p>We can then write this to a file, by getting the actual byes of each item.
+First, we will save our list in a variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_ints</span> <span class="o">=</span> <span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use the Python <code class="docutils literal notranslate"><span class="pre">with</span></code> keyword to open the file so that we do not to need to separately open and close the file.
+in the <code class="docutils literal notranslate"><span class="pre">open</span></code> function, the first parameter is the file name and the second is the mode.  In this case, we want to write (‘w’) in binary (‘b’). <code class="docutils literal notranslate"><span class="pre">f</span></code> is the filestream.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;name.txt&quot;</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="o">...</span>      <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="n">name_ints</span><span class="p">)))</span>
+<span class="o">...</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>it returns 5 in this case, because it wrote out 5 bytes, one per character.</p>
+<p>If we exit python we can look at the file and see how it is interpreted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>we confimr the file exists</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ ls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">demo       hello    hello.i  hello.s  help.o  main.o</span>
+<span class="go">demohello  hello.c  hello.o  help.c   main.c  name.txt</span>
+</pre></div>
+</div>
+<p>Remember we wrote, as binary, the numbers, <code class="docutils literal notranslate"><span class="pre">115,</span> <span class="pre">97,</span> <span class="pre">114,</span> <span class="pre">97,</span> <span class="pre">104</span></code> to the file</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ cat name.txt 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sarah</span>
+</pre></div>
+</div>
+<p>but it is interpretted as the string  by the terminal.</p>
+<p>Back in Python, we can read the file as binary</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ python
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Python 2.7.5 (default, Nov 14 2023, 16:14:06) </span>
+<span class="go">[GCC 4.8.5 20150623 (Red Hat 4.8.5-44)] on linux2</span>
+<span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
+<span class="go">&gt;&gt;&gt; bytearray(2)</span>
+<span class="go">bytearray(b&#39;\x00\x00&#39;)</span>
+<span class="go">&gt;&gt;&gt; a = bytearray(2)</span>
+<span class="go">&gt;&gt;&gt; type(a)</span>
+<span class="go">&lt;type &#39;bytearray&#39;&gt;</span>
+<span class="go">&gt;&gt;&gt; with open(&quot;name.txt&quot;,&#39;rb&#39;) as f:</span>
+<span class="go">...     print(f.read()) </span>
+<span class="go">... </span>
+<span class="go">sarah</span>
+<span class="go">&gt;&gt;&gt; with open(&quot;name.txt&quot;,&#39;r&#39;) as f:</span>
+<span class="go">...     print(f.read()) </span>
+<span class="go">... </span>
+<span class="go">sarah</span>
+<span class="go">&gt;&gt;&gt; with open(&quot;name.txt&quot;,&#39;rb&#39;) as f:</span>
+<span class="go">...     content = f.read()</span>
+<span class="go">... </span>
+<span class="go">&gt;&gt;&gt; type(content)</span>
+<span class="go">&lt;type &#39;str&#39;&gt;</span>
+<span class="go">&gt;&gt;&gt; exit()</span>
+</pre></div>
+</div>
+<p>we noticed an odd behavior in python2 and switched to 3.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ python3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Python 3.6.8 (default, Nov 14 2023, 16:29:52) </span>
+<span class="go">[GCC 4.8.5 20150623 (Red Hat 4.8.5-44)] on linux</span>
+<span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
+<span class="go">&gt;&gt;&gt; with open(&quot;name.txt&quot;,&#39;rb&#39;) as f:</span>
+<span class="go">...      content = f.read()</span>
+<span class="go">... </span>
+<span class="go">&gt;&gt;&gt; type(content)</span>
+<span class="go">&lt;class &#39;bytes&#39;&gt;</span>
+<span class="go">&gt;&gt;&gt; content</span>
+<span class="go">b&#39;sarah&#39;</span>
+<span class="go">&gt;&gt;&gt; exit()</span>
+</pre></div>
+</div>
+<p>This is binary, but the python interpreter also <em>prints</em> it as a string, the <code class="docutils literal notranslate"><span class="pre">b</span></code> indicates the object is actually binary type.</p>
+<p>when we log out:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@n005 compilec]$ logout
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">salloc: Relinquishing job allocation 27371</span>
+</pre></div>
+</div>
+<p>we initilaly just leave the interactive session, going from <code class="docutils literal notranslate"><span class="pre">n005</span></code> to the login node</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[brownsarahm@seawulf ~]$ logout
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Connection to seawulf.uri.edu closed.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="prepare-for-next-class">
+<h2><span class="section-number">17.14. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install <a class="reference external" href="https://www.nand2tetris.org/software">nand2tetris</a></p></li>
+</ol>
+</section>
+<section id="badges">
+<h2><span class="section-number">17.15. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
+<ol class="arabic simple" start="3">
+<li><p>Create some variations of the <code class="docutils literal notranslate"><span class="pre">hello.c</span></code> we made in class. Make <span class="target" id="index-0"></span>hello2.c print twice with 2 print commands. Make <span class="target" id="index-1"></span>hello5.c print 5 times with a for loop and <span class="target" id="index-2"></span>hello7.c print 7 times with a for loop. Build them all on the command line and make sure they run correctly.</p></li>
+<li><p>Write a bash script, <span class="target" id="index-3"></span>assembly.sh to compile each program to assembly and print the number of lines in each file.</p></li>
+<li><p>Put the output of your script in <span class="target" id="index-4"></span>hello_assembly_compare.md. Add to the file some notes on how they are similar or different based on your own reading of them.</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>On Seawulf, modfiy <span class="target" id="index-5"></span>main.c from class to accept the integer as a command line argument instead of via input while running the program. <a class="reference external" href="http://crasseux.com/books/ctutorial/argc-and-argv.html">See this tutorial for an example</a>.</p></li>
+<li><p>Write a bash script <span class="target" id="index-6"></span>demo_test.sh that runs your compiled program for each integer from 10 to 30 (syntax for a range is <code class="docutils literal notranslate"><span class="pre">{start..end}</span></code> so this would be <code class="docutils literal notranslate"><span class="pre">{10..30}</span></code>)</p></li>
+<li><p>Write an sbatch script, <span class="target" id="index-7"></span>batchrun.sh to run your script  on a compute node and save the output to a file. The sbatch script should compile and link the program and then call the script. <a class="reference external" href="https://web.uri.edu/hpc-research-computing/using-seawulf/#sbatch">see the options</a></p></li>
+<li><p>use <a class="reference external" href="https://www2.stat.duke.edu/comp/security/scp_man.html">scp</a> to download your modified main, script files, and output to your local computer and include them in your kwl repo.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="experience-report-evidence">
+<h2><span class="section-number">17.16. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<p>export your terminal and append to the experience report.</p>
+</section>
+<section id="questions-after-todays-class">
+<h2><span class="section-number">17.17. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<section id="would-these-all-work-the-same-within-the-kwl-or-another-directory">
+<h3><span class="section-number">17.17.1. </span>Would these all work the same within the kwl or another directory?<a class="headerlink" href="#would-these-all-work-the-same-within-the-kwl-or-another-directory" title="Permalink to this headline">#</a></h3>
+<p>these are path independent, there only needs to be the right files.</p>
+</section>
+<section id="is-there-any-current-day-scenario-where-knowing-how-to-write-code-in-assembly-would-be-advantageous">
+<h3><span class="section-number">17.17.2. </span>is there any current day scenario where knowing how to write code in assembly would be advantageous?<a class="headerlink" href="#is-there-any-current-day-scenario-where-knowing-how-to-write-code-in-assembly-would-be-advantageous" title="Permalink to this headline">#</a></h3>
+<p>If you work at really low level things, yes! Also some number of people need to debug compilers, and there could be new innovations in hardware that mean we need new assembly language</p>
+</section>
+<section id="how-does-one-process-know-that-the-one-before-it-is-done">
+<h3><span class="section-number">17.17.3. </span>How does one process know that the one before it is done?<a class="headerlink" href="#how-does-one-process-know-that-the-one-before-it-is-done" title="Permalink to this headline">#</a></h3>
+<p>What you input, is how it knows what to do, the options tell it where to stop.</p>
+</section>
+<section id="if-my-time-runs-out-in-my-node-what-happens-to-the-files-are-they-deleted-and-lost">
+<h3><span class="section-number">17.17.4. </span>If my time runs out in my node, what happens to the files, are they deleted and lost?<a class="headerlink" href="#if-my-time-runs-out-in-my-node-what-happens-to-the-files-are-they-deleted-and-lost" title="Permalink to this headline">#</a></h3>
+<p>nothing happens to the file, but the code that was running is stopped</p>
+</section>
+<section id="what-way-is-the-most-efficient-for-compiling-code">
+<h3><span class="section-number">17.17.5. </span>What way is the most efficient for compiling code?<a class="headerlink" href="#what-way-is-the-most-efficient-for-compiling-code" title="Permalink to this headline">#</a></h3>
+<p>Comparing different compilers is a good explore badge.</p>
+</section>
+<section id="is-the-process-for-python-similar-to-the-one-in-c">
+<h3><span class="section-number">17.17.6. </span>Is the process for Python similar to the one in C?<a class="headerlink" href="#is-the-process-for-python-similar-to-the-one-in-c" title="Permalink to this headline">#</a></h3>
+<p>No, python is <em>interpreted</em> not compiled.  However the Python interpretter is written in C. That is compiled to an executable, that we run.  When we run that program it parses and executes our code, then exits either when we tell it to or at the end of a provided script.</p>
+</section>
+<section id="what-did-the-extensions-mean">
+<h3><span class="section-number">17.17.7. </span>What did the extensions mean?<a class="headerlink" href="#what-did-the-extensions-mean" title="Permalink to this headline">#</a></h3>
+<p>The extensions are to indicate which file is which, they  are a part of the program.</p>
+</section>
+<section id="what-languages-can-we-use-through-ssh">
+<h3><span class="section-number">17.17.8. </span>What languages can we use through ssh?<a class="headerlink" href="#what-languages-can-we-use-through-ssh" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">gcc</span></code> is only for <code class="docutils literal notranslate"><span class="pre">C</span></code>, but we can use any langague through ssh.  That does not limit what you can do.</p>
+<p>seawulf has both <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">gcc</span></code> available by default so we can use both of those, but it also has <code class="docutils literal notranslate"><span class="pre">R</span></code></p>
+</section>
+<section id="how-does-the-compiler-link-two-object-files-together-if-they-are-so-unreadable">
+<h3><span class="section-number">17.17.9. </span>How does the compiler link two object files together if they are so unreadable?<a class="headerlink" href="#how-does-the-compiler-link-two-object-files-together-if-they-are-so-unreadable" title="Permalink to this headline">#</a></h3>
+<p>It knows how to parse the binary, they are just not in characters for us.</p>
+</section>
+<section id="what-is-seawulf-used-for">
+<h3><span class="section-number">17.17.10. </span>what is seawulf used for?<a class="headerlink" href="#what-is-seawulf-used-for" title="Permalink to this headline">#</a></h3>
+<p>Learning HPC systems.  To see more generally about what servers are for, check the last class intro.</p>
+</section>
+<section id="is-gcc-only-used-for-c-or-can-it-also-be-used-for-c">
+<h3><span class="section-number">17.17.11. </span>Is <code class="docutils literal notranslate"><span class="pre">gcc</span></code> only used for C or can it also be used for C++?<a class="headerlink" href="#is-gcc-only-used-for-c-or-can-it-also-be-used-for-c" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://gcc.gnu.org/">gcc</a> is the Gnu Compiler Collection and, ” C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,…)”</p>
+</section>
+<section id="if-we-write-a-program-with-multiple-function-then-how-does-the-computer-know-to-jump-between-different-functions-since-a-program-runs-through-the-program-line-by-line">
+<h3><span class="section-number">17.17.12. </span>If we write a program with multiple function, then how does the computer “know” to jump between different functions, since a program runs through the program line by line?<a class="headerlink" href="#if-we-write-a-program-with-multiple-function-then-how-does-the-computer-know-to-jump-between-different-functions-since-a-program-runs-through-the-program-line-by-line" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">jump</span></code> is on operation that can be in assembly</p>
+</section>
+<section id="is-there-a-standard-compiler-that-is-recognized-universally">
+<h3><span class="section-number">17.17.13. </span>Is there a “standard” compiler that is recognized universally?<a class="headerlink" href="#is-there-a-standard-compiler-that-is-recognized-universally" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">gcc</span></code> is about the most universal, but the compiler has to know what</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-03-26.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>How can I work on a remote server?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../activities/kwl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">KWL Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-buiding-code">17.1. What is <em>buiding</em> code?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-overview">17.2. An overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ssh-keys">17.3. Using SSH Keys</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-an-interactive-session">17.4. Using an interactive session</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-program">17.5. A simple program</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-with-gcc">17.6. Preprocessing with gcc</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling">17.7. Compiling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assembling">17.8. Assembling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linking">17.9. Linking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">17.10. Putting it all together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-multiple-files">17.11. Working with multiple files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-object-file-not-human-readable">17.12. Why is the object file not human readable?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prelude-repl">17.13. Prelude: REPL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characters-to-integers">17.13.1. Characters to Integers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">17.14. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">17.15. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">17.16. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">17.17. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#would-these-all-work-the-same-within-the-kwl-or-another-directory">17.17.1. Would these all work the same within the kwl or another directory?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-any-current-day-scenario-where-knowing-how-to-write-code-in-assembly-would-be-advantageous">17.17.2. is there any current day scenario where knowing how to write code in assembly would be advantageous?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-one-process-know-that-the-one-before-it-is-done">17.17.3. How does one process know that the one before it is done?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-my-time-runs-out-in-my-node-what-happens-to-the-files-are-they-deleted-and-lost">17.17.4. If my time runs out in my node, what happens to the files, are they deleted and lost?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-way-is-the-most-efficient-for-compiling-code">17.17.5. What way is the most efficient for compiling code?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-process-for-python-similar-to-the-one-in-c">17.17.6. Is the process for Python similar to the one in C?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-did-the-extensions-mean">17.17.7. What did the extensions mean?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-languages-can-we-use-through-ssh">17.17.8. What languages can we use through ssh?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-compiler-link-two-object-files-together-if-they-are-so-unreadable">17.17.9. How does the compiler link two object files together if they are so unreadable?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-seawulf-used-for">17.17.10. what is seawulf used for?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-gcc-only-used-for-c-or-can-it-also-be-used-for-c">17.17.11. Is <code class="docutils literal notranslate"><span class="pre">gcc</span></code> only used for C or can it also be used for C++?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-write-a-program-with-multiple-function-then-how-does-the-computer-know-to-jump-between-different-functions-since-a-program-runs-through-the-program-line-by-line">17.17.12. If we write a program with multiple function, then how does the computer “know” to jump between different functions, since a program runs through the program line by line?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-a-standard-compiler-that-is-recognized-universally">17.17.13. Is there a “standard” compiler that is recognized universally?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
