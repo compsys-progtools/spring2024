@@ -1,0 +1,994 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>19. How does a computer represent non integer quantities? &#8212; Computer Systems and Programming Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-04-04';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="prev" title="18. What happens when we run code?" href="2024-04-02.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Site
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">Computer Systems and Programming Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badges.html">Badge Deadlines and Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/badge_calc.html">Detailed Grade Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Office Hours &amp; Communication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2024-01-23.html">1. Welcome, Introduction, and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-25.html">2. How does this course work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-01-30.html">3. Working offline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-01.html">4. How do branches work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-06.html">5. When do git and bash give me an advantage?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-08.html">6. What <em>is</em> a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-15.html">7. How do programmers communicate about code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-20.html">8. How do I choose a Programming Language for a project?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-22.html">9. Why are these tools like this?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-27.html">10. What <em>is</em> git?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-02-29.html">11. How does git make a commit?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-05.html">12. Why did we learn the plubming commands?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-07.html">13. What is a commit number?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-19.html">14. How can I automate things with bash?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-21.html">15. What is an IDE?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-26.html">16. How can I work on a remote server?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-03-28.html">17. What happens when I build code in C?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-04-02.html">18. What happens when we run code?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. How does a computer represent non integer quantities?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../activities/kwl.html">KWL Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/team.html">Team Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/tools.html">Other Course Software/tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/github.html">GitHub Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/languages.html">Language/Shell Specific References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/more_info_on_cpus.html">More info on cpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/windows.html">Windows Help &amp; Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2022/resources/testimonials.html">Advice from Spring 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2022/resources/testimonials.html">Advice from Fall 2022 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/spring2023/resources/testimonials.html">Advice from Spring 2023 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://introcompsys.github.io/fall2023/resources/testimonials.html">Advice from Fall 2023 Students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/edit/main/notes/2024-04-04.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/compsys-progtools/spring2024/issues/new?title=Issue%20on%20page%20%2Fnotes/2024-04-04.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notes/2024-04-04.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How does a computer represent non integer quantities?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prelude">19.1. Prelude</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-object-instruction">19.1.1. a toy object instruction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-numbers">19.1.2. negative numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-a-fixed-point-for-fractions">19.2. What about a fixed point for fractions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-notation">19.3. Floating Point Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers-are-not-all-exact">19.4. Floating point numbers are not all  exact</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-ieee-standard">19.5. Floating point IEEE standard</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-read-a-number-like-this">19.5.1. How do we read a number like this?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-e-1023-for-the-exponent">19.5.2. Why use e-1023 for the exponent?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-get-numbers-into-this-form">19.5.3. How do we get numbers into this form?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">19.6. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">19.7. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">19.8. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">19.9. Questions After Today’s Class</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="how-does-a-computer-represent-non-integer-quantities">
+<h1><span class="section-number">19. </span>How does a computer represent non integer quantities?<a class="headerlink" href="#how-does-a-computer-represent-non-integer-quantities" title="Permalink to this headline">#</a></h1>
+<section id="prelude">
+<h2><span class="section-number">19.1. </span>Prelude<a class="headerlink" href="#prelude" title="Permalink to this headline">#</a></h2>
+<p>What do we mean by representation?</p>
+<p>Last class we talked about how we could express file permissions in two ways:</p>
+<ul class="simple">
+<li><p>rwxrwxrw-</p></li>
+<li><p>776</p></li>
+</ul>
+<p>In this, we interpret each bit to represent two different things:</p>
+<ul class="simple">
+<li><p>read, write, execute permissions</p></li>
+<li><p>4,2,1 place values</p></li>
+</ul>
+<p>Sometimes, we <em>mix</em> representations within a single bit string:</p>
+<ul class="simple">
+<li><p>object instructions could use the first few bits to represent the operation and the rest to represent a value (so we can encode an instruction in a single register)</p></li>
+<li><p>negative numbers</p></li>
+</ul>
+<section id="a-toy-object-instruction">
+<h3><span class="section-number">19.1.1. </span>a toy object instruction<a class="headerlink" href="#a-toy-object-instruction" title="Permalink to this headline">#</a></h3>
+<p>let say we have am CPU that can do 4 bit operations and has 4 control bits (that determine what operation it will do across the ALU + controls for A,D registers &amp; PC)</p>
+<p>then we might have an 8 bit register ROM.</p>
+<p>the operation <code class="docutils literal notranslate"><span class="pre">&#64;3</span></code> might represented as <code class="docutils literal notranslate"><span class="pre">01000011</span></code> if <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> is indicated by <code class="docutils literal notranslate"><span class="pre">0100</span></code> on the controler and then the last 4 bits <code class="docutils literal notranslate"><span class="pre">0011</span></code> represent the value 3</p>
+</section>
+<section id="negative-numbers">
+<h3><span class="section-number">19.1.2. </span>negative numbers<a class="headerlink" href="#negative-numbers" title="Permalink to this headline">#</a></h3>
+<p>we use one bit to represent the sign.  and then e have two choices for the rest of the bits:</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>representation</p></td>
+<td><p>how to negate</p></td>
+<td><p>how to read</p></td>
+</tr>
+<tr class="row-even"><td><p>ones complement</p></td>
+<td><p>flip all the bits</p></td>
+<td><p>note the sign, flip all the bits back</p></td>
+</tr>
+<tr class="row-odd"><td><p>two’s complement</p></td>
+<td><p>flip the bits, add 1</p></td>
+<td><p>note the sign, flip all the bits, add one</p></td>
+</tr>
+</tbody>
+</table>
+<p>Try it out on <a class="reference external" href="https://integer.exposed/">integer exposed</a></p>
+<p>For example, set it to <a class="reference external" href="https://integer.exposed/#0x03">3</a> and then use the <code class="docutils literal notranslate"><span class="pre">~</span></code> button to flip the bits and add one by flipping the 0 in the ones place to a 1 (add one), that ends up at <a class="reference external" href="https://integer.exposed/#0xfd">-3</a></p>
+<p>so in 8 bit signed integer 3 is 00000011 and -3 is 11111101.</p>
+<p>Try a few other cases in <a class="reference external" href="https://integer.exposed/">integer exposed</a></p>
+</section>
+</section>
+<section id="what-about-a-fixed-point-for-fractions">
+<h2><span class="section-number">19.2. </span>What about a fixed point for fractions?<a class="headerlink" href="#what-about-a-fixed-point-for-fractions" title="Permalink to this headline">#</a></h2>
+<p>we could represent numbers with a fixed point, is to use base two fractions: <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>, <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span>, <span class="math notranslate nohighlight">\(\frac{1}{8}\)</span> etc.</p>
+<p>In this fixed point we would have, for example:
+<code class="docutils literal notranslate"><span class="pre">0101.1010</span></code> would be $<span class="math notranslate nohighlight">\(0*2^3 + 1*2^2 + 0*2^2 + 1*2^0 + 1*\frac{1}{2^{-1}} + 0*\frac{1}{2^{-2}} + 1*\frac{1}{2^{-}} + 0*\frac{1}{2^{-4}} = 4 + 1 + \frac{1}{2} + \frac{1}{8} = 5 + \frac{5}{8}= 5.625\)</span>$</p>
+</section>
+<section id="floating-point-notation">
+<h2><span class="section-number">19.3. </span>Floating Point Notation<a class="headerlink" href="#floating-point-notation" title="Permalink to this headline">#</a></h2>
+<p>We can write  numbers in many different forms. We have written integers through many different bases so far.</p>
+<p>For example in scientific contexts, we often write numbers (in base 10) like:</p>
+<div class="math notranslate nohighlight">
+\[
+3.45 \times 10^2 = 345
+\]</div>
+<p>We can use a similiar form to represent numbers in binary. Using base 2 instead of base 10.</p>
+</section>
+<section id="floating-point-numbers-are-not-all-exact">
+<h2><span class="section-number">19.4. </span>Floating point numbers are not all  exact<a class="headerlink" href="#floating-point-numbers-are-not-all-exact" title="Permalink to this headline">#</a></h2>
+<p>Let’s look at an example, we add <code class="docutils literal notranslate"><span class="pre">.1</span></code> together 3 times, and we get the expected result, approximately.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">.1</span><span class="o">+</span><span class="mf">.1</span><span class="o">+</span><span class="mf">.1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.30000000000000004
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, if we check what it’s equal to, it does not equal .3</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">.1</span><span class="o">+</span><span class="mf">.1</span><span class="o">+</span><span class="mf">.1</span> <span class="o">==</span> <span class="mf">.3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is because the floating point representation is an <em>approximation</em> and there are multiple full numbers that are close to any given number that cannot be expressed exactly.
+However, the display truncates since usually we want only a few significant digits.<br />
+Even rounding does not make it work.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This matters because we cannot rely on equality tests for floats</p>
+</div>
+<p>Instead, we use subtraction and a tolerance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">.1</span><span class="o">+</span><span class="mf">.1</span><span class="o">+</span><span class="mf">.1</span> <span class="o">-</span> <span class="mf">.3</span><span class="p">)</span><span class="o">&lt;</span> <span class="mf">.0001</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<!-- #region -->
+</section>
+<section id="floating-point-ieee-standard">
+<h2><span class="section-number">19.5. </span>Floating point IEEE standard<a class="headerlink" href="#floating-point-ieee-standard" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://ieeexplore.ieee.org/document/8766229">IEEE Floating Point </a>
+is what basically everyone uses, but it is technically a choice hardware manufacturers can  make.</p>
+<ul class="simple">
+<li><p>Initially in 1985</p></li>
+<li><p>Reviesd in 2008 after 7 year process that expanded</p></li>
+<li><p>revised in 2019 after 4 year process that mostly added clarifications</p></li>
+<li><p>Next revision is projected to 2028.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IBM mainframes use their own representiton based on Hex*</p>
+</div>
+<p>this is a double precision float or binary64 inthe current standard.</p>
+<p>it was called double in the original, offically, so it is commonly called that still, even though it is no longer the formally correct name.</p>
+<p>In this case we will 1 bit for sign, 11 for exponent and 52 for the fraction part</p>
+<p><img alt="float bit image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/IEEE_754_Double_Floating_Point_Format.svg/2560px-IEEE_754_Double_Floating_Point_Format.svg.png" /></p>
+<section id="how-do-we-read-a-number-like-this">
+<h3><span class="section-number">19.5.1. </span>How do we read a number like this?<a class="headerlink" href="#how-do-we-read-a-number-like-this" title="Permalink to this headline">#</a></h3>
+<p>if the sign bit is <span class="math notranslate nohighlight">\(s\)</span> and the number represented by the exponent bits is <span class="math notranslate nohighlight">\(e\)</span> and the 52 bits are number from right most is 0 and the last one is 52.</p>
+<div class="math notranslate nohighlight">
+\[
+(-1)s + \left(1 + \sum_{i=1}^{52} b_{52-i} 2^{-i}\right) \times 2^{e-1023}
+\]</div>
+<p>Note that this is <span class="math notranslate nohighlight">\(2^{-1}\)</span> so we are working with <em>fractions</em> instead of integers in the sum.</p>
+<p>So if we had:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="mi">01111111111</span> <span class="mi">0000000000000000000000000000000000000000000000000000</span>
+</pre></div>
+</div>
+<p>it would represent:</p>
+<div class="math notranslate nohighlight">
+\[
+(-1)*0 + \left(1 + 0 \cdot 2^{-0} + 0 \cdot 2^{-1} + \ldots  + 0 \cdot 2^{-51} + 0 \cdot 2^{-52} \right) \times 2^{1023-1023} = 0 + (1 + 0) \times 2^0  = 1 \times 1 =  1.0
+\]</div>
+<p><a class="reference external" href="https://float.exposed/0x3ff0000000000000">1.0 on float.exposed</a></p>
+<p>So, for</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="mi">01111111111</span> <span class="mi">0100000000000000000000000000000000000000000000000000</span>
+</pre></div>
+</div>
+<p>we get
+$<span class="math notranslate nohighlight">\( (-1)*0 + \left(1 + 0\cdot 2^{-1} + 1\cdot 2^{-2} + 0\cdot 2^{-3}  + \ldots  + 0\cdot 2^{-51} + 0\cdot 2^{-52} \right) \times 2^{1023-1023} = 0 + (1 + \frac{1}{4}) \times 2^0  = 1.25 \times 1 =  1.25 \)</span>$</p>
+<p><a class="reference external" href="https://float.exposed/0x3ff4000000000000">1.25 on float.exposed</a></p>
+</section>
+<section id="why-use-e-1023-for-the-exponent">
+<h3><span class="section-number">19.5.2. </span>Why use e-1023 for the exponent?<a class="headerlink" href="#why-use-e-1023-for-the-exponent" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">11</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2048
+</pre></div>
+</div>
+</div>
+</div>
+<p>so 1023 is half -1, this means that we split the possible range of numbers that we can represent in the exponent to positive and negative, meaning the whole expression <span class="math notranslate nohighlight">\(2^{e-1023}\)</span> ranges from large(<span class="math notranslate nohighlight">\(2^{1025}\)</span>) to small(<span class="math notranslate nohighlight">\(2^{-1023}\)</span>)</p>
+</section>
+<section id="how-do-we-get-numbers-into-this-form">
+<h3><span class="section-number">19.5.3. </span>How do we get numbers into this form?<a class="headerlink" href="#how-do-we-get-numbers-into-this-form" title="Permalink to this headline">#</a></h3>
+<p>Now, let’s return to our example of .1.</p>
+<p>First we take the sign of the number for the sign bit, but then to get the exponent and fraction, we have more work to do.</p>
+<p>Let’s take the equation we had from the standard:</p>
+<div class="math notranslate nohighlight">
+\[  \left(1 + \sum_{i=1}^{52} b_{52-i} 2^{-i}\right) \times 2^{e-1023}\]</div>
+<p>If we think about the fraction and how we add fractions, by reaching a common denominator. Since they’re all powers of two, we can use the last one.</p>
+<div class="math notranslate nohighlight">
+\[  \left(1 + \sum_{i=1}^{52} b_{52-i} 2^{-i}\right) \times 2^{e-1023}\]</div>
+<p>and we can expand the sum to a different notation for visual clarity</p>
+<div class="math notranslate nohighlight">
+\[ \left( 1 + \frac{b_{52}}{2^{1}} + \frac{b_{51}}{2^{2}} + \cdots + \frac{b_{1}}{2^{51}} + \frac{b_{0}}{2^{52}} \right) \times 2^{e-1023} \]</div>
+<p>And apply a common denominator:</p>
+<div class="math notranslate nohighlight">
+\[ \left(\frac{2^{52}}{2^{52}} + \frac{2^{51} b_{52}}{2^{52}} + \frac{2^{50} b_{51}}{2^{52}} + \cdots + \frac{2^{1} b_{1}}{2^{52}} + \frac{2^0 b_{0}}{2^{52}}  \right) \times 2^{e-{1023}} \]</div>
+<p>So then this becomes a binary number with 53 bits (the 52 + 1) and a denominator of <span class="math notranslate nohighlight">\(2^{52}\)</span>, let’s call that number <span class="math notranslate nohighlight">\(J\)</span> so we have:.</p>
+<div class="math notranslate nohighlight">
+\[ \frac{J}{2^{52}}  \times 2^{e-{1023}} \]</div>
+<p>we can then combine the powers of 2.</p>
+<div class="math notranslate nohighlight">
+\[ \frac{J}{2^{52-e+1023}} =  \frac{J}{2^{N}}  \]</div>
+<p>So in order to return to our <code class="docutils literal notranslate"><span class="pre">.1</span></code> that we want to represent, we can represent it as a fraction and then approximated it in the form above.</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{10} \approx \frac{ J }{2^N}\]</div>
+<p><strong><span class="math notranslate nohighlight">\(\approx\)</span>   means approximately equal to</strong></p>
+<p>after some manipulation:</p>
+<div class="math notranslate nohighlight">
+\[J ~= 2^N / 10\]</div>
+<p>Since we want to use exactly 53 bits to represent <span class="math notranslate nohighlight">\(J\)</span>, we want <span class="math notranslate nohighlight">\(\frac{2^N }{10}\)</span> to be greater than or equal to <span class="math notranslate nohighlight">\(2^{52}\)</span> and less than <span class="math notranslate nohighlight">\(2^{53}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ 2^{52} &lt;= \frac{2^N }{10} &lt; 2^{53} \]</div>
+<p>This is 2 equations and 2 unknowns, so we can solve now.</p>
+<p>Since <span class="math notranslate nohighlight">\(8&lt;10&lt;16\)</span> we can say <span class="math notranslate nohighlight">\(2^3&lt;10&lt;2^4\)</span></p>
+<p>and  we can also say that</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1 }{2^4} &lt; \frac{1 }{10} &lt; \frac{1 }{2^3} \]</div>
+<p>(larger denominators is smaller numbers if the numerators are the same)</p>
+<p>We can put any numerator that is the same across all :
+$<span class="math notranslate nohighlight">\( \frac{2^N }{2^4} &lt; \frac{2^N }{10} &lt; \frac{2^N }{2^3} \)</span>$</p>
+<p>and simplify the outer ones to only have a single exponent</p>
+<div class="math notranslate nohighlight">
+\[ 2^{N-4} &lt;  \frac{2^N }{10} &lt; 2^{N-3} \]</div>
+<p>so if we want:</p>
+<div class="math notranslate nohighlight">
+\[ 2^{52} &lt;= \frac{2^N }{10} &lt; 2^{53} \]</div>
+<p>then best <span class="math notranslate nohighlight">\(N\)</span> is 56,.</p>
+<p>We can confirm this in a calculator</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">52</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">46</span><span class="o">/</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">**</span><span class="mi">53</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">52</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">56</span><span class="o">/</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">**</span><span class="mi">53</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can get the number we will use for <span class="math notranslate nohighlight">\(J\)</span>. We want to get as close to .1 with our fraction as possible, so
+we get the quotient and remainder, the quotient will be the number we use, but we use the remainder to see if we round up or not</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">56</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7205759403792793
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we check the remainder to decide if we should round up by 1 or not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\( 6 &gt; 5 = \frac{10}{2}\)</span>  so we round up</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">J</span> <span class="o">=</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We need <span class="math notranslate nohighlight">\(52-e+1023 = 56\)</span> so</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span>  <span class="o">=</span> <span class="mi">52</span><span class="o">-</span><span class="mi">56</span><span class="o">+</span><span class="mi">1023</span>
+<span class="n">e</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1019
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now lets’ confirm what we found with the actual representation:</p>
+<p>Python doesn’t provide a binary reprsentation of floats, but it does provide a hex representation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="mf">.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0x1.999999999999ap-4&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bin</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0b11001100110011001100110011001100110011001100110011010&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>THat matches this for the part before the p.</p>
+<p>after the p is the exponent of <span class="math notranslate nohighlight">\(-4 = 1019-1023\)</span>. Which matches the approximation we found.</p>
+<p>We can also test by computing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">56</span><span class="p">)</span> <span class="o">==</span><span class="mf">.1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="prepare-for-next-class">
+<h2><span class="section-number">19.6. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Create <span class="target" id="index-0"></span>operators.md and make some notes about what you know about operators.  What kinds of operators are you familiar with? Which have you seen in programming? math?</p></li>
+<li><p>Refresh your knowledge of logical operations/ logic gates: and, or, xor, not.  For an example reference <a class="reference external" href="https://lodev.org/logicemu/#id=logic_gates">see the logicemu emulator we will use in class</a></p></li>
+</ol>
+</section>
+<section id="badges">
+<h2><span class="section-number">19.7. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Review</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Write a C program to compare values as doubles and as float (single precision/32bit) to see that this comparison issue is related to the IEEE standard and is not language specific.  Make notes and comparison around its behavior and include the program in a code cell in  <span class="target" id="index-1"></span>cdouble.md</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Practice</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Write a C program to compare values as doubles and as float (single precision/32bit) to see that this comparison issue is related to the IEEE standard and is not language specific.  Make notes and comparison around its behavior and include the program in a code cell in  <span class="target" id="index-2"></span>cdouble.md</p></li>
+<li><p>In <span class="target" id="index-3"></span>floatexpt.md design an experiment using the <code class="docutils literal notranslate"><span class="pre">fractions.Fraction</span></code> class in Python that shows helps illustrate why <code class="docutils literal notranslate"><span class="pre">.1*3</span> <span class="pre">==</span> <span class="pre">.3</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">False</span></code> but <code class="docutils literal notranslate"><span class="pre">.1*4</span> <span class="pre">==.4</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>. Your file must include both code and interpretation of the results.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="experience-report-evidence">
+<h2><span class="section-number">19.8. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="questions-after-todays-class">
+<h2><span class="section-number">19.9. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2024-04-02.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>What happens when we run code?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../activities/kwl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">KWL Chart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prelude">19.1. Prelude</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-object-instruction">19.1.1. a toy object instruction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-numbers">19.1.2. negative numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-a-fixed-point-for-fractions">19.2. What about a fixed point for fractions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-notation">19.3. Floating Point Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers-are-not-all-exact">19.4. Floating point numbers are not all  exact</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-ieee-standard">19.5. Floating point IEEE standard</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-read-a-number-like-this">19.5.1. How do we read a number like this?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-e-1023-for-the-exponent">19.5.2. Why use e-1023 for the exponent?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-get-numbers-into-this-form">19.5.3. How do we get numbers into this form?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">19.6. Prepare for Next Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">19.7. Badges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">19.8. Experience Report Evidence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">19.9. Questions After Today’s Class</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
