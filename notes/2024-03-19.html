@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>14. How can I automate things with bash? &#8212; Computer Systems and Programming Tools</title>
   
@@ -19,48 +18,46 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css?v=57efbcaa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-03-19';</script>
@@ -69,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="15. What is an IDE?" href="2024-03-21.html" />
     <link rel="prev" title="13. What is a commit number?" href="2024-03-07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -77,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -143,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Computer Systems and Programming Tools - Home"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Computer Systems and Programming Tools - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
 </ul>
@@ -395,20 +416,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -465,10 +488,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-can-i-automate-things-with-bash">
-<h1><span class="section-number">14. </span>How can I automate things with bash?<a class="headerlink" href="#how-can-i-automate-things-with-bash" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">14. </span>How can I automate things with bash?<a class="headerlink" href="#how-can-i-automate-things-with-bash" title="Link to this heading">#</a></h1>
 <p>So far we have used bash commands to navigate our file system as a way to learn about the file system itself. To do this we used commands like:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">mv</span></code></p></li>
@@ -496,7 +519,7 @@ document.write(`
     end
 
         </div><section id="inspecting-an-example-script">
-<h2><span class="section-number">14.1. </span>Inspecting an example script<a class="headerlink" href="#inspecting-an-example-script" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.1. </span>Inspecting an example script<a class="headerlink" href="#inspecting-an-example-script" title="Link to this heading">#</a></h2>
 <p>Today we will start by inspecting the github action file, first we’ll navigate to the folder.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -566,7 +589,7 @@ document.write(`
 </div>
 </section>
 <section id="variables-in-bash">
-<h2><span class="section-number">14.2. </span>Variables in Bash<a class="headerlink" href="#variables-in-bash" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.2. </span>Variables in Bash<a class="headerlink" href="#variables-in-bash" title="Link to this heading">#</a></h2>
 <p>We can create variables</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -579,7 +602,7 @@ document.write(`
 <p>and use them with a <code class="docutils literal notranslate"><span class="pre">$</span></code> before the variable name.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>echo $MYVAR
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="err">$</span><span class="n">MYVAR</span>
 </pre></div>
 </div>
 </div>
@@ -603,8 +626,8 @@ document.write(`
 <p>Removing the space works again:</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>NAME=&quot;Sarah&quot;
-echo $NAME
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NAME</span><span class="o">=</span><span class="s2">&quot;Sarah&quot;</span>
+<span class="n">echo</span> <span class="err">$</span><span class="n">NAME</span>
 </pre></div>
 </div>
 </div>
@@ -614,7 +637,7 @@ echo $NAME
 </div>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>echo $NAME
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="err">$</span><span class="n">NAME</span>
 </pre></div>
 </div>
 </div>
@@ -639,12 +662,12 @@ echo $NAME
 <p>so we get the variable <strong>name</strong> out instead of the variable <strong>value</strong></p>
 </section>
 <section id="environment-variables">
-<h2><span class="section-number">14.3. </span>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.3. </span>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading">#</a></h2>
 <p>Environment variables are global.</p>
 <p>A common one is the <code class="docutils literal notranslate"><span class="pre">PATH</span></code></p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>echo $PATH
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="err">$</span><span class="n">PATH</span>
 </pre></div>
 </div>
 </div>
@@ -694,7 +717,7 @@ in your profile.</p>
 </ul>
 </section>
 <section id="bash-loops">
-<h2><span class="section-number">14.4. </span>Bash Loops<a class="headerlink" href="#bash-loops" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.4. </span>Bash Loops<a class="headerlink" href="#bash-loops" title="Link to this heading">#</a></h2>
 <p>We can also make loops like</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>for loopvar in list
 do
@@ -706,10 +729,10 @@ done
 <p>So, for example:</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for name in Sarah Cam Kai
-&gt; do 
-&gt; echo $name
-&gt; done
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">Sarah</span> <span class="n">Cam</span> <span class="n">Kai</span>
+<span class="o">&gt;</span> <span class="n">do</span> 
+<span class="o">&gt;</span> <span class="n">echo</span> <span class="err">$</span><span class="n">name</span>
+<span class="o">&gt;</span> <span class="n">done</span>
 </pre></div>
 </div>
 </div>
@@ -729,7 +752,7 @@ after we write the first line, the command is not complete.</p></li>
 <p>When we get the command back with the up arrow key, it puts it all on one line, because it was one command.  The <code class="docutils literal notranslate"><span class="pre">;</span></code> (semicolon) separates the “lines”</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for name in Sarah Cam Kai; do  echo $name; done
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">Sarah</span> <span class="n">Cam</span> <span class="n">Kai</span><span class="p">;</span> <span class="n">do</span>  <span class="n">echo</span> <span class="err">$</span><span class="n">name</span><span class="p">;</span> <span class="n">done</span>
 </pre></div>
 </div>
 </div>
@@ -741,7 +764,7 @@ after we write the first line, the command is not complete.</p></li>
 </div>
 </section>
 <section id="nesting-commands">
-<h2><span class="section-number">14.5. </span>Nesting commands<a class="headerlink" href="#nesting-commands" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.5. </span>Nesting commands<a class="headerlink" href="#nesting-commands" title="Link to this heading">#</a></h2>
 <p>Let’s look at the action file again</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create badge issues (Do not run manually)</span>
 <span class="nt">on</span><span class="p">:</span>
@@ -786,10 +809,10 @@ after we write the first line, the command is not complete.</p></li>
 <p>This is useful in combination with the the loop</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for file in $(ls)
-&gt; do 
-&gt; echo $file 
-&gt; done
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="err">$</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">do</span> 
+<span class="o">&gt;</span> <span class="n">echo</span> <span class="err">$</span><span class="n">file</span> 
+<span class="o">&gt;</span> <span class="n">done</span>
 </pre></div>
 </div>
 </div>
@@ -803,7 +826,7 @@ after we write the first line, the command is not complete.</p></li>
 <p>If we modify it</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for file in $(ls -a); do  echo $file ; done 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="err">$</span><span class="p">(</span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span><span class="p">);</span> <span class="n">do</span>  <span class="n">echo</span> <span class="err">$</span><span class="n">file</span> <span class="p">;</span> <span class="n">done</span> 
 </pre></div>
 </div>
 </div>
@@ -827,7 +850,7 @@ after we write the first line, the command is not complete.</p></li>
 </div>
 </section>
 <section id="conditionals-in-bash">
-<h2><span class="section-number">14.6. </span>Conditionals in bash<a class="headerlink" href="#conditionals-in-bash" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.6. </span>Conditionals in bash<a class="headerlink" href="#conditionals-in-bash" title="Link to this heading">#</a></h2>
 <p>We can also do conditional statements</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -871,7 +894,7 @@ after we write the first line, the command is not complete.</p></li>
 </div>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>echo $(test hello)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="err">$</span><span class="p">(</span><span class="n">test</span> <span class="n">hello</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -881,7 +904,7 @@ after we write the first line, the command is not complete.</p></li>
 </div>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for file in $(ls -a); do if test -f $file ;then  echo $file; fi ; done
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="err">$</span><span class="p">(</span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span><span class="p">);</span> <span class="n">do</span> <span class="k">if</span> <span class="n">test</span> <span class="o">-</span><span class="n">f</span> <span class="err">$</span><span class="n">file</span> <span class="p">;</span><span class="n">then</span>  <span class="n">echo</span> <span class="err">$</span><span class="n">file</span><span class="p">;</span> <span class="n">fi</span> <span class="p">;</span> <span class="n">done</span>
 </pre></div>
 </div>
 </div>
@@ -892,7 +915,7 @@ after we write the first line, the command is not complete.</p></li>
 </div>
 </section>
 <section id="script-files">
-<h2><span class="section-number">14.7. </span>Script files<a class="headerlink" href="#script-files" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.7. </span>Script files<a class="headerlink" href="#script-files" title="Link to this heading">#</a></h2>
 <p>We can put our script into a file</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -965,11 +988,11 @@ after we write the first line, the command is not complete.</p></li>
 </div>
 </section>
 <section id="prepare-for-next-class">
-<h2><span class="section-number">14.8. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.8. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Link to this heading">#</a></h2>
 <p>Review your <a class="reference external" href="https://compsys-progtools.github.io/spring2024/activities/prepare.html?highlight=idethoughts.md#:~:text=kwl%20repo%20in-,idethoughts.md,-on%20an%20ide_prep"><code class="docutils literal notranslate"><span class="pre">idethoughts.md</span></code></a> from a few weeks ago and add some summary notes.</p>
 </section>
 <section id="badges">
-<h2><span class="section-number">14.9. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9. </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -991,43 +1014,43 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2><span class="section-number">14.10. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.10. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Link to this heading">#</a></h2>
 </section>
 <section id="questions-after-todays-class">
-<h2><span class="section-number">14.11. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.11. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Link to this heading">#</a></h2>
 <section id="what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent">
-<h3><span class="section-number">14.11.1. </span>What parts of the terminal are saved local per window and what parts aren’t?<a class="headerlink" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.1. </span>What parts of the terminal are saved local per window and what parts aren’t?<a class="headerlink" href="#what-parts-of-the-terminal-are-saved-local-per-window-and-what-parts-arent" title="Link to this heading">#</a></h3>
 <p>local variables local, but there are also global variables</p>
 <p>most programs should be per window.</p>
 </section>
 <section id="are-there-functions-in-bash-scripting">
-<h3><span class="section-number">14.11.2. </span>Are there functions in bash scripting?<a class="headerlink" href="#are-there-functions-in-bash-scripting" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.2. </span>Are there functions in bash scripting?<a class="headerlink" href="#are-there-functions-in-bash-scripting" title="Link to this heading">#</a></h3>
 <p>Yes <a class="reference external" href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Shell-Functions">see the docs</a></p>
 </section>
 <section id="what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges">
-<h3><span class="section-number">14.11.3. </span>what is YMAL syntax similar to in terms of other programming langauges<a class="headerlink" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.3. </span>what is YMAL syntax similar to in terms of other programming langauges<a class="headerlink" href="#what-is-ymal-syntax-similar-to-in-terms-of-other-programming-langauges" title="Link to this heading">#</a></h3>
 <p>It is kind of like a dicionary, but yaml is just a file type, like json or xml, not a a programming language. It is a way to store data that is parse-able.</p>
 </section>
 <section id="what-kind-of-action-could-be-useful">
-<h3><span class="section-number">14.11.4. </span>What kind of action could be useful?<a class="headerlink" href="#what-kind-of-action-could-be-useful" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.4. </span>What kind of action could be useful?<a class="headerlink" href="#what-kind-of-action-could-be-useful" title="Link to this heading">#</a></h3>
 <p>Anything you might do a alot and would prefer to have automated. Fore xample in calss we have the actions for the badges, the market place has examples.</p>
 <p>there are also the ideas in the discussions.</p>
 </section>
 <section id="how-to-stop-a-loop-break-statement">
-<h3><span class="section-number">14.11.5. </span>How to stop a loop (break statement)<a class="headerlink" href="#how-to-stop-a-loop-break-statement" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.5. </span>How to stop a loop (break statement)<a class="headerlink" href="#how-to-stop-a-loop-break-statement" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">break</span></code> exists in <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-break">bash</a></p>
 </section>
 <section id="how-to-check-values-greater-than-less-than">
-<h3><span class="section-number">14.11.6. </span>How to check values (greater than/less than)<a class="headerlink" href="#how-to-check-values-greater-than-less-than" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.6. </span>How to check values (greater than/less than)<a class="headerlink" href="#how-to-check-values-greater-than-less-than" title="Link to this heading">#</a></h3>
 <p>those are <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html#:~:text=after%20string2%20lexicographically.-,arg1%20OP%20arg2,-OP%20is%20one">operators defines on the conditional page</a></p>
 </section>
 <section id="what-differentiates-a-terminal-and-a-shell">
-<h3><span class="section-number">14.11.7. </span>What differentiates a terminal and a shell?<a class="headerlink" href="#what-differentiates-a-terminal-and-a-shell" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.7. </span>What differentiates a terminal and a shell?<a class="headerlink" href="#what-differentiates-a-terminal-and-a-shell" title="Link to this heading">#</a></h3>
 <p>a shell is the language/interpreter terminal is how you access it.</p>
 <p>Sometimes they collapse like powershell is a terminal and shell.</p>
 </section>
 <section id="how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date">
-<h3><span class="section-number">14.11.8. </span>How can I change the experience workflow to automatically fill in the date?<a class="headerlink" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.11.8. </span>How can I change the experience workflow to automatically fill in the date?<a class="headerlink" href="#how-can-i-change-the-experience-workflow-to-automatically-fill-in-the-date" title="Link to this heading">#</a></h3>
 <p>This is nontrival because you would need to edit the file instead of just copying it.  It is a good build badge.</p>
 </section>
 </section>
@@ -1058,11 +1081,10 @@ Practice</label><div class="sd-tab-content docutils">
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2024-03-07.html"
@@ -1082,10 +1104,7 @@ Practice</label><div class="sd-tab-content docutils">
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1093,6 +1112,7 @@ Practice</label><div class="sd-tab-content docutils">
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1142,9 +1162,10 @@ By Professor Sarah M Brown
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1168,8 +1189,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

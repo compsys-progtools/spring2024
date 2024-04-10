@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>20. How can we use logical operations? &#8212; Computer Systems and Programming Tools</title>
   
@@ -19,48 +18,46 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css?v=57efbcaa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
@@ -71,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
     <link rel="prev" title="19. How does a computer represent non integer quantities?" href="2024-04-04.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -79,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -114,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -133,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -145,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Computer Systems and Programming Tools - Home"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Computer Systems and Programming Tools - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -202,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
 </ul>
@@ -397,20 +418,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -460,12 +483,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-can-we-use-logical-operations">
-<h1><span class="section-number">20. </span>How can we use logical operations?<a class="headerlink" href="#how-can-we-use-logical-operations" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">20. </span>How can we use logical operations?<a class="headerlink" href="#how-can-we-use-logical-operations" title="Link to this heading">#</a></h1>
 <section id="why-do-we-need-to-think-about-bitwise-operations">
-<h2><span class="section-number">20.1. </span>Why do we need to think about bitwise operations?<a class="headerlink" href="#why-do-we-need-to-think-about-bitwise-operations" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.1. </span>Why do we need to think about bitwise operations?<a class="headerlink" href="#why-do-we-need-to-think-about-bitwise-operations" title="Link to this heading">#</a></h2>
 <p>Understanding them is prereq to what we will see today and that will help you understand hardware overall.</p>
 <p>You of course will not <em>need</em> every single thing we teach you in every single class.</p>
 <ul class="simple">
@@ -474,7 +497,7 @@ document.write(`
 </ul>
 </section>
 <section id="bitwise-operators-review">
-<h2><span class="section-number">20.2. </span>Bitwise operators review<a class="headerlink" href="#bitwise-operators-review" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.2. </span>Bitwise operators review<a class="headerlink" href="#bitwise-operators-review" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> : and</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> : or</p></li>
@@ -485,12 +508,7 @@ document.write(`
 </ul>
 <p>Let’s review truth tables for and, or, and xor.</p>
 <table class="table" id="truth-and">
-<caption><span class="caption-number">Table 20.1 </span><span class="caption-text">AND</span><a class="headerlink" href="#truth-and" title="Permalink to this table">#</a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+<caption><span class="caption-number">Table 20.1 </span><span class="caption-text">AND</span><a class="headerlink" href="#truth-and" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>a</p></th>
 <th class="head"><p>b</p></th>
@@ -517,12 +535,7 @@ document.write(`
 </tbody>
 </table>
 <table class="table" id="truth-or">
-<caption><span class="caption-number">Table 20.2 </span><span class="caption-text">OR</span><a class="headerlink" href="#truth-or" title="Permalink to this table">#</a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+<caption><span class="caption-number">Table 20.2 </span><span class="caption-text">OR</span><a class="headerlink" href="#truth-or" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>a</p></th>
 <th class="head"><p>b</p></th>
@@ -549,12 +562,7 @@ document.write(`
 </tbody>
 </table>
 <table class="table" id="truth-xor">
-<caption><span class="caption-number">Table 20.3 </span><span class="caption-text">XOR</span><a class="headerlink" href="#truth-xor" title="Permalink to this table">#</a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+<caption><span class="caption-number">Table 20.3 </span><span class="caption-text">XOR</span><a class="headerlink" href="#truth-xor" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>a</p></th>
 <th class="head"><p>b</p></th>
@@ -584,7 +592,7 @@ document.write(`
 <p>There are more gate operations; you can see a simulation for <a class="reference external" href="https://lodev.org/logicemu/#id=gates16">16 gates</a></p>
 </section>
 <section id="adding-with-gates">
-<h2><span class="section-number">20.3. </span>Adding with gates<a class="headerlink" href="#adding-with-gates" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.3. </span>Adding with gates<a class="headerlink" href="#adding-with-gates" title="Link to this heading">#</a></h2>
 <p>Let’s review adding binary numbers.</p>
 <p><strong>remember, binary is a place-based system like the decimal placed based system you are likely familiar with</strong></p>
 <p>Since binary is place-based adding with binary follows the same basic algorithm</p>
@@ -601,13 +609,7 @@ document.write(`
 <p>In this case in the ones place we add 0 + 1 to get one, the two ones add to 0 with carry then 1 + 0 + 0 gives another 1.</p>
 <p>let’s make a truth table for adding two bits.</p>
 <table class="table" id="truth-add">
-<caption><span class="caption-number">Table 20.4 </span><span class="caption-text">Add</span><a class="headerlink" href="#truth-add" title="Permalink to this table">#</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
+<caption><span class="caption-number">Table 20.4 </span><span class="caption-text">Add</span><a class="headerlink" href="#truth-add" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>a</p></th>
 <th class="head"><p>b</p></th>
@@ -641,23 +643,23 @@ document.write(`
 <p>Now, what gate can we use to get the output 1’s place bit and what gate can we use to get the output 2’s place bit by comparing to the truth tables above.</p>
 <p>It turns out the one’s place is an xor gate, and the two’s place is an and gate.</p>
 <section id="half-adder">
-<h3><span class="section-number">20.3.1. </span>Half Adder<a class="headerlink" href="#half-adder" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.3.1. </span>Half Adder<a class="headerlink" href="#half-adder" title="Link to this heading">#</a></h3>
 <p>This makes up the <a class="reference external" href="https://lodev.org/logicemu/#id=half_adder">half adder, try one out at this simulator</a>.</p>
 </section>
 <section id="full-adder">
-<h3><span class="section-number">20.3.2. </span>Full Adder<a class="headerlink" href="#full-adder" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.3.2. </span>Full Adder<a class="headerlink" href="#full-adder" title="Link to this heading">#</a></h3>
 <p>So this lets us as two bits, but what about adding a number with more bits?</p>
 <p>We can put multiple together, but there’s one more wrinkle: the carry.</p>
 <p>That’s what makes a <a class="reference external" href="https://lodev.org/logicemu/#id=full_adder">full adder</a> different.  It adds three single bits, or a carry and two bits and outputs the result as a sum bit and a carry bit.</p>
 </section>
 <section id="time-vs-space">
-<h3><span class="section-number">20.3.3. </span>Time vs space<a class="headerlink" href="#time-vs-space" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.3.3. </span>Time vs space<a class="headerlink" href="#time-vs-space" title="Link to this heading">#</a></h3>
 <p>Then we can link many of those together to get an <a class="reference external" href="https://lodev.org/logicemu/#id=ripple_carry_adder">8 bit ripple adder</a>.</p>
 <p>Alternatively, we can “lookahead” with the carry bit, passing it forward multiple places all at once, as shown in this <a class="reference external" href="https://lodev.org/logicemu/#id=cla_adder">4 bit carry lookahead adder</a>.</p>
 </section>
 </section>
 <section id="bitwise-operators-in-python">
-<h2><span class="section-number">20.4. </span>Bitwise operators in Python<a class="headerlink" href="#bitwise-operators-in-python" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.4. </span>Bitwise operators in Python<a class="headerlink" href="#bitwise-operators-in-python" title="Link to this heading">#</a></h2>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">python</span>
@@ -727,7 +729,7 @@ document.write(`
 </div>
 </section>
 <section id="why-do-this">
-<h2><span class="section-number">20.5. </span>Why do this?<a class="headerlink" href="#why-do-this" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.5. </span>Why do this?<a class="headerlink" href="#why-do-this" title="Link to this heading">#</a></h2>
 <p>Workign through this example also reinforces not only the facts of how the binary works so that you can understand <em>how</em> a computer works.  Working with these abstractions to break down higher level operations into components like this (addition is a more complex operation than <code class="docutils literal notranslate"><span class="pre">and</span></code> or <code class="docutils literal notranslate"><span class="pre">xor</span></code>) help you see how this can be done.</p>
 <p>Sometimes you have low level problems like resource constraints and bitwise operations can be useful.</p>
 <p>We may not do this all the time, but when we need it, we need it.</p>
@@ -821,14 +823,14 @@ document.write(`
 </div>
 </section>
 <section id="prepare-for-next-class">
-<h2><span class="section-number">20.6. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.6. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>watch this short <a class="reference external" href="https://www.youtube.com/watch?v=GcDshWmhF4A">video on an alternative adder</a></p></li>
 <li><p>and this <a class="reference external" href="https://www.youtube.com/watch?v=5X_Ft4YR_wU">video on half adder with legos</a></p></li>
 </ol>
 </section>
 <section id="badges">
-<h2><span class="section-number">20.7. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.7. </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -882,10 +884,10 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2><span class="section-number">20.8. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.8. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Link to this heading">#</a></h2>
 </section>
 <section id="questions-after-todays-class">
-<h2><span class="section-number">20.9. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.9. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -914,11 +916,10 @@ Practice</label><div class="sd-tab-content docutils">
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2024-04-04.html"
@@ -938,10 +939,7 @@ Practice</label><div class="sd-tab-content docutils">
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -949,6 +947,7 @@ Practice</label><div class="sd-tab-content docutils">
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -991,9 +990,10 @@ By Professor Sarah M Brown
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1017,8 +1017,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

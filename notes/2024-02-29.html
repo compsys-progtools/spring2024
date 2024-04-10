@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>11. How does git make a commit? &#8212; Computer Systems and Programming Tools</title>
   
@@ -19,48 +18,46 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css?v=57efbcaa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-02-29';</script>
@@ -69,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="12. Why did we learn the plubming commands?" href="2024-03-05.html" />
     <link rel="prev" title="10. What is git?" href="2024-02-27.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -77,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -143,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Computer Systems and Programming Tools - Home"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Computer Systems and Programming Tools - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
 </ul>
@@ -395,20 +416,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -478,10 +501,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-does-git-make-a-commit">
-<h1><span class="section-number">11. </span>How does git make a commit?<a class="headerlink" href="#how-does-git-make-a-commit" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">11. </span>How does git make a commit?<a class="headerlink" href="#how-does-git-make-a-commit" title="Link to this heading">#</a></h1>
 <p>Today we will dig into how git really works.  This will be a deep dive and provide a lot of details about how git creates a commit.  It will conceptually reinforce important concepts and practically give you some ideas about how you might fix things when things go wrong.</p>
 <p>Later, we will build on this more on the practical side, but these <strong>concepts</strong> are very important for making sense of the more practical aspects of fixing things in git.</p>
 <p>This deep dive in git is to help you build a correct, flexbile understanding of git so that you can use it independently and efficiently. The plumbing commands do not need to be a part of your daily use of git, but they are the way that we can dig in and see what <em>actually</em> happens when git creates a commit.</p>
@@ -505,7 +528,7 @@ document.write(`
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> is a file in the working direcotry that contains alist of files and patterns to not track.</p>
 <section id="creating-a-repo-from-scratch">
-<h2><span class="section-number">11.1. </span>Creating a repo from scratch<a class="headerlink" href="#creating-a-repo-from-scratch" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.1. </span>Creating a repo from scratch<a class="headerlink" href="#creating-a-repo-from-scratch" title="Link to this heading">#</a></h2>
 <p>We will start in the top level course directory.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -645,7 +668,7 @@ document.write(`
 <p>we can see the basic requirements of an empty repo here.</p>
 </section>
 <section id="searching-the-file-system">
-<h2><span class="section-number">11.2. </span>Searching the file system<a class="headerlink" href="#searching-the-file-system" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.2. </span>Searching the file system<a class="headerlink" href="#searching-the-file-system" title="Link to this heading">#</a></h2>
 <p>We can use the bash command <code class="docutils literal notranslate"><span class="pre">find</span></code> to search the file <em>system</em> note that this does not search the <strong>contents</strong> of the files, just the names.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -671,7 +694,7 @@ document.write(`
 <p>And we have no results. We have no objects yet. Because this is an empty repo</p>
 </section>
 <section id="git-objects">
-<h2><span class="section-number">11.3. </span>Git Objects<a class="headerlink" href="#git-objects" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.3. </span>Git Objects<a class="headerlink" href="#git-objects" title="Link to this heading">#</a></h2>
 <p>Remember our 3 types of objects</p>
 <ul class="simple">
 <li><p>blob objects: the content of your files (data)</p></li>
@@ -704,7 +727,7 @@ document.write(`
     object &lt;|-- tree
     object &lt;|-- commit
         </div><section id="how-to-create-an-object">
-<h3><span class="section-number">11.3.1. </span>How to create an object<a class="headerlink" href="#how-to-create-an-object" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.3.1. </span>How to create an object<a class="headerlink" href="#how-to-create-an-object" title="Link to this heading">#</a></h3>
 <p>All git objects are files stored with the name that is the hash of the content in the file</p>
 <p>Remember git is a content-addressable file systsem… so it uses key- value pairs.</p>
 <p>Let’s create our first git object.  git uses hashes as the key. We give the hashing function some content, it applies the algorithm and returns us the hash as the reference to that object.  We can also write to our .git directory  with  this.</p>
@@ -775,7 +798,7 @@ document.write(`
 <p>and we see a file that it was supposed to have!</p>
 </section>
 <section id="viewing-git-objects">
-<h3><span class="section-number">11.3.2. </span>Viewing git objects<a class="headerlink" href="#viewing-git-objects" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.3.2. </span>Viewing git objects<a class="headerlink" href="#viewing-git-objects" title="Link to this heading">#</a></h3>
 <p>We can try with <code class="docutils literal notranslate"><span class="pre">cat</span></code></p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -821,7 +844,7 @@ document.write(`
 </div>
 </section>
 <section id="hashing-a-file">
-<h3><span class="section-number">11.3.3. </span>Hashing a file<a class="headerlink" href="#hashing-a-file" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.3.3. </span>Hashing a file<a class="headerlink" href="#hashing-a-file" title="Link to this heading">#</a></h3>
 <p>let’s create a file</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -911,7 +934,7 @@ document.write(`
 <p>So far, even though we have hashed the object, git still thinks the file is untracked, because it is not in the tree and there are no commits that point to that part of the tree.</p>
 </section>
 <section id="updating-the-index">
-<h3><span class="section-number">11.3.4. </span>Updating the Index<a class="headerlink" href="#updating-the-index" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.3.4. </span>Updating the Index<a class="headerlink" href="#updating-the-index" title="Link to this heading">#</a></h3>
 <p>Now, we can add our file as it is to the index.</p>
 <p>the <code class="docutils literal notranslate"><span class="pre">\</span></code> lets us wrap onto a second line.</p>
 <ul class="simple">
@@ -950,7 +973,7 @@ document.write(`
 <p>We have the files staged as expected</p>
 </section>
 <section id="a-file-can-have-multiple-statuses">
-<h3><span class="section-number">11.3.5. </span>A file can have multiple statuses<a class="headerlink" href="#a-file-can-have-multiple-statuses" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.3.5. </span>A file can have multiple statuses<a class="headerlink" href="#a-file-can-have-multiple-statuses" title="Link to this heading">#</a></h3>
 <p>Now the file is staged.</p>
 <p>Let’s edit it further.</p>
 <div class="cell tag_skip-execution docutils container">
@@ -1060,7 +1083,7 @@ document.write(`
 <p>hashing the object does not impact the index, which is what git status uses</p>
 </section>
 <section id="preparing-to-commit">
-<h3><span class="section-number">11.3.6. </span>Preparing to Commit<a class="headerlink" href="#preparing-to-commit" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.3.6. </span>Preparing to Commit<a class="headerlink" href="#preparing-to-commit" title="Link to this heading">#</a></h3>
 <p>When we work with porcelain commands, we use add then commit.  We have staged the file, which we know is  what happens when we add.  What else has to happen to make a commit.</p>
 <p>We know that commits are comprised of:</p>
 <ul class="simple">
@@ -1154,7 +1177,7 @@ document.write(`
 <p>Nothing has changed, making the tree does not yet make the commit</p>
 </section>
 <section id="creating-a-commit-manually">
-<h3><span class="section-number">11.3.7. </span>Creating a commit manually<a class="headerlink" href="#creating-a-commit-manually" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.3.7. </span>Creating a commit manually<a class="headerlink" href="#creating-a-commit-manually" title="Link to this heading">#</a></h3>
 <p>We can echo a commit message through a pipe into the commit-tree plumbing function to commit a particular hashed object.</p>
 <p>the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit-tree</span></code> command requires a message via  stdin and the tree hash.  We will use stdin and a pipe for the message</p>
 <div class="cell tag_skip-execution docutils container">
@@ -1266,7 +1289,7 @@ document.write(`
 </section>
 </section>
 <section id="what-does-git-status-do">
-<h2><span class="section-number">11.4. </span>What does git status do?<a class="headerlink" href="#what-does-git-status-do" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.4. </span>What does git status do?<a class="headerlink" href="#what-does-git-status-do" title="Link to this heading">#</a></h2>
 <p><em>compares the working directory to the current state of the active branch</em></p>
 <ul class="simple">
 <li><p>we cansee the working directory with: <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
@@ -1283,13 +1306,13 @@ document.write(`
 <p>We will pick up from here next class.</p>
 </section>
 <section id="prepare-for-this-class">
-<h2><span class="section-number">11.5. </span>Prepare for this class<a class="headerlink" href="#prepare-for-this-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.5. </span>Prepare for this class<a class="headerlink" href="#prepare-for-this-class" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Read the notes from February 29th. We will build on these directly in the future. <strong>You need to have the <code class="docutils literal notranslate"><span class="pre">test</span></code> repo with the same status for lab on class on 3/5</strong>  Make sure you have completed all of the steps in the github inclass repo.</p></li>
 </ol>
 </section>
 <section id="badges">
-<h2><span class="section-number">11.6. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.6. </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -1309,7 +1332,7 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2><span class="section-number">11.7. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.7. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Link to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You need to have a test repo that matches this for class on tuesday.</p>
@@ -1322,69 +1345,69 @@ Practice</label><div class="sd-tab-content docutils">
 <p>Move the <code class="docutils literal notranslate"><span class="pre">testobj.md</span></code> to your kwl repo in the experiences folder.</p>
 </section>
 <section id="questions-after-todays-class">
-<h2><span class="section-number">11.8. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.8. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Link to this heading">#</a></h2>
 <section id="after-finalizing-the-repo-how-do-we-go-about-uploading-it-to-github-do-we-push-it-like-we-would-new-content-for-cloned-local-repos">
-<h3><span class="section-number">11.8.1. </span>After finalizing the repo, how do we go about uploading it to GitHub? Do we push it like we would new content for cloned local repos?<a class="headerlink" href="#after-finalizing-the-repo-how-do-we-go-about-uploading-it-to-github-do-we-push-it-like-we-would-new-content-for-cloned-local-repos" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.1. </span>After finalizing the repo, how do we go about uploading it to GitHub? Do we push it like we would new content for cloned local repos?<a class="headerlink" href="#after-finalizing-the-repo-how-do-we-go-about-uploading-it-to-github-do-we-push-it-like-we-would-new-content-for-cloned-local-repos" title="Link to this heading">#</a></h3>
 <p>You could add a remote and then push; we will not push this one, but that is possible.</p>
 </section>
 <section id="is-there-any-benefit-to-using-git-like-this-over-how-we-normally-use-it-with-git-add-and-git-commit">
-<h3><span class="section-number">11.8.2. </span>Is there any benefit to using git  like this over how we normally use it with git add and git commit?<a class="headerlink" href="#is-there-any-benefit-to-using-git-like-this-over-how-we-normally-use-it-with-git-add-and-git-commit" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.2. </span>Is there any benefit to using git  like this over how we normally use it with git add and git commit?<a class="headerlink" href="#is-there-any-benefit-to-using-git-like-this-over-how-we-normally-use-it-with-git-add-and-git-commit" title="Link to this heading">#</a></h3>
 <p>It is useful for edge cases and inspection. It will not be the way you use it day to day, but it would be useful, if you were working on an applicaiton the built on top of git.  It is also helpful to go through this way to see how git really works.</p>
 </section>
 <section id="what-would-happen-if-a-commit-is-made-and-a-blob-or-tree-object-is-later-deleted">
-<h3><span class="section-number">11.8.3. </span>What would happen if a commit is made and a blob or tree object is later deleted?<a class="headerlink" href="#what-would-happen-if-a-commit-is-made-and-a-blob-or-tree-object-is-later-deleted" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.3. </span>What would happen if a commit is made and a blob or tree object is later deleted?<a class="headerlink" href="#what-would-happen-if-a-commit-is-made-and-a-blob-or-tree-object-is-later-deleted" title="Link to this heading">#</a></h3>
 <p>This is a good explore badge idea.  My guess is that it would not do anything immediately, but if you tried to check out that commit it would have an issue and complain about a corrupted repo.</p>
 </section>
 <section id="what-does-the-git-index-do-im-slightly-confused-about-the-functionality-of-this">
-<h3><span class="section-number">11.8.4. </span>what does the git index do I’m slightly confused about the functionality of this?<a class="headerlink" href="#what-does-the-git-index-do-im-slightly-confused-about-the-functionality-of-this" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.4. </span>what does the git index do I’m slightly confused about the functionality of this?<a class="headerlink" href="#what-does-the-git-index-do-im-slightly-confused-about-the-functionality-of-this" title="Link to this heading">#</a></h3>
 <p>The index is the staging area, it is where we store information necessary to make a commit while we get ready to make a commit.</p>
 </section>
 <section id="how-are-hashes-made">
-<h3><span class="section-number">11.8.5. </span>How are hashes made?<a class="headerlink" href="#how-are-hashes-made" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.5. </span>How are hashes made?<a class="headerlink" href="#how-are-hashes-made" title="Link to this heading">#</a></h3>
 <p>git uses the SHA-1 hardened algorithm.  We will learn more about that algorithm soon.</p>
 </section>
 <section id="why-do-four-of-the-objects-match-for-everyone">
-<h3><span class="section-number">11.8.6. </span>Why do four of the objects match for everyone?<a class="headerlink" href="#why-do-four-of-the-objects-match-for-everyone" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.6. </span>Why do four of the objects match for everyone?<a class="headerlink" href="#why-do-four-of-the-objects-match-for-everyone" title="Link to this heading">#</a></h3>
 <p>The core objects are all the same, so the hashes are the same because the hashes are a function of the content.  Only the commit has unique information in it.</p>
 </section>
 <section id="using-cat-on-the-test-object-gave-me-xkor04f-i-qh-i-k-your-computer-output-the-same-thing-but-rendered-the-as-and-other-actual-symbols-why">
-<h3><span class="section-number">11.8.7. </span>using cat on the “test object” gave me <code class="docutils literal notranslate"><span class="pre">xK▒▒OR04f(I-.QH▒▒+I▒+▒K▒</span></code>, your computer output the same thing but rendered the <code class="docutils literal notranslate"><span class="pre">▒</span></code> as <code class="docutils literal notranslate"><span class="pre">?</span></code> and other actual symbols, why?<a class="headerlink" href="#using-cat-on-the-test-object-gave-me-xkor04f-i-qh-i-k-your-computer-output-the-same-thing-but-rendered-the-as-and-other-actual-symbols-why" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.7. </span>using cat on the “test object” gave me <code class="docutils literal notranslate"><span class="pre">xK▒▒OR04f(I-.QH▒▒+I▒+▒K▒</span></code>, your computer output the same thing but rendered the <code class="docutils literal notranslate"><span class="pre">▒</span></code> as <code class="docutils literal notranslate"><span class="pre">?</span></code> and other actual symbols, why?<a class="headerlink" href="#using-cat-on-the-test-object-gave-me-xkor04f-i-qh-i-k-your-computer-output-the-same-thing-but-rendered-the-as-and-other-actual-symbols-why" title="Link to this heading">#</a></h3>
 <p>They are both binary content, but we are using different terminal applications that attempt to render it using different character sets.</p>
 </section>
 <section id="did-any-of-what-we-did-today-synch-with-remote-servers-on-github">
-<h3><span class="section-number">11.8.8. </span>did any of what we did today synch with remote servers on github?<a class="headerlink" href="#did-any-of-what-we-did-today-synch-with-remote-servers-on-github" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.8. </span>did any of what we did today synch with remote servers on github?<a class="headerlink" href="#did-any-of-what-we-did-today-synch-with-remote-servers-on-github" title="Link to this heading">#</a></h3>
 <p>No, this repo has no remotes.</p>
 </section>
 <section id="how-do-we-upload-the-new-repository-and-connect-it-to-others">
-<h3><span class="section-number">11.8.9. </span>How do we upload the new repository and connect it to others<a class="headerlink" href="#how-do-we-upload-the-new-repository-and-connect-it-to-others" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.9. </span>How do we upload the new repository and connect it to others<a class="headerlink" href="#how-do-we-upload-the-new-repository-and-connect-it-to-others" title="Link to this heading">#</a></h3>
 <p>add a remote, like how we did with our tiny-book</p>
 </section>
 <section id="why-is-it-so-hard-to-have-a-repositry-inside-of-another-one">
-<h3><span class="section-number">11.8.10. </span>Why is it so hard to have a repositry inside of another one?<a class="headerlink" href="#why-is-it-so-hard-to-have-a-repositry-inside-of-another-one" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.10. </span>Why is it so hard to have a repositry inside of another one?<a class="headerlink" href="#why-is-it-so-hard-to-have-a-repositry-inside-of-another-one" title="Link to this heading">#</a></h3>
 <p>One is that it is often just not what you want.</p>
 <p>Two then you have to manage which repo git is working on when you commit.</p>
 <p>Learning about uses and best practices for <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodules</a> is a good explore.</p>
 </section>
 <section id="i-thought-we-psuh-into-remote-before-we-staged-the-content">
-<h3><span class="section-number">11.8.11. </span>I thought we psuh into remote before we staged the content?<a class="headerlink" href="#i-thought-we-psuh-into-remote-before-we-staged-the-content" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.11. </span>I thought we psuh into remote before we staged the content?<a class="headerlink" href="#i-thought-we-psuh-into-remote-before-we-staged-the-content" title="Link to this heading">#</a></h3>
 <p>We can only push content that hash been added to the .git directory, so without staging, we would’t have the tree.</p>
 </section>
 <section id="do-remote-repositories-like-github-store-the-repo-in-a-similar-git-folder">
-<h3><span class="section-number">11.8.12. </span>Do remote repositories like github store the repo in a similar .git folder<a class="headerlink" href="#do-remote-repositories-like-github-store-the-repo-in-a-similar-git-folder" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.12. </span>Do remote repositories like github store the repo in a similar .git folder<a class="headerlink" href="#do-remote-repositories-like-github-store-the-repo-in-a-similar-git-folder" title="Link to this heading">#</a></h3>
 <p>yes! that is the content that gets compressed and sent back and forth.</p>
 </section>
 <section id="why-would-manually-doing-the-commands-be-useful-or-is-this-just-to-help-us-understand-how-they-work">
-<h3><span class="section-number">11.8.13. </span>Why would manually doing the commands be useful or is this just to help us understand how they work?<a class="headerlink" href="#why-would-manually-doing-the-commands-be-useful-or-is-this-just-to-help-us-understand-how-they-work" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.13. </span>Why would manually doing the commands be useful or is this just to help us understand how they work?<a class="headerlink" href="#why-would-manually-doing-the-commands-be-useful-or-is-this-just-to-help-us-understand-how-they-work" title="Link to this heading">#</a></h3>
 <p>Mostly just to understand, but plumbing commands can be helpful in fixing if weird stuff happens.</p>
 </section>
 <section id="what-happens-if-there-is-a-collision-with-hashes-especially-if-you-have-a-massive-repository-with-thousands-of-files">
-<h3><span class="section-number">11.8.14. </span>What happens if there is a collision with hashes? Especially if you have a massive repository with thousands of files?<a class="headerlink" href="#what-happens-if-there-is-a-collision-with-hashes-especially-if-you-have-a-massive-repository-with-thousands-of-files" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.14. </span>What happens if there is a collision with hashes? Especially if you have a massive repository with thousands of files?<a class="headerlink" href="#what-happens-if-there-is-a-collision-with-hashes-especially-if-you-have-a-massive-repository-with-thousands-of-files" title="Link to this heading">#</a></h3>
 <p>(we will come back to this later)</p>
 <p>git used SHA-1 initially which is vulnerable to collision attacks, so now it uses a hardened one, it knows which are possible to collide andif one of those occurs, it changes.</p>
 <p>git is working toward changing to SHA-256 to make collisisons  much less likely.</p>
 </section>
 <section id="why-would-we-hash-an-object-but-not-add-it-to-a-regular-commit">
-<h3><span class="section-number">11.8.15. </span>Why would we hash an object but not add it to a regular commit?<a class="headerlink" href="#why-would-we-hash-an-object-but-not-add-it-to-a-regular-commit" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.8.15. </span>Why would we hash an object but not add it to a regular commit?<a class="headerlink" href="#why-would-we-hash-an-object-but-not-add-it-to-a-regular-commit" title="Link to this heading">#</a></h3>
 <p>We would not typically do this on purpose, but we do hash and store objects when we use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> before they are added to the index, they must be hashed. So if you do atypical things at that point you could end up with something hashed but not linked to a commit, long term instead of only temporary.</p>
 </section>
 </section>
@@ -1415,11 +1438,10 @@ Practice</label><div class="sd-tab-content docutils">
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2024-02-27.html"
@@ -1439,10 +1461,7 @@ Practice</label><div class="sd-tab-content docutils">
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1450,6 +1469,7 @@ Practice</label><div class="sd-tab-content docutils">
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1512,9 +1532,10 @@ By Professor Sarah M Brown
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1538,8 +1559,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

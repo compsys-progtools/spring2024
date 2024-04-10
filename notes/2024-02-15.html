@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7. How do programmers communicate about code? &#8212; Computer Systems and Programming Tools</title>
   
@@ -19,48 +18,46 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css?v=57efbcaa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-02-15';</script>
@@ -69,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="8. How do I choose a Programming Language for a project?" href="2024-02-20.html" />
     <link rel="prev" title="6. What is a commit?" href="2024-02-08.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -77,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -143,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Computer Systems and Programming Tools - Home"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Computer Systems and Programming Tools - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
 </ul>
@@ -395,20 +416,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -477,10 +500,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-do-programmers-communicate-about-code">
-<h1><span class="section-number">7. </span>How do programmers communicate about code?<a class="headerlink" href="#how-do-programmers-communicate-about-code" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">7. </span>How do programmers communicate about code?<a class="headerlink" href="#how-do-programmers-communicate-about-code" title="Link to this heading">#</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>check if your codespace has uncommitted changes on <a class="reference external" href="https://github.com/codespaces">github.com/codespaces</a></p>
@@ -494,7 +517,7 @@ document.write(`
 <p>Today we are going to pick up from where we left off talking about the conventional commits.</p>
 <p>That is a core example of the types of detailed communication we do in programming that is embedded into the work.</p>
 <section id="why-documentation">
-<h2><span class="section-number">7.1. </span>Why Documentation<a class="headerlink" href="#why-documentation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.1. </span>Why Documentation<a class="headerlink" href="#why-documentation" title="Link to this heading">#</a></h2>
 <p>Today we will talk about documentation, there are several reasons this is important:</p>
 <ul class="simple">
 <li><p><strong>using</strong> official documentation is the best way to get better at the tools</p></li>
@@ -524,11 +547,11 @@ document.write(`
 </ul>
 </section>
 <section id="what-is-documentation">
-<h2><span class="section-number">7.2. </span>What is documentation<a class="headerlink" href="#what-is-documentation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.2. </span>What is documentation<a class="headerlink" href="#what-is-documentation" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://link.springer.com/article/10.1007/s10606-018-9333-1/tables/1">documentation types table</a></p>
 <p>from <a class="reference external" href="https://link.springer.com/article/10.1007/s10606-018-9333-1">ethnography of docuemtnation data science</a></p>
 <section id="why-is-documentation-so-important">
-<h3><span class="section-number">7.2.1. </span>Why is documentation so important?<a class="headerlink" href="#why-is-documentation-so-important" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.2.1. </span>Why is documentation so important?<a class="headerlink" href="#why-is-documentation-so-important" title="Link to this heading">#</a></h3>
 <p>we should probably spend more time on it</p>
 <p><img alt="differenc ein time spent vs should" src="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10606-018-9333-1/MediaObjects/10606_2018_9333_Fig4_HTML.png?as=webp" /></p>
 <p><a class="reference external" href="https://link.springer.com/article/10.1007/s10606-018-9333-1/figures/4">via</a>
@@ -536,13 +559,13 @@ document.write(`
 </section>
 </section>
 <section id="so-how-do-we-do-it">
-<h2><span class="section-number">7.3. </span>So, how do we do it?<a class="headerlink" href="#so-how-do-we-do-it" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.3. </span>So, how do we do it?<a class="headerlink" href="#so-how-do-we-do-it" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://docathon.github.io/docathon/pages/resources.html#documentation-tools">Documenation Tools</a></p>
 <p><a class="reference external" href="https://www.writethedocs.org/">write the docs</a></p>
 <p><a class="reference external" href="https://lwn.net/Articles/705224/">linux kernel uses sphinx</a> and here is <a class="reference external" href="https://lwn.net/Articles/692704/">why</a> and <a class="reference external" href="https://lwn.net/Articles/692705/">how it works</a></p>
 </section>
 <section id="jupyterbook">
-<h2><span class="section-number">7.4. </span>Jupyterbook<a class="headerlink" href="#jupyterbook" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.4. </span>Jupyterbook<a class="headerlink" href="#jupyterbook" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://jupyterbook.org/intro.html">Jupyterbook</a> wraps sphinx and uses markdown instead of restructured text. The project authors <a class="reference external" href="https://jupyterbook.org/en/stable/explain/sphinx.html">note in the documenation</a> that it “can be thought of as an <em>opinionated distribution of Sphinx</em>”. We’re goign to use this.</p>
 <p>navigate to your  folder for this course (mine is <code class="docutils literal notranslate"><span class="pre">inclass/systems</span></code>)</p>
 <div class="cell tag_skip-execution docutils container">
@@ -685,7 +708,7 @@ beacuse the name is an argument or input</p>
 </div>
 </section>
 <section id="starting-a-git-repo-locally">
-<h2><span class="section-number">7.5. </span>Starting a git repo locally<a class="headerlink" href="#starting-a-git-repo-locally" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.5. </span>Starting a git repo locally<a class="headerlink" href="#starting-a-git-repo-locally" title="Link to this heading">#</a></h2>
 <p>We made this folder, but we have not used any git operations on it yet, it is actually not a git repo, which we <em>could</em> tell from the output above, but let’s use git to inspect and get another hint.</p>
 <p>We can try <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p>
 <div class="cell tag_skip-execution docutils container">
@@ -722,7 +745,7 @@ beacuse the name is an argument or input</p>
 </div>
 <p>Here we are faced with a social aspect of computing that is <em>also</em> a good reminder about how git actually works</p>
 <section id="retiring-racist-language">
-<span id="nomaster"></span><h3><span class="section-number">7.5.1. </span>Retiring racist language<a class="headerlink" href="#retiring-racist-language" title="Permalink to this headline">#</a></h3>
+<span id="nomaster"></span><h3><span class="section-number">7.5.1. </span>Retiring racist language<a class="headerlink" href="#retiring-racist-language" title="Link to this heading">#</a></h3>
 <p>Historically the default branch was called master.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://mail.gnome.org/archives/desktop-devel-list/2019-May/msg00066.html">derived from a master/slave analogy</a> which is not even how git works, but was adopted terminology from other projects</p></li>
@@ -804,7 +827,7 @@ beacuse the name is an argument or input</p>
 </section>
 </section>
 <section id="structure-of-a-jupyter-book">
-<h2><span class="section-number">7.6. </span>Structure of a Jupyter book<a class="headerlink" href="#structure-of-a-jupyter-book" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.6. </span>Structure of a Jupyter book<a class="headerlink" href="#structure-of-a-jupyter-book" title="Link to this heading">#</a></h2>
 <p>We will explore the output by looking at the files</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -904,7 +927,7 @@ beacuse the name is an argument or input</p>
 </pre></div>
 </div>
 <section id="dev-tools-mean-we-do-not-have-to-write-bibliographies-manually">
-<h3><span class="section-number">7.6.1. </span>Dev tools mean we do not have to write bibliographies manually<a class="headerlink" href="#dev-tools-mean-we-do-not-have-to-write-bibliographies-manually" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.6.1. </span>Dev tools mean we do not have to write bibliographies manually<a class="headerlink" href="#dev-tools-mean-we-do-not-have-to-write-bibliographies-manually" title="Link to this heading">#</a></h3>
 <p>bibliographies are generated with <a class="reference external" href="http://www.bibtex.org/">bibtex</a> which takes structured information from the references in a <a class="reference external" href="http://www.bibtex.org/Format/">bibtex file</a> with help from <a class="reference external" href="https://sphinxcontrib-bibtex.readthedocs.io/en/latest/">sphinxcontrib-bibtex</a></p>
 <p>For general reference, reference managers like <a class="reference external" href="https://www.zotero.org/">zotero</a> and <a class="reference external" href="https://www.mendeley.com/">mendeley</a> can track all of your sources and output the references in bibtex format that you can use anywhere or sync with tools like MS Word or Google Docs.</p>
 <p>The one last file tells us what dependencies we have</p>
@@ -924,7 +947,7 @@ beacuse the name is an argument or input</p>
 </section>
 </section>
 <section id="building-documentation">
-<h2><span class="section-number">7.7. </span>Building Documentation<a class="headerlink" href="#building-documentation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.7. </span>Building Documentation<a class="headerlink" href="#building-documentation" title="Link to this heading">#</a></h2>
 <p>We can transform from raw source to an output by <strong>building</strong> the book</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1048,7 +1071,7 @@ files in the <code class="docutils literal notranslate"><span class="pre">_stati
 build <a class="reference external" href="https://www.sphinx-doc.org/en/master/development/theming.html">your own theme</a> that can work with sphinx.</p>
 </section>
 <section id="ignoring-built-files">
-<h2><span class="section-number">7.8. </span>Ignoring Built files<a class="headerlink" href="#ignoring-built-files" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.8. </span>Ignoring Built files<a class="headerlink" href="#ignoring-built-files" title="Link to this heading">#</a></h2>
 <p>The built site files are compeltey redundant, content wise, to the original markdown files.</p>
 <p>We do not want to keep track of changes for the built files since they are generated from the source files. It’s redundant and makes it less clear where someone should update content.</p>
 <p>Git helps us with this with the .gitignore</p>
@@ -1099,7 +1122,7 @@ build <a class="reference external" href="https://www.sphinx-doc.org/en/master/d
 </div>
 </section>
 <section id="how-do-i-push-a-repo-that-i-made-locally-to-github">
-<h2><span class="section-number">7.9. </span>How do I push a repo that I made locally to GitHub?<a class="headerlink" href="#how-do-i-push-a-repo-that-i-made-locally-to-github" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.9. </span>How do I push a repo that I made locally to GitHub?<a class="headerlink" href="#how-do-i-push-a-repo-that-i-made-locally-to-github" title="Link to this heading">#</a></h2>
 <p>Right now, we do not have any remotes, so if we try to push it will fail. Next we will see how to fix that.</p>
 <p>First let’s confirm</p>
 <div class="cell tag_skip-execution docutils container">
@@ -1266,7 +1289,7 @@ developer tools, that is where we developers give one another hints.</p>
 </div>
 </section>
 <section id="prepare-for-next-class">
-<h2><span class="section-number">7.10. </span>Prepare for next class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.10. </span>Prepare for next class<a class="headerlink" href="#prepare-for-next-class" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Think through and make some notes about what you have learned about design so far. Try to answer the questions below in <span class="target" id="index-0"></span>design_before.md.  If you do not now know how to answer any of the questions, write in what questions you have.</p></li>
 </ol>
@@ -1278,7 +1301,7 @@ developer tools, that is where we developers give one another hints.</p>
 </div>
 </section>
 <section id="badges">
-<h2><span class="section-number">7.11. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.11. </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -1301,52 +1324,52 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2><span class="section-number">7.12. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.12. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Link to this heading">#</a></h2>
 <p>Link to your tinybook repo.  in the experience report PR</p>
 </section>
 <section id="questions-after-todays-class">
-<h2><span class="section-number">7.13. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.13. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Link to this heading">#</a></h2>
 <section id="can-you-create-a-new-remote-through-the-terminal-without-using-the-github-ui">
-<h3><span class="section-number">7.13.1. </span>Can you create a new remote through the terminal without using the github ui?<a class="headerlink" href="#can-you-create-a-new-remote-through-the-terminal-without-using-the-github-ui" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.13.1. </span>Can you create a new remote through the terminal without using the github ui?<a class="headerlink" href="#can-you-create-a-new-remote-through-the-terminal-without-using-the-github-ui" title="Link to this heading">#</a></h3>
 <p>If you knew the URL of the remote, yes, if the remote is on GitHub, you have to use either <a class="reference external" href="http://github.com">github.com</a> in your browser or use the <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">cli</span></code> tool’s command <a class="reference external" href="https://cli.github.com/manual/gh_repo_create"><code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">repo</span> <span class="pre">create</span></code></a></p>
 </section>
 <section id="how-is-jupyterbook-different-than-other-ides-or-editors">
-<h3><span class="section-number">7.13.2. </span>How is jupyterbook different than other ides or editors?<a class="headerlink" href="#how-is-jupyterbook-different-than-other-ides-or-editors" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.13.2. </span>How is jupyterbook different than other ides or editors?<a class="headerlink" href="#how-is-jupyterbook-different-than-other-ides-or-editors" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> is not an editor or IDE, it is a tool for building websites or pdfs.</p>
 <p>Jupyter Notebook is a single stream of computational analysis. Jupyter Lab is a more IDE like interface for doing compuational analyses. Both are part of <a class="reference external" href="https://jupyter.org/">project jupyter</a> and <a class="reference external" href="https://github.com/jupyter">on GitHub</a></p>
-<p><a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter book</a> is for publishing book like documents as websites and to other forms designed to be compatible with jupyter notebooks, but is a part of a separate <a class="reference external" href="https://github.com/executablebooks">executable books</a> project.  It is specialized for cases where there is computation in the code.  See <span class="xref myst">their gallery</span> for examples.  I use it for <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/notes/2022-09-21.html">CSC310 that has code and plots in the notes</a></p>
+<p><a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter book</a> is for publishing book like documents as websites and to other forms designed to be compatible with jupyter notebooks, but is a part of a separate <a class="reference external" href="https://github.com/executablebooks">executable books</a> project.  It is specialized for cases where there is computation in the code.  See <a class="reference internal" href="#"><span class="xref myst">their gallery</span></a> for examples.  I use it for <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/notes/2022-09-21.html">CSC310 that has code and plots in the notes</a></p>
 <p><a class="reference external" href="https://jupyterbook.org/en/stable/explain/sphinx.html#:~:text=opinionated%20distribution%20of%20Sphinx">Jupyter-book is an opinionated distribution</a> of  <a class="reference external" href="https://www.sphinx-doc.org/">sphinx</a> which can also be used to document other languages like <a class="reference external" href="https://devblogs.microsoft.com/cppblog/clear-functional-c-documentation-with-sphinx-breathe-doxygen-cmake/">C++</a></p>
 </section>
 <section id="what-is-the-doctrees-folder-inside-build-with-files-like-environment-pickle">
-<h3><span class="section-number">7.13.3. </span>What is the .doctrees/ folder inside _build/ with files like environment.pickle?<a class="headerlink" href="#what-is-the-doctrees-folder-inside-build-with-files-like-environment-pickle" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.13.3. </span>What is the .doctrees/ folder inside _build/ with files like environment.pickle?<a class="headerlink" href="#what-is-the-doctrees-folder-inside-build-with-files-like-environment-pickle" title="Link to this heading">#</a></h3>
 <p>That is an intermediate step between the markdown and the final HTML.</p>
 <p>There is <a class="reference external" href="https://www.sphinx-doc.org/en/master/extdev/nodes.html">api level docs</a></p>
 </section>
 <section id="why-is-building-necessary-couldnt-it-just-be-a-part-of-compiling">
-<h3><span class="section-number">7.13.4. </span>Why is building necessary? Couldn’t it just be a part of compiling?<a class="headerlink" href="#why-is-building-necessary-couldnt-it-just-be-a-part-of-compiling" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.13.4. </span>Why is building necessary? Couldn’t it just be a part of compiling?<a class="headerlink" href="#why-is-building-necessary-couldnt-it-just-be-a-part-of-compiling" title="Link to this heading">#</a></h3>
 <p>Building is a more general process of transforming from source to an output format. Compling is a specific step withing building for some programming languages.  We will learn more about the build process for C later.</p>
 <p>What we did today was building, but not compiling.</p>
 </section>
 <section id="what-other-uses-are-there-for-jupyter-notebook">
-<h3><span class="section-number">7.13.5. </span>What other uses are there for jupyter notebook<a class="headerlink" href="#what-other-uses-are-there-for-jupyter-notebook" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.13.5. </span>What other uses are there for jupyter notebook<a class="headerlink" href="#what-other-uses-are-there-for-jupyter-notebook" title="Link to this heading">#</a></h3>
 <p>The course website is an example. They also maintain a <a class="reference external" href="https://executablebooks.org/en/latest/gallery/">gallery of jupyter books</a></p>
 </section>
 <section id="did-we-create-a-repo-locally">
-<h3><span class="section-number">7.13.6. </span>Did we create a repo locally?<a class="headerlink" href="#did-we-create-a-repo-locally" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.13.6. </span>Did we create a repo locally?<a class="headerlink" href="#did-we-create-a-repo-locally" title="Link to this heading">#</a></h3>
 <p>yes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span> <span class="pre">.</span></code> created a repo locally</p>
 </section>
 <section id="how-to-add-more-files-and-sections-to-your-jupyter-books-website">
-<h3><span class="section-number">7.13.7. </span>How to add more files and sections to your Jupyter Books website<a class="headerlink" href="#how-to-add-more-files-and-sections-to-your-jupyter-books-website" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.13.7. </span>How to add more files and sections to your Jupyter Books website<a class="headerlink" href="#how-to-add-more-files-and-sections-to-your-jupyter-books-website" title="Link to this heading">#</a></h3>
 <p>Create more files in the folder and then update the <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>.  For example, this whole website is jupyter book, see how many files are in the <a class="reference external" href="https://github.com/compsys-progtools/spring2024/">repo</a></p>
 </section>
 <section id="how-will-we-continue-to-use-jupyter-books-going-forward-in-this-class">
-<h3><span class="section-number">7.13.8. </span>how will we continue to use jupyter books going forward in this class?<a class="headerlink" href="#how-will-we-continue-to-use-jupyter-books-going-forward-in-this-class" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.13.8. </span>how will we continue to use jupyter books going forward in this class?<a class="headerlink" href="#how-will-we-continue-to-use-jupyter-books-going-forward-in-this-class" title="Link to this heading">#</a></h3>
 <p>Your badge task is to convert your KWL repo to one.  The course website is also a jupyter-book, so making more complex contributions to the site is one way to practice with it.</p>
 <p>For example you might do an explore or build that contributes to the course website.</p>
 <p>Also, most builds will require documentation using <em>a</em> documentation builder, which you might choose jupyter-book or to use a different one, but some of what we saw here will apply, making it easier to learn another <em>similar</em> tool.</p>
 </section>
 <section id="how-do-we-use-the-developer-tools-we-talked-about-for-example-the-bibliography-one">
-<h3><span class="section-number">7.13.9. </span>how do we use the developer tools we talked about, for example the bibliography one?<a class="headerlink" href="#how-do-we-use-the-developer-tools-we-talked-about-for-example-the-bibliography-one" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.13.9. </span>how do we use the developer tools we talked about, for example the bibliography one?<a class="headerlink" href="#how-do-we-use-the-developer-tools-we-talked-about-for-example-the-bibliography-one" title="Link to this heading">#</a></h3>
 <p>Within jupyter-book, their documentation includes a <a class="reference external" href="https://jupyterbook.org/en/stable/tutorials/references.html">tutorial on references</a>. This is a good high quality source because it is written by developers of a tool and describes in concrete terms what you need to do, with appropriate context.</p>
 <p>To get the <a class="reference external" href="https://jupyterbook.org/en/stable/content/citations.html">bibtex formatted reference</a> for a source, you can use <a class="reference external" href="https://url-to-bibtex.vercel.app/">this generator</a> for informal sources(like websites) and <a class="reference external" href="https://digitalmeasures.oregonstate.edu/training/export-bibtex-google-scholar">google scholar</a> for formal sources(like journal articles or academic conference papers).</p>
 <p>More generally, bibtex was designed to be used with <a class="reference external" href="https://www.latex-project.org/">latex</a> which is easiest to get started with using the cloud-hosted, live collaboration, version in <a class="reference external" href="https://overleaf.com/">overleaf</a>.</p>
@@ -1379,11 +1402,10 @@ Practice</label><div class="sd-tab-content docutils">
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2024-02-08.html"
@@ -1403,10 +1425,7 @@ Practice</label><div class="sd-tab-content docutils">
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1414,6 +1433,7 @@ Practice</label><div class="sd-tab-content docutils">
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1475,9 +1495,10 @@ By Professor Sarah M Brown
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1501,8 +1522,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

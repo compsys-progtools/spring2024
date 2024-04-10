@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>19. How does a computer represent non integer quantities? &#8212; Computer Systems and Programming Tools</title>
   
@@ -19,48 +18,46 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css?v=57efbcaa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
@@ -71,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="20. How can we use logical operations?" href="2024-04-09.html" />
     <link rel="prev" title="18. What happens when we run code?" href="2024-04-02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -79,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -114,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -133,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -145,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Computer Systems and Programming Tools - Home"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Computer Systems and Programming Tools - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -202,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
 </ul>
@@ -397,20 +418,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -464,12 +487,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-does-a-computer-represent-non-integer-quantities">
-<h1><span class="section-number">19. </span>How does a computer represent non integer quantities?<a class="headerlink" href="#how-does-a-computer-represent-non-integer-quantities" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">19. </span>How does a computer represent non integer quantities?<a class="headerlink" href="#how-does-a-computer-represent-non-integer-quantities" title="Link to this heading">#</a></h1>
 <section id="prelude">
-<h2><span class="section-number">19.1. </span>Prelude<a class="headerlink" href="#prelude" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">19.1. </span>Prelude<a class="headerlink" href="#prelude" title="Link to this heading">#</a></h2>
 <p>What do we mean by representation?</p>
 <p>Last class we talked about how we could express file permissions in two ways:</p>
 <ul class="simple">
@@ -487,20 +510,15 @@ document.write(`
 <li><p>negative numbers</p></li>
 </ul>
 <section id="a-toy-object-instruction">
-<h3><span class="section-number">19.1.1. </span>a toy object instruction<a class="headerlink" href="#a-toy-object-instruction" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.1. </span>a toy object instruction<a class="headerlink" href="#a-toy-object-instruction" title="Link to this heading">#</a></h3>
 <p>let say we have am CPU that can do 4 bit operations and has 4 control bits (that determine what operation it will do across the ALU + controls for A,D registers &amp; PC)</p>
 <p>then we might have an 8 bit register ROM.</p>
 <p>the operation <code class="docutils literal notranslate"><span class="pre">&#64;3</span></code> might represented as <code class="docutils literal notranslate"><span class="pre">01000011</span></code> if <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> is indicated by <code class="docutils literal notranslate"><span class="pre">0100</span></code> on the controler and then the last 4 bits <code class="docutils literal notranslate"><span class="pre">0011</span></code> represent the value 3</p>
 </section>
 <section id="negative-numbers">
-<h3><span class="section-number">19.1.2. </span>negative numbers<a class="headerlink" href="#negative-numbers" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.1.2. </span>negative numbers<a class="headerlink" href="#negative-numbers" title="Link to this heading">#</a></h3>
 <p>we use one bit to represent the sign.  and then e have two choices for the rest of the bits:</p>
 <table class="table">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>representation</p></td>
 <td><p>how to negate</p></td>
@@ -523,13 +541,13 @@ document.write(`
 </section>
 </section>
 <section id="what-about-a-fixed-point-for-fractions">
-<h2><span class="section-number">19.2. </span>What about a fixed point for fractions?<a class="headerlink" href="#what-about-a-fixed-point-for-fractions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">19.2. </span>What about a fixed point for fractions?<a class="headerlink" href="#what-about-a-fixed-point-for-fractions" title="Link to this heading">#</a></h2>
 <p>we could represent numbers with a fixed point, is to use base two fractions: <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>, <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span>, <span class="math notranslate nohighlight">\(\frac{1}{8}\)</span> etc.</p>
 <p>In this fixed point we would have, for example:
 <code class="docutils literal notranslate"><span class="pre">0101.1010</span></code> would be $<span class="math notranslate nohighlight">\(0*2^3 + 1*2^2 + 0*2^2 + 1*2^0 + 1*\frac{1}{2^{-1}} + 0*\frac{1}{2^{-2}} + 1*\frac{1}{2^{-}} + 0*\frac{1}{2^{-4}} = 4 + 1 + \frac{1}{2} + \frac{1}{8} = 5 + \frac{5}{8}= 5.625\)</span>$</p>
 </section>
 <section id="floating-point-notation">
-<h2><span class="section-number">19.3. </span>Floating Point Notation<a class="headerlink" href="#floating-point-notation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">19.3. </span>Floating Point Notation<a class="headerlink" href="#floating-point-notation" title="Link to this heading">#</a></h2>
 <p>We can write  numbers in many different forms. We have written integers through many different bases so far.</p>
 <p>For example in scientific contexts, we often write numbers (in base 10) like:</p>
 <div class="math notranslate nohighlight">
@@ -539,7 +557,7 @@ document.write(`
 <p>We can use a similiar form to represent numbers in binary. Using base 2 instead of base 10.</p>
 </section>
 <section id="floating-point-numbers-are-not-all-exact">
-<h2><span class="section-number">19.4. </span>Floating point numbers are not all  exact<a class="headerlink" href="#floating-point-numbers-are-not-all-exact" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">19.4. </span>Floating point numbers are not all  exact<a class="headerlink" href="#floating-point-numbers-are-not-all-exact" title="Link to this heading">#</a></h2>
 <p>Let’s look at an example, we add <code class="docutils literal notranslate"><span class="pre">.1</span></code> together 3 times, and we get the expected result, approximately.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -589,7 +607,7 @@ Even rounding does not make it work.</p>
 <!-- #region -->
 </section>
 <section id="floating-point-ieee-standard">
-<h2><span class="section-number">19.5. </span>Floating point IEEE standard<a class="headerlink" href="#floating-point-ieee-standard" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">19.5. </span>Floating point IEEE standard<a class="headerlink" href="#floating-point-ieee-standard" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://ieeexplore.ieee.org/document/8766229">IEEE Floating Point </a>
 is what basically everyone uses, but it is technically a choice hardware manufacturers can  make.</p>
 <ul class="simple">
@@ -607,7 +625,7 @@ is what basically everyone uses, but it is technically a choice hardware manufac
 <p>In this case we will 1 bit for sign, 11 for exponent and 52 for the fraction part</p>
 <p><img alt="float bit image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/IEEE_754_Double_Floating_Point_Format.svg/2560px-IEEE_754_Double_Floating_Point_Format.svg.png" /></p>
 <section id="how-do-we-read-a-number-like-this">
-<h3><span class="section-number">19.5.1. </span>How do we read a number like this?<a class="headerlink" href="#how-do-we-read-a-number-like-this" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.5.1. </span>How do we read a number like this?<a class="headerlink" href="#how-do-we-read-a-number-like-this" title="Link to this heading">#</a></h3>
 <p>if the sign bit is <span class="math notranslate nohighlight">\(s\)</span> and the number represented by the exponent bits is <span class="math notranslate nohighlight">\(e\)</span> and the 52 bits are number from right most is 0 and the last one is 52.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -633,7 +651,7 @@ $<span class="math notranslate nohighlight">\( (-1)*0 + \left(1 + 0\cdot 2^{-1} 
 <p><a class="reference external" href="https://float.exposed/0x3ff4000000000000">1.25 on float.exposed</a></p>
 </section>
 <section id="why-use-e-1023-for-the-exponent">
-<h3><span class="section-number">19.5.2. </span>Why use e-1023 for the exponent?<a class="headerlink" href="#why-use-e-1023-for-the-exponent" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.5.2. </span>Why use e-1023 for the exponent?<a class="headerlink" href="#why-use-e-1023-for-the-exponent" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">11</span>
@@ -649,7 +667,7 @@ $<span class="math notranslate nohighlight">\( (-1)*0 + \left(1 + 0\cdot 2^{-1} 
 <p>so 1023 is half -1, this means that we split the possible range of numbers that we can represent in the exponent to positive and negative, meaning the whole expression <span class="math notranslate nohighlight">\(2^{e-1023}\)</span> ranges from large(<span class="math notranslate nohighlight">\(2^{1025}\)</span>) to small(<span class="math notranslate nohighlight">\(2^{-1023}\)</span>)</p>
 </section>
 <section id="how-do-we-get-numbers-into-this-form">
-<h3><span class="section-number">19.5.3. </span>How do we get numbers into this form?<a class="headerlink" href="#how-do-we-get-numbers-into-this-form" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">19.5.3. </span>How do we get numbers into this form?<a class="headerlink" href="#how-do-we-get-numbers-into-this-form" title="Link to this heading">#</a></h3>
 <p>Now, let’s return to our example of .1.</p>
 <p>First we take the sign of the number for the sign bit, but then to get the exponent and fraction, we have more work to do.</p>
 <p>Let’s take the equation we had from the standard:</p>
@@ -820,14 +838,14 @@ we get the quotient and remainder, the quotient will be the number we use, but w
 </section>
 </section>
 <section id="prepare-for-next-class">
-<h2><span class="section-number">19.6. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">19.6. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Create <span class="target" id="index-0"></span>operators.md and make some notes about what you know about operators.  What kinds of operators are you familiar with? Which have you seen in programming? math?</p></li>
 <li><p>Refresh your knowledge of logical operations/ logic gates: and, or, xor, not.  For an example reference <a class="reference external" href="https://lodev.org/logicemu/#id=logic_gates">see the logicemu emulator we will use in class</a></p></li>
 </ol>
 </section>
 <section id="badges">
-<h2><span class="section-number">19.7. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">19.7. </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -847,10 +865,10 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2><span class="section-number">19.8. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">19.8. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Link to this heading">#</a></h2>
 </section>
 <section id="questions-after-todays-class">
-<h2><span class="section-number">19.9. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">19.9. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -879,11 +897,10 @@ Practice</label><div class="sd-tab-content docutils">
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2024-04-02.html"
@@ -903,10 +920,7 @@ Practice</label><div class="sd-tab-content docutils">
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -914,6 +928,7 @@ Practice</label><div class="sd-tab-content docutils">
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -960,9 +975,10 @@ By Professor Sarah M Brown
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -986,8 +1002,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

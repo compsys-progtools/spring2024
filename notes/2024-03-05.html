@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>12. Why did we learn the plubming commands? &#8212; Computer Systems and Programming Tools</title>
   
@@ -19,48 +18,46 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css?v=57efbcaa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-03-05';</script>
@@ -69,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="13. What is a commit number?" href="2024-03-07.html" />
     <link rel="prev" title="11. How does git make a commit?" href="2024-02-29.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -77,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -143,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Computer Systems and Programming Tools - Home"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Computer Systems and Programming Tools - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
 </ul>
@@ -395,20 +416,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -469,10 +492,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="why-did-we-learn-the-plubming-commands">
-<h1><span class="section-number">12. </span>Why did we learn the plubming commands?<a class="headerlink" href="#why-did-we-learn-the-plubming-commands" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">12. </span>Why did we learn the plubming commands?<a class="headerlink" href="#why-did-we-learn-the-plubming-commands" title="Link to this heading">#</a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>If you miss class or lab for any reason you are responsible for making it up per the instructions in the syllabus. You do not need to notify me why you are missing class and I do not judge your reasons for missing class for short absences. For longer absences you may <a class="reference external" href="https://compsys-progtools.github.io/spring2024/syllabus/uri_statements.html?highlight=makeup#excused-absences">email me to make a plan</a>.</p>
@@ -488,7 +511,7 @@ document.write(`
 <p>Large language models will not do that for you.</p>
 <p><strong>Note</strong> I checked and confirmed that some of the assignments will be answered incorrectly by LLMs because they are about very specific details that most people who write blogs and code excerpts on stack overflow etc do incorrectly.</p>
 <section id="todays-questions">
-<h2><span class="section-number">12.1. </span>Today’s Questions<a class="headerlink" href="#todays-questions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.1. </span>Today’s Questions<a class="headerlink" href="#todays-questions" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>What are references?</p></li>
 <li><p>How can can I release and share my code?</p></li>
@@ -496,7 +519,7 @@ document.write(`
 </ul>
 </section>
 <section id="what-does-git-status-do">
-<h2><span class="section-number">12.2. </span>What does git status do?<a class="headerlink" href="#what-does-git-status-do" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.2. </span>What does git status do?<a class="headerlink" href="#what-does-git-status-do" title="Link to this heading">#</a></h2>
 <p><em>compares the working directory to the current state of the active branch</em></p>
 <ul class="simple">
 <li><p>we cansee the working directory with: <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
@@ -548,13 +571,13 @@ document.write(`
 <p>We also note that this says we are on the main branch , and that we have no commits yet.  Let’s try to understand why it says we have no commits when we thougth we made one</p>
 </section>
 <section id="branches-are-references">
-<h2><span class="section-number">12.3. </span>Branches are references<a class="headerlink" href="#branches-are-references" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.3. </span>Branches are references<a class="headerlink" href="#branches-are-references" title="Link to this heading">#</a></h2>
 <p>branches are not git objects, they are references.</p>
 <p>We can see that by where they are stored.</p>
 <p>How can we inspect to see where references are stored?</p>
 <p>using ls and/or find</p>
 <section id="why-is-our-commit-missing">
-<h3><span class="section-number">12.3.1. </span>Why is our commit missing?<a class="headerlink" href="#why-is-our-commit-missing" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.3.1. </span>Why is our commit missing?<a class="headerlink" href="#why-is-our-commit-missing" title="Link to this heading">#</a></h3>
 <p>We can see our list of object with <code class="docutils literal notranslate"><span class="pre">find</span></code></p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -623,7 +646,7 @@ document.write(`
 <p>but it is empty</p>
 </section>
 <section id="updating-a-branch-manually">
-<h3><span class="section-number">12.3.2. </span>Updating a branch manually<a class="headerlink" href="#updating-a-branch-manually" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.3.2. </span>Updating a branch manually<a class="headerlink" href="#updating-a-branch-manually" title="Link to this heading">#</a></h3>
 <p>The branch file is named as the branch (here <code class="docutils literal notranslate"><span class="pre">main</span></code>) and stored in the <code class="docutils literal notranslate"><span class="pre">.git/refs/heads/</span></code> folder and contains the full hash of the commit that branch is pointing to.</p>
 <p>Since we made the commit manually, we need to move the branch manually too. We will use echo, by copyting the full hash from above (I copied the part after the last <code class="docutils literal notranslate"><span class="pre">/</span></code> in the list of objects above and then typed the <code class="docutils literal notranslate"><span class="pre">e3</span></code> before pasting).</p>
 <p>Mine looks like:</p>
@@ -657,7 +680,7 @@ document.write(`
 </section>
 </section>
 <section id="git-tags">
-<h2><span class="section-number">12.4. </span>Git tags<a class="headerlink" href="#git-tags" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.4. </span>Git tags<a class="headerlink" href="#git-tags" title="Link to this heading">#</a></h2>
 <p>The other type of git reference is called a tag. There are two types of tags:</p>
 <ul class="simple">
 <li><p>a lightweight tag is like a branch that does not move</p></li>
@@ -822,7 +845,7 @@ First we check the branch and working directory:</p>
 <p>We can <a class="reference external" href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release">create a relese for the tag we made</a>.</p>
 </section>
 <section id="debugging-with-git">
-<h2><span class="section-number">12.5. </span>Debugging with git<a class="headerlink" href="#debugging-with-git" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.5. </span>Debugging with git<a class="headerlink" href="#debugging-with-git" title="Link to this heading">#</a></h2>
 <p>git will help you do a binary search to find what commit introduced a bug.</p>
 <p>we have to tell it to start, then tell it that the current commit is bad, then tell it the last good commit (or a reference to it)</p>
 <p>To do this we need to have to tell it what commit was good, this is one of the reasons that using tags can be helpful</p>
@@ -1165,7 +1188,7 @@ First we check the branch and working directory:</p>
 <figure class="align-default" id="detached-head-comic">
 <img alt="https://wizardzines.com/images/uploads/detached-head-state.png" src="https://wizardzines.com/images/uploads/detached-head-state.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 12.1 </span><span class="caption-text">A comic from <a class="reference external" href="https://wizardzines.com/">wizard zines</a> that has detailed alt text at the “Read the transript” link on the <a class="reference external" href="https://wizardzines.com/comics/detached-head-state/">source page</a>.</span><a class="headerlink" href="#detached-head-comic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 12.1 </span><span class="caption-text">A comic from <a class="reference external" href="https://wizardzines.com/">wizard zines</a> that has detailed alt text at the “Read the transript” link on the <a class="reference external" href="https://wizardzines.com/comics/detached-head-state/">source page</a>.</span><a class="headerlink" href="#detached-head-comic" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>We also see some untracked files.  This is because at the tip of the main branch, where we were previously, these files existed and were listed in the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></p>
@@ -1217,7 +1240,7 @@ First we check the branch and working directory:</p>
 <p>here we see the gitignroe is back</p>
 </section>
 <section id="any-commit-can-be-checked-out">
-<h2><span class="section-number">12.6. </span>Any commit can be checked out<a class="headerlink" href="#any-commit-can-be-checked-out" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.6. </span>Any commit can be checked out<a class="headerlink" href="#any-commit-can-be-checked-out" title="Link to this heading">#</a></h2>
 <p>We can also check out the error prone commit direct if we need to go back to fix again.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1249,7 +1272,7 @@ First we check the branch and working directory:</p>
 <p>This way git gives us advice on how to handle our detached head.</p>
 </section>
 <section id="annotated-commits-create-objects">
-<h2><span class="section-number">12.7. </span>Annotated commits create objects<a class="headerlink" href="#annotated-commits-create-objects" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.7. </span>Annotated commits create objects<a class="headerlink" href="#annotated-commits-create-objects" title="Link to this heading">#</a></h2>
 <p>Maybe, we do not know how to fix this , but we want to make the commit easy for a colleague to find.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1314,7 +1337,7 @@ First we check the branch and working directory:</p>
 <p>This is a lot like the content of a commit, but instead of pointing to a tree it points to the a commit.</p>
 </section>
 <section id="how-can-git-help-with-work-in-progress">
-<h2><span class="section-number">12.8. </span>How can git help with  work in Progress?<a class="headerlink" href="#how-can-git-help-with-work-in-progress" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.8. </span>How can git help with  work in Progress?<a class="headerlink" href="#how-can-git-help-with-work-in-progress" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning">git stash</a></p>
 <p>What if you have worked on something part way, but not finished it, so you do not want to make a commit yet, but you need to switch and work on something else?</p>
 <p>Let’s go back to main</p>
@@ -1654,13 +1677,13 @@ stores temporary changes without making a commit so that we can come back to the
 </div>
 </section>
 <section id="badges">
-<h2><span class="section-number">12.9. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.9. </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
 Review</label><div class="sd-tab-content docutils">
 <ol class="arabic simple">
-<li><p>Use git bisect to find the first bad commit in the <span class="xref myst">toy bug repo</span>, save the command history and the bad commit hash to <span class="target" id="index-0"></span>git_debug.md</p></li>
+<li><p>Use git bisect to find the first bad commit in the <a class="reference internal" href="#hhttps://github.com/compsys-progtools/toy_bug"><span class="xref myst">toy bug repo</span></a>, save the command history and the bad commit hash to <span class="target" id="index-0"></span>git_debug.md</p></li>
 <li><p>Create <span class="target" id="index-1"></span>tagtypeexplore.md  with the template below. Determine how  many of the tags in the course website are annotated vs lightweight using. (You may need to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">--tags</span></code> in your clone of the course website)</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Tags
@@ -1705,43 +1728,43 @@ Course website tags by type:
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2><span class="section-number">12.10. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.10. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Link to this heading">#</a></h2>
 </section>
 <section id="questions-after-todays-class">
-<h2><span class="section-number">12.11. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.11. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Link to this heading">#</a></h2>
 <section id="are-tags-only-applicable-to-commits">
-<h3><span class="section-number">12.11.1. </span>Are tags only applicable to commits?<a class="headerlink" href="#are-tags-only-applicable-to-commits" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.11.1. </span>Are tags only applicable to commits?<a class="headerlink" href="#are-tags-only-applicable-to-commits" title="Link to this heading">#</a></h3>
 <p>tags are defined relative to a commit.</p>
 </section>
 <section id="is-the-stash-diffrent-between-all-the-branches-or-it-the-same">
-<h3><span class="section-number">12.11.2. </span>Is the stash diffrent between all the branches or it the same.<a class="headerlink" href="#is-the-stash-diffrent-between-all-the-branches-or-it-the-same" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.11.2. </span>Is the stash diffrent between all the branches or it the same.<a class="headerlink" href="#is-the-stash-diffrent-between-all-the-branches-or-it-the-same" title="Link to this heading">#</a></h3>
 <p>There is one stash per repo, it is a queue shared across branches</p>
 </section>
 <section id="with-git-stash-can-i-create-a-file-on-say-main-stash-and-then-switch-to-another-branch-to-move-that-file-to-that-new-branch-instead">
-<h3><span class="section-number">12.11.3. </span>with git stash can I create a file on say main stash and then switch to another branch to move that file to that new branch instead?<a class="headerlink" href="#with-git-stash-can-i-create-a-file-on-say-main-stash-and-then-switch-to-another-branch-to-move-that-file-to-that-new-branch-instead" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.11.3. </span>with git stash can I create a file on say main stash and then switch to another branch to move that file to that new branch instead?<a class="headerlink" href="#with-git-stash-can-i-create-a-file-on-say-main-stash-and-then-switch-to-another-branch-to-move-that-file-to-that-new-branch-instead" title="Link to this heading">#</a></h3>
 <p>Yes, sort of, you can create a while while main is checked out and then stash it instead of committing it. Since it gets stashed, not committed, the file is not “on” the branch.</p>
 <p>THen you can switch branches and apply or pop from stash and then commit.</p>
 </section>
 <section id="is-the-point-of-stash-area-just-in-case-you-do-work-in-the-wrong-branch">
-<h3><span class="section-number">12.11.4. </span>Is the point of stash area just in case you do work in the wrong branch?<a class="headerlink" href="#is-the-point-of-stash-area-just-in-case-you-do-work-in-the-wrong-branch" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.11.4. </span>Is the point of stash area just in case you do work in the wrong branch?<a class="headerlink" href="#is-the-point-of-stash-area-just-in-case-you-do-work-in-the-wrong-branch" title="Link to this heading">#</a></h3>
 <p>No, it actually cannot help if you commit to the wron branch and if you do not commit, you do not need it.</p>
 <p>It is so that you can save work without commiting, get a clean working directory to do something else and then add the work in .</p>
 </section>
 <section id="while-debugging-and-you-accidently-call-a-good-commit-a-bad-commit-is-there-a-way-to-reverse-that-or-no">
-<h3><span class="section-number">12.11.5. </span>while debugging and you accidently call a good commit a bad commit is there a way to reverse that or no?<a class="headerlink" href="#while-debugging-and-you-accidently-call-a-good-commit-a-bad-commit-is-there-a-way-to-reverse-that-or-no" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.11.5. </span>while debugging and you accidently call a good commit a bad commit is there a way to reverse that or no?<a class="headerlink" href="#while-debugging-and-you-accidently-call-a-good-commit-a-bad-commit-is-there-a-way-to-reverse-that-or-no" title="Link to this heading">#</a></h3>
 <p>It looks like you would have to start over, but you could print the log first to remember what you had already figured out.</p>
 </section>
 <section id="where-does-git-stash-store-its-stack-is-it-a-file-inside-of-the-git-folder">
-<h3><span class="section-number">12.11.6. </span>Where does git stash store its stack, is it a file inside of the .git folder?<a class="headerlink" href="#where-does-git-stash-store-its-stack-is-it-a-file-inside-of-the-git-folder" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.11.6. </span>Where does git stash store its stack, is it a file inside of the .git folder?<a class="headerlink" href="#where-does-git-stash-store-its-stack-is-it-a-file-inside-of-the-git-folder" title="Link to this heading">#</a></h3>
 <p>it hashes the content as blobs and stores the pointer to that blob in <code class="docutils literal notranslate"><span class="pre">.git/refs/stash</span></code></p>
 </section>
 <section id="how-often-are-these-commands-used-in-a-professional-environment">
-<h3><span class="section-number">12.11.7. </span>how often are these commands used in a professional environment<a class="headerlink" href="#how-often-are-these-commands-used-in-a-professional-environment" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.11.7. </span>how often are these commands used in a professional environment<a class="headerlink" href="#how-often-are-these-commands-used-in-a-professional-environment" title="Link to this heading">#</a></h3>
 <p>this is hard to know, a lot of people are git novices, but I want you to have these as tools so you can be more efficient.</p>
 <p>Being efficient with your time in a salaried job often means you can work fewer hours total or you can get more work done and earn promotions faster.</p>
 </section>
 <section id="why-wouldnt-i-just-make-a-new-branch-instead-of-leaving-the-changes-floating-in-space">
-<h3><span class="section-number">12.11.8. </span>why wouldn’t i just make a new branch instead of leaving the changes floating in space?<a class="headerlink" href="#why-wouldnt-i-just-make-a-new-branch-instead-of-leaving-the-changes-floating-in-space" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.11.8. </span>why wouldn’t i just make a new branch instead of leaving the changes floating in space?<a class="headerlink" href="#why-wouldnt-i-just-make-a-new-branch-instead-of-leaving-the-changes-floating-in-space" title="Link to this heading">#</a></h3>
 <p>One time to use stash is when you realize you started working without pulling. If you make a commit you will have to deal with the divergent branches, but if you stash, pull, then apply, no such problem.</p>
 <p>Another case is that in some projects, there are standards to not have too many too small commits, so this is a way to avoid that.</p>
 </section>
@@ -1773,11 +1796,10 @@ Course website tags by type:
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2024-02-29.html"
@@ -1797,10 +1819,7 @@ Course website tags by type:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1808,6 +1827,7 @@ Course website tags by type:
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1861,9 +1881,10 @@ By Professor Sarah M Brown
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1887,8 +1908,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6. What is a commit? &#8212; Computer Systems and Programming Tools</title>
   
@@ -19,48 +18,46 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css?v=57efbcaa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-02-08';</script>
@@ -69,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="7. How do programmers communicate about code?" href="2024-02-15.html" />
     <link rel="prev" title="5. When do git and bash give me an advantage?" href="2024-02-06.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -77,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -143,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Computer Systems and Programming Tools - Home"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Computer Systems and Programming Tools - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
 </ul>
@@ -395,20 +416,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -459,12 +482,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="what-is-a-commit">
-<h1><span class="section-number">6. </span>What <em>is</em> a commit?<a class="headerlink" href="#what-is-a-commit" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">6. </span>What <em>is</em> a commit?<a class="headerlink" href="#what-is-a-commit" title="Link to this heading">#</a></h1>
 <section id="admin">
-<h2><span class="section-number">6.1. </span>Admin<a class="headerlink" href="#admin" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.1. </span>Admin<a class="headerlink" href="#admin" title="Link to this heading">#</a></h2>
 <p>Penalty free zone ends with today’s badges</p>
 <ul class="simple">
 <li><p>all past badges can be submitted at any time</p></li>
@@ -473,7 +496,7 @@ document.write(`
 </ul>
 </section>
 <section id="defining-terms">
-<h2><span class="section-number">6.2. </span>Defining terms<a class="headerlink" href="#defining-terms" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.2. </span>Defining terms<a class="headerlink" href="#defining-terms" title="Link to this heading">#</a></h2>
 <p>A commit is the most important unit of git. Later we will talk about what git as a whole is in more detail, but understanding a commit is essential to understanding how to fix things using git.</p>
 <p>In CS we often have multiple, overlapping definitions for a term depending on our goal.</p>
 <p>In intro classes, we try really hard to only use one definition for each term to let you focus.</p>
@@ -488,11 +511,11 @@ document.write(`
 <p>for a commit, today, we are going to go through all of these, with lighter treatment on the implementation for today, and more detail later.</p>
 </section>
 <section id="conceptually-a-commit-is-a-snapshot">
-<h2><span class="section-number">6.3. </span>Conceptually, a commit is a snapshot<a class="headerlink" href="#conceptually-a-commit-is-a-snapshot" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.3. </span>Conceptually, a commit is a snapshot<a class="headerlink" href="#conceptually-a-commit-is-a-snapshot" title="Link to this heading">#</a></h2>
 <p><img alt="storing data as snapshots over time" src="https://git-scm.com/book/en/v2/images/snapshots.png" /></p>
 </section>
 <section id="a-commit-is-the-basic-unit-of-what-git-manages">
-<h2><span class="section-number">6.4. </span>A commit is the basic unit of what git manages<a class="headerlink" href="#a-commit-is-the-basic-unit-of-what-git-manages" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.4. </span>A commit is the basic unit of what git manages<a class="headerlink" href="#a-commit-is-the-basic-unit-of-what-git-manages" title="Link to this heading">#</a></h2>
 <p>All other git things are defined relative to commits</p>
 <ul class="simple">
 <li><p>branches are pointers to commits</p></li>
@@ -502,7 +525,7 @@ document.write(`
 </ul>
 </section>
 <section id="parts-of-a-commit">
-<h2><span class="section-number">6.5. </span>Parts of a commit<a class="headerlink" href="#parts-of-a-commit" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.5. </span>Parts of a commit<a class="headerlink" href="#parts-of-a-commit" title="Link to this heading">#</a></h2>
 <p>We will learn about the structure of a commit by inspecting it.</p>
 <p>First we will go back to our <code class="docutils literal notranslate"><span class="pre">gh-inclass</span></code> repo</p>
 <div class="cell tag_skip-execution docutils container">
@@ -622,7 +645,7 @@ and I will use the last visible commit above (<code class="docutils literal notr
 <li><p>message</p></li>
 </ul>
 <section id="what-is-the-pgp-signature">
-<h3><span class="section-number">6.5.1. </span>What is the PGP signature?<a class="headerlink" href="#what-is-the-pgp-signature" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.1. </span>What is the PGP signature?<a class="headerlink" href="#what-is-the-pgp-signature" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits">Signed commits</a> are extra authentication that you are who you say you are.</p>
 <p>The commits that are labeled with the <code class="docutils literal notranslate"><span class="pre">verified</span></code> tag on <a class="reference external" href="http://GitHub.com">GitHub.com</a></p>
 <p>If we pick a commit from the history on GitHub that does not have <code class="docutils literal notranslate"><span class="pre">verified</span></code> on it, then we can see it does not have the PGP signature</p>
@@ -644,7 +667,7 @@ and I will use the last visible commit above (<code class="docutils literal notr
 </section>
 </section>
 <section id="how-are-commits-implemented">
-<h2><span class="section-number">6.6. </span>How are commits implemented?<a class="headerlink" href="#how-are-commits-implemented" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.6. </span>How are commits implemented?<a class="headerlink" href="#how-are-commits-implemented" title="Link to this heading">#</a></h2>
 <p>commits are stored in the <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory as files.  git itself <em>is</em> a file system, or a way of storing information.</p>
 <p>Everything the git program uses is stored in the <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory, you can think of that like all of the variables the program would need if it ran all the time.</p>
 <div class="cell tag_skip-execution docutils container">
@@ -758,14 +781,14 @@ unique identifier for an object. We can list what is in one of those folders</p>
 </div>
 </section>
 <section id="commit-messages-are-essential">
-<h2><span class="section-number">6.7. </span>Commit messages are essential<a class="headerlink" href="#commit-messages-are-essential" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.7. </span>Commit messages are essential<a class="headerlink" href="#commit-messages-are-essential" title="Link to this heading">#</a></h2>
 <p>A git commit message must exist and is <em>always</em> for people, but can also be for machines.</p>
 <p>the <a class="reference external" href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commits standard</a> is a format of commits</p>
 <p>if you use this, then you can use automated tools to generate a full change log when you release code</p>
 <p><a class="reference external" href="https://www.conventionalcommits.org/en/about/">Tooling and examples of conventional commits</a></p>
 </section>
 <section id="using-a-codespace">
-<h2><span class="section-number">6.8. </span>Using a codespace<a class="headerlink" href="#using-a-codespace" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.8. </span>Using a codespace<a class="headerlink" href="#using-a-codespace" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://docs.github.com/en/codespaces/overview">Codespaces</a> are a virutal machine that you can use VSCode on in browser.  You only have VSCode access to this system, but VSCode with the terminal is a lot of power.</p>
 <p>If VSCode is new to you, use their documentation of the <a class="reference external" href="https://code.visualstudio.com/docs/getstarted/userinterface">VSCode interface</a> to get oriented to the different parts of the screen.</p>
 <p>Before we open a code space, we will first push our content.</p>
@@ -874,14 +897,14 @@ unique identifier for an object. We can list what is in one of those folders</p>
 </div>
 </section>
 <section id="prepare-for-this-class">
-<h2><span class="section-number">6.9. </span>Prepare for this class<a class="headerlink" href="#prepare-for-this-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.9. </span>Prepare for this class<a class="headerlink" href="#prepare-for-this-class" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Bring git questions or scenarios you want to be able to solve to class on Thursday (in your mind or comment here if that helps you remember)</p></li>
 <li><p>Practice using the new bash commands we have learned to read and understand the workflow files in your KWL repo. Look for bash commands that we have seen before. Try to modify files on a prepare branch so that your name is already filled in when your experience badge (inclass) action runs.</p></li>
 </ol>
 </section>
 <section id="badges">
-<h2><span class="section-number">6.10. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.10. </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -902,11 +925,11 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2><span class="section-number">6.11. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.11. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Link to this heading">#</a></h2>
 <p>redirect your <code class="docutils literal notranslate"><span class="pre">history</span></code> to a file <code class="docutils literal notranslate"><span class="pre">log-2024-02-08.txt</span></code> and include it with your experience report.</p>
 </section>
 <section id="questions-after-todays-class">
-<h2><span class="section-number">6.12. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.12. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Link to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Submit a question as an issue or a PR to this page</p>
@@ -939,11 +962,10 @@ Practice</label><div class="sd-tab-content docutils">
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2024-02-06.html"
@@ -963,10 +985,7 @@ Practice</label><div class="sd-tab-content docutils">
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -974,6 +993,7 @@ Practice</label><div class="sd-tab-content docutils">
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1017,9 +1037,10 @@ By Professor Sarah M Brown
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1043,8 +1064,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

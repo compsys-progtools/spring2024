@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>10. What is git? &#8212; Computer Systems and Programming Tools</title>
   
@@ -19,48 +18,46 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css?v=57efbcaa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-02-27';</script>
@@ -69,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="11. How does git make a commit?" href="2024-02-29.html" />
     <link rel="prev" title="9. Why are these tools like this?" href="2024-02-22.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -77,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -143,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Computer Systems and Programming Tools - Home"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Computer Systems and Programming Tools - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
 </ul>
@@ -395,20 +416,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -483,12 +506,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="what-is-git">
-<h1><span class="section-number">10. </span>What <em>is</em> git?<a class="headerlink" href="#what-is-git" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">10. </span>What <em>is</em> git?<a class="headerlink" href="#what-is-git" title="Link to this heading">#</a></h1>
 <section id="admin">
-<h2><span class="section-number">10.1. </span>Admin<a class="headerlink" href="#admin" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.1. </span>Admin<a class="headerlink" href="#admin" title="Link to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>These notes are a bit different than the ones I made in class</p>
@@ -500,14 +523,14 @@ document.write(`
 <li><p>creating documentation websites is also a part of many builds</p></li>
 </ul>
 <section id="support-for-build-and-explore-proposals">
-<h3><span class="section-number">10.1.1. </span>Support for build and explore proposals<a class="headerlink" href="#support-for-build-and-explore-proposals" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.1. </span>Support for build and explore proposals<a class="headerlink" href="#support-for-build-and-explore-proposals" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://compsys-progtools.github.io/spring2024/activities/build.html#proposal-template">build proposal template</a></p></li>
 <li><p><a class="reference external" href="https://compsys-progtools.github.io/spring2024/activities/explore.html#how-do-i-propose">explore proposal instructions</a></p></li>
 </ul>
 </section>
 <section id="build-and-explore-ideas">
-<h3><span class="section-number">10.1.2. </span>Build and Explore ideas<a class="headerlink" href="#build-and-explore-ideas" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.2. </span>Build and Explore ideas<a class="headerlink" href="#build-and-explore-ideas" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/orgs/compsys-progtools/discussions/categories/build-ideas">build - high level</a></p></li>
 <li><p><a class="reference external" href="https://github.com/compsys-progtools/courseutils/labels/badge%3A%20build">build courseutils</a></p></li>
@@ -516,7 +539,7 @@ document.write(`
 </ul>
 </section>
 <section id="get-credit-for-this-class-toward-your-major">
-<h3><span class="section-number">10.1.3. </span>get credit for this class toward your major<a class="headerlink" href="#get-credit-for-this-class-toward-your-major" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.3. </span>get credit for this class toward your major<a class="headerlink" href="#get-credit-for-this-class-toward-your-major" title="Link to this heading">#</a></h3>
 <p>The department has decided that this course is acceptable for the 300+ level elective degree requirement in the CS major, but it requires that you complete a form called a “Curriculum Modification”.</p>
 <p>I added a <a class="reference external" href="https://github.com/compsys-progtools/spring2024/blob/main/img/cm_392_template.pdf">template form</a>
 from Professor DiPippo (CS Undergraduate Chair) to the course website repo in the <code class="docutils literal notranslate"><span class="pre">img</span></code> folder, it is a pdf.</p>
@@ -525,7 +548,7 @@ from Professor DiPippo (CS Undergraduate Chair) to the course website repo in th
 </section>
 </section>
 <section id="why-define-git-now">
-<h2><span class="section-number">10.2. </span>Why define git now?<a class="headerlink" href="#why-define-git-now" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.2. </span>Why define git now?<a class="headerlink" href="#why-define-git-now" title="Link to this heading">#</a></h2>
 <p>Two weeks ago learned about what a commit is and then we took a break from how git works, to talk more about how developers communicate about code, programming languages, and the unix philosophy</p>
 <p><strong>study tip</strong></p>
 <p>We will go in an out of topics at times, in order to provides what is called <em>spaced repetition</em> repeating material or key concepts with breaks.</p>
@@ -537,14 +560,14 @@ from Professor DiPippo (CS Undergraduate Chair) to the course website repo in th
 <p>this includes other spoken languages as well if that is helpful for you.</p>
 </section>
 <section id="git-definition">
-<h2><span class="section-number">10.3. </span>Git Definition<a class="headerlink" href="#git-definition" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.3. </span>Git Definition<a class="headerlink" href="#git-definition" title="Link to this heading">#</a></h2>
 <p>From here, we have the full definition of git</p>
 <p><a class="reference external" href="https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain">git is fundamentally a content-addressable filesystem with a VCS user interface written on top of it.</a></p>
 <p>We do not start from that point, because these documents were written for target audience of working developers who are familar with other, old version control systems and learning an <em>additional</em> one.</p>
 <p>Most of you, however, have probably not used another version control system.</p>
 <p>Let’s break down the definition</p>
 <section id="git-is-a-file-system">
-<h3><span class="section-number">10.3.1. </span>Git is a File system<a class="headerlink" href="#git-is-a-file-system" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.3.1. </span>Git is a File system<a class="headerlink" href="#git-is-a-file-system" title="Link to this heading">#</a></h3>
 <p>Content-addressable filesystem means a key-value data store.</p>
 <p>some examples of key-value pairs that you have seen in computer science broadly, and in this course specficially</p>
 <ul class="simple">
@@ -556,7 +579,7 @@ from Professor DiPippo (CS Undergraduate Chair) to the course website repo in th
 <p>What this means is that you can insert any kind of content into a Git repository, for which Git will hand you back a unique key you can use later to retrieve that content.</p>
 </section>
 <section id="git-is-a-version-control-system">
-<h3><span class="section-number">10.3.2. </span>Git is a Version Control System<a class="headerlink" href="#git-is-a-version-control-system" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.3.2. </span>Git is a Version Control System<a class="headerlink" href="#git-is-a-version-control-system" title="Link to this heading">#</a></h3>
 <p>In the before times</p>
 <p><img alt="PhD comics final.doc comic" src="http://www.phdcomics.com/comics/archive/phd101212s.gif" /></p>
 <p>git stores <strong>snapshots</strong> of your work each time you commit.</p>
@@ -568,7 +591,7 @@ from Professor DiPippo (CS Undergraduate Chair) to the course website repo in th
 </section>
 </section>
 <section id="git-has-two-sets-of-commands">
-<h2><span class="section-number">10.4. </span>Git has two sets of commands<a class="headerlink" href="#git-has-two-sets-of-commands" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.4. </span>Git has two sets of commands<a class="headerlink" href="#git-has-two-sets-of-commands" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Porcelain: the user friendly VCS</p></li>
 <li><p>Plumbing: the internal workings- a toolkit for a VCS</p></li>
@@ -578,25 +601,25 @@ from Professor DiPippo (CS Undergraduate Chair) to the course website repo in th
 <p>You can think of the plumbing vs porcelain commands like public/private methods.  As a user, you only need the public methods (porcelain commands) but those use the private ones to get things done (plumbing commands).  We will use the plumbing commands over the next few classes to examine what git <em>really</em> does when we call the porcelain commands that we will typically use.</p>
 </section>
 <section id="git-is-distributed">
-<h2><span class="section-number">10.5. </span>Git is distributed<a class="headerlink" href="#git-is-distributed" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.5. </span>Git is distributed<a class="headerlink" href="#git-is-distributed" title="Link to this heading">#</a></h2>
 <p>Git runs locally.  It can run in many places, and has commands to help sync across remotes, but git does not require one copy of the repository to be the “official” copy and the others to be subordinate.  git just sees repositories.</p>
 <p>For human reasons, we like to have one “official” copy and treat the others as local copies, but that is a social choice, not a technological requirement of git. Even though we will typically use it with an offical copy and other copies, having a tool tht does not care, makes the tool more flexible and allows us to create workflows, or networks of copies that have any relationship we want.</p>
 <p>It’s about the workflows, or the ways we socially <em>use</em> the tool.</p>
 <section id="subversion-workflow">
-<h3><span class="section-number">10.5.1. </span>Subversion  WOrkflow<a class="headerlink" href="#subversion-workflow" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.5.1. </span>Subversion  WOrkflow<a class="headerlink" href="#subversion-workflow" title="Link to this heading">#</a></h3>
 <p><img alt="subversion workflow" src="https://git-scm.com/images/about/workflow-a&#64;2x.png" /></p>
 </section>
 <section id="integration-manager">
-<h3><span class="section-number">10.5.2. </span>Integration Manager<a class="headerlink" href="#integration-manager" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.5.2. </span>Integration Manager<a class="headerlink" href="#integration-manager" title="Link to this heading">#</a></h3>
 <p><img alt="integration manager workflow" src="https://git-scm.com/images/about/workflow-b&#64;2x.png" /></p>
 </section>
 <section id="dictator-and-lieutenants">
-<h3><span class="section-number">10.5.3. </span>dictator and lieutenants<a class="headerlink" href="#dictator-and-lieutenants" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.5.3. </span>dictator and lieutenants<a class="headerlink" href="#dictator-and-lieutenants" title="Link to this heading">#</a></h3>
 <p><img alt="dictator and lieutenants workflow" src="https://git-scm.com/images/about/workflow-c&#64;2x.png" /></p>
 </section>
 </section>
 <section id="how-does-git-do-all-these-things">
-<h2><span class="section-number">10.6. </span>How does git do all these things?<a class="headerlink" href="#how-does-git-do-all-these-things" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.6. </span>How does git do all these things?<a class="headerlink" href="#how-does-git-do-all-these-things" title="Link to this heading">#</a></h2>
 <p>Let’s look at git again in our <code class="docutils literal notranslate"><span class="pre">github-inclass</span></code> repo</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -684,7 +707,7 @@ from Professor DiPippo (CS Undergraduate Chair) to the course website repo in th
 </div>
 <p>This is a consequence of git taking snap shots and tracking both the actual contents of our working directory <strong>and</strong> our commit messages and other meta data about each commit.</p>
 <section id="git-objects">
-<h3><span class="section-number">10.6.1. </span>Git Objects<a class="headerlink" href="#git-objects" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.6.1. </span>Git Objects<a class="headerlink" href="#git-objects" title="Link to this heading">#</a></h3>
 <p>There are 3 types:</p>
 <ul class="simple">
 <li><p>blob objects: the content of your files (data)</p></li>
@@ -766,7 +789,7 @@ from Professor DiPippo (CS Undergraduate Chair) to the course website repo in th
 </section>
 </section>
 <section id="git-variables">
-<h2><span class="section-number">10.7. </span>Git Variables<a class="headerlink" href="#git-variables" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.7. </span>Git Variables<a class="headerlink" href="#git-variables" title="Link to this heading">#</a></h2>
 <p>the program <code class="docutils literal notranslate"><span class="pre">git</span></code> does not run continously the entire time you are using it for a project.  It runs quick commands each time you tell it to, it’s goal is to manage files, so this makes sense.  This also means that important information that <code class="docutils literal notranslate"><span class="pre">git</span></code> needs is also saved in files.</p>
 <p>We can see the files that it has by listing the directory:</p>
 <div class="cell tag_skip-execution docutils container">
@@ -830,7 +853,7 @@ from Professor DiPippo (CS Undergraduate Chair) to the course website repo in th
 <p>here we can now see they are the same currently, but this is not necessarily true, it can be pointed at even different branches so these are often not the same.</p>
 </section>
 <section id="collaboration-tools">
-<h2><span class="section-number">10.8. </span>Collaboration Tools<a class="headerlink" href="#collaboration-tools" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.8. </span>Collaboration Tools<a class="headerlink" href="#collaboration-tools" title="Link to this heading">#</a></h2>
 <p>Let’s look at the gh inclass repo in browser</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -846,7 +869,7 @@ from Professor DiPippo (CS Undergraduate Chair) to the course website repo in th
 <p>If you are making up class, ping &#64;brownsarahm in a comment on the issue to get assigned a partner.</p>
 </section>
 <section id="prepare-for-next-class">
-<h2><span class="section-number">10.9. </span>Prepare for next class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.9. </span>Prepare for next class<a class="headerlink" href="#prepare-for-next-class" title="Link to this heading">#</a></h2>
 <p>Create a file <code class="docutils literal notranslate"><span class="pre">gitcommandsbreakdown.md</span></code> and for each command in the template below break down what steps it must do based on what we have learned so far about git objects.  I started the first one as an example based on what we discussed today, fill in the others.  In class on Thursday, we will make a commit using plumbing commands, so thinking about what you already know about commits will prepare you to learn this material.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># What git commands do</span>
 
@@ -868,7 +891,7 @@ from Professor DiPippo (CS Undergraduate Chair) to the course website repo in th
 </div>
 </section>
 <section id="badges">
-<h2><span class="section-number">10.10. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.10. </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -898,24 +921,24 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2><span class="section-number">10.11. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.11. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Link to this heading">#</a></h2>
 <p>Append the contents of one of your trees or commits and one blob or tree inside of that first one to the bottom of your experience report.</p>
 </section>
 <section id="questions-after-todays-class">
-<h2><span class="section-number">10.12. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.12. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Link to this heading">#</a></h2>
 <section id="why-is-python-so-hard-to-install-on-a-computer">
-<h3><span class="section-number">10.12.1. </span>Why is python so hard to install on a computer?<a class="headerlink" href="#why-is-python-so-hard-to-install-on-a-computer" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.12.1. </span>Why is python so hard to install on a computer?<a class="headerlink" href="#why-is-python-so-hard-to-install-on-a-computer" title="Link to this heading">#</a></h3>
 <p>The complexity is that there can be multiple versions and there are multiple ways to do things.</p>
 </section>
 <section id="what-is-a-pack">
-<h3><span class="section-number">10.12.2. </span>What is a pack?<a class="headerlink" href="#what-is-a-pack" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.12.2. </span>What is a pack?<a class="headerlink" href="#what-is-a-pack" title="Link to this heading">#</a></h3>
 <p>a pack is a compressed chunk of content created when you push or occasionally if you have a lot of content.</p>
 <p>You may have seen one after running the command, <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">.git/objects/</span> <span class="pre">-type</span> <span class="pre">f</span></code>. It would look something like:
 <code class="docutils literal notranslate"><span class="pre">.git/objects/pack/pack-ef31f9fc1517ed75ff4829e12728cdc8884be12e.idx</span></code></p>
 <p>you can read more in the <a class="reference external" href="https://www.git-scm.com/book/en/v2/Git-Internals-Packfiles#:~:text=However%2C%20occasionally%20Git%20packs%20up%20several%20of%20these%20objects%20into%20a%20single%20binary%20file%20called%20a%20%E2%80%9Cpackfile%E2%80%9D%20in%20order%20to%20save%20space%20and%20be%20more%20efficient.%20Git%20does%20this%20if%20you%20have%20too%20many%20loose%20objects%20around%2C%20if%20you%20run%20the%20git%20gc%20command%20manually%2C%20or%20if%20you%20push%20to%20a%20remote%20server">git internals chapter of the book</a></p>
 </section>
 <section id="what-are-the-exact-differences-between-head-orig-head-and-fetch-head">
-<h3><span class="section-number">10.12.3. </span>What are the exact differences between HEAD, ORIG_HEAD, and FETCH_HEAD?<a class="headerlink" href="#what-are-the-exact-differences-between-head-orig-head-and-fetch-head" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.12.3. </span>What are the exact differences between HEAD, ORIG_HEAD, and FETCH_HEAD?<a class="headerlink" href="#what-are-the-exact-differences-between-head-orig-head-and-fetch-head" title="Link to this heading">#</a></h3>
 <p>All three are pointers to a commit, (or branch)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">HEAD</span></code> is the locally checked out branch (or commit).</p></li>
@@ -924,25 +947,25 @@ and <code class="docutils literal notranslate"><span class="pre">FETCH_HEAD</spa
 </ul>
 </section>
 <section id="why-hasnt-a-more-user-friendly-interface-been-implemented-for-git">
-<h3><span class="section-number">10.12.4. </span>Why hasn’t a more user friendly interface been implemented for git?<a class="headerlink" href="#why-hasnt-a-more-user-friendly-interface-been-implemented-for-git" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.12.4. </span>Why hasn’t a more user friendly interface been implemented for git?<a class="headerlink" href="#why-hasnt-a-more-user-friendly-interface-been-implemented-for-git" title="Link to this heading">#</a></h3>
 <p>There are a lot of attempts, but they are all severely limited in function and generally pretty strongly disliked by people who understand how git works.  I  would not teach any of them because I have seen that they reinforce misconceptions and incorrect understanding of git in ways that prevent people from learning the more advanced features.</p>
 <p>Also, user friendly is relative.  Relative to the audience and to the alternative.  To experienced devs familiar with other VCS, git <em>is</em> user friendly.</p>
 </section>
 <section id="how-does-git-know-what-files-are-in-the-staging-area-and-what-files-are-not">
-<h3><span class="section-number">10.12.5. </span>How does git know what files are in the staging area and what files are not?<a class="headerlink" href="#how-does-git-know-what-files-are-in-the-staging-area-and-what-files-are-not" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.12.5. </span>How does git know what files are in the staging area and what files are not?<a class="headerlink" href="#how-does-git-know-what-files-are-in-the-staging-area-and-what-files-are-not" title="Link to this heading">#</a></h3>
 <p>The index file, which is not easily human readable, contains the contents of the staging area.  We will learn more about this next class.  This is a <strong>great</strong> questions</p>
 </section>
 <section id="when-we-switch-branches-how-does-it-update-that-list-of-files-in-the-staging-area">
-<h3><span class="section-number">10.12.6. </span>When we switch branches how does it update that list of files in the staging area?<a class="headerlink" href="#when-we-switch-branches-how-does-it-update-that-list-of-files-in-the-staging-area" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.12.6. </span>When we switch branches how does it update that list of files in the staging area?<a class="headerlink" href="#when-we-switch-branches-how-does-it-update-that-list-of-files-in-the-staging-area" title="Link to this heading">#</a></h3>
 <p>No, the staging area is separate from branches.  This is useful though.  For example, you could add files to the staging area, then use git status and realize you are stil on main when you wanted to commit to a branch.  You can then create and switch to the new branch, and finish the commit, without having to unstage and start over.</p>
 </section>
 <section id="if-github-didnt-exist-where-would-git-be-used">
-<h3><span class="section-number">10.12.7. </span>if github didn’t exist, where would git be used?<a class="headerlink" href="#if-github-didnt-exist-where-would-git-be-used" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.12.7. </span>if github didn’t exist, where would git be used?<a class="headerlink" href="#if-github-didnt-exist-where-would-git-be-used" title="Link to this heading">#</a></h3>
 <p>Other popular git hosts  are bitbucket and gitlab, but there are lots and you can host your own.</p>
 <p><strong>this is a good explore topic</strong></p>
 </section>
 <section id="does-the-head-just-point-to-the-most-recent-commit-for-the-entire-repository">
-<h3><span class="section-number">10.12.8. </span>Does the HEAD just point to the most recent commit for the entire repository?<a class="headerlink" href="#does-the-head-just-point-to-the-most-recent-commit-for-the-entire-repository" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.12.8. </span>Does the HEAD just point to the most recent commit for the entire repository?<a class="headerlink" href="#does-the-head-just-point-to-the-most-recent-commit-for-the-entire-repository" title="Link to this heading">#</a></h3>
 <p>not always, but most of the time yes.  It points to what is currently checked out.</p>
 <p>We will be working with this more over the next few classes, so this is okay to be a little unclear because there will be more time to work with this.</p>
 </section>
@@ -974,11 +997,10 @@ and <code class="docutils literal notranslate"><span class="pre">FETCH_HEAD</spa
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2024-02-22.html"
@@ -998,10 +1020,7 @@ and <code class="docutils literal notranslate"><span class="pre">FETCH_HEAD</spa
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1009,6 +1028,7 @@ and <code class="docutils literal notranslate"><span class="pre">FETCH_HEAD</spa
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1076,9 +1096,10 @@ By Professor Sarah M Brown
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1102,8 +1123,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

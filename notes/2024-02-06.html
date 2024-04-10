@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5. When do git and bash give me an advantage? &#8212; Computer Systems and Programming Tools</title>
   
@@ -19,48 +18,46 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css?v=57efbcaa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-02-06';</script>
@@ -69,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="6. What is a commit?" href="2024-02-08.html" />
     <link rel="prev" title="4. How do branches work?" href="2024-02-01.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -77,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -143,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/systools.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/systools.png" class="logo__image only-light" alt="Computer Systems and Programming Tools - Home"/>
+    <script>document.write(`<img src="../_static/systools.png" class="logo__image only-dark" alt="Computer Systems and Programming Tools - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../activities/review.html">Review Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/prepare.html">Prepare for the next class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/practice.html">More Practice Badges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">KWL File List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/explore.html">Explore Badges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/build.html">Build Badges</a></li>
 </ul>
@@ -395,20 +416,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -480,14 +503,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="when-do-git-and-bash-give-me-an-advantage">
-<h1><span class="section-number">5. </span>When do git and bash give me an advantage?<a class="headerlink" href="#when-do-git-and-bash-give-me-an-advantage" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">5. </span>When do git and bash give me an advantage?<a class="headerlink" href="#when-do-git-and-bash-give-me-an-advantage" title="Link to this heading">#</a></h1>
 <p>so far we have used git and bash to accomplish familiar goals, and git and bash feel like just extra work for familiar goals.</p>
 <p>Today, we will start to see why git and bash are essential skills: they give you efficiency gains and time traveling super powers (within your work, only, sorry)</p>
 <section id="setting-the-stage">
-<h2><span class="section-number">5.1. </span>Setting the stage<a class="headerlink" href="#setting-the-stage" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.1. </span>Setting the stage<a class="headerlink" href="#setting-the-stage" title="Link to this heading">#</a></h2>
 <p>Discuss your prepare work with your neighbors. Share what project you looked at and discuss the following.
 If you all looked at the same repo, split up and look at different ones now.</p>
 <ul class="simple">
@@ -496,7 +519,7 @@ If you all looked at the same repo, split up and look at different ones now.</p>
 </ul>
 </section>
 <section id="important-references">
-<h2><span class="section-number">5.2. </span>Important references<a class="headerlink" href="#important-references" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2. </span>Important references<a class="headerlink" href="#important-references" title="Link to this heading">#</a></h2>
 <p>Use these for checking facts and resources.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/index.html">bash</a></p></li>
@@ -504,7 +527,7 @@ If you all looked at the same repo, split up and look at different ones now.</p>
 </ul>
 </section>
 <section id="setup">
-<h2><span class="section-number">5.3. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.3. </span>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
 <p>First, we’ll go back to our github inclass folder</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -592,7 +615,7 @@ If you all looked at the same repo, split up and look at different ones now.</p>
 </div>
 </section>
 <section id="organizing-a-project-workign-with-files">
-<h2><span class="section-number">5.4. </span>Organizing a project (workign with files)<a class="headerlink" href="#organizing-a-project-workign-with-files" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.4. </span>Organizing a project (workign with files)<a class="headerlink" href="#organizing-a-project-workign-with-files" title="Link to this heading">#</a></h2>
 <p>A common question is about how to organize projects.  While our main focus
 in this class session is the <code class="docutils literal notranslate"><span class="pre">bash</span></code> commands to do it, the <em>task</em> that we are
 going to do is to organize a hypothetical python project</p>
@@ -712,7 +735,7 @@ bash commands for moving files.</p>
 </div>
 </section>
 <section id="files-redirects-git-restore">
-<h2><span class="section-number">5.5. </span>Files, Redirects, git restore<a class="headerlink" href="#files-redirects-git-restore" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.5. </span>Files, Redirects, git restore<a class="headerlink" href="#files-redirects-git-restore" title="Link to this heading">#</a></h2>
 <p>Let’s first look at the README file</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -983,7 +1006,7 @@ We can add contents to files with <code class="docutils literal notranslate"><sp
 <p>back how we wanted it!</p>
 </section>
 <section id="what-if-i-forget-the-m">
-<h2><span class="section-number">5.6. </span>What if I forget the <code class="docutils literal notranslate"><span class="pre">-m</span></code><a class="headerlink" href="#what-if-i-forget-the-m" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.6. </span>What if I forget the <code class="docutils literal notranslate"><span class="pre">-m</span></code><a class="headerlink" href="#what-if-i-forget-the-m" title="Link to this heading">#</a></h2>
 <p>Now we will add some text to the README so we have a single point of reference about what these files are “about”</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1074,7 +1097,7 @@ using the open quote <code class="docutils literal notranslate"><span class="pre
 </div>
 </section>
 <section id="moving-files-and-patterns">
-<h2><span class="section-number">5.7. </span>Moving files and patterns<a class="headerlink" href="#moving-files-and-patterns" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.7. </span>Moving files and patterns<a class="headerlink" href="#moving-files-and-patterns" title="Link to this heading">#</a></h2>
 <p>First, we’ll make a directory with <code class="docutils literal notranslate"><span class="pre">mkdir</span></code></p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1151,7 +1174,7 @@ using the open quote <code class="docutils literal notranslate"><span class="pre
 </pre></div>
 </div>
 <section id="move-can-also-rename-files">
-<h3><span class="section-number">5.7.1. </span>Move can also rename files<a class="headerlink" href="#move-can-also-rename-files" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.7.1. </span>Move can also rename files<a class="headerlink" href="#move-can-also-rename-files" title="Link to this heading">#</a></h3>
 <p>We have one file with <code class="docutils literal notranslate"><span class="pre">test_</span></code> and a bunch of others with <code class="docutils literal notranslate"><span class="pre">tests_</span></code>.  We want them all to follow the same pattern, so let’s rename.</p>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">mv</span></code> to change the name as well. This is because “moving” a file and
 is really about changing its path, not actually copying it from one location to
@@ -1185,7 +1208,7 @@ another and the file name is a part of the path.</p>
 </div>
 </section>
 <section id="moving-multiple-files-with-patterns">
-<h3><span class="section-number">5.7.2. </span>Moving multiple files with patterns<a class="headerlink" href="#moving-multiple-files-with-patterns" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.7.2. </span>Moving multiple files with patterns<a class="headerlink" href="#moving-multiple-files-with-patterns" title="Link to this heading">#</a></h3>
 <p>let’s look at the list of files again.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1313,7 +1336,7 @@ had used the command wrong, their error message said that <code class="docutils 
 </section>
 </section>
 <section id="hidden-files">
-<h2><span class="section-number">5.8. </span>Hidden files<a class="headerlink" href="#hidden-files" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.8. </span>Hidden files<a class="headerlink" href="#hidden-files" title="Link to this heading">#</a></h2>
 <p>We are going to make a special hidden file and an extra one. We will use the following command:</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1462,7 +1485,7 @@ had used the command wrong, their error message said that <code class="docutils 
 </div>
 <p>and the <code class="docutils literal notranslate"><span class="pre">.secret</span></code> file is no longer there! git is not checking on that file at all.</p>
 <section id="gitignore-works-with-patterns-too">
-<h3><span class="section-number">5.8.1. </span>Gitignore works with patterns too<a class="headerlink" href="#gitignore-works-with-patterns-too" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.8.1. </span>Gitignore works with patterns too<a class="headerlink" href="#gitignore-works-with-patterns-too" title="Link to this heading">#</a></h3>
 <p>First, I’ll make a folder</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1679,7 +1702,7 @@ had used the command wrong, their error message said that <code class="docutils 
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">5.9. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.9. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>stdout is a file, that is displayed on the terminal</p></li>
 <li><p>“moving” a file does not re-write the data to a different part of the disk, it updates its adress only</p></li>
@@ -1689,12 +1712,8 @@ had used the command wrong, their error message said that <code class="docutils 
 <li><p>the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file prevents files from being in your repo</p></li>
 </ul>
 <section id="new-commands">
-<h3><span class="section-number">5.9.1. </span>New commands<a class="headerlink" href="#new-commands" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.9.1. </span>New commands<a class="headerlink" href="#new-commands" title="Link to this heading">#</a></h3>
 <table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>command</p></th>
 <th class="head"><p>explanation</p></th>
@@ -1717,12 +1736,8 @@ had used the command wrong, their error message said that <code class="docutils 
 </table>
 </section>
 <section id="new-git-commands">
-<h3><span class="section-number">5.9.2. </span>New git commands<a class="headerlink" href="#new-git-commands" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.9.2. </span>New git commands<a class="headerlink" href="#new-git-commands" title="Link to this heading">#</a></h3>
 <table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>command</p></th>
 <th class="head"><p>explanation</p></th>
@@ -1737,14 +1752,14 @@ had used the command wrong, their error message said that <code class="docutils 
 </section>
 </section>
 <section id="prepare-for-next-class">
-<h2><span class="section-number">5.10. </span>Prepare for next class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.10. </span>Prepare for next class<a class="headerlink" href="#prepare-for-next-class" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Bring git questions or scenarios you want to be able to solve to class on Thursday (in your mind or comment here if that helps you remember)</p></li>
 <li><p>Practice using the new bash commands we have learned to read and understand the workflow files in your KWL repo. Look for bash commands that we have seen before. Try to modify files on a prepare branch so that your name is already filled in when your experience badge (inclass) action runs.</p></li>
 </ol>
 </section>
 <section id="badges">
-<h2><span class="section-number">5.11. </span>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.11. </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -1780,7 +1795,7 @@ Practice</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="experience-report-evidence">
-<h2><span class="section-number">5.12. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.12. </span>Experience Report Evidence<a class="headerlink" href="#experience-report-evidence" title="Link to this heading">#</a></h2>
 <p>redirect the history to a file</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">&gt;&gt;</span> <span class="n">makeup_2023</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mf">21.</span><span class="n">md</span>
 </pre></div>
@@ -1788,25 +1803,25 @@ Practice</label><div class="sd-tab-content docutils">
 <p>then move the file created to your KWL repo on your experience report branch.</p>
 </section>
 <section id="questions-after-todays-class">
-<h2><span class="section-number">5.13. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.13. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Link to this heading">#</a></h2>
 <section id="why-exactly-does-the-mv-command-also-work-as-the-rename-function">
-<h3><span class="section-number">5.13.1. </span>Why exactly does the mv command also work as the rename function?<a class="headerlink" href="#why-exactly-does-the-mv-command-also-work-as-the-rename-function" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.13.1. </span>Why exactly does the mv command also work as the rename function?<a class="headerlink" href="#why-exactly-does-the-mv-command-also-work-as-the-rename-function" title="Link to this heading">#</a></h3>
 <p>There is also a <code class="docutils literal notranslate"><span class="pre">rename</span></code> utility, but <code class="docutils literal notranslate"><span class="pre">mv</span></code> can do both because “moving” a file is just changing its path.</p>
 </section>
 <section id="can-you-access-the-folders-not-using-terminal">
-<h3><span class="section-number">5.13.2. </span>Can you access the . folders not using terminal?<a class="headerlink" href="#can-you-access-the-folders-not-using-terminal" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.13.2. </span>Can you access the . folders not using terminal?<a class="headerlink" href="#can-you-access-the-folders-not-using-terminal" title="Link to this heading">#</a></h3>
 <p>Yes, but I do not know the specifics for each operating system.  Usually I think you can right click or control a setting somewhere.</p>
 </section>
 <section id="why-do-some-open-source-projects-have-a-lot-of-open-issues-maybe-even-more-issues-than-files">
-<h3><span class="section-number">5.13.3. </span>Why do some open source projects have a lot of open issues, maybe even more issues than files?<a class="headerlink" href="#why-do-some-open-source-projects-have-a-lot-of-open-issues-maybe-even-more-issues-than-files" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.13.3. </span>Why do some open source projects have a lot of open issues, maybe even more issues than files?<a class="headerlink" href="#why-do-some-open-source-projects-have-a-lot-of-open-issues-maybe-even-more-issues-than-files" title="Link to this heading">#</a></h3>
 <p>Some open source projects get innundated with bug reports or questions.  Some projects even use issues for other things.  For example, <a class="reference external" href="https://github.com/carpentries/trainers">the Carpentries trainers repo</a> uses issues to keep track of proposals for running a leadership committee of a group of people. The journal of open source software uses the <a class="reference external" href="https://github.com/openjournals/joss-reviews/issues">joss-reviews</a> repo to do peer reviews, it has 12 files and 291 open issues + 6017 closed issues.</p>
 </section>
 <section id="how-can-the-be-used-consistently-to-move-a-bunch-of-file-because-we-used-it-with-the-text-infront-of-the-similarity-and-behind-it-im-just-wondering-how-its-used-for-multiple-files-because-it-was-used-both-before-the-similarity-and-after-the-similarity">
-<h3><span class="section-number">5.13.4. </span>How can the “*” be used consistently to move a bunch of file? because we used it with the text infront of the similarity and behind it. i’m just wondering how it’s used for multiple files, because it was used both before the similarity and after the similarity.<a class="headerlink" href="#how-can-the-be-used-consistently-to-move-a-bunch-of-file-because-we-used-it-with-the-text-infront-of-the-similarity-and-behind-it-im-just-wondering-how-its-used-for-multiple-files-because-it-was-used-both-before-the-similarity-and-after-the-similarity" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.13.4. </span>How can the “*” be used consistently to move a bunch of file? because we used it with the text infront of the similarity and behind it. i’m just wondering how it’s used for multiple files, because it was used both before the similarity and after the similarity.<a class="headerlink" href="#how-can-the-be-used-consistently-to-move-a-bunch-of-file-because-we-used-it-with-the-text-infront-of-the-similarity-and-behind-it-im-just-wondering-how-its-used-for-multiple-files-because-it-was-used-both-before-the-similarity-and-after-the-similarity" title="Link to this heading">#</a></h3>
 <p>It fills in for any number of characters.</p>
 </section>
 <section id="i-have-some-badges-from-2-weeks-ago-that-are-awaiting-a-second-review-after-changes-had-been-fixed">
-<h3><span class="section-number">5.13.5. </span>I have some badges from 2 weeks ago that are awaiting a second review after changes had been fixed.<a class="headerlink" href="#i-have-some-badges-from-2-weeks-ago-that-are-awaiting-a-second-review-after-changes-had-been-fixed" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.13.5. </span>I have some badges from 2 weeks ago that are awaiting a second review after changes had been fixed.<a class="headerlink" href="#i-have-some-badges-from-2-weeks-ago-that-are-awaiting-a-second-review-after-changes-had-been-fixed" title="Link to this heading">#</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Do not merge an unapproved badge</p>
@@ -1814,24 +1829,24 @@ Practice</label><div class="sd-tab-content docutils">
 <p>Re-request a review</p>
 </section>
 <section id="can-you-close-pull-requests-on-the-terminal">
-<h3><span class="section-number">5.13.6. </span>can you close pull requests on the terminal?<a class="headerlink" href="#can-you-close-pull-requests-on-the-terminal" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.13.6. </span>can you close pull requests on the terminal?<a class="headerlink" href="#can-you-close-pull-requests-on-the-terminal" title="Link to this heading">#</a></h3>
 <p>Not with git because pull requests are not a git feature, but it is a feature of github. The <code class="docutils literal notranslate"><span class="pre">gh</span></code> CLI can do this.</p>
 </section>
 <section id="if-you-do-mv-will-it-move-all-files">
-<h3><span class="section-number">5.13.7. </span>If you do mv * will it move all files?<a class="headerlink" href="#if-you-do-mv-will-it-move-all-files" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.13.7. </span>If you do mv * will it move all files?<a class="headerlink" href="#if-you-do-mv-will-it-move-all-files" title="Link to this heading">#</a></h3>
 <p>In the current working directory.</p>
 </section>
 <section id="are-there-any-other-ways-of-using-mv-that-havent-been-covered-yet">
-<h3><span class="section-number">5.13.8. </span>Are there any other ways of using mv that haven’t been covered yet?<a class="headerlink" href="#are-there-any-other-ways-of-using-mv-that-havent-been-covered-yet" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.13.8. </span>Are there any other ways of using mv that haven’t been covered yet?<a class="headerlink" href="#are-there-any-other-ways-of-using-mv-that-havent-been-covered-yet" title="Link to this heading">#</a></h3>
 <p>No those are basically the two purposes.</p>
 </section>
 <section id="how-often-should-we-be-practicing-with-the-terminal-for-git">
-<h3><span class="section-number">5.13.9. </span>how often should we be practicing with the terminal for git?<a class="headerlink" href="#how-often-should-we-be-practicing-with-the-terminal-for-git" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.13.9. </span>how often should we be practicing with the terminal for git?<a class="headerlink" href="#how-often-should-we-be-practicing-with-the-terminal-for-git" title="Link to this heading">#</a></h3>
 <p>Ideally, you work on badges on at least several of the days we do not have class so that you are working with it close to every day.</p>
 <p>You could also start trying to use them for your other classes.</p>
 </section>
 <section id="would-it-be-beneficial-to-organize-files-with-github-rather-than-bash">
-<h3><span class="section-number">5.13.10. </span>Would it be beneficial to organize files with github rather than bash?<a class="headerlink" href="#would-it-be-beneficial-to-organize-files-with-github-rather-than-bash" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.13.10. </span>Would it be beneficial to organize files with github rather than bash?<a class="headerlink" href="#would-it-be-beneficial-to-organize-files-with-github-rather-than-bash" title="Link to this heading">#</a></h3>
 <p>GitHub cannot organize files and doing do in broswer would be slow and difficult.  We will see that GitHub code spaces give us a virtual machine that we can work with.</p>
 </section>
 </section>
@@ -1862,11 +1877,10 @@ Practice</label><div class="sd-tab-content docutils">
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2024-02-01.html"
@@ -1886,10 +1900,7 @@ Practice</label><div class="sd-tab-content docutils">
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1897,6 +1908,7 @@ Practice</label><div class="sd-tab-content docutils">
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1961,9 +1973,10 @@ By Professor Sarah M Brown
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1987,8 +2000,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
