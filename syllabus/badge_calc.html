@@ -191,6 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-03-28.html">17. What happens when I build code in C?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-02.html">18. What happens when we run code?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-04.html">19. How does a computer represent non integer quantities?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-09.html">20. How can we use logical operations?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -434,8 +435,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonuses">Bonuses</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-thresholds">Grade thresholds</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-implications">Bonus Implications</a></li>
 </ul>
             </nav>
@@ -452,19 +451,13 @@ document.write(`
 <h1>Detailed Grade Calculations<a class="headerlink" href="#detailed-grade-calculations" title="Permalink to this headline">#</a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>This page is generated with code and calculations, you can view them for more precise implementations of what the English sentences mean.</p>
+<p>This page is generated with code and calculations, you can view them for more precise implementations of what the english sentences mean.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Some phrasing  on this may change, but the core of what is required will not change</p>
+<p>These calculations are going to change a little bit for spring 2024, will be posted before grade plans are do.</p>
+<p>What is on the <a class="reference internal" href="grading.html"><span class="doc std std-doc">Grading</span></a> page will hold true, but the detailed calculation here will update a little bit in ways that provide some more flexibility.</p>
 </div>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can expand the code below to see more detail in how the thresholds are calculated.</p>
-</div>
-</aside>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -472,148 +465,64 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span><span class="n">timedelta</span>
-<span class="kn">import</span> <span class="nn">calendar</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import os</span>
+<span class="c1"># from datetime import date,timedelta</span>
+<span class="c1"># import calendar</span>
+<span class="c1"># import pandas as pd</span>
+<span class="c1"># import numpy as np</span>
+<span class="c1"># import seaborn as sns</span>
 
-<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
-<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="c1"># from myst_nb import glue</span>
+<span class="c1"># import plotly.express as px</span>
 <span class="c1"># learning complexities</span>
-<span class="n">learning_weights</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;experience&#39;</span> <span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;lab&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;review&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span><span class="s1">&#39;practice&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span><span class="s1">&#39;explore&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span><span class="s1">&#39;build&#39;</span> <span class="p">:</span><span class="mi">36</span><span class="p">}</span>
-<span class="n">bonus_participation</span> <span class="o">=</span> <span class="mi">18</span>
-<span class="n">bonus_lab</span> <span class="o">=</span> <span class="mi">18</span>
-<span class="n">bonus_breadth</span> <span class="o">=</span> <span class="mi">32</span>
 
-
-
-<span class="c1"># base grade influence cutoffs</span>
-<span class="n">thresh_mrw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;D &#39;</span><span class="p">:</span><span class="mi">22</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">bonus_participation</span> <span class="o">+</span> <span class="n">bonus_lab</span><span class="p">,</span> 
-              <span class="s1">&#39;D+&#39;</span><span class="p">:</span><span class="mi">22</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">bonus_participation</span> <span class="o">+</span> <span class="n">bonus_lab</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;review&#39;</span><span class="p">],</span> 
-              <span class="s1">&#39;C-&#39;</span><span class="p">:</span><span class="mi">22</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">bonus_participation</span> <span class="o">+</span> <span class="n">bonus_lab</span> <span class="o">+</span> <span class="mi">12</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;review&#39;</span><span class="p">],</span> 
-          <span class="s1">&#39;C &#39;</span><span class="p">:</span><span class="mi">22</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">18</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;review&#39;</span><span class="p">]</span><span class="o">+</span>\
-              <span class="n">bonus_participation</span> <span class="o">+</span> <span class="n">bonus_lab</span> <span class="o">+</span> <span class="n">bonus_breadth</span><span class="p">,</span>
-          <span class="s1">&#39;C+&#39;</span><span class="p">:</span><span class="mi">22</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">bonus_participation</span> <span class="o">+</span> <span class="n">bonus_lab</span> <span class="o">+</span> <span class="n">bonus_breadth</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;practice&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">12</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;review&#39;</span><span class="p">],</span> 
-          <span class="s1">&#39;B-&#39;</span><span class="p">:</span><span class="mi">22</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">bonus_participation</span> <span class="o">+</span> <span class="n">bonus_lab</span> <span class="o">+</span> <span class="n">bonus_breadth</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;review&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">12</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;practice&#39;</span><span class="p">],</span> 
-          <span class="s1">&#39;B &#39;</span><span class="p">:</span><span class="mi">22</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">18</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;practice&#39;</span><span class="p">]</span><span class="o">+</span>\
-              <span class="n">bonus_participation</span> <span class="o">+</span> <span class="n">bonus_lab</span> <span class="o">+</span> <span class="n">bonus_breadth</span><span class="p">,</span>
-          <span class="s1">&#39;B+&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span> <span class="o">+</span><span class="mi">18</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;practice&#39;</span><span class="p">]</span> <span class="o">+</span>\
-              <span class="mi">2</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;explore&#39;</span><span class="p">]</span> <span class="o">+</span><span class="n">bonus_participation</span> <span class="o">+</span> <span class="n">bonus_lab</span> <span class="o">+</span> <span class="n">bonus_breadth</span><span class="p">,</span>
-          <span class="s1">&#39;A-&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span> <span class="o">+</span><span class="mi">18</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;practice&#39;</span><span class="p">]</span> <span class="o">+</span>\
-              <span class="mi">4</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;explore&#39;</span><span class="p">]</span> <span class="o">+</span><span class="n">bonus_participation</span> <span class="o">+</span> <span class="n">bonus_lab</span> <span class="o">+</span> <span class="n">bonus_breadth</span><span class="p">,</span>
-          <span class="s1">&#39;A &#39;</span><span class="p">:</span> <span class="mi">22</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span> <span class="o">+</span><span class="mi">18</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;practice&#39;</span><span class="p">]</span> <span class="o">+</span>\
-              <span class="mi">6</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="s1">&#39;explore&#39;</span><span class="p">]</span> <span class="o">+</span><span class="n">bonus_participation</span> <span class="o">+</span> <span class="n">bonus_lab</span> <span class="o">+</span> <span class="n">bonus_breadth</span><span class="p">}</span>
-
-<span class="n">thresh_mrw</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;D &#39;: 106,
- &#39;D+&#39;: 124,
- &#39;C-&#39;: 142,
- &#39;C &#39;: 192,
- &#39;C+&#39;: 210,
- &#39;B-&#39;: 228,
- &#39;B &#39;: 246,
- &#39;B+&#39;: 264,
- &#39;A-&#39;: 282,
- &#39;A &#39;: 300}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">examples_mrw</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">22</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">24</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
-                <span class="p">[</span><span class="mi">22</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">26</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">24</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">24</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
-                <span class="p">[</span><span class="mi">25</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">25</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">24</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
-                <span class="p">[</span><span class="mi">22</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">24</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">24</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">24</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
-
-<span class="n">ex_df_mrw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">examples_mrw</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="n">learning_weights</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="n">w_df_mrw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[(</span><span class="n">ex_df_mrw</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">*</span><span class="n">learning_weights</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">learning_weights</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span><span class="n">col</span> <span class="o">+</span> <span class="s1">&#39;_weight&#39;</span><span class="p">)</span>
-<span class="n">w_df_mrw</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_df_mrw</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># [ex_df[col]*weights[col] for col in weights]</span>
-<span class="c1"># columns = [col + &#39;_weight&#39; for col in weights ]</span>
-<span class="n">badge_thresh_df_mrw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ex_df_mrw</span><span class="p">,</span><span class="n">w_df_mrw</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-
-
-<span class="n">ind_badges_mrw</span> <span class="o">=</span> <span class="p">[[</span><span class="n">exid</span><span class="p">,</span><span class="n">bt</span><span class="p">,</span><span class="n">bw</span><span class="p">,</span><span class="n">bc</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">ex</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">examples_mrw</span><span class="p">)</span> <span class="k">for</span> <span class="n">bc</span><span class="p">,(</span><span class="n">bt</span><span class="p">,</span><span class="n">bw</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span><span class="n">learning_weights</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> 
-                                      <span class="k">for</span> <span class="n">exid</span> <span class="ow">in</span> <span class="n">bc</span><span class="o">*</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-<span class="n">per_badge_df_mrw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ind_badges_mrw</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;example&#39;</span><span class="p">,</span><span class="s1">&#39;badge&#39;</span><span class="p">,</span><span class="s1">&#39;complexity&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">,</span><span class="s1">&#39;weight&#39;</span><span class="p">])</span>
-
-<span class="c1"># weight community badges, </span>
-
-
-<span class="n">learning_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">learning_weights</span><span class="p">,</span><span class="n">name</span> <span class="o">=</span><span class="s1">&#39;complexity&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">learning_df</span><span class="p">[</span><span class="s1">&#39;badge_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;learning&#39;</span>
-<span class="c1"># comm_df  = pd.Series(community_weights,name=&#39;weight&#39;).reset_index()</span>
-<span class="c1"># comm_df[&#39;badge_type&#39;] = &#39;community&#39;</span>
-<span class="c1"># nans are for learning badges which all ahve weight 1</span>
-<span class="n">influence_df</span> <span class="o">=</span> <span class="n">learning_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;badge&#39;</span><span class="p">})</span>
-<span class="c1"># final df</span>
-<span class="n">influence_df</span><span class="p">[</span><span class="s1">&#39;influence&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">influence_df</span><span class="p">[</span><span class="s1">&#39;complexity&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">influence_df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+<span class="kn">from</span> <span class="nn">cspt</span> <span class="kn">import</span> <span class="n">grade_constants</span><span class="p">,</span> <span class="n">grade_calculation</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3653,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3652</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3653</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3654</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># import os</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># from datetime import date,timedelta</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># import calendar</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># import plotly.express as px</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># learning complexities</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">cspt</span> <span class="kn">import</span> <span class="n">grade_constants</span><span class="p">,</span> <span class="n">grade_calculation</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:147,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:176,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7080,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7088,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="ne">KeyError</span>: &#39;weight&#39;
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">28</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">influence_df</span> <span class="o">=</span> <span class="n">learning_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;badge&#39;</span><span class="p">})</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="c1"># final df</span>
-<span class="ne">---&gt; </span><span class="mi">28</span> <span class="n">influence_df</span><span class="p">[</span><span class="s1">&#39;influence&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">influence_df</span><span class="p">[</span><span class="s1">&#39;complexity&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">influence_df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/pandas/core/frame.py:3761,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3759</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3760</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3761</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3762</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3763</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3655,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3653</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3654</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3655</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">3656</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3657</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3658</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3659</span>     <span class="c1">#  the TypeError.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3660</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &#39;weight&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;cspt&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<p>The total influence of each badge on the grade is as follows:</p>
+<p>Grade cutoffs for total influence are:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grade_constants</span><span class="o">.</span><span class="n">letter_df</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">grade_constants</span><span class="o">.</span><span class="n">letter_df</span>
+
+<span class="ne">NameError</span>: name &#39;grade_constants&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>The total influence of each badge is as follows:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -622,46 +531,23 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display</span>
-<span class="n">influence_df</span><span class="p">[[</span><span class="s1">&#39;badge_type&#39;</span><span class="p">,</span><span class="s1">&#39;badge&#39;</span><span class="p">,</span><span class="s1">&#39;complexity&#39;</span><span class="p">,</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span><span class="s1">&#39;influence&#39;</span><span class="p">]]</span>
+<span class="n">grade_constants</span><span class="o">.</span><span class="n">influence_df</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># display</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">influence_df</span><span class="p">[[</span><span class="s1">&#39;badge_type&#39;</span><span class="p">,</span><span class="s1">&#39;badge&#39;</span><span class="p">,</span><span class="s1">&#39;complexity&#39;</span><span class="p">,</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span><span class="s1">&#39;influence&#39;</span><span class="p">]]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">grade_constants</span><span class="o">.</span><span class="n">influence_df</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/pandas/core/frame.py:3767,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3765</span>     <span class="k">if</span> <span class="n">is_iterator</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3766</span>         <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3767</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">_get_indexer_strict</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;columns&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">3769</span> <span class="c1"># take() does not accept boolean indexers</span>
-<span class="g g-Whitespace">   </span><span class="mi">3770</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:5877,</span> in <span class="ni">Index._get_indexer_strict</span><span class="nt">(self, key, axis_name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5874</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">5875</span>     <span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">new_indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_non_unique</span><span class="p">(</span><span class="n">keyarr</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">5877</span> <span class="bp">self</span><span class="o">.</span><span class="n">_raise_if_missing</span><span class="p">(</span><span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">axis_name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5879</span> <span class="n">keyarr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5880</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Index</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">5881</span>     <span class="c1"># GH 42790 - Preserve name from an Index</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:5941,</span> in <span class="ni">Index._raise_if_missing</span><span class="nt">(self, key, indexer, axis_name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5938</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;None of [</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">] are in the [</span><span class="si">{</span><span class="n">axis_name</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5940</span> <span class="n">not_found</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ensure_index</span><span class="p">(</span><span class="n">key</span><span class="p">)[</span><span class="n">missing_mask</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-<span class="ne">-&gt; </span><span class="mi">5941</span> <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">not_found</span><span class="si">}</span><span class="s2"> not in index&quot;</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &quot;[&#39;weight&#39;, &#39;influence&#39;] not in index&quot;
+<span class="ne">NameError</span>: name &#39;grade_constants&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
-<p>The total influence of a badge on your grade is the product of the badge’s complexity.  All learning badges have a weight of 1, but have varying complexity.</p>
-<section id="bonuses">
-<h2>Bonuses<a class="headerlink" href="#bonuses" title="Permalink to this headline">#</a></h2>
 <p>In addition to the weights for each badge, there also bonuses that will automatically applied to your grade at the end of the semester.  These are for longer term patterns, not specific assignments.  You earn these while workng on other assignments, not separately.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -674,14 +560,12 @@ document.write(`
 <col style="width: 25%" />
 <col style="width: 25%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Definition</p></th>
-<th class="head"><p>Influence</p></th>
-<th class="head"><p>type</p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>Definition</p></td>
+<td><p>Influence</p></td>
+<td><p>type</p></td>
+</tr>
 <tr class="row-even"><td><p>Participation</p></td>
 <td><p>22 experience badges</p></td>
 <td><p>18</p></td>
@@ -703,7 +587,7 @@ document.write(`
 <td><p>event</p></td>
 </tr>
 <tr class="row-even"><td><p>Early bird</p></td>
-<td><p>6 review + practice submitted by 2/19</p></td>
+<td><p>6 review + practice submitted by 2/15</p></td>
 <td><p>9</p></td>
 <td><p>event</p></td>
 </tr>
@@ -712,10 +596,20 @@ document.write(`
 <td><p>9</p></td>
 <td><p>event</p></td>
 </tr>
-<tr class="row-even"><td><p>Community Star</p></td>
+<tr class="row-even"><td><p>Curiosity</p></td>
+<td><p>at least 10 experience reports have questions on time (before notes posted in evenings)</p></td>
+<td><p>9</p></td>
+<td><p>event</p></td>
+</tr>
+<tr class="row-odd"><td><p>Community Star</p></td>
 <td><p>10 community badges</p></td>
 <td><p>18</p></td>
 <td><p>auto</p></td>
+</tr>
+<tr class="row-even"><td><p>Hack the course</p></td>
+<td><p>an explore or build that contributes to the course oss/website</p></td>
+<td><p>18</p></td>
+<td><p>event</p></td>
 </tr>
 </tbody>
 </table>
@@ -728,95 +622,6 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>You cannot guarantee you will earn the Git-ing unstuck bonus, if you want to intentionally explore advanced operations, you can propose an explore badge, which is also worth 9.</p>
 </div>
-</section>
-<section id="grade-thresholds">
-<h2>Grade thresholds<a class="headerlink" href="#grade-thresholds" title="Permalink to this headline">#</a></h2>
-<p>Grade cutoffs for total influence are:</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">th_list</span> <span class="o">=</span> <span class="p">[[</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">thresh_mrw</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">th_list</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;letter&#39;</span><span class="p">,</span><span class="s1">&#39;threshold&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;threshold&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;letter&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>threshold</th>
-    </tr>
-    <tr>
-      <th>letter</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>D</th>
-      <td>106</td>
-    </tr>
-    <tr>
-      <th>D+</th>
-      <td>124</td>
-    </tr>
-    <tr>
-      <th>C-</th>
-      <td>142</td>
-    </tr>
-    <tr>
-      <th>C</th>
-      <td>192</td>
-    </tr>
-    <tr>
-      <th>C+</th>
-      <td>210</td>
-    </tr>
-    <tr>
-      <th>B-</th>
-      <td>228</td>
-    </tr>
-    <tr>
-      <th>B</th>
-      <td>246</td>
-    </tr>
-    <tr>
-      <th>B+</th>
-      <td>264</td>
-    </tr>
-    <tr>
-      <th>A-</th>
-      <td>282</td>
-    </tr>
-    <tr>
-      <th>A</th>
-      <td>300</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</section>
 <section id="bonus-implications">
 <h2>Bonus Implications<a class="headerlink" href="#bonus-implications" title="Permalink to this headline">#</a></h2>
 <p>Attendance and participation is <em>very</em> important:</p>
@@ -856,64 +661,72 @@ Example 1:</p>
 <li><p>to upgrade review to practice to meet a threshold</p></li>
 <li><p>toward the community badge bonus</p></li>
 </ul>
-<p>To calculate your final grade at the end of the semester, a script will count your badges and logged event bonuses. The script will output a dictionary with keys for each type of learning badge and event bonus with a count for the value of each.</p>
+<p>To calculate your final grade at the end of the semester, a script will count your badges and logged event bonuses. The script can output as a yaml file, which is like a dictionary, for an example here we will use a dictionary.</p>
+<p>see <a class="reference external" href="https://compsys-progtools.github.io/courseutils/cli.html#cspt-grade">cspt docs</a> for CLI version</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_student</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;experience&#39;</span> <span class="p">:</span><span class="mi">21</span><span class="p">,</span> <span class="s1">&#39;lab&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;review&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span><span class="s1">&#39;practice&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-                   <span class="s1">&#39;explore&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-                   <span class="s1">&#39;build&#39;</span> <span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-                 <span class="s1">&#39;community&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_student</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;experience&#39;</span> <span class="p">:</span><span class="mi">22</span><span class="p">,</span> <span class="s1">&#39;lab&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;review&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="s1">&#39;practice&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                   <span class="s1">&#39;explore&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                   <span class="s1">&#39;build&#39;</span> <span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="s1">&#39;community&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="s1">&#39;hack&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
                  <span class="s1">&#39;unstuck&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                  <span class="s1">&#39;descriptive&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                 <span class="s1">&#39;early&#39;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+                 <span class="s1">&#39;early&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s1">&#39;question&#39;</span><span class="p">:</span><span class="mi">10</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Then these counts will go into the following function to calculate the final grade</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This is not complete, but will be before the end of the penalty free zone.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">badges_comm_applied</span> <span class="o">=</span> <span class="n">grade_calculation</span><span class="o">.</span><span class="n">community_apply</span><span class="p">(</span><span class="n">example_student</span><span class="p">)</span>
+<span class="n">badges_comm_applied</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">badges_comm_applied</span> <span class="o">=</span> <span class="n">grade_calculation</span><span class="o">.</span><span class="n">community_apply</span><span class="p">(</span><span class="n">example_student</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">badges_comm_applied</span>
+
+<span class="ne">NameError</span>: name &#39;grade_calculation&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up remaining constants (some are above)</span>
-<span class="n">bonus_criteria</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;participation_bonus&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="mi">22</span><span class="p">),</span>
-                  <span class="s1">&#39;lab_bonus&#39;</span><span class="p">:</span>  <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;lab&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="mi">13</span><span class="p">),</span>
-                   <span class="s1">&#39;breadth_bonus&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;review&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;practice&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">18</span><span class="p">),</span>
-                 <span class="s1">&#39;community_bonus&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;community&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">10</span><span class="p">),</span>
-                 <span class="s1">&#39;unstuck_bonus&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;unstuck&#39;</span><span class="p">],</span>
-                 <span class="s1">&#39;descriptive_bonus&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;descriptive&#39;</span><span class="p">],</span>
-                 <span class="s1">&#39;early_bonus&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;early&#39;</span><span class="p">]</span> <span class="p">}</span>
-<span class="n">bonus_values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;participation_bonus&#39;</span><span class="p">:</span> <span class="n">bonus_participation</span><span class="p">,</span>
-                  <span class="s1">&#39;lab_bonus&#39;</span><span class="p">:</span>  <span class="n">bonus_lab</span><span class="p">,</span>
-                   <span class="s1">&#39;breadth_bonus&#39;</span><span class="p">:</span> <span class="n">bonus_breadth</span><span class="p">,</span>
-                 <span class="s1">&#39;community_bonus&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
-                 <span class="s1">&#39;unstuck_bonus&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-                 <span class="s1">&#39;descriptive_bonus&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-                 <span class="s1">&#39;early_bonus&#39;</span><span class="p">:</span> <span class="mi">9</span> <span class="p">}</span>
-<span class="n">weights</span> <span class="o">=</span> <span class="n">learning_weights</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">weights</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">bonus_values</span><span class="p">)</span>
-<span class="n">community_thresh</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;experience&#39;</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span>
-                 <span class="s1">&#39;review&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
-                 <span class="s1">&#39;practice&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span>
-                 <span class="s1">&#39;review_upgrade&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">community_cost</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;experience&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-                 <span class="s1">&#39;review&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
-                 <span class="s1">&#39;practice&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span>
-                 <span class="s1">&#39;review_upgrade&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grade_calculation</span><span class="o">.</span><span class="n">calculate_grade</span><span class="p">(</span><span class="n">badges_comm_applied</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">grade_calculation</span><span class="o">.</span><span class="n">calculate_grade</span><span class="p">(</span><span class="n">badges_comm_applied</span><span class="p">)</span>
 
-<span class="c1"># compute grade</span>
+<span class="ne">NameError</span>: name &#39;grade_calculation&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grade_calculation</span><span class="o">.</span><span class="n">calculate_grade</span><span class="p">(</span><span class="n">badges_comm_applied</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">grade_calculation</span><span class="o">.</span><span class="n">calculate_grade</span><span class="p">(</span><span class="n">badges_comm_applied</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># def calculate_grade(badge_dict):</span>
-<span class="c1">#     if badge_dict[&#39;community&#39;]&gt;0:</span>
-        <span class="c1"># apply community badges</span>
-        
-    <span class="c1"># add bonuses</span>
-    
-    
-    <span class="c1"># final sum</span>
-    <span class="c1"># sum([weights[cat]*count_dict[cat] for cat in count_dict.keys()])</span>
+<span class="ne">NameError</span>: name &#39;grade_calculation&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -988,8 +801,6 @@ Example 1:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonuses">Bonuses</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-thresholds">Grade thresholds</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-implications">Bonus Implications</a></li>
 </ul>
   </nav></div>

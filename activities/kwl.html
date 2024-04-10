@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Team Repo" href="team.html" />
-    <link rel="prev" title="19. How does a computer represent non integer quantities?" href="../notes/2024-04-04.html" />
+    <link rel="prev" title="20. How can we use logical operations?" href="../notes/2024-04-09.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -191,6 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-03-28.html">17. What happens when I build code in C?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-02.html">18. What happens when we run code?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-04.html">19. How does a computer represent non integer quantities?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-09.html">20. How can we use logical operations?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="current nav bd-sidenav">
@@ -523,214 +524,229 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_18a15">
+<table id="T_35277">
   <thead>
     <tr>
-      <th id="T_18a15_level0_col0" class="col_heading level0 col0" >date</th>
-      <th id="T_18a15_level0_col1" class="col_heading level0 col1" >file</th>
-      <th id="T_18a15_level0_col2" class="col_heading level0 col2" >type</th>
+      <th id="T_35277_level0_col0" class="col_heading level0 col0" >date</th>
+      <th id="T_35277_level0_col1" class="col_heading level0 col1" >file</th>
+      <th id="T_35277_level0_col2" class="col_heading level0 col2" >type</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_18a15_row0_col0" class="data row0 col0" >2024-01-25</td>
-      <td id="T_18a15_row0_col1" class="data row0 col1" >brain.md</td>
-      <td id="T_18a15_row0_col2" class="data row0 col2" >practice</td>
+      <td id="T_35277_row0_col0" class="data row0 col0" >2024-01-25</td>
+      <td id="T_35277_row0_col1" class="data row0 col1" >brain.md</td>
+      <td id="T_35277_row0_col2" class="data row0 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row1_col0" class="data row1 col0" >2024-01-30</td>
-      <td id="T_18a15_row1_col1" class="data row1 col1" >gitgui.md</td>
-      <td id="T_18a15_row1_col2" class="data row1 col2" >practice</td>
+      <td id="T_35277_row1_col0" class="data row1 col0" >2024-01-30</td>
+      <td id="T_35277_row1_col1" class="data row1 col1" >gitgui.md</td>
+      <td id="T_35277_row1_col2" class="data row1 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row2_col0" class="data row2 col0" >2024-01-30</td>
-      <td id="T_18a15_row2_col1" class="data row2 col1" >gitgui.md</td>
-      <td id="T_18a15_row2_col2" class="data row2 col2" >review</td>
+      <td id="T_35277_row2_col0" class="data row2 col0" >2024-01-30</td>
+      <td id="T_35277_row2_col1" class="data row2 col1" >gitgui.md</td>
+      <td id="T_35277_row2_col2" class="data row2 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row3_col0" class="data row3 col0" >2024-02-01</td>
-      <td id="T_18a15_row3_col1" class="data row3 col1" >terminal-vocab.md</td>
-      <td id="T_18a15_row3_col2" class="data row3 col2" >prepare</td>
+      <td id="T_35277_row3_col0" class="data row3 col0" >2024-02-01</td>
+      <td id="T_35277_row3_col1" class="data row3 col1" >branches.md</td>
+      <td id="T_35277_row3_col2" class="data row3 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row4_col0" class="data row4 col0" >2024-02-01</td>
-      <td id="T_18a15_row4_col1" class="data row4 col1" >branches.md</td>
-      <td id="T_18a15_row4_col2" class="data row4 col2" >review</td>
+      <td id="T_35277_row4_col0" class="data row4 col0" >2024-02-01</td>
+      <td id="T_35277_row4_col1" class="data row4 col1" >terminal-vocab.md</td>
+      <td id="T_35277_row4_col2" class="data row4 col2" >prepare</td>
     </tr>
     <tr>
-      <td id="T_18a15_row5_col0" class="data row5 col0" >2024-02-01</td>
-      <td id="T_18a15_row5_col1" class="data row5 col1" >branches-forks.md</td>
-      <td id="T_18a15_row5_col2" class="data row5 col2" >practice</td>
+      <td id="T_35277_row5_col0" class="data row5 col0" >2024-02-01</td>
+      <td id="T_35277_row5_col1" class="data row5 col1" >branches-forks.md</td>
+      <td id="T_35277_row5_col2" class="data row5 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row6_col0" class="data row6 col0" >2024-02-06</td>
-      <td id="T_18a15_row6_col1" class="data row6 col1" >terminalpractice.md</td>
-      <td id="T_18a15_row6_col2" class="data row6 col2" >practice</td>
+      <td id="T_35277_row6_col0" class="data row6 col0" >2024-02-06</td>
+      <td id="T_35277_row6_col1" class="data row6 col1" >software.md</td>
+      <td id="T_35277_row6_col2" class="data row6 col2" >prepare</td>
     </tr>
     <tr>
-      <td id="T_18a15_row7_col0" class="data row7 col0" >2024-02-06</td>
-      <td id="T_18a15_row7_col1" class="data row7 col1" >terminal_review.md</td>
-      <td id="T_18a15_row7_col2" class="data row7 col2" >review</td>
+      <td id="T_35277_row7_col0" class="data row7 col0" >2024-02-06</td>
+      <td id="T_35277_row7_col1" class="data row7 col1" >terminal_organization_adv.md</td>
+      <td id="T_35277_row7_col2" class="data row7 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row8_col0" class="data row8 col0" >2024-02-06</td>
-      <td id="T_18a15_row8_col1" class="data row8 col1" >terminal_organization_adv.md</td>
-      <td id="T_18a15_row8_col2" class="data row8 col2" >practice</td>
+      <td id="T_35277_row8_col0" class="data row8 col0" >2024-02-06</td>
+      <td id="T_35277_row8_col1" class="data row8 col1" >terminal_review.md</td>
+      <td id="T_35277_row8_col2" class="data row8 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row9_col0" class="data row9 col0" >2024-02-06</td>
-      <td id="T_18a15_row9_col1" class="data row9 col1" >software.md</td>
-      <td id="T_18a15_row9_col2" class="data row9 col2" >prepare</td>
+      <td id="T_35277_row9_col0" class="data row9 col0" >2024-02-06</td>
+      <td id="T_35277_row9_col1" class="data row9 col1" >terminalpractice.md</td>
+      <td id="T_35277_row9_col2" class="data row9 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row10_col0" class="data row10 col0" >2024-02-08</td>
-      <td id="T_18a15_row10_col1" class="data row10 col1" >commit-def.md</td>
-      <td id="T_18a15_row10_col2" class="data row10 col2" >review</td>
+      <td id="T_35277_row10_col0" class="data row10 col0" >2024-02-08</td>
+      <td id="T_35277_row10_col1" class="data row10 col1" >commit-def.md</td>
+      <td id="T_35277_row10_col2" class="data row10 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row11_col0" class="data row11 col0" >2024-02-15</td>
-      <td id="T_18a15_row11_col1" class="data row11 col1" >docs_ecosystems.md</td>
-      <td id="T_18a15_row11_col2" class="data row11 col2" >practice</td>
+      <td id="T_35277_row11_col0" class="data row11 col0" >2024-02-15</td>
+      <td id="T_35277_row11_col1" class="data row11 col1" >docs_ecosystems.md</td>
+      <td id="T_35277_row11_col2" class="data row11 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row12_col0" class="data row12 col0" >2024-02-20</td>
-      <td id="T_18a15_row12_col1" class="data row12 col1" >newlanguage.md</td>
-      <td id="T_18a15_row12_col2" class="data row12 col2" >practice</td>
+      <td id="T_35277_row12_col0" class="data row12 col0" >2024-02-20</td>
+      <td id="T_35277_row12_col1" class="data row12 col1" >newlanguage.md</td>
+      <td id="T_35277_row12_col2" class="data row12 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row13_col0" class="data row13 col0" >2024-02-22</td>
-      <td id="T_18a15_row13_col1" class="data row13 col1" >software.md` about how that project adheres to and deviates from the unix philosophy. Be specific, using links to specific lines of code or specific sections in the documentation that support your claims. Provide at least one example of both adhering and deviating from the philosophy and three total examples (that is 2 examples for one side and one for the other).  You can see what badge `software.md</td>
-      <td id="T_18a15_row13_col2" class="data row13 col2" >practice</td>
+      <td id="T_35277_row13_col0" class="data row13 col0" >2024-02-22</td>
+      <td id="T_35277_row13_col1" class="data row13 col1" >methods.md</td>
+      <td id="T_35277_row13_col2" class="data row13 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row14_col0" class="data row14 col0" >2024-02-22</td>
-      <td id="T_18a15_row14_col1" class="data row14 col1" >methods.md</td>
-      <td id="T_18a15_row14_col2" class="data row14 col2" >practice</td>
+      <td id="T_35277_row14_col0" class="data row14 col0" >2024-02-22</td>
+      <td id="T_35277_row14_col1" class="data row14 col1" >methods.md</td>
+      <td id="T_35277_row14_col2" class="data row14 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row15_col0" class="data row15 col0" >2024-02-22</td>
-      <td id="T_18a15_row15_col1" class="data row15 col1" >methods.md</td>
-      <td id="T_18a15_row15_col2" class="data row15 col2" >review</td>
+      <td id="T_35277_row15_col0" class="data row15 col0" >2024-02-22</td>
+      <td id="T_35277_row15_col1" class="data row15 col1" >software.md` about how that project adheres to and deviates from the unix philosophy. Be specific, using links to specific lines of code or specific sections in the documentation that support your claims. Provide at least one example of both adhering and deviating from the philosophy and three total examples (that is 2 examples for one side and one for the other).  You can see what badge `software.md</td>
+      <td id="T_35277_row15_col2" class="data row15 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row16_col0" class="data row16 col0" >2024-02-27</td>
-      <td id="T_18a15_row16_col1" class="data row16 col1" >workflows.md</td>
-      <td id="T_18a15_row16_col2" class="data row16 col2" >practice</td>
+      <td id="T_35277_row16_col0" class="data row16 col0" >2024-02-27</td>
+      <td id="T_35277_row16_col1" class="data row16 col1" >workflows.md</td>
+      <td id="T_35277_row16_col2" class="data row16 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row17_col0" class="data row17 col0" >2024-02-27</td>
-      <td id="T_18a15_row17_col1" class="data row17 col1" >idethoughts.md</td>
-      <td id="T_18a15_row17_col2" class="data row17 col2" >prepare</td>
+      <td id="T_35277_row17_col0" class="data row17 col0" >2024-02-27</td>
+      <td id="T_35277_row17_col1" class="data row17 col1" >gitdef.md</td>
+      <td id="T_35277_row17_col2" class="data row17 col2" >prepare</td>
     </tr>
     <tr>
-      <td id="T_18a15_row18_col0" class="data row18 col0" >2024-02-27</td>
-      <td id="T_18a15_row18_col1" class="data row18 col1" >gitdef.md</td>
-      <td id="T_18a15_row18_col2" class="data row18 col2" >prepare</td>
+      <td id="T_35277_row18_col0" class="data row18 col0" >2024-02-27</td>
+      <td id="T_35277_row18_col1" class="data row18 col1" >idethoughts.md</td>
+      <td id="T_35277_row18_col2" class="data row18 col2" >prepare</td>
     </tr>
     <tr>
-      <td id="T_18a15_row19_col0" class="data row19 col0" >2024-02-27</td>
-      <td id="T_18a15_row19_col1" class="data row19 col1" >favorite_git_workflow.md</td>
-      <td id="T_18a15_row19_col2" class="data row19 col2" >review</td>
+      <td id="T_35277_row19_col0" class="data row19 col0" >2024-02-27</td>
+      <td id="T_35277_row19_col1" class="data row19 col1" >favorite_git_workflow.md</td>
+      <td id="T_35277_row19_col2" class="data row19 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row20_col0" class="data row20 col0" >2024-02-27</td>
-      <td id="T_18a15_row20_col1" class="data row20 col1" >workflows.md</td>
-      <td id="T_18a15_row20_col2" class="data row20 col2" >practice</td>
+      <td id="T_35277_row20_col0" class="data row20 col0" >2024-02-27</td>
+      <td id="T_35277_row20_col1" class="data row20 col1" >workflows.md</td>
+      <td id="T_35277_row20_col2" class="data row20 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row21_col0" class="data row21 col0" >2024-02-29</td>
-      <td id="T_18a15_row21_col1" class="data row21 col1" >gitislike.md</td>
-      <td id="T_18a15_row21_col2" class="data row21 col2" >practice</td>
+      <td id="T_35277_row21_col0" class="data row21 col0" >2024-02-29</td>
+      <td id="T_35277_row21_col1" class="data row21 col1" >gitislike.md</td>
+      <td id="T_35277_row21_col2" class="data row21 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row22_col0" class="data row22 col0" >2024-02-29</td>
-      <td id="T_18a15_row22_col1" class="data row22 col1" >gitplumbingdetail.md</td>
-      <td id="T_18a15_row22_col2" class="data row22 col2" >practice</td>
+      <td id="T_35277_row22_col0" class="data row22 col0" >2024-02-29</td>
+      <td id="T_35277_row22_col1" class="data row22 col1" >gitplumbingdetail.md</td>
+      <td id="T_35277_row22_col2" class="data row22 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row23_col0" class="data row23 col0" >2024-02-29</td>
-      <td id="T_18a15_row23_col1" class="data row23 col1" >gitplumbingreview.md</td>
-      <td id="T_18a15_row23_col2" class="data row23 col2" >review</td>
+      <td id="T_35277_row23_col0" class="data row23 col0" >2024-02-29</td>
+      <td id="T_35277_row23_col1" class="data row23 col1" >gitplumbingreview.md</td>
+      <td id="T_35277_row23_col2" class="data row23 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row24_col0" class="data row24 col0" >2024-03-05</td>
-      <td id="T_18a15_row24_col1" class="data row24 col1" >tagtypes.md</td>
-      <td id="T_18a15_row24_col2" class="data row24 col2" >practice</td>
+      <td id="T_35277_row24_col0" class="data row24 col0" >2024-03-05</td>
+      <td id="T_35277_row24_col1" class="data row24 col1" >tagtypes.md</td>
+      <td id="T_35277_row24_col2" class="data row24 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row25_col0" class="data row25 col0" >2024-03-05</td>
-      <td id="T_18a15_row25_col1" class="data row25 col1" >tagtypeexplore.md</td>
-      <td id="T_18a15_row25_col2" class="data row25 col2" >review</td>
+      <td id="T_35277_row25_col0" class="data row25 col0" >2024-03-05</td>
+      <td id="T_35277_row25_col1" class="data row25 col1" >tagtypeexplore.md</td>
+      <td id="T_35277_row25_col2" class="data row25 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row26_col0" class="data row26 col0" >2024-03-07</td>
-      <td id="T_18a15_row26_col1" class="data row26 col1" >gitcounts.md</td>
-      <td id="T_18a15_row26_col2" class="data row26 col2" >review</td>
+      <td id="T_35277_row26_col0" class="data row26 col0" >2024-03-07</td>
+      <td id="T_35277_row26_col1" class="data row26 col1" >gitcounts.md</td>
+      <td id="T_35277_row26_col2" class="data row26 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row27_col0" class="data row27 col0" >2024-03-07</td>
-      <td id="T_18a15_row27_col1" class="data row27 col1" >hash_num_prep.md</td>
-      <td id="T_18a15_row27_col2" class="data row27 col2" >prepare</td>
+      <td id="T_35277_row27_col0" class="data row27 col0" >2024-03-07</td>
+      <td id="T_35277_row27_col1" class="data row27 col1" >hash_num_prep.md</td>
+      <td id="T_35277_row27_col2" class="data row27 col2" >prepare</td>
     </tr>
     <tr>
-      <td id="T_18a15_row28_col0" class="data row28 col0" >2024-03-07</td>
-      <td id="T_18a15_row28_col1" class="data row28 col1" >gitcounts_scenarios.md</td>
-      <td id="T_18a15_row28_col2" class="data row28 col2" >practice</td>
+      <td id="T_35277_row28_col0" class="data row28 col0" >2024-03-07</td>
+      <td id="T_35277_row28_col1" class="data row28 col1" >gitcounts_scenarios.md</td>
+      <td id="T_35277_row28_col2" class="data row28 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row29_col0" class="data row29 col0" >2024-03-21</td>
-      <td id="T_18a15_row29_col1" class="data row29 col1" >settingssync.md</td>
-      <td id="T_18a15_row29_col2" class="data row29 col2" >practice</td>
+      <td id="T_35277_row29_col0" class="data row29 col0" >2024-03-21</td>
+      <td id="T_35277_row29_col1" class="data row29 col1" >settingssync.md</td>
+      <td id="T_35277_row29_col2" class="data row29 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row30_col0" class="data row30 col0" >2024-03-21</td>
-      <td id="T_18a15_row30_col1" class="data row30 col1" >newide.md</td>
-      <td id="T_18a15_row30_col2" class="data row30 col2" >practice</td>
+      <td id="T_35277_row30_col0" class="data row30 col0" >2024-03-21</td>
+      <td id="T_35277_row30_col1" class="data row30 col1" >newide.md</td>
+      <td id="T_35277_row30_col2" class="data row30 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row31_col0" class="data row31 col0" >2024-03-21</td>
-      <td id="T_18a15_row31_col1" class="data row31 col1" >frequentide.md</td>
-      <td id="T_18a15_row31_col2" class="data row31 col2" >practice</td>
+      <td id="T_35277_row31_col0" class="data row31 col0" >2024-03-21</td>
+      <td id="T_35277_row31_col1" class="data row31 col1" >newide.md</td>
+      <td id="T_35277_row31_col2" class="data row31 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row32_col0" class="data row32 col0" >2024-03-21</td>
-      <td id="T_18a15_row32_col1" class="data row32 col1" >newide.md</td>
-      <td id="T_18a15_row32_col2" class="data row32 col2" >review</td>
+      <td id="T_35277_row32_col0" class="data row32 col0" >2024-03-21</td>
+      <td id="T_35277_row32_col1" class="data row32 col1" >frequentide.md</td>
+      <td id="T_35277_row32_col2" class="data row32 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row33_col0" class="data row33 col0" >2024-03-26</td>
-      <td id="T_18a15_row33_col1" class="data row33 col1" >hpc.md</td>
-      <td id="T_18a15_row33_col2" class="data row33 col2" >practice</td>
+      <td id="T_35277_row33_col0" class="data row33 col0" >2024-03-26</td>
+      <td id="T_35277_row33_col1" class="data row33 col1" >hpc.md</td>
+      <td id="T_35277_row33_col2" class="data row33 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row34_col0" class="data row34 col0" >2024-03-26</td>
-      <td id="T_18a15_row34_col1" class="data row34 col1" >hpc.md</td>
-      <td id="T_18a15_row34_col2" class="data row34 col2" >review</td>
+      <td id="T_35277_row34_col0" class="data row34 col0" >2024-03-26</td>
+      <td id="T_35277_row34_col1" class="data row34 col1" >hpc.md</td>
+      <td id="T_35277_row34_col2" class="data row34 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row35_col0" class="data row35 col0" >2024-04-02</td>
-      <td id="T_18a15_row35_col1" class="data row35 col1" >octal.md</td>
-      <td id="T_18a15_row35_col2" class="data row35 col2" >review</td>
+      <td id="T_35277_row35_col0" class="data row35 col0" >2024-04-02</td>
+      <td id="T_35277_row35_col1" class="data row35 col1" >octal.md</td>
+      <td id="T_35277_row35_col2" class="data row35 col2" >review</td>
     </tr>
     <tr>
-      <td id="T_18a15_row36_col0" class="data row36 col0" >2024-04-02</td>
-      <td id="T_18a15_row36_col1" class="data row36 col1" >octal.md</td>
-      <td id="T_18a15_row36_col2" class="data row36 col2" >practice</td>
+      <td id="T_35277_row36_col0" class="data row36 col0" >2024-04-02</td>
+      <td id="T_35277_row36_col1" class="data row36 col1" >octal.md</td>
+      <td id="T_35277_row36_col2" class="data row36 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row37_col0" class="data row37 col0" >2024-04-04</td>
-      <td id="T_18a15_row37_col1" class="data row37 col1" >fractionalbinary.md</td>
-      <td id="T_18a15_row37_col2" class="data row37 col2" >prepare</td>
+      <td id="T_35277_row37_col0" class="data row37 col0" >2024-04-04</td>
+      <td id="T_35277_row37_col1" class="data row37 col1" >fractionalbinary.md</td>
+      <td id="T_35277_row37_col2" class="data row37 col2" >prepare</td>
     </tr>
     <tr>
-      <td id="T_18a15_row38_col0" class="data row38 col0" >2024-04-04</td>
-      <td id="T_18a15_row38_col1" class="data row38 col1" >floatexpt.md</td>
-      <td id="T_18a15_row38_col2" class="data row38 col2" >practice</td>
+      <td id="T_35277_row38_col0" class="data row38 col0" >2024-04-04</td>
+      <td id="T_35277_row38_col1" class="data row38 col1" >floatexpt.md</td>
+      <td id="T_35277_row38_col2" class="data row38 col2" >practice</td>
     </tr>
     <tr>
-      <td id="T_18a15_row39_col0" class="data row39 col0" >2024-04-09</td>
-      <td id="T_18a15_row39_col1" class="data row39 col1" >operators.md</td>
-      <td id="T_18a15_row39_col2" class="data row39 col2" >prepare</td>
+      <td id="T_35277_row39_col0" class="data row39 col0" >2024-04-09</td>
+      <td id="T_35277_row39_col1" class="data row39 col1" >addertypes.md</td>
+      <td id="T_35277_row39_col2" class="data row39 col2" >practice</td>
+    </tr>
+    <tr>
+      <td id="T_35277_row40_col0" class="data row40 col0" >2024-04-09</td>
+      <td id="T_35277_row40_col1" class="data row40 col1" >bitwise.md</td>
+      <td id="T_35277_row40_col2" class="data row40 col2" >practice</td>
+    </tr>
+    <tr>
+      <td id="T_35277_row41_col0" class="data row41 col0" >2024-04-09</td>
+      <td id="T_35277_row41_col1" class="data row41 col1" >bitwise.md</td>
+      <td id="T_35277_row41_col2" class="data row41 col2" >review</td>
+    </tr>
+    <tr>
+      <td id="T_35277_row42_col0" class="data row42 col0" >2024-04-09</td>
+      <td id="T_35277_row42_col1" class="data row42 col1" >operators.md</td>
+      <td id="T_35277_row42_col2" class="data row42 col2" >prepare</td>
     </tr>
   </tbody>
 </table>
@@ -776,12 +792,12 @@ check_df['zone'] = check_df['date'].apply(zoner) --></section>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../notes/2024-04-04.html"
+       href="../notes/2024-04-09.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>How does a computer represent non integer quantities?</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>How can we use logical operations?</p>
       </div>
     </a>
     <a class="right-next"

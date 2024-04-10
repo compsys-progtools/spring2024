@@ -191,6 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-03-28.html">17. What happens when I build code in C?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-02.html">18. What happens when we run code?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-04.html">19. How does a computer represent non integer quantities?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-09.html">20. How can we use logical operations?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="current nav bd-sidenav">
@@ -453,6 +454,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">2024-03-28</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">2024-04-02</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">2024-04-04</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">2024-04-09</a></li>
 </ul>
             </nav>
         </div>
@@ -667,6 +669,28 @@ Course website tags by type:
 <li><p>Write a C program to compare values as doubles and as float (single precision/32bit) to see that this comparison issue is related to the IEEE standard and is not language specific.  Make notes and comparison around its behavior and include the program in a code cell in  <span class="target" id="index-26"></span>cdouble.md</p></li>
 </ol>
 </section>
+<section id="id19">
+<h2>2024-04-09<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="../notes/2024-04-09.html"><span class="doc std std-doc">related notes</span></a></p>
+<p>Activities:</p>
+<ol class="arabic">
+<li><p>While we saw many types of gates today, but we actually could get all of the operations needed using only NAND gates. Work out how to use NAND gates to implement <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> in <span class="target" id="index-27"></span>nandandor.md</p></li>
+<li><p>Add <span class="target" id="index-28"></span>bitwise.md to your kwl and write the bitwise operations required for the following transformations (replace the <code class="docutils literal notranslate"><span class="pre">(_)</span></code> with a bitwise operator (<code class="docutils literal notranslate"><span class="pre">&amp;,</span> <span class="pre">|,</span> <span class="pre">^,</span> <span class="pre">&gt;&gt;,</span> <span class="pre">&lt;&lt;</span></code>)):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="mi">128</span>
+<span class="mi">12493</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="o">-</span><span class="mi">12494</span>
+<span class="mi">127</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="mi">15</span>
+<span class="mi">7</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="mi">56</span>
+<span class="mi">4</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="o">-</span><span class="mi">5</span>
+<span class="mi">45</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="mi">37</span> <span class="o">=</span> <span class="mi">37</span>
+<span class="mi">45</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="mi">37</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="mi">3</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="mi">6</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="mi">8</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="mi">10</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -755,6 +779,7 @@ Course website tags by type:
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">2024-03-28</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">2024-04-02</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">2024-04-04</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">2024-04-09</a></li>
 </ul>
   </nav></div>
 
