@@ -6,3 +6,5 @@ _build/
 
 activities/*-files.md
 _data/*.txt
+
+kwl.csv
