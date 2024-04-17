@@ -43,7 +43,7 @@
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -214,6 +214,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-04.html">19. How does a computer represent non integer quantities?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-09.html">20. How can we use logical operations?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-11.html">21. What <em>is</em> a computer?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2024-04-16.html">22. How does timing work in a computer?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="current nav bd-sidenav">
@@ -482,6 +483,22 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">2024-04-04</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">2024-04-09</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">2024-04-11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">2024-04-16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-kind-of-tools-did-you-use-for-a-software-defined-radio">What kind of tools did you use for a software defined radio?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#will-raid-ever-be-100-fail-proof">Will RAID ever be 100% fail proof?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-clock-speed-of-a-computer-how-fast-the-clock-goes-on-and-off-and-is-there-ever-an-error-that-occours-if-the-clock-speed-goes-too-slow">Is the clock speed of a computer how fast the clock goes on and off? and is there ever an error that occours if the clock speed goes too slow?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-you-think-this-area-in-computer-science-software-engineering-is-harder-than-other-fields-like-data-science-or-web-development">Do you think this area in computer science/software engineering is harder than other fields like data science or web development?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-these-different-types-of-ram-not-be-included-or-are-they-in-every-computer">Can these different types of ram not be included or are they in every computer?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-a-computer-has-extensive-resources-would-it-be-more-effcient-to-never-use-dram-and-only-use-sram">If a computer has extensive resources would it be more effcient to never use DRAM and only use SRAM?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-eeprom">What is EEPROM?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-knowing-the-hardware-internal-components-of-the-computer-help-improve-ones-understanding-of-what-theyre-trying-to-achieve-as-a-developer-for-something-like-a-program">How does knowing the hardware/internal components of the computer help improve one’s understanding of what they’re trying to achieve as a developer for something like a program?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-much-would-it-cost-to-fix-a-cable-that-a-whale-found-itself-tangled-in">How much would it cost to fix a cable that a whale found itself tangled in?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-rom-still-used-in-modern-computers">Is ROM still used in modern computers?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-does-a-kind-of-storage-become-absolete">When does a kind of storage become absolete?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-they-go-down-to-set-the-transatlantic-cable-how-long-does-it-take-to-get-them-back-up">When they go down to set the transatlantic cable how long does it take to get them back up?</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -835,6 +852,68 @@ The example code can be any language, can be very simple, can even have a bug in
 </pre></div>
 </div>
 </section>
+<section id="id22">
+<h2>2024-04-16<a class="headerlink" href="#id22" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="../notes/2024-04-16.html"><span class="doc std std-doc">related notes</span></a></p>
+<p>Activities:</p>
+<ol class="arabic simple">
+<li><p>Update your KWL chart.</p></li>
+<li><p>Simulate a more computationally intensive program using the <code class="docutils literal notranslate"><span class="pre">sleep</span></code> function in C and compare the time of a threaded vs single threaded (ie serial, no intentional threading) version of the program. Include your two programs and the bash script to show how you tested it with notes on the performance in <span class="target" id="index-42"></span>threaded.md (to better illustrate the impact of the threads)</p></li>
+<li><p>Learn about the system libraries in two languages (one can be C or Python, one must be something else). Find the name(s) of the library or libraries. In <span class="target" id="index-43"></span>systeminteraction.md summarize what types of support are shared or different?  What does that tell you about the language?</p></li>
+<li><p>Research examples of programs using multi-threading besides splitting up a single calculation for time reasons, include three examples in <span class="target" id="index-44"></span>whymultithread.md.</p></li>
+</ol>
+</section>
+<section id="questions">
+<h2>Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
+<section id="what-kind-of-tools-did-you-use-for-a-software-defined-radio">
+<h3>What kind of tools did you use for a software defined radio?<a class="headerlink" href="#what-kind-of-tools-did-you-use-for-a-software-defined-radio" title="Link to this heading">#</a></h3>
+<p>I worked with matlab batch processing implemented the processing of the data from scratch with C.</p>
+</section>
+<section id="will-raid-ever-be-100-fail-proof">
+<h3>Will RAID ever be 100% fail proof?<a class="headerlink" href="#will-raid-ever-be-100-fail-proof" title="Link to this heading">#</a></h3>
+<p>RAID configurations can be data failure proof as long as not too many drives die at the same time and that they are all replaced as soon as they fail.</p>
+</section>
+<section id="is-the-clock-speed-of-a-computer-how-fast-the-clock-goes-on-and-off-and-is-there-ever-an-error-that-occours-if-the-clock-speed-goes-too-slow">
+<h3>Is the clock speed of a computer how fast the clock goes on and off? and is there ever an error that occours if the clock speed goes too slow?<a class="headerlink" href="#is-the-clock-speed-of-a-computer-how-fast-the-clock-goes-on-and-off-and-is-there-ever-an-error-that-occours-if-the-clock-speed-goes-too-slow" title="Link to this heading">#</a></h3>
+<p>It is the frequency of the clock signal we will learn more about next week.</p>
+</section>
+<section id="do-you-think-this-area-in-computer-science-software-engineering-is-harder-than-other-fields-like-data-science-or-web-development">
+<h3>Do you think this area in computer science/software engineering is harder than other fields like data science or web development?<a class="headerlink" href="#do-you-think-this-area-in-computer-science-software-engineering-is-harder-than-other-fields-like-data-science-or-web-development" title="Link to this heading">#</a></h3>
+<p>I think they’re just different. Working with hardware is certainly a different pace.</p>
+</section>
+<section id="can-these-different-types-of-ram-not-be-included-or-are-they-in-every-computer">
+<h3>Can these different types of ram not be included or are they in every computer?<a class="headerlink" href="#can-these-different-types-of-ram-not-be-included-or-are-they-in-every-computer" title="Link to this heading">#</a></h3>
+<p>most modern computers have cache, RAM, ROM, and solid state storage. these are implemented with different types of physical memory.</p>
+</section>
+<section id="if-a-computer-has-extensive-resources-would-it-be-more-effcient-to-never-use-dram-and-only-use-sram">
+<h3>If a computer has extensive resources would it be more effcient to never use DRAM and only use SRAM?<a class="headerlink" href="#if-a-computer-has-extensive-resources-would-it-be-more-effcient-to-never-use-dram-and-only-use-sram" title="Link to this heading">#</a></h3>
+<p>This might be possible, but I am not sure.</p>
+</section>
+<section id="what-is-eeprom">
+<h3>What is EEPROM?<a class="headerlink" href="#what-is-eeprom" title="Link to this heading">#</a></h3>
+<p>Electrically Erasable Programmable Read Only memory</p>
+</section>
+<section id="how-does-knowing-the-hardware-internal-components-of-the-computer-help-improve-ones-understanding-of-what-theyre-trying-to-achieve-as-a-developer-for-something-like-a-program">
+<h3>How does knowing the hardware/internal components of the computer help improve one’s understanding of what they’re trying to achieve as a developer for something like a program?<a class="headerlink" href="#how-does-knowing-the-hardware-internal-components-of-the-computer-help-improve-ones-understanding-of-what-theyre-trying-to-achieve-as-a-developer-for-something-like-a-program" title="Link to this heading">#</a></h3>
+<p>It helps you think through how abstractions work and understanding what actually happens will help you deign more efficient code.</p>
+</section>
+<section id="how-much-would-it-cost-to-fix-a-cable-that-a-whale-found-itself-tangled-in">
+<h3>How much would it cost to fix a cable that a whale found itself tangled in?<a class="headerlink" href="#how-much-would-it-cost-to-fix-a-cable-that-a-whale-found-itself-tangled-in" title="Link to this heading">#</a></h3>
+<p>the cable is mostly burried.  It gets damaged mostly by anchors of ships.</p>
+</section>
+<section id="is-rom-still-used-in-modern-computers">
+<h3>Is ROM still used in modern computers?<a class="headerlink" href="#is-rom-still-used-in-modern-computers" title="Link to this heading">#</a></h3>
+<p>Only for the very beginning of the boot sequence, but yes.</p>
+</section>
+<section id="when-does-a-kind-of-storage-become-absolete">
+<h3>When does a kind of storage become absolete?<a class="headerlink" href="#when-does-a-kind-of-storage-become-absolete" title="Link to this heading">#</a></h3>
+<p>That is a good question, but I do not have a precise answer.</p>
+</section>
+<section id="when-they-go-down-to-set-the-transatlantic-cable-how-long-does-it-take-to-get-them-back-up">
+<h3>When they go down to set the transatlantic cable how long does it take to get them back up?<a class="headerlink" href="#when-they-go-down-to-set-the-transatlantic-cable-how-long-does-it-take-to-get-them-back-up" title="Link to this heading">#</a></h3>
+<p>I do not know this and a quick search did not yeild results.  Finding this is worth a commnity badge (could be expanded to an explore).</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -924,6 +1003,22 @@ The example code can be any language, can be very simple, can even have a bug in
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">2024-04-04</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">2024-04-09</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">2024-04-11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">2024-04-16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-kind-of-tools-did-you-use-for-a-software-defined-radio">What kind of tools did you use for a software defined radio?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#will-raid-ever-be-100-fail-proof">Will RAID ever be 100% fail proof?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-clock-speed-of-a-computer-how-fast-the-clock-goes-on-and-off-and-is-there-ever-an-error-that-occours-if-the-clock-speed-goes-too-slow">Is the clock speed of a computer how fast the clock goes on and off? and is there ever an error that occours if the clock speed goes too slow?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-you-think-this-area-in-computer-science-software-engineering-is-harder-than-other-fields-like-data-science-or-web-development">Do you think this area in computer science/software engineering is harder than other fields like data science or web development?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-these-different-types-of-ram-not-be-included-or-are-they-in-every-computer">Can these different types of ram not be included or are they in every computer?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-a-computer-has-extensive-resources-would-it-be-more-effcient-to-never-use-dram-and-only-use-sram">If a computer has extensive resources would it be more effcient to never use DRAM and only use SRAM?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-eeprom">What is EEPROM?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-knowing-the-hardware-internal-components-of-the-computer-help-improve-ones-understanding-of-what-theyre-trying-to-achieve-as-a-developer-for-something-like-a-program">How does knowing the hardware/internal components of the computer help improve one’s understanding of what they’re trying to achieve as a developer for something like a program?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-much-would-it-cost-to-fix-a-cable-that-a-whale-found-itself-tangled-in">How much would it cost to fix a cable that a whale found itself tangled in?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-rom-still-used-in-modern-computers">Is ROM still used in modern computers?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-does-a-kind-of-storage-become-absolete">When does a kind of storage become absolete?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-they-go-down-to-set-the-transatlantic-cable-how-long-does-it-take-to-get-them-back-up">When they go down to set the transatlantic cable how long does it take to get them back up?</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
