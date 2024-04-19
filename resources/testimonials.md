@@ -1,1 +1,4 @@
 # Testimonials from Spring 2024 Students
+It's important that you become familiar with git/github in the beginning of the semester, because this will help you learn how the grading structure works and how to submit assignments. Once you do that, take some time to read and understand the grading structure because it can seem complicated to new students. This was something that I struggled with in the beginning
+of the semester, especially with learning github for the first time. Another thing that is important is to stay on top of badges because they can pile up, and you don't want to rush to finish them at the end of the semester. Overall, if you are able to stay diligent with submitting badges and become familiar with the course structure, you should have no problem
+exceling in this course!
