@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2024-04-16';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="KWL Chart" href="../activities/kwl.html" />
+    <link rel="next" title="23. file_format: mystnb kernelspec: name: python3" href="2024-04-18.html" />
     <link rel="prev" title="21. What is a computer?" href="2024-04-11.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -215,6 +215,10 @@
 <li class="toctree-l1"><a class="reference internal" href="2024-04-09.html">20. How can we use logical operations?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2024-04-11.html">21. What <em>is</em> a computer?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">22. How does timing work in a computer?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2024-04-18.html">23. file_format: mystnb
+kernelspec:
+name: python3</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -475,7 +479,17 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">22.9. Prepare for Next Class</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">22.10. Badges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">22.11. Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">22.12. Questions After Today’s Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">22.12. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-a-way-to-limit-my-cpu-to-make-those-expected-errors-occur">22.12.1. Is there a way to limit my CPU to make those expected errors occur?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-any-particular-reason-that-the-time-that-users-notice-was-named-real-instead-of-user-i-feel-like-that-is-built-to-cause-confusion">22.12.2. is there any particular reason that the time that users notice was named real instead of user? i feel like that is built to cause confusion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-programmers-regularly-use-this-time-command-to-see-the-efficiency-of-their-programs">22.12.3. Do programmers regularly use this time command to see the efficiency of their programs?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-very-coding-complicated-programs-is-coding-things-to-happen-simultaneously-across-multiple-threads-an-expected-skill">22.12.4. For very coding complicated programs is coding things to happen simultaneously across multiple threads an expected skill?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-other-ways-can-you-prevent-a-race-condition">22.12.5. What other ways can you prevent a race condition?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-there-are-20-threads-but-only-4-cores-will-it-queue-the-threads-after-the-first-four">22.12.6. If there are 20 threads but only 4 cores, will it queue the threads after the first four?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-computer-count-the-three-times">22.12.7. How does the computer count the three times?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-common-is-it-for-bugs-to-be-caused-due-to-race-conditions">22.12.8. How common is it for bugs to be caused due to race conditions?</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -1004,6 +1018,38 @@ Practice</label><div class="sd-tab-content docutils">
 </section>
 <section id="questions-after-todays-class">
 <h2><span class="section-number">22.12. </span>Questions After Today’s Class<a class="headerlink" href="#questions-after-todays-class" title="Link to this heading">#</a></h2>
+<section id="is-there-a-way-to-limit-my-cpu-to-make-those-expected-errors-occur">
+<h3><span class="section-number">22.12.1. </span>Is there a way to limit my CPU to make those expected errors occur?<a class="headerlink" href="#is-there-a-way-to-limit-my-cpu-to-make-those-expected-errors-occur" title="Link to this heading">#</a></h3>
+<p>Use an un optimized compiler.</p>
+</section>
+<section id="is-there-any-particular-reason-that-the-time-that-users-notice-was-named-real-instead-of-user-i-feel-like-that-is-built-to-cause-confusion">
+<h3><span class="section-number">22.12.2. </span>is there any particular reason that the time that users notice was named real instead of user? i feel like that is built to cause confusion<a class="headerlink" href="#is-there-any-particular-reason-that-the-time-that-users-notice-was-named-real-instead-of-user-i-feel-like-that-is-built-to-cause-confusion" title="Link to this heading">#</a></h3>
+<p>I cannot find a good reason why</p>
+</section>
+<section id="do-programmers-regularly-use-this-time-command-to-see-the-efficiency-of-their-programs">
+<h3><span class="section-number">22.12.3. </span>Do programmers regularly use this time command to see the efficiency of their programs?<a class="headerlink" href="#do-programmers-regularly-use-this-time-command-to-see-the-efficiency-of-their-programs" title="Link to this heading">#</a></h3>
+<p>It can be.  It can also be done wiht more sophisticated tools</p>
+</section>
+<section id="for-very-coding-complicated-programs-is-coding-things-to-happen-simultaneously-across-multiple-threads-an-expected-skill">
+<h3><span class="section-number">22.12.4. </span>For very coding complicated programs is coding things to happen simultaneously across multiple threads an expected skill?<a class="headerlink" href="#for-very-coding-complicated-programs-is-coding-things-to-happen-simultaneously-across-multiple-threads-an-expected-skill" title="Link to this heading">#</a></h3>
+<p>Yes.</p>
+</section>
+<section id="what-other-ways-can-you-prevent-a-race-condition">
+<h3><span class="section-number">22.12.5. </span>What other ways can you prevent a race condition?<a class="headerlink" href="#what-other-ways-can-you-prevent-a-race-condition" title="Link to this heading">#</a></h3>
+<p>Locking the varialbe is pretty much it, or do not use a global variable if you do not need it.</p>
+</section>
+<section id="if-there-are-20-threads-but-only-4-cores-will-it-queue-the-threads-after-the-first-four">
+<h3><span class="section-number">22.12.6. </span>If there are 20 threads but only 4 cores, will it queue the threads after the first four?<a class="headerlink" href="#if-there-are-20-threads-but-only-4-cores-will-it-queue-the-threads-after-the-first-four" title="Link to this heading">#</a></h3>
+<p>Yes</p>
+</section>
+<section id="how-does-the-computer-count-the-three-times">
+<h3><span class="section-number">22.12.7. </span>How does the computer count the three times?<a class="headerlink" href="#how-does-the-computer-count-the-three-times" title="Link to this heading">#</a></h3>
+<p>this is a good explore topic</p>
+</section>
+<section id="how-common-is-it-for-bugs-to-be-caused-due-to-race-conditions">
+<h3><span class="section-number">22.12.8. </span>How common is it for bugs to be caused due to race conditions?<a class="headerlink" href="#how-common-is-it-for-bugs-to-be-caused-due-to-race-conditions" title="Link to this heading">#</a></h3>
+<p>this is hard to know.</p>
+</section>
 </section>
 </section>
 
@@ -1047,11 +1093,13 @@ Practice</label><div class="sd-tab-content docutils">
       </div>
     </a>
     <a class="right-next"
-       href="../activities/kwl.html"
+       href="2024-04-18.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">KWL Chart</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>file_format: mystnb
+kernelspec:
+name: python3</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1086,7 +1134,17 @@ Practice</label><div class="sd-tab-content docutils">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-next-class">22.9. Prepare for Next Class</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badges">22.10. Badges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-report-evidence">22.11. Experience Report Evidence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">22.12. Questions After Today’s Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-after-todays-class">22.12. Questions After Today’s Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-a-way-to-limit-my-cpu-to-make-those-expected-errors-occur">22.12.1. Is there a way to limit my CPU to make those expected errors occur?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-any-particular-reason-that-the-time-that-users-notice-was-named-real-instead-of-user-i-feel-like-that-is-built-to-cause-confusion">22.12.2. is there any particular reason that the time that users notice was named real instead of user? i feel like that is built to cause confusion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-programmers-regularly-use-this-time-command-to-see-the-efficiency-of-their-programs">22.12.3. Do programmers regularly use this time command to see the efficiency of their programs?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-very-coding-complicated-programs-is-coding-things-to-happen-simultaneously-across-multiple-threads-an-expected-skill">22.12.4. For very coding complicated programs is coding things to happen simultaneously across multiple threads an expected skill?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-other-ways-can-you-prevent-a-race-condition">22.12.5. What other ways can you prevent a race condition?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-there-are-20-threads-but-only-4-cores-will-it-queue-the-threads-after-the-first-four">22.12.6. If there are 20 threads but only 4 cores, will it queue the threads after the first four?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-computer-count-the-three-times">22.12.7. How does the computer count the three times?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-common-is-it-for-bugs-to-be-caused-due-to-race-conditions">22.12.8. How common is it for bugs to be caused due to race conditions?</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
