@@ -382,6 +382,6 @@ This option exists in recognition of the fact that grading schemes are not perfe
 ```{admonition} What do you think?
 :class: community, dropdown
 
-share your thoughts on this option [in the discussions for the class](https://github.com/introcompsys/discussion-fa23-community/discussions/2) and then 
+share your thoughts on this option [in the discussions for the class](https://github.com/orgs/compsys-progtools/discussions/2) and then 
 ```
 
