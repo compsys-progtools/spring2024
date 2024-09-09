@@ -81,7 +81,7 @@ the grade plans on the grading page and the thresholds above assume you earn the
     - 18
     - auto
 *   - Breadth
-    - If review + practice badges >-18:
+    - If review + practice badges >=18:
     - 32
     - auto
 *   - Git-ing unstuck 
