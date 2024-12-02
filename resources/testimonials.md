@@ -1,4 +1,5 @@
-# Testimonials from Spring 2024 Students
+Testimonial from Fall 2024 Student
 
-The best way to be sucessful in this course is to be on top of your work. I know that sounds obvious and you should apply it to every class but for this class especially it matters a lot because what I struggled with was not really realizing I had work to do because it never felt like I did and I was so preoccupied with my other couses that I started feeling more and more behind. 
-Also this class in my opinion is a class thats more important than any calculus class you will take because you actually need to understand how to use github since it is so prevalent in companies today. 
+If you want to succeed in this course, start your assignments as early as possible. While the flexible submission deadlines might seem convenient, they make it easy to procrastinate, especially when juggling work from other classes. Starting early is rewarding as you fully understand the concepts taught in the course—especially Git, GitHub, and Bash, which are essential tools for anyone planning a career in the software industry.
+
+By starting early, you not only avoid the pressure of rushing to complete assignments at the last minute but also give yourself the chance to truly understand these foundational skills. Also, submitting assignments earlier eases the workload on the TAs, who often face a grading crunch toward the end of the semester. Early submissions allow you to receive feedback and make necessary revisions, rather than submitting everything in bulk and scrapping to get everything done last second.
