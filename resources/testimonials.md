@@ -1,4 +1,3 @@
-# Testimonials from Spring 2024 Students
+# Testimonials from Spring 2025 Students
 
-The best way to be sucessful in this course is to be on top of your work. I know that sounds obvious and you should apply it to every class but for this class especially it matters a lot because what I struggled with was not really realizing I had work to do because it never felt like I did and I was so preoccupied with my other couses that I started feeling more and more behind. 
-Also this class in my opinion is a class thats more important than any calculus class you will take because you actually need to understand how to use github since it is so prevalent in companies today. 
+I think the best advice I can give to succeed in this class is to attend lectures. I missed a few classes and had to go over the material on my own and I noticed that I had a much more difficult time going over the material by myself than in class. Also make sure to work on badges when they are relatively new since it will help reinforce what you talked about in class and defintely gives a better understanding. I know this is kinda obvious advice, but I found that the workload for this class is more managable compared to other CS classes so you should have no problems if you're able to stay on top of things!
